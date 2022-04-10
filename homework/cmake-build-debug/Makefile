@@ -197,6 +197,33 @@ home2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/home2.cpp.s
 .PHONY : home2.cpp.s
 
+home3.o: home3.cpp.o
+
+.PHONY : home3.o
+
+# target to build an object file
+home3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/home3.cpp.o
+.PHONY : home3.cpp.o
+
+home3.i: home3.cpp.i
+
+.PHONY : home3.i
+
+# target to preprocess a source file
+home3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/home3.cpp.i
+.PHONY : home3.cpp.i
+
+home3.s: home3.cpp.s
+
+.PHONY : home3.s
+
+# target to generate assembly for a file
+home3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/home3.cpp.s
+.PHONY : home3.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -239,6 +266,9 @@ help:
 	@echo "... home2.o"
 	@echo "... home2.i"
 	@echo "... home2.s"
+	@echo "... home3.o"
+	@echo "... home3.i"
+	@echo "... home3.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

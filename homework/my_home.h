@@ -6,7 +6,10 @@
 #define HOMEWORK_MY_HOME_H
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <cstring>
+#include <iostream>
+using namespace std;
 //home1
 void init_cache();
 void set_stu(int id,char *name);

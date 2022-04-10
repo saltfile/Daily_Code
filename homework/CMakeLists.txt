@@ -3,4 +3,4 @@ project(homework)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(homework main.cpp my_home.h home1.cpp home2.cpp)
+add_executable(homework main.cpp my_home.h home1.cpp home2.cpp home3.cpp)

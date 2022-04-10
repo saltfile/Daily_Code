@@ -15,6 +15,10 @@ stdio.h
 -
 stdlib.h
 -
+stdarg.h
+-
 cstring
+-
+iostream
 -
 
