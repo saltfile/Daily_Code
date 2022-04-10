@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/homework.dir/main.cpp.o CMakeFiles/homework.dir/home1.cpp.o CMakeFiles/homework.dir/home2.cpp.o  -o homework 
+/usr/bin/c++  -g   CMakeFiles/homework.dir/main.cpp.o CMakeFiles/homework.dir/home1.cpp.o CMakeFiles/homework.dir/home2.cpp.o CMakeFiles/homework.dir/home3.cpp.o  -o homework 

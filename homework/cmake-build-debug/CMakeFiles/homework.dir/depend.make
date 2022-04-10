@@ -7,6 +7,9 @@ CMakeFiles/homework.dir/home1.cpp.o: ../my_home.h
 CMakeFiles/homework.dir/home2.cpp.o: ../home2.cpp
 CMakeFiles/homework.dir/home2.cpp.o: ../my_home.h
 
+CMakeFiles/homework.dir/home3.cpp.o: ../home3.cpp
+CMakeFiles/homework.dir/home3.cpp.o: ../my_home.h
+
 CMakeFiles/homework.dir/main.cpp.o: ../main.cpp
 CMakeFiles/homework.dir/main.cpp.o: ../my_home.h
 

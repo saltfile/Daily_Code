@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/opt/Cpro/homework/home1.cpp" "/opt/Cpro/homework/cmake-build-debug/CMakeFiles/homework.dir/home1.cpp.o"
   "/opt/Cpro/homework/home2.cpp" "/opt/Cpro/homework/cmake-build-debug/CMakeFiles/homework.dir/home2.cpp.o"
+  "/opt/Cpro/homework/home3.cpp" "/opt/Cpro/homework/cmake-build-debug/CMakeFiles/homework.dir/home3.cpp.o"
   "/opt/Cpro/homework/main.cpp" "/opt/Cpro/homework/cmake-build-debug/CMakeFiles/homework.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

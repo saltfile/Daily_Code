@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/homework.dir/home1.cpp.o"
   "CMakeFiles/homework.dir/home2.cpp.o"
+  "CMakeFiles/homework.dir/home3.cpp.o"
   "CMakeFiles/homework.dir/main.cpp.o"
   "homework"
   "homework.pdb"

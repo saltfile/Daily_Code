@@ -90,6 +90,9 @@
 		<Unit filename="/opt/Cpro/homework/home2.cpp">
 			<Option target="homework"/>
 		</Unit>
+		<Unit filename="/opt/Cpro/homework/home3.cpp">
+			<Option target="homework"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/homework/main.cpp">
 			<Option target="homework"/>
 		</Unit>
