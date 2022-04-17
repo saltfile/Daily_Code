@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 /**
  * @author saltfish
- * @date 22-04-15----------->状态模式
- * TODO:设计模式
+ * @date 22-04-15
+ * TODO:设计模式----------->状态模式
  * 就是我们常说的状态机，为了避免很多的if判断
  */
 
