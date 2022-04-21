@@ -77,7 +77,7 @@ public class Observer {
         e.setX(12);
         Trigger t=new Trigger();
         t.addListener(new MyListener(e));
-        //被观察
+        //被观察moc.:1443
         t.addListener(new MyListener1(e));
         t.doEvent(e);
     }
