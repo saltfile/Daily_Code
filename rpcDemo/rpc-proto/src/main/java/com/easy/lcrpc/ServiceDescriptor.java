@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * 表示服务
@@ -33,5 +35,29 @@ public class ServiceDescriptor {
         ser.setParametesType(paramType);
 
         return ser;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o){
+            return true;
+        }
+        if(o == null||getClass() != o.getClass())return false;
+       ServiceDescriptor temp = (ServiceDescriptor)o;
+       return this.toString().equals(temp.toString());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return toString().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "clazz : "+ clazzName+
+                ",method = "+method+
+                ",returnType = "+returnType+
+                ",parametesType = "+Arrays.toString(parametesType);
     }
 }

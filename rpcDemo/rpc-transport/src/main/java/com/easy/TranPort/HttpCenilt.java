@@ -12,7 +12,7 @@ public class HttpCenilt implements TransCilent{
     private String http_url;
     @Override
     public void connect(Peer peer) {
-        this.http_url = "http://"+ peer.getHost()+peer.getPort();
+        this.http_url = "http://"+ peer.getHost()+":"+peer.getPort();
     }
 
     @Override
