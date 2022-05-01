@@ -9,8 +9,15 @@ import java.util.ArrayList;
 
 public class ReflectionUtils {
     //根据class创建对象
-    public static <T>T newInstance(Class<T> clazz) throws IllegalAccessException, InstantiationException {
-        return clazz.newInstance();
+    public static <T>T newInstance(Class<T> clazz){
+        try {
+            return clazz.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
     //获取某个类的公用方法
     public static Method[] getPubilcMethod(Class clazz){

@@ -6,7 +6,9 @@ import com.easy.rpc.Decoder;
 import com.easy.rpc.Encoder;
 import com.easy.rpc.JSONDecoder;
 import com.easy.rpc.JSONEncoder;
+import lombok.Data;
 
+@Data
 public class RpcSerConfig {
     private Class <? extends TransServer> tranClass = HttpServer.class;
     private Class <? extends Encoder> ecode = JSONEncoder.class;
