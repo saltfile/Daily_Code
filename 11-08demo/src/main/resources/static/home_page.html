@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-Compatible" content="ie=edge,chrome=1">
+    <title>智慧停车 首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="email=no, address=no, telephone=no">
+    <script type="text/javascript" src="web/js/IndexJS.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gbgh1ToI28RT2odzaWlu6vL0zpnigpOg"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script><!--调用jQuery-->
+  <!-- css -->
+  <!-- 通用样式 -->
+  <link href=web/home_page/manifest/rewordManifest/vendor.css rel="stylesheet">
+  <link href=web/home_page/manifest/rewordManifest/common.css rel="stylesheet">
+  <!-- 通用页面加载脚本 -->
+  <script src=web/home_page/new/js/flexible-9db49.js></script>
+  <script src=java/页面/home_page/new/js/pace-c05fe.js></script>
+    <script src="页面s/echarts.min.js"></script>
+    <script src="页面s/jquery-3.5.1.min.js"></script>
+
+</head>
+<body ontouchstart>
+     <!-- 顶部-->
+    <div class="top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-4">
+              <span class="iconfont icon-guan"></span>智慧停车<li>
+                <a href="#" class="olcs"><span class="iconfont icon-kefu"></span>在线客服</a>
+            </li>
+            </div>
+            <div class="col-xs-8">
+              <ul>
+                  <li>
+                      <a href="#" class="olcs"><span class="iconfont icon-kefu"></span>欢迎您的到来</a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- 头部 -->
+<div class="common-header">
+    <div class="container">
+      <div class="logo-nav">
+      
+      </div>
+      <div class="menu" id="header-menu-tab">
+        <ul class="clearfix">
+          <li>
+            <a href="/" class="menu-item">首页</a>
+            <label id="lable" class="menu-item">欢迎您的到来</label>
+            <a href="#" class="menu-item">International</a>
+            <div class="menu-sub menu-sub-international">
+              <div class="container">
+                <ul>
+                  <li><a href="/product/productDetail/15004">JeChat</a></li>
+                  <li><a href="/product/productDetail/15005">ViLin</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="javascript:;" class="menu-item menu-item-search"><span class="iconfont icon-search"></span></a>
+          </li>
+        </ul>
+        <div class="menu-search">
+          <form class="menu-search-form" name="header-search" action="/search" method="post">
+            <span class="iconfont icon-search"></span>
+            <input type="text" placeholder="搜索政企产品、解决方案" name="keywords" maxlength="50">
+            <span class="iconfont icon-close"></span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<input type="hidden" name="mobile-agent" th:attr="content='http://112.35.22.232:8025/solution/queryMobileSolutionInfo/'+${solutionInfo.entity.id}"/>-->
+<input type="hidden" name="mobile-agent" content="http://zhengqi.10086.cn/solution/queryMobileSolutionInfo/10055"/>
+<!--可能是轮播图反正挺大的部分-->
+<section class="banner">
+    <section class="innerBanner clearfix">
+        <h1 class="bannerTitle fl" >智慧停车</h1>
+        <i id = "solution_favorite_10055"   data-type="3" class="iconImaglse iconHeartCollect fl   portalCollect" data-id="10055">
+            <span class="iconImage collectAlert fl">收藏成功</span>
+        </i>
+        <a href="#" id = "solution_orderAndconsult_10055" class="goToBespeak portalCollect" data-type="2" data-value="10055" data-label="智慧停车">
+          <button id="buy_appoint" class="iconChat fl bluBtu "  data-type="3" data-number="1" data-id="10055">关于我们&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></a>
+<!--        <a href="#" th:id = "solution_addCart_+${solutionInfo.entity.id}" class="goToBuyCart portalCollect"><button class="iconCart2 fl bluBtu addCart" data-type="3" th:attr="data-id=${solutionInfo.entity.id}" data-number="1">加入购物车</button></a>-->
+        <a href="#" ></a>
+        <section class="bannerRightCircle">
+            <img src="web/home_page/release/image/20210525/m-wuye.png" alt="智慧停车"/>
+        </section>
+    </section>
+</section>
+<div class="wrap"style="height: 60px;" >
+<!--第二导航栏部分-->
+  <nav class="secondNav" id="secondNav"style="width: 1905px;" >
+    <ul class="secondNavTab clearfix nav" >
+        <li class="fl active"><a id = "solution_custValue_10055" href="#s1" class="portalCollect">峰值表</a></li>
+        <li class="fl"><a id = "solution_productAdvantage_10055"   href="#s2" class="portalCollect">区域图</a></li>
+        <li class="fl"><a id = "solution_custCase_10055" href="#s3" class="portalCollect">我的数据</a></li>
+        
+        
+        <li class="fr"><a href="#" class="goToBespeak" data-value="10055" data-label="智慧停车"><button id = "solution_order_10055"  class=" portalCollect iconChat fl">预约</button></a></li>
+    </ul>
+    <ul class="secondNavTab clearfix navShare">
+        <li class="fr showRight"><i id = "solution_print_10055"   class="iconImage iconPrint portalCollect"></i></li>
+        <li class="shareMode fr showRight">
+            <i class="iconImage iconShare"></i>
+            <span class="iconImage shareAlert bdsharebuttonbox" data-tag="share_1">
+                 <a href="#" id = "solution_shareSina_10055"  data-cmd="tsina" class="iconImage iconShareXinlang fl portalCollect"></a>
+                 <a href="#" id = "solution_shareWechat_10055"  data-cmd="weixin" class="showWeChatQRAlert iconImage iconShareWeChat fl portalCollect"></a>
+                 <a href="#" id = "solution_shareMail_10055"  class="iconImage iconShareMail fl portalCollect"></a>
+             </span>
+        </li>
+    </ul>
+</nav>
+    <!--峰值表部分-->
+    <section class="detailModel mainIconModel">
+        <h1 class="modelTitle clearfix" id="s1">
+            <span class="fl">峰值表</span>
+            <p class="fl">Peak meter</p>
+        </h1>
+        <ul class="curdefault clearfix">
+            <li class="contentLi fl">
+                <h2>基础监控</h2>
+                <img src="http://zhengqi.10086.cn/release/image/201709/pubic-icon1.png" />
+                <p>支持视频采集、实时查看和存储回放；统一云端存储与管理。</p>
+            </li>
+            <li class="contentLi fl">
+                <h2>云平台</h2>
+                <img src="http://zhengqi.10086.cn/release/image/201709/pubic-icon3.png" alt="OnePark平台"/>
+                <p>通过服务端与智能设备对接，实现可视化运营管理。</p>
+            </li>
+            <li class="contentLi fl">
+                <h2>车位管理</h2>
+                <img src="http://zhengqi.10086.cn/release/image/201709/pubic-icon2.png" alt="千里眼一脸通"/>
+                <p>提供车位引导、车位标识等功能，方便您的出行</p>
+            </li>
+        </ul><br> <br>
+        <div id="pm" style="width: 800px;height: 600px;   margin: 0 auto;"></div><br>
+
+    </section>
+    <!--区域图部分-->
+    <section class="detailModel onlyTextModel">
+        <h1 class="modelTitle clearfix" id="s2">
+            <a href="index.html"><span class="fl">区域图(点击)</span></a>
+            <p class="fl">Regional map</p>
+        </h1>
+        <ul class="curdefault clearfix">
+            <li class="contentLi fl">
+                <h2>园区更安全</h2>
+                <p>对车位进行实时监控，保障人员、财产安全。</p>
+            </li>
+            <li class="contentLi fl">
+                <h2>管理更高效</h2>
+                <p>智能化管理，助力高效管理。</p>
+            </li>
+        </ul>
+    </section>
+    <!--我的数据部分-->
+    <section class="detailModel scaleListModel">
+        <h1 class="modelTitle clearfix" id="s3">
+            <span class="fl">数据情况</span>
+            <p class="fl">My data</p>
+        </h1>
+        <section class="innerScaleList">
+            <ul class="type2 clearfix">
+                <li class="contentLi fl content_div">
+                    <a href="#" target="_blank">
+                        <img src="web/img/school.jpeg">
+                        <h2>查看数据</h2>
+                        <p>可查询车位情况，用户信息，支付信息等数据。</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+
+    </section>
+
+</div>
+</body>
+</html>

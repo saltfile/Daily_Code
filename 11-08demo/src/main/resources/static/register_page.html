@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=1200px">
+  <meta name="renderer" content="webkit">
+  <title>注册账号 - 智慧停车</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="web/register_page/css/login.css">
+</head>
+
+<body ontouchstart class="page-register-forget">
+<div class="container">
+  
+
+  <!-- step one -->
+  <div class="step stepOne" id="stepOne">
+    <div class="hd">
+      <h3><span class="iconfont icon-mobile"></span>使用手机注册</h3>
+      <!-- <a href="login-index.html">快捷登录>></a> -->
+    </div>
+    <div class="bd">
+      <p class="gap-line"><span>联系手机</span></p>
+      <form class="form" name="form-valid">
+        <div class="form-error"></div>
+        <div class="form-group">
+          <div class="col-100">
+            <label>手机号码：</label>
+            <input type="tel" name="phone" id="phone" class="form-control" placeholder="手机号码" maxlength="11">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-100">
+            <label>验证码：</label>
+          </div>
+          <div class="col-50">
+            <input type="text" name="captcha" class="form-control" placeholder="验证码" maxlength="5">
+          </div>
+          <div class="col-50">
+            <img src="web/register_page/captcha.jpg" alt="" class="captcha change-captcha" id="J_captcha">
+            <a href="#" class="captcha change-captcha">换一张</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-100">
+            <label>短信验证码：</label>
+          </div>
+          <div class="col-50">
+            <input type="text" name="sms" class="form-control" placeholder="短信验证码" maxlength="6">
+          </div>
+          <div class="col-50">
+            <button type="button" id="J_sms" class="btn btn-default btn-thin">获取短信验证码</button>
+            <p class="help-block">获取短信验证码需要正确填写手机号码和图形验证码</p>
+          </div>
+        </div>
+
+  
+        <div class="form-error"></div>
+        <div class="form-group">
+          <div class="col-100">
+            <label>用户名：</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="用户名" maxlength="20">
+            <p class="help-block">用户名长度必须在3~20之间</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-100">
+            <label>密码：</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="密码" maxlength="20">
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-100">
+            <label>确认密码：</label>
+            <input type="password" name="passwordAgain" class="form-control" placeholder="确认密码" maxlength="20">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-100">
+            <label>车牌号：</label>
+            <input type="text" name="car_id" id="car_id" class="form-control" placeholder="车牌号" maxlength="20">
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-100">
+            <label>选择省份：</label>
+            <select name="province" class="form-control">
+              <option value="">请选择省份</option>
+              <option value="100">北京</option>
+              <option value="200">广东</option>
+              <option value="210">上海</option>
+              <option value="230">重庆</option>
+              <option value="771">广西</option>
+              <option value="991">西藏</option>
+              <option value="931">甘肃</option>
+              <option value="471">内蒙</option>
+              <option value="311">河北</option>
+              <option value="451">黑龙江</option>
+              <option value="431">吉林</option>
+              <option value="240">辽宁</option>
+              <option value="220">天津</option>
+              <option value="250">江苏</option>
+              <option value="571">浙江</option>
+              <option value="591">福建</option>
+              <option value="898">海南</option>
+              <option value="871">云南</option>
+              <option value="280">四川</option>
+              <option value="851">贵州</option>
+              <option value="971">青海</option>
+              <option value="290">陕西</option>
+              <option value="270">湖北</option>
+              <option value="731">湖南</option>
+              <option value="791">江西</option>
+              <option value="551">安徽</option>
+              <option value="351">山西</option>
+              <option value="531">山东</option>
+              <option value="371">河南</option>
+              <option value="951">宁夏</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-100" style="padding-top: 20px;">
+            <button type="submit" class="btn" id="J_register">填写完成并提交</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-100 password-rule-box">
+            <p class="title">密码规则：</p>
+            <p>1、口令为由8-20位大写字母、小写字母、数字及特殊符号等4类中3类混合、随机组成，尽量不要以姓名、电话号码以及出生日期等有身份关联的内容作为口令或者口令的组成部分；</p>
+            <p>2、口令应与用户名无相关性，口令中不得包含用户名的完整字符串、大小写变位或形似变换的字符串；</p>
+            <p>3、必须更换系统、应用或设备的出厂口令、默认口令；</p>
+            <p>4、口令设置应避免3位以上（含3位）键盘排序密码；</p>
+            <p>5、口令中不能出现3位以上（含三位）连续字母、数字、特殊字符；</p>
+            <p>6、口令中不能出现3位以上（含三位）重复字母、数字、特殊字符；</p>
+            <p>7、口令中不能含有手机号后四位；</p>
+            <p>8、5次以内不得设置相同的口令；</p>
+            <p>9、口令需避免<span class="showRuleModal">易猜解口令</span>；</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="text/javascript" >
+    $("#J_register").click(function () {
+      $.ajax({
+        url: "http://localhost:8080/project_war/register",
+        method: "post",
+        data: {'phone': $("#phone").val(),'car_id': $("#car_id").val(), 'username': $("#username").val(),'password': $("#password").val()},
+        xhrFields: {
+          withCredentials: true //允许跨域带Cookie
+        },
+        success: function (result) {
+          window.location.href ="login_page.html";
+        },
+        error: function (result) {
+          alert(result.responseText)
+        }
+      })
+    });
+  </script>
+ 
+  
+  
+  <script src="web/register_page/js/libs/require/require.min.js"></script>
+  <script src="web/register_page/js/common.js"></script>
+  <!--<script src="../js/libs/rsa/jsencrypt.min.js"></script>-->
+  <script src="web/register_page/js/pages/login/register.js"></script>
+
+
+</div>
+</body>
+
+</html>
