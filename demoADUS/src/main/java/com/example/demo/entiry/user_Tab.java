@@ -1,5 +1,6 @@
 package com.example.demo.entiry;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -25,14 +26,14 @@ import lombok.Data;
 
 @Data
 public class user_Tab {
-    public String id;
-    public String password;
-    public String username;
-    public String tel;
-    public String emil;
-    public String address;
-    public String gender;
-    public String dentcard;
-    public int jurs;
-    public int age;
+    private String id;
+    private String password;
+    private String username;
+    private String tel;
+    private String emil;
+    private String address;
+    private String gender;
+    private String dentcard;
+    private int jurs;
+    private int age;
 }
