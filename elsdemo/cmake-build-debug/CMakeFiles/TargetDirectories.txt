@@ -1,0 +1,3 @@
+/opt/Cpro/elsdemo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/opt/Cpro/elsdemo/cmake-build-debug/CMakeFiles/edit_cache.dir
+/opt/Cpro/elsdemo/cmake-build-debug/CMakeFiles/elsdemo.dir
