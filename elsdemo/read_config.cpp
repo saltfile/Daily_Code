@@ -74,7 +74,6 @@ list * get_filedata(FILE *fp){
             temp[ptr_str]=c;
             ptr_str++;
         }
-        printf("%d\n",c);
     }
 
     if (fseek(fp, 0, SEEK_SET)<0) {

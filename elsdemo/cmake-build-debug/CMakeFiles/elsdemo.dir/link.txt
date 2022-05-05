@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/elsdemo.dir/main.cpp.o CMakeFiles/elsdemo.dir/read_config.cpp.o CMakeFiles/elsdemo.dir/list_fun.cpp.o CMakeFiles/elsdemo.dir/log_fun.cpp.o CMakeFiles/elsdemo.dir/mysql_fun.cpp.o  -o elsdemo 
+/usr/bin/c++  -g   CMakeFiles/elsdemo.dir/main.cpp.o CMakeFiles/elsdemo.dir/read_config.cpp.o CMakeFiles/elsdemo.dir/list_fun.cpp.o CMakeFiles/elsdemo.dir/log_fun.cpp.o CMakeFiles/elsdemo.dir/mysql_fun.cpp.o  -o elsdemo  -lpthread 
