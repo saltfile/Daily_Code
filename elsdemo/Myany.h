@@ -16,6 +16,13 @@
 #include <pthread.h>
 #include <sched.h>
 #include <typeinfo>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <thread>
+#include <chrono>
+#include <random>
+#include <exception>
 #include <mysql/mysql.h>
 using namespace std;
 
