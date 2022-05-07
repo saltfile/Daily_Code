@@ -30,14 +30,41 @@
 void hello(int i){
     for(int i = 0; i < 10; i++){
         cout <<i<<"  "<<  "hello concurrent \n";
-    sleep(3);
+
     }
 }
 
+static int potion = 0;
+void fun3(){
+    int fd = open("/opt/Cpro/elsdemo/sss.txt", O_RDWR);
+   cout<<fd;
+    if(-1 == fd){   //如果出错返回-1
+        perror("creat");
+        return;
+    }
+    off_t offset;
+    offset = lseek(fd, potion, SEEK_SET);
+    printf("offset = %d\n", offset);
+    char *str = "aaaafsdfsdfs\n";
+    write(fd, str, strlen(str));
+    potion += strlen(str);
+    close(fd);
+
+}
+
+
+
+
 int main(int argc, char* argv[]){
-    thread t(hello,0);
-//    t.detach();
-    t.join();
+//    thread t(hello,0);
+//   t.detach();
+//    t.join();
+    for(int i = 0;i < 10;i++){
+        thread t(fun3);
+        t.join();
+    }
+
+
     return 0;
 
     }
