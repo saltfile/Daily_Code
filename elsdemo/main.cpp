@@ -59,11 +59,13 @@ int main(int argc, char* argv[]){
 //    thread t(hello,0);
 //   t.detach();
 //    t.join();
-    for(int i = 0;i < 10;i++){
+for(int j = 0;j < 3;j++) {
+    for (int i = 0; i < 10; i++) {
         thread t(fun3);
         t.join();
     }
-
+    sleep(4);
+}
 
     return 0;
 
