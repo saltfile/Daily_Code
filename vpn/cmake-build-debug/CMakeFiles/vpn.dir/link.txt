@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/vpn.dir/main.cpp.o CMakeFiles/vpn.dir/log_fun.cpp.o CMakeFiles/vpn.dir/str_fun.cpp.o  -o vpn  -lpthread 

@@ -1,0 +1,21 @@
+这里是我学习编译补充的例子
+c语言编译过程是预处理->编译->汇编->链接 生成.out文件
+
+注意执行命令是
+gcc 你所需要的编译的cpp c文件（.h无需编译）
+
+主程序代码
+int main(int args,char** argv)
+
+args 命令行参数 argv 参数
+
+命令执行样式
+
+saltfish@saltfish-NH50-70RA:/opt/Cpro/untitled10$ ./a.out str1 str2 str3
+6
+4
+./a.out
+str1
+str2
+
+
