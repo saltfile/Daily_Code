@@ -41,6 +41,18 @@ chrono
 -
 random
 -
+string.h
+-
+arpa/inet.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+netinet/ip.h
+-
 exception
 -
 

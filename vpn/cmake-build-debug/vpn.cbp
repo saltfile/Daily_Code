@@ -93,6 +93,9 @@
 		<Unit filename="/opt/Cpro/vpn/main.cpp">
 			<Option target="vpn"/>
 		</Unit>
+		<Unit filename="/opt/Cpro/vpn/server.cpp">
+			<Option target="vpn"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/vpn/str_fun.cpp">
 			<Option target="vpn"/>
 		</Unit>

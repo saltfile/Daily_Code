@@ -197,6 +197,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+server.o: server.cpp.o
+
+.PHONY : server.o
+
+# target to build an object file
+server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/server.cpp.o
+.PHONY : server.cpp.o
+
+server.i: server.cpp.i
+
+.PHONY : server.i
+
+# target to preprocess a source file
+server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/server.cpp.i
+.PHONY : server.cpp.i
+
+server.s: server.cpp.s
+
+.PHONY : server.s
+
+# target to generate assembly for a file
+server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/server.cpp.s
+.PHONY : server.cpp.s
+
 str_fun.o: str_fun.cpp.o
 
 .PHONY : str_fun.o
@@ -239,6 +266,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... server.o"
+	@echo "... server.i"
+	@echo "... server.s"
 	@echo "... str_fun.o"
 	@echo "... str_fun.i"
 	@echo "... str_fun.s"
