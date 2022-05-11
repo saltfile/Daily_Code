@@ -7,6 +7,9 @@ CMakeFiles/vpn.dir/log_fun.cpp.o: ../log_fun.cpp
 CMakeFiles/vpn.dir/main.cpp.o: ../MyAll.h
 CMakeFiles/vpn.dir/main.cpp.o: ../main.cpp
 
+CMakeFiles/vpn.dir/server.cpp.o: ../MyAll.h
+CMakeFiles/vpn.dir/server.cpp.o: ../server.cpp
+
 CMakeFiles/vpn.dir/str_fun.cpp.o: ../MyAll.h
 CMakeFiles/vpn.dir/str_fun.cpp.o: ../str_fun.cpp
 
