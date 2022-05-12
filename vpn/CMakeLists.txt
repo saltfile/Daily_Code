@@ -3,5 +3,5 @@ project(vpn)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(vpn main.cpp MyAll.h log_fun.cpp str_fun.cpp server.cpp)
+add_executable(vpn main.cpp MyAll.h log_fun.cpp str_fun.cpp server.cpp cilent.cpp)
 TARGET_LINK_LIBRARIES(vpn pthread)

@@ -87,6 +87,9 @@
 		<Unit filename="/opt/Cpro/vpn/MyAll.h">
 			<Option target="vpn"/>
 		</Unit>
+		<Unit filename="/opt/Cpro/vpn/cilent.cpp">
+			<Option target="vpn"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/vpn/log_fun.cpp">
 			<Option target="vpn"/>
 		</Unit>

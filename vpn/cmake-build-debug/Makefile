@@ -143,6 +143,33 @@ vpn/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/build
 .PHONY : vpn/fast
 
+cilent.o: cilent.cpp.o
+
+.PHONY : cilent.o
+
+# target to build an object file
+cilent.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/cilent.cpp.o
+.PHONY : cilent.cpp.o
+
+cilent.i: cilent.cpp.i
+
+.PHONY : cilent.i
+
+# target to preprocess a source file
+cilent.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/cilent.cpp.i
+.PHONY : cilent.cpp.i
+
+cilent.s: cilent.cpp.s
+
+.PHONY : cilent.s
+
+# target to generate assembly for a file
+cilent.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/cilent.cpp.s
+.PHONY : cilent.cpp.s
+
 log_fun.o: log_fun.cpp.o
 
 .PHONY : log_fun.o
@@ -260,6 +287,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... vpn"
+	@echo "... cilent.o"
+	@echo "... cilent.i"
+	@echo "... cilent.s"
 	@echo "... log_fun.o"
 	@echo "... log_fun.i"
 	@echo "... log_fun.s"
