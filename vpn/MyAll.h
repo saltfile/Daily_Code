@@ -29,7 +29,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/ip.h>
-
+#include <future>
 
 #include <exception>
 using namespace std;
@@ -54,13 +54,15 @@ char *strrpc(char *dest,char *src,char *before,char *after);
 
 int Str_FirFind(char *str_target,char *str_use);
 
+int cil_start(char *host,int port,promise<char *> &promiseObj);
 
+int ser_start(int port);
 
+void rec_runtable(int new_fd, promise<int> &promiseObj, promise<char *> &promiseObj2);
 
+void send_runtable(int new_fd,char *buf);
 
-
-
-
+int server_main(int new_fd);
 
 
 
