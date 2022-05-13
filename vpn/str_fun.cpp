@@ -73,11 +73,12 @@ char **split(char *str,char *dent){
     return res;
 }
 
-char *strrpc(char *dest,char *src,char *before,char *after){
+char *strrpc(char *src,char *before,char *after){
     size_t src_size = strlen(src);
     size_t before_str_size = strlen(before);
     size_t after_str_size = strlen(after);
-
+    char *dest = (char *)malloc(strlen(src)+1);
+    memset(dest,0,sizeof(dest));
     size_t dest_offset = 0;
     for(size_t src_offset = 0;src_offset < src_size; ){
         if(!strncmp(src + src_offset,before,before_str_size)){
@@ -135,4 +136,14 @@ int Str_FirFind(char *str_target,char *str_use)
 }
 
 
+u8 *int_to_byte(int len){
+    u8 *byte_len = (u8 *)malloc(4);
+
+    byte_len[3] = (u8) (len & 0xff);
+    byte_len[2] = (u8) (len >> 8 & 0xff);
+    byte_len[1] = (u8) (len >> 16 & 0xff);
+    byte_len[0] = (u8) (len >> 24 & 0xff);
+
+    return byte_len;
+}
 

@@ -30,9 +30,15 @@
 #include <netinet/in.h>
 #include <netinet/ip.h>
 #include <future>
+#include <cstdlib>
+
 
 #include <exception>
 using namespace std;
+typedef unsigned char u8;
+#define PORT 8484
+
+
 //日志输出轮子
 void log_info(string str);
 void log_info(char *data);
@@ -54,7 +60,7 @@ char *strrpc(char *dest,char *src,char *before,char *after);
 
 int Str_FirFind(char *str_target,char *str_use);
 
-int cil_start(char *host,int port,promise<char *> &promiseObj);
+void cil_start(int port,char *requert,promise<char *> &promiseObj);
 
 int ser_start(int port);
 
@@ -64,6 +70,8 @@ void send_runtable(int new_fd,char *buf);
 
 int server_main(int new_fd);
 
+char *requs(char *request,int old,int new_);
 
+char *strrpc(char *src,char *before,char *after);
 
 #endif //VPN_MYALL_H
