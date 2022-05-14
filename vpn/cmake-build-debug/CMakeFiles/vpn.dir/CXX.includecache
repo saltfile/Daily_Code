@@ -57,10 +57,12 @@ future
 -
 cstdlib
 -
+boost/thread.hpp
+-
 exception
 -
 
-/opt/Cpro/vpn/cilent.cpp
+/opt/Cpro/vpn/main.cpp
 MyAll.h
 /opt/Cpro/vpn/MyAll.h
 

@@ -31,7 +31,7 @@
 #include <netinet/ip.h>
 #include <future>
 #include <cstdlib>
-
+#include <boost/thread.hpp>
 
 #include <exception>
 using namespace std;
