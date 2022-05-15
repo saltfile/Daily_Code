@@ -45,8 +45,10 @@ int ser_start(int port) {
     //在这里阻塞知道接收到消息，参数分别是socket句柄，接收到的地址信息以及大小
     for(;;) {
         new_fd = accept(iSocketFD, (struct sockaddr *) &stRemoteAddr, &socklen);
-        thread run(server_main,new_fd);
-        run.join();
+        auto i = async(launch::async,server_main,new_fd);
+        cout<<"接受连接并处理"<<endl;
+//        thread run(server_main,new_fd);
+//        run.join();
 
     }
     close(new_fd);
