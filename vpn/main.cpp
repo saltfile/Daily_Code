@@ -10,9 +10,17 @@
  * @param y
  * @param promiseObj
  */
-
+void hello(char *a,promise<char *> promise){
+    for(int i =0;i < 2;i++){
+        cout<<"hello"<<i;
+        sleep(3);
+        promise.set_value("asdjakfhds");
+    }
+}
 
 int main() {
+
+
 
     thread t(ser_start, PORT);
     t.join();
