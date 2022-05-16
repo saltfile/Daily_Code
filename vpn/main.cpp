@@ -20,8 +20,6 @@ void hello(char *a,promise<char *> promise){
 
 int main() {
 
-
-
     thread t(ser_start, PORT);
     t.join();
     return 0;
