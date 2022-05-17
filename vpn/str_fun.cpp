@@ -147,3 +147,31 @@ u8 *int_to_byte(int len){
     return byte_len;
 }
 
+char *strrpc_first(char *src,char *before,char *after){
+    size_t src_size = strlen(src);
+    size_t before_str_size = strlen(before);
+    size_t after_str_size = strlen(after);
+    char *dest = (char *)malloc(strlen(src)+1);
+    memset(dest,0,sizeof(dest));
+    size_t dest_offset = 0;
+    int c = 0;
+    for(size_t src_offset = 0;src_offset < src_size; ){
+        if(!strncmp(src + src_offset,before,before_str_size)&&c == 0){
+            memcpy(dest + dest_offset,after, after_str_size);
+            src_offset += before_str_size;
+            dest_offset += after_str_size;
+            c = 1;
+        }else{
+            memmove(dest + dest_offset,src + src_offset,1);
+            dest_offset++;
+            src_offset++;
+        }
+    }
+
+    return dest;
+}
+
+
+
+
+

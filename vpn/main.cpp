@@ -19,8 +19,8 @@ void hello(char *a,promise<char *> promise){
 }
 
 int main() {
-
-    thread t(ser_start, PORT);
-    t.join();
+//    thread t(ser_start,PORT);
+//    t.join();
+    log_info("我的输出：{},{},{},{}",4,"aaa","bbb","ccc","ddd");
     return 0;
 }
