@@ -47,13 +47,15 @@ void log_debug(char *data){
 }
 
 void log_info(char *logs,int num,...){
-    string str = logs;
 
+    logs = str_merge(logs," ");
     va_list arg_list;
     va_start(arg_list,num);
     while (num -- > 0){
         char * s = va_arg(arg_list,char*);
+        logs = strrpc_first(logs,"{}",s);
     }
+    string str = logs;
     string out = "\033[34mLOG-INFO:------->\033[0m";
     time_t time1;
     time(&time1);

@@ -42,6 +42,7 @@ typedef unsigned char u8;
 //日志输出轮子
 void log_info(string str);
 void log_info(char *data);
+void log_info(char *logs,int num,...);
 void log_erro(char *data);
 void log_erro(string data);
 void log_debug(char *data);
@@ -74,4 +75,5 @@ char *requs(char *request,int old,int new_);
 
 char *strrpc(char *src,char *before,char *after);
 
+char *strrpc_first(char *src,char *before,char *after);
 #endif //VPN_MYALL_H
