@@ -33,6 +33,8 @@ sys/types.h
 -
 sys/stat.h
 -
+sys/epoll.h
+-
 fcntl.h
 -
 thread
@@ -40,8 +42,6 @@ thread
 chrono
 -
 random
--
-string.h
 -
 arpa/inet.h
 -
