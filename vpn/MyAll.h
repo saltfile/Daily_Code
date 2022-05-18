@@ -17,13 +17,11 @@
 #include <typeinfo>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/epoll.h>
 #include <fcntl.h>
 #include <thread>
 #include <chrono>
 #include <random>
-
-
-#include <string.h>
 #include <arpa/inet.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -32,7 +30,6 @@
 #include <future>
 #include <cstdlib>
 #include <boost/thread.hpp>
-
 #include <exception>
 using namespace std;
 typedef unsigned char u8;
