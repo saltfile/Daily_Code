@@ -2,7 +2,7 @@
 #include "MyAll.h"
 #define MAXSIZE     1024
 #define IPADDRESS   "127.0.0.1"
-#define SERV_PORT   6666
+//#define SERV_PORT   8383
 #define FDSIZE        1024
 #define EPOLLEVENTS 20
 #define LISTENQ     5
@@ -28,7 +28,7 @@ void do_writeserver(int epollfd,int fd,char *buf);
 
 int serverepoll1(){
     int  listenfd;
-    listenfd = socket_bind(IPADDRESS,SERV_PORT);
+    listenfd = socket_bind(IPADDRESS,PORT);
     listen(listenfd,LISTENQ);
     do_epoll(listenfd);
     return 0;
@@ -81,10 +81,14 @@ void handle_eventsserver(int epollfd,struct epoll_event *events,int num,int list
         /*根据描述符的类型和事件类型进行处理*/
         if ((fd == listenfd) &&(events[i].events & EPOLLIN))
             handle_accpet(epollfd,listenfd);
-        else if (events[i].events & EPOLLIN)
-            do_readserver(epollfd,fd,buf);
-        else if (events[i].events & EPOLLOUT)
-            do_writeserver(epollfd,fd,buf);
+        else if (events[i].events & EPOLLIN){
+             rec_runtable(epollfd,fd,buf);
+//            do_writeserver(epollfd,fd,buf);
+        }
+        else if (events[i].events & EPOLLOUT){
+//            send_runables(epollfd,fd,buf);
+        }
+//            do_writeserver(epollfd,fd,buf);
     }
 }
 
@@ -118,7 +122,7 @@ void do_readserver(int epollfd,int fd,char *buf){
     else{
         printf("read message is : %s",buf);
         /*修改描述符对应的事件，由读改为写*/
-        modify_event(epollfd,fd,EPOLLOUT);
+        modify_event(epollfd,fd,EPOLLIN);
     }
 }
 //
@@ -136,26 +140,7 @@ void do_writeserver(int epollfd,int fd,char *buf){
 }
 //====================================================================================
 
-void add_event(int epollfd,int fd,int state){
-    struct epoll_event ev;
-    ev.events = state;
-    ev.data.fd = fd;
-    epoll_ctl(epollfd,EPOLL_CTL_ADD,fd,&ev);
-}
 
-void delete_event(int epollfd,int fd,int state){
-    struct epoll_event ev;
-    ev.events = state;
-    ev.data.fd = fd;
-    epoll_ctl(epollfd,EPOLL_CTL_DEL,fd,&ev);
-}
-
-void modify_event(int epollfd,int fd,int state){
-    struct epoll_event ev;
-    ev.events = state;
-    ev.data.fd = fd;
-    epoll_ctl(epollfd,EPOLL_CTL_MOD,fd,&ev);
-}
 
 //int epoll1(){
 ////    clientepoll1();
@@ -166,10 +151,10 @@ void modify_event(int epollfd,int fd,int state){
 
 int main() {
 
+    auto a = async(launch::async,serverepoll1);
 
 
-
-//    auto a = async(launch::async,serverepoll1);
+//    auto a = async(launch::async,ser_start,PORT);
 //    auto i =  async(launch::async,epoll1);
 //
 //log_info("我说：{}{}",2,"aaa","bbb");
