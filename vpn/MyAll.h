@@ -35,7 +35,6 @@ using namespace std;
 typedef unsigned char u8;
 #define PORT 8484
 
-
 //日志输出轮子
 void log_info(string str);
 void log_info(char *data);
@@ -62,15 +61,31 @@ void cil_start(int port,char *requert,promise<char *> &promiseObj);
 
 int ser_start(int port);
 
-void rec_runtable(int new_fd, promise<int> &promiseObj, promise<char *> &promiseObj2);
+void rec_runtable(int poell,int new_fd, promise<int> &promiseObj, promise<char *> &promiseObj2);
+void rec_runtable(int epollfd,int fd,char *buf);
 
-void send_runtable(int new_fd,char *buf);
+void send_runables(int epollfd,int fd,char *buf);
 
-int server_main(int new_fd);
+//int server_main(int new_fd);
+int sckt_bind_fun(int port);
 
+void run_epoll(int listenfd);
+
+void add_event(int epollfd,int fd,int state);
+
+void handler_accpet(int epollfd,int listenfd);
+
+int server_main(int epollfd, int new_fd);
 char *requs(char *request,int old,int new_);
 
 char *strrpc(char *src,char *before,char *after);
 
 char *strrpc_first(char *src,char *before,char *after);
+
+void add_event(int epollfd,int fd,int state);
+
+void delete_event(int epollfd,int fd,int state);
+
+void modify_event(int epollfd,int fd,int state);
+
 #endif //VPN_MYALL_H
