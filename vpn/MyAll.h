@@ -87,5 +87,6 @@ void add_event(int epollfd,int fd,int state);
 void delete_event(int epollfd,int fd,int state);
 
 void modify_event(int epollfd,int fd,int state);
+char* itoa_fun(int num,char* str,int radix);
 
 #endif //VPN_MYALL_H

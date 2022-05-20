@@ -52,7 +52,7 @@ void handler_eventsserver(int epollfd,struct epoll_event *events,int num,int lis
     for (i = 0;i < num;i++){
         fd = events[i].data.fd;
         /*根据描述符的类型和事件类型进行处理*/
-        if ((fd == listenfd) &&(events[i].events & EPOLLIN)) { }
+        if ((fd == listenfd) &&(events[i].events & EPOLLIN)) {handler_accpet(epollfd,listenfd);}
         else if (events[i].events & EPOLLIN)
             rec_runtable(epollfd,fd,buf);
         else if (events[i].events & EPOLLOUT)
