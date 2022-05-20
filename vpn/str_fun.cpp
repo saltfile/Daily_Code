@@ -95,8 +95,6 @@ char *strrpc(char *src,char *before,char *after){
     return dest;
 }
 
-
-
 int Str_FirFind(char *str_target,char *str_use)
 {
     char *str_temp1 = NULL;

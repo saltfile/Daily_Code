@@ -53,7 +53,9 @@ void log_info(char *logs,int num,...){
     va_start(arg_list,num);
     while (num -- > 0){
         char * s = va_arg(arg_list,char*);
+
         logs = strrpc_first(logs,"{}",s);
+
     }
     string str = logs;
     string out = "\033[34mLOG-INFO:------->\033[0m";

@@ -150,11 +150,11 @@ void do_writeserver(int epollfd,int fd,char *buf){
 
 
 int main() {
-
-    auto a = async(launch::async,serverepoll1);
-
-
 //    auto a = async(launch::async,ser_start,PORT);
+
+//    log_info("ss{}",1,"sdaasda");
+//cout<<itoa_fun(1,"aa",3);
+
 //    auto i =  async(launch::async,epoll1);
 //
 //log_info("我说：{}{}",2,"aaa","bbb");
