@@ -139,7 +139,45 @@ void do_writeserver(int epollfd,int fd,char *buf){
     memset(buf,0,MAXSIZE);
 }
 //====================================================================================
+void do_read(int epollfd,int fd,int sockfd,char *buf){
+    int nread;
+    nread = read(fd,buf,MAXSIZE);
+    if (nread == -1){
+        perror("read error:");
+        close(fd);
+    }
+    else if (nread == 0){
+        fprintf(stderr,"server close.\n");
+        close(fd);
+    }
+    else{
+        if (fd == STDIN_FILENO)
+            add_event(epollfd,sockfd,EPOLLOUT);
+        else{
+            delete_event(epollfd,sockfd,EPOLLIN);
+            add_event(epollfd,STDOUT_FILENO,EPOLLOUT);
+        }
+    }
+}
 
+void do_write(int epollfd,int fd,int sockfd,char *buf){
+    int nwrite;
+    char temp[100];
+    buf[strlen(buf)-1]='\0';
+    snprintf(temp,sizeof(temp),"%s_%02d\n",buf,count1++);
+    nwrite = write(fd,temp,strlen(temp));
+    if (nwrite == -1){
+        perror("write error:");
+        close(fd);
+    }
+    else{
+        if (fd == STDOUT_FILENO)
+            delete_event(epollfd,fd,EPOLLOUT);
+        else
+            modify_event(epollfd,fd,EPOLLIN);
+    }
+    memset(buf,0,MAXSIZE);
+}
 
 
 //int epoll1(){
