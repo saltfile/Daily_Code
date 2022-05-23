@@ -4,6 +4,8 @@
 CMakeFiles/vpn.dir/cilent.cpp.o: ../MyAll.h
 CMakeFiles/vpn.dir/cilent.cpp.o: ../cilent.cpp
 
+CMakeFiles/vpn.dir/homework4.cpp.o: ../homework4.cpp
+
 CMakeFiles/vpn.dir/log_fun.cpp.o: ../MyAll.h
 CMakeFiles/vpn.dir/log_fun.cpp.o: ../log_fun.cpp
 

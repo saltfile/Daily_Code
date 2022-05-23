@@ -170,6 +170,33 @@ cilent.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/cilent.cpp.s
 .PHONY : cilent.cpp.s
 
+homework4.o: homework4.cpp.o
+
+.PHONY : homework4.o
+
+# target to build an object file
+homework4.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/homework4.cpp.o
+.PHONY : homework4.cpp.o
+
+homework4.i: homework4.cpp.i
+
+.PHONY : homework4.i
+
+# target to preprocess a source file
+homework4.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/homework4.cpp.i
+.PHONY : homework4.cpp.i
+
+homework4.s: homework4.cpp.s
+
+.PHONY : homework4.s
+
+# target to generate assembly for a file
+homework4.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vpn.dir/build.make CMakeFiles/vpn.dir/homework4.cpp.s
+.PHONY : homework4.cpp.s
+
 log_fun.o: log_fun.cpp.o
 
 .PHONY : log_fun.o
@@ -290,6 +317,9 @@ help:
 	@echo "... cilent.o"
 	@echo "... cilent.i"
 	@echo "... cilent.s"
+	@echo "... homework4.o"
+	@echo "... homework4.i"
+	@echo "... homework4.s"
 	@echo "... log_fun.o"
 	@echo "... log_fun.i"
 	@echo "... log_fun.s"

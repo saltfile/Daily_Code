@@ -89,4 +89,12 @@ void delete_event(int epollfd,int fd,int state);
 void modify_event(int epollfd,int fd,int state);
 char* itoa_fun(int num,char* str,int radix);
 
+
+
+//cilent
+//void handle_connection(int sockfd);
+//void handle_events(int epollfd,struct epoll_event *events,int num,int sockfd,char *buf);
+
+
+
 #endif //VPN_MYALL_H

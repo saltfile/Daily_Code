@@ -10,185 +10,123 @@ int count1=0;
 void add_event(int epollfd,int fd,int state);
 void delete_event(int epollfd,int fd,int state);
 void modify_event(int epollfd,int fd,int state);
-
-//=============================================================================================
-/*函数声明*/
-/*创建套接字并进行绑定*/
-int socket_bind(const char* ip,int port);
-/*IO多路复用epoll*/
-void do_epoll(int listenfd);
-/*事件处理函数*/
-void handle_eventsserver(int epollfd,struct epoll_event *events,int num,int listenfd,char *buf);
-/*处理接收到的连接*/
-void handle_accpet(int epollfd,int listenfd);
-/*读处理*/
-void do_readserver(int epollfd,int fd,char *buf);
-/*写处理*/
-void do_writeserver(int epollfd,int fd,char *buf);
-
-int serverepoll1(){
-    int  listenfd;
-    listenfd = socket_bind(IPADDRESS,PORT);
-    listen(listenfd,LISTENQ);
-    do_epoll(listenfd);
-    return 0;
-}
-
-int socket_bind(const char* ip,int port){
-    int  listenfd;
-    struct sockaddr_in servaddr;
-    listenfd = socket(AF_INET,SOCK_STREAM,0);
-    if (listenfd == -1){
-        perror("socket error:");
-        exit(1);
-    }
-    bzero(&servaddr,sizeof(servaddr));
-    servaddr.sin_family = AF_INET;
-    inet_pton(AF_INET,ip,&servaddr.sin_addr);
-    servaddr.sin_port = htons(port);
-    if (bind(listenfd,(struct sockaddr*)&servaddr,sizeof(servaddr)) == -1){
-        perror("bind error: ");
-        exit(1);
-    }
-    return listenfd;
-}
-
-void do_epoll(int listenfd){
-    int epollfd;
-    struct epoll_event events[EPOLLEVENTS];
-    int ret;
-    char buf[MAXSIZE];
-    memset(buf,0,MAXSIZE);
-    /*创建一个描述符*/
-    epollfd = epoll_create(FDSIZE);
-    /*添加监听描述符事件*/
-    add_event(epollfd,listenfd,EPOLLIN);
-    while(1){
-        /*获取已经准备好的描述符事件*/
-        ret = epoll_wait(epollfd,events,EPOLLEVENTS,-1);
-        handle_eventsserver(epollfd,events,ret,listenfd,buf);//重点注意这个ret，它返回的是已经有事儿的fd的个数
-        //这样一会儿轮循的就不是所有的fd了
-    }
-    close(epollfd);
-}
-
-void handle_eventsserver(int epollfd,struct epoll_event *events,int num,int listenfd,char *buf){
-    int i;
-    int fd;
-    /*进行选好遍历*/
-    for (i = 0;i < num;i++){
-        fd = events[i].data.fd;
-        /*根据描述符的类型和事件类型进行处理*/
-        if ((fd == listenfd) &&(events[i].events & EPOLLIN))
-            handle_accpet(epollfd,listenfd);
-        else if (events[i].events & EPOLLIN){
-             rec_runtable(epollfd,fd,buf);
-//            do_writeserver(epollfd,fd,buf);
-        }
-        else if (events[i].events & EPOLLOUT){
-//            send_runables(epollfd,fd,buf);
-        }
-//            do_writeserver(epollfd,fd,buf);
-    }
-}
-
-void handle_accpet(int epollfd,int listenfd){
-    int clifd;
-    struct sockaddr_in cliaddr;
-    socklen_t  cliaddrlen;
-    clifd = accept(listenfd,(struct sockaddr*)&cliaddr,&cliaddrlen);
-    if (clifd == -1)
-        perror("accpet error:");
-    else{
-        printf("accept a new client: %s:%d\n",inet_ntoa(cliaddr.sin_addr),cliaddr.sin_port);
-        /*添加一个客户描述符和事件*/
-        add_event(epollfd,clifd,EPOLLIN);
-    }
-}
-
-void do_readserver(int epollfd,int fd,char *buf){
+void do_readclient(int epollfd,int fd,int sockfd,char *buf,promise<char *> res){
     int nread;
-    nread = read(fd,buf,MAXSIZE);
+    nread = read(fd,buf,4096);
     if (nread == -1){
         perror("read error:");
         close(fd);
-        delete_event(epollfd,fd,EPOLLIN);
-    }
-    else if (nread == 0){
-        fprintf(stderr,"client close.\n");
-        close(fd);
-        delete_event(epollfd,fd,EPOLLIN);
-    }
-    else{
-        printf("read message is : %s",buf);
-        /*修改描述符对应的事件，由读改为写*/
-        modify_event(epollfd,fd,EPOLLIN);
-    }
-}
-//
-void do_writeserver(int epollfd,int fd,char *buf){
-    int nwrite;
-    nwrite = write(fd,buf,strlen(buf));
-    if (nwrite == -1){
-        perror("write error:");
-        close(fd);
-        delete_event(epollfd,fd,EPOLLOUT);
-    }
-    else
-        modify_event(epollfd,fd,EPOLLIN);
-    memset(buf,0,MAXSIZE);
-}
-//====================================================================================
-void do_read(int epollfd,int fd,int sockfd,char *buf){
-    int nread;
-    nread = read(fd,buf,MAXSIZE);
-    if (nread == -1){
-        perror("read error:");
-        close(fd);
+        res.set_value("err");
     }
     else if (nread == 0){
         fprintf(stderr,"server close.\n");
         close(fd);
+        res.set_value("err");
     }
     else{
-        if (fd == STDIN_FILENO)
-            add_event(epollfd,sockfd,EPOLLOUT);
-        else{
-            delete_event(epollfd,sockfd,EPOLLIN);
-            add_event(epollfd,STDOUT_FILENO,EPOLLOUT);
+        cout<<"servers say:"<<buf<<endl;
+        res.set_value(buf);
+        modify_event(epollfd,fd,EPOLLOUT);
+    }
+}
+
+void epoll_writeclient(int epollfd,int fd,char *buffer){
+    cout<<"调用";
+    if (write(fd,buffer, strlen(buffer))==-1){
+        perror("write error:");
+        close(fd);
+        delete_event(epollfd,fd,EPOLLOUT);
+        return;
+    }
+    modify_event(epollfd,fd,EPOLLIN);
+    memset(buffer,0, 4096);
+}
+
+
+void thread_write(int epollfd,int fd,int listenfd,char *buf){
+
+}
+
+
+
+
+
+
+void handler_conntie(int epollfd,struct epoll_event *events,int num,int listenfd,char *buf){
+    int i;
+    int fd;
+    for (i = 0;i < num;i++) {
+        fd = events[i].data.fd;
+        if (events[i].events & EPOLLIN) {
+            do_readclient(epollfd, fd, listenfd, buf);
+        } else if (events[i].events & EPOLLOUT){
+            epoll_writeclient(epollfd, fd, buf);
         }
     }
 }
 
-void do_write(int epollfd,int fd,int sockfd,char *buf){
-    int nwrite;
-    char temp[100];
-    buf[strlen(buf)-1]='\0';
-    snprintf(temp,sizeof(temp),"%s_%02d\n",buf,count1++);
-    nwrite = write(fd,temp,strlen(temp));
-    if (nwrite == -1){
-        perror("write error:");
-        close(fd);
+
+
+
+
+void Client(){
+    int clientfd;
+    struct sockaddr_in  clientAdd;  //使用之前需要对其清0
+    if((clientfd=socket(AF_INET,SOCK_STREAM,0))==-1){
+        cout<<"create client socket erro"<<endl;
+        exit(0);
     }
-    else{
-        if (fd == STDOUT_FILENO)
-            delete_event(epollfd,fd,EPOLLOUT);
-        else
-            modify_event(epollfd,fd,EPOLLIN);
+    char buf[4096];
+    memset(&clientAdd,0,sizeof (clientAdd));
+//    bzero(&clientAdd,sizeof (clientAdd));
+    clientAdd.sin_family=AF_INET;
+    clientAdd.sin_port=htons(8484);
+    //inet_pton是一个IP地址转换函数，
+    // 可以在将IP地址在“点分十进制”和“二进制整数”之间转换而且，
+    // inet_pton和inet_ntop这2个函数能够处理ipv4和ipv6。
+    if(inet_pton(AF_INET,"127.0.0.1",&clientAdd.sin_addr)<=0){
+        cout<<"inet_pton client socket erro"<<endl;
+        exit(0);
     }
-    memset(buf,0,MAXSIZE);
+    if (connect(clientfd,( struct sockaddr*)&clientAdd,sizeof (clientAdd))>0){
+        printf("connect error: %s(errno: %d)\n",strerror(errno),errno);
+        exit(0);
+    }
+    int n;
+    struct epoll_event events[10];
+    int epollfd;
+    epollfd= epoll_create(1024);
+    memset(&events,0, sizeof (events));
+    add_event(epollfd,clientfd,EPOLLOUT);
+    while (1){
+        n= epoll_wait(epollfd,events,20,-1);
+        if (n<0){
+            cout<<"断开连接"<<endl;
+            break;
+        }
+        int fd;
+        int i;
+//        cout<<n<<endl;
+        handler_conntie(epollfd,events,n,clientfd,buf);
+    }
+//    n = recv(clientfd, buffer, 1024, 0);
+//    buffer[n] = '\0';
+//    cout << "接受数据：" << buffer<<endl;
+    close(clientfd);
+    close(epollfd);
 }
 
 
-//int epoll1(){
-////    clientepoll1();
-////    serverepoll1();
-//    return 0;
-//}
+
+
 
 
 int main() {
 //    auto a = async(launch::async,ser_start,PORT);
+
+    auto b = async(launch::async,Client);
+
+
 
 //    log_info("ss{}",1,"sdaasda");
 //cout<<itoa_fun(1,"aa",3);
