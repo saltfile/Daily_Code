@@ -10,22 +10,22 @@ int count1=0;
 void add_event(int epollfd,int fd,int state);
 void delete_event(int epollfd,int fd,int state);
 void modify_event(int epollfd,int fd,int state);
-void do_readclient(int epollfd,int fd,int sockfd,char *buf,promise<char *> res){
+void do_readclient(int epollfd,int fd,int sockfd,char *buf){
     int nread;
     nread = read(fd,buf,4096);
     if (nread == -1){
         perror("read error:");
         close(fd);
-        res.set_value("err");
+//        res.set_value("err");
     }
     else if (nread == 0){
         fprintf(stderr,"server close.\n");
         close(fd);
-        res.set_value("err");
+//        res.set_value("err");
     }
     else{
         cout<<"servers say:"<<buf<<endl;
-        res.set_value(buf);
+//        res.set_value(buf);
         modify_event(epollfd,fd,EPOLLOUT);
     }
 }
@@ -58,7 +58,7 @@ void handler_conntie(int epollfd,struct epoll_event *events,int num,int listenfd
     for (i = 0;i < num;i++) {
         fd = events[i].data.fd;
         if (events[i].events & EPOLLIN) {
-            do_readclient(epollfd, fd, listenfd, buf);
+            do_readclient(epollfd, fd, listenfd, buf,res);
         } else if (events[i].events & EPOLLOUT){
             epoll_writeclient(epollfd, fd, buf);
         }
