@@ -84,6 +84,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/opt/Cpro/homework/AVLTree.cpp">
+			<Option target="homework"/>
+		</Unit>
+		<Unit filename="/opt/Cpro/homework/RBTree.cpp">
+			<Option target="homework"/>
+		</Unit>
+		<Unit filename="/opt/Cpro/homework/Test.cpp">
+			<Option target="homework"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/homework/home1.cpp">
 			<Option target="homework"/>
 		</Unit>
@@ -97,6 +106,9 @@
 			<Option target="homework"/>
 		</Unit>
 		<Unit filename="/opt/Cpro/homework/my_home.h">
+			<Option target="homework"/>
+		</Unit>
+		<Unit filename="/opt/Cpro/homework/thread_test.cpp">
 			<Option target="homework"/>
 		</Unit>
 		<Unit filename="/opt/Cpro/homework/CMakeLists.txt">

@@ -143,6 +143,87 @@ homework/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/build
 .PHONY : homework/fast
 
+AVLTree.o: AVLTree.cpp.o
+
+.PHONY : AVLTree.o
+
+# target to build an object file
+AVLTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/AVLTree.cpp.o
+.PHONY : AVLTree.cpp.o
+
+AVLTree.i: AVLTree.cpp.i
+
+.PHONY : AVLTree.i
+
+# target to preprocess a source file
+AVLTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/AVLTree.cpp.i
+.PHONY : AVLTree.cpp.i
+
+AVLTree.s: AVLTree.cpp.s
+
+.PHONY : AVLTree.s
+
+# target to generate assembly for a file
+AVLTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/AVLTree.cpp.s
+.PHONY : AVLTree.cpp.s
+
+RBTree.o: RBTree.cpp.o
+
+.PHONY : RBTree.o
+
+# target to build an object file
+RBTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/RBTree.cpp.o
+.PHONY : RBTree.cpp.o
+
+RBTree.i: RBTree.cpp.i
+
+.PHONY : RBTree.i
+
+# target to preprocess a source file
+RBTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/RBTree.cpp.i
+.PHONY : RBTree.cpp.i
+
+RBTree.s: RBTree.cpp.s
+
+.PHONY : RBTree.s
+
+# target to generate assembly for a file
+RBTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/RBTree.cpp.s
+.PHONY : RBTree.cpp.s
+
+Test.o: Test.cpp.o
+
+.PHONY : Test.o
+
+# target to build an object file
+Test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/Test.cpp.o
+.PHONY : Test.cpp.o
+
+Test.i: Test.cpp.i
+
+.PHONY : Test.i
+
+# target to preprocess a source file
+Test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/Test.cpp.i
+.PHONY : Test.cpp.i
+
+Test.s: Test.cpp.s
+
+.PHONY : Test.s
+
+# target to generate assembly for a file
+Test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/Test.cpp.s
+.PHONY : Test.cpp.s
+
 home1.o: home1.cpp.o
 
 .PHONY : home1.o
@@ -251,6 +332,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+thread_test.o: thread_test.cpp.o
+
+.PHONY : thread_test.o
+
+# target to build an object file
+thread_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/thread_test.cpp.o
+.PHONY : thread_test.cpp.o
+
+thread_test.i: thread_test.cpp.i
+
+.PHONY : thread_test.i
+
+# target to preprocess a source file
+thread_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/thread_test.cpp.i
+.PHONY : thread_test.cpp.i
+
+thread_test.s: thread_test.cpp.s
+
+.PHONY : thread_test.s
+
+# target to generate assembly for a file
+thread_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/thread_test.cpp.s
+.PHONY : thread_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -260,6 +368,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... homework"
+	@echo "... AVLTree.o"
+	@echo "... AVLTree.i"
+	@echo "... AVLTree.s"
+	@echo "... RBTree.o"
+	@echo "... RBTree.i"
+	@echo "... RBTree.s"
+	@echo "... Test.o"
+	@echo "... Test.i"
+	@echo "... Test.s"
 	@echo "... home1.o"
 	@echo "... home1.i"
 	@echo "... home1.s"
@@ -272,6 +389,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... thread_test.o"
+	@echo "... thread_test.i"
+	@echo "... thread_test.s"
 .PHONY : help
 
 
