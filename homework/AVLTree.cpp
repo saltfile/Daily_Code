@@ -99,8 +99,8 @@ AVLNode *add_node(AVLNode *root,int data){
 
 /**
  * 删除
- * @param root
- * @param key
+ * @param root 节点参数
+ * @param key 要删除的值
  * @return
  */
 AVLNode *del_node(AVLNode *root,int key){
