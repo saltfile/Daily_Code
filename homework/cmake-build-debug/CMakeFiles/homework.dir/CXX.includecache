@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/opt/Cpro/homework/main.cpp
+/opt/Cpro/homework/AVLTree.cpp
 my_home.h
 /opt/Cpro/homework/my_home.h
 
@@ -20,5 +20,17 @@ stdarg.h
 cstring
 -
 iostream
+-
+string.h
+-
+unistd.h
+-
+pthread.h
+-
+sched.h
+-
+typeinfo
+-
+math.h
 -
 

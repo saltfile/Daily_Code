@@ -9,6 +9,12 @@
 #include <stdarg.h>
 #include <cstring>
 #include <iostream>
+#include <string.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <sched.h>
+#include <typeinfo>
+#include <math.h>
 using namespace std;
 //home1
 void init_cache();
@@ -86,6 +92,9 @@ public:
     }
 };
 
+void thread_Test();
+
+
 class Ptr{
 public:
     MyList *my;
@@ -111,6 +120,23 @@ public:
 
 
 };
+
+
+
+/**
+ * AVLTree
+ */
+void TreeMain();
+
+
+
+
+
+
+
+
+
+
 
 
 
