@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/OShomework.dir/bank.cpp.o"
+  "CMakeFiles/OShomework.dir/cache_init.cpp.o"
   "CMakeFiles/OShomework.dir/list_fun.cpp.o"
   "CMakeFiles/OShomework.dir/log_fun.cpp.o"
   "CMakeFiles/OShomework.dir/main.cpp.o"

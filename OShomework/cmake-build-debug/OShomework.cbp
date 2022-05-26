@@ -87,6 +87,12 @@
 		<Unit filename="/opt/Cpro/OShomework/MyAll.h">
 			<Option target="OShomework"/>
 		</Unit>
+		<Unit filename="/opt/Cpro/OShomework/bank.cpp">
+			<Option target="OShomework"/>
+		</Unit>
+		<Unit filename="/opt/Cpro/OShomework/cache_init.cpp">
+			<Option target="OShomework"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/OShomework/list_fun.cpp">
 			<Option target="OShomework"/>
 		</Unit>

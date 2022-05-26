@@ -143,6 +143,60 @@ OShomework/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OShomework.dir/build.make CMakeFiles/OShomework.dir/build
 .PHONY : OShomework/fast
 
+bank.o: bank.cpp.o
+
+.PHONY : bank.o
+
+# target to build an object file
+bank.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OShomework.dir/build.make CMakeFiles/OShomework.dir/bank.cpp.o
+.PHONY : bank.cpp.o
+
+bank.i: bank.cpp.i
+
+.PHONY : bank.i
+
+# target to preprocess a source file
+bank.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OShomework.dir/build.make CMakeFiles/OShomework.dir/bank.cpp.i
+.PHONY : bank.cpp.i
+
+bank.s: bank.cpp.s
+
+.PHONY : bank.s
+
+# target to generate assembly for a file
+bank.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OShomework.dir/build.make CMakeFiles/OShomework.dir/bank.cpp.s
+.PHONY : bank.cpp.s
+
+cache_init.o: cache_init.cpp.o
+
+.PHONY : cache_init.o
+
+# target to build an object file
+cache_init.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OShomework.dir/build.make CMakeFiles/OShomework.dir/cache_init.cpp.o
+.PHONY : cache_init.cpp.o
+
+cache_init.i: cache_init.cpp.i
+
+.PHONY : cache_init.i
+
+# target to preprocess a source file
+cache_init.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OShomework.dir/build.make CMakeFiles/OShomework.dir/cache_init.cpp.i
+.PHONY : cache_init.cpp.i
+
+cache_init.s: cache_init.cpp.s
+
+.PHONY : cache_init.s
+
+# target to generate assembly for a file
+cache_init.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OShomework.dir/build.make CMakeFiles/OShomework.dir/cache_init.cpp.s
+.PHONY : cache_init.cpp.s
+
 list_fun.o: list_fun.cpp.o
 
 .PHONY : list_fun.o
@@ -233,6 +287,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... OShomework"
+	@echo "... bank.o"
+	@echo "... bank.i"
+	@echo "... bank.s"
+	@echo "... cache_init.o"
+	@echo "... cache_init.i"
+	@echo "... cache_init.s"
 	@echo "... list_fun.o"
 	@echo "... list_fun.i"
 	@echo "... list_fun.s"

@@ -6,7 +6,9 @@ list *into_queue(){
     list *lin = (list *)malloc(sizeof(list));
     add_list(lin,1,3);
     add_list(lin,2,2);
-    add_list(lin,3,3);
+    add_list(lin,3,4);
+    add_list(lin,4,1);
+    add_list(lin,5,3);
     return lin;
 }
 
@@ -91,9 +93,10 @@ void runtable(){
 }
 
 int main() {
-    thread t(into_FJSqueue);
-    thread t1(run_FJS);
-    t.join();
-    t1.join();
+//thread r(bankrun);
+//r.join();
+
+    demo3();
+
     return 0;
 }

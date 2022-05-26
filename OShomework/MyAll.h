@@ -38,7 +38,7 @@ typedef struct processType {
 
 
 
-
+void demo3();
 
 //打印日志功能
 void log_info(string str);
@@ -68,15 +68,7 @@ list *remove_node(list *root,int len);
 void task_run(processType *node);
 
 
-
-
-
-
-
-
-
-
-
+int bankrun();
 
 
 
