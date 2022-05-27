@@ -213,8 +213,23 @@ AVLNode *search_val(AVLNode *node,int key){
     return NULL;
 }
 
+/**
+ * 更新节点，就是删除之后再添加
+ * @param node
+ * @param old
+ * @param update
+ * @return
+ */
+AVLNode *update_node(AVLNode *node,int old,int update){
+    if(!search_val(node,old)){
+        cout<<"未找到修改失败"<<endl;
+        return node;
+    }
 
-
+    node = del_node(node,old);
+    node = add_node(node,update);
+    return node;
+}
 
 
 
