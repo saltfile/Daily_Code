@@ -5,6 +5,7 @@ CMakeFiles/homework.dir/AVLTree.cpp.o: ../AVLTree.cpp
 CMakeFiles/homework.dir/AVLTree.cpp.o: ../my_home.h
 
 CMakeFiles/homework.dir/RBTree.cpp.o: ../RBTree.cpp
+CMakeFiles/homework.dir/RBTree.cpp.o: ../my_home.h
 
 CMakeFiles/homework.dir/Test.cpp.o: ../Test.cpp
 
