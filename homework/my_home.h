@@ -127,8 +127,11 @@ public:
  * AVLTree
  */
 void TreeMain();
-
-
+/**
+ * RBTree
+ * @return
+ */
+int RBTreedemo();
 
 
 
