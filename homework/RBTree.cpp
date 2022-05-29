@@ -22,6 +22,24 @@ RBNode *get_parent(RBNode *node){
     return node->parent;
 }
 
+void set_parent(RBNode *node,RBNode *parent){
+    if(node != NULL){
+        node->parent = parent;
+    }
+}
+
+void set_color(RBNode *node,colors color){
+    if (node != NULL){
+        node->color = color;
+    }
+}
+void pre_order(RBNode *tree) {
+    if(tree != NULL) {
+        cout<<tree->data<<"   ";
+        pre_order(tree->left);
+        pre_order(tree->right);
+    }
+}
 
 int is_red(RBNode *node){return (node != NULL && node->color == red)?1:0;}
 
