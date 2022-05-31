@@ -60,6 +60,20 @@ RBNode *search(RBNode *root, int key) {
     else if(root->data < key)return search(root->right,key);
     else return root;
 }
+//查找最小的节点
+RBNode *search_min(RBNode *root,int key){
+    RBNode *node = root;
+    if(node == NULL){
+        return NULL;
+    }
+    while (node->left){
+        node = node->left;
+    }
+    return node;
+}
+
+
+
 
 
 int RBTreedemo() {
