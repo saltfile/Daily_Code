@@ -53,7 +53,7 @@ void set_black(RBNode *node) { if (node != NULL)node->color = black; }
 colors get_color(RBNode *node) {
     return node->color;
 }
-
+//查找
 RBNode *search(RBNode *root, int key) {
     if (root == NULL)return NULL;
     if(root->data > key)return search(root->left,key);
@@ -71,6 +71,57 @@ RBNode *search_min(RBNode *root,int key){
     }
     return node;
 }
+//查找最大的节点
+RBNode *search_max(RBNode *root,int key){
+    RBNode *node = root;
+    if(node != NULL){
+        return  NULL;
+    }
+    while (node->right){
+        node = node->right;
+    }
+    return node;
+}
+
+
+
+//左旋
+RBNode *left(RBNode *root){
+    RBNode *node = root;
+    RBNode *right = node->right;
+    node->right = right->left;
+    if(right->left != NULL){
+        right->left->parent = node;
+    }
+    right->parent = node->parent;
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
