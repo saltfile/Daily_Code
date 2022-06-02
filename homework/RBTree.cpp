@@ -95,11 +95,25 @@ RBNode *left(RBNode *root){
     }
     right->parent = node->parent;
 
+    if(node->parent == NULL){
 
+    } else{
+        if(node->parent->left == node){
+            node->parent->left = right;
+        } else{
+            node->parent->right = right;
+        }
+    }
+    right->left = node;
+    node->parent = right;
+    return right;
+}
+//右旋
+RBNode *right(RBNode *root){
+    RBNode *node = root;
+    RBNode *left = node->left;
 
-
-
-
+    node->left = left->right;
 
 
 
@@ -126,8 +140,12 @@ RBNode *left(RBNode *root){
 
 
 
-
 int RBTreedemo() {
+
+
+
+
+
 
     return 0;
 }
