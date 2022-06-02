@@ -132,10 +132,8 @@ RBNode *right(RBNode *root){
 
     left->right = node;
     node->parent = left;
-
-
-
 }
+//插入修正函数
 
 
 
