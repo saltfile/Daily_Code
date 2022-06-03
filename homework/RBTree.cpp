@@ -134,7 +134,9 @@ RBNode *right(RBNode *root){
     node->parent = left;
 }
 //插入修正函数
+void fix_insert(RBNode *root){
 
+}
 
 
 
