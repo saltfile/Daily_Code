@@ -115,10 +115,28 @@ RBNode *right(RBNode *root){
 
     node->left = left->right;
 
+    if(left->right != NULL){
+        left->right->parent = node;
+    }
 
+    left->parent = node->parent;
+    if(node->parent == NULL){
+
+    } else{
+        if (node->parent->left == node){
+            node->parent->right = left;
+        } else{
+            node->parent->left = left;
+        }
+    }
+
+    left->right = node;
+    node->parent = left;
+}
+//插入修正函数
+void fix_insert(RBNode *root){
 
 }
-
 
 
 
