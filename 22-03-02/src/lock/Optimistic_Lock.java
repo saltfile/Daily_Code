@@ -9,25 +9,38 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Optimistic_Lock {
 
-    static AtomicInteger as = new AtomicInteger();
-//    private static volatile int a = 0;
 
-    public static void main(String[] args) {
-        Thread[] threads = new Thread[5];
-        for (int i = 0; i < 5; i++) {
-            threads[i] = new Thread(() -> {
+    private static volatile int v1 = 0;
+    static AtomicInteger v2 = new AtomicInteger();
+    private static volatile  int v3 = 0;
+    public static synchronized void add(){
+        v3++;
+    }
+
+
+    public static void main(String[] args) throws InterruptedException {
+        int len = 1000;
+        for (int i = 0; i < len; i++) {
+          new Thread(() -> {
                 try {
-                    for (int j = 0; j < 10; j++) {
+                        Thread.sleep(100);
+                        //普通线程间加值
+                        v1++;
                         //使用getAndIncrement函数进行自增操作
-                        System.out.println(as.incrementAndGet());
-                        Thread.sleep(500);
-                    }
+                        v2.getAndIncrement();
+                        //使用悲观锁sync
+                        add();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            });
-            threads[i].start();
+            }).start();
         }
+        Thread.sleep(100);
+        System.out.println("普通的加："+v1);
+        System.out.println("乐观锁加："+v2);
+        System.out.println("悲观锁加："+v3);
+
     }
 
 
