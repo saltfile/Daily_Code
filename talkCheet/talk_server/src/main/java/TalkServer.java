@@ -2,10 +2,12 @@ import com.sun.org.apache.bcel.internal.generic.Select;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.LongAdder;
@@ -56,26 +58,66 @@ public class TalkServer implements Runnable{
                     }
                 }
             }
-
-
-
-
-
-
-
-
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
+    private void saveAndRegisterChannel(SocketChannel socketChannel) throws IOException {
+        if (socketChannel == null) {
+            return;
+        }
+        // 设置采用非阻塞模式
+        socketChannel.configureBlocking(false);
+        // 将该SocketChannel也注册到selector
+        socketChannel.register(selector, SelectionKey.OP_READ);
+        count.increment();
+        String currentId = count.toString();
+        serverMap.put(currentId, socketChannel);
+        
+        for (SocketChannel channel : serverMap.values()) {
+            channel.write(ByteBuffer.wrap(currentId.getBytes()));
+        }
+    }
 
+
+    private void ReadAndSendMessageToSelectChannel(SocketChannel socketChannel) throws IOException {
+        // 开始读取数据
+        // 定义准备执行读取数据的ByteBuffer
+        ByteBuffer buff = ByteBuffer.allocate(1024);
+        StringBuilder content = new StringBuilder();
+
+        //写buffer
+        while (socketChannel.read(buff) > 0) {
+            buff.flip();
+            content.append(StandardCharsets.UTF_8.decode(buff));
+        }
+        // 打印从该sk对应的Channel里读取到的数据
+        System.out.println("=====" + content);
+        // 如果content的长度大于0，即聊天信息不为空
+        if (content.length() > 0) {
+            String[] split = content.toString().split("#");
+            if (split.length < 2) {
+                socketChannel.write(StandardCharsets.UTF_8.encode("格式错误"));
+                return;
+            }
+            SocketChannel target = serverMap.get(split[0]);
+            if (target == null) {
+                socketChannel.write(StandardCharsets.UTF_8.encode("该账号已离线0"));
+                return;
+            }
+            try {
+                target.write(StandardCharsets.UTF_8.encode(split[1]));
+            } catch (IOException e) {
+                socketChannel.write(StandardCharsets.UTF_8.encode("该账号已离线1"));
+                serverMap.remove(split[0]);
+            }
+        }
+    }
 
     @Override
     public void run() {
-
+        init();
     }
 }
