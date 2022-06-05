@@ -63,7 +63,7 @@ public class TalkServer implements Runnable{
         }
 
     }
-
+//这里需要改成异步模式应该另开一个线程
     private void saveAndRegisterChannel(SocketChannel socketChannel) throws IOException {
         if (socketChannel == null) {
             return;
@@ -74,10 +74,21 @@ public class TalkServer implements Runnable{
         socketChannel.register(selector, SelectionKey.OP_READ);
         count.increment();
         String currentId = count.toString();
-        serverMap.put(currentId, socketChannel);
-        
+        ByteBuffer buff = ByteBuffer.allocate(1024);
+        StringBuilder content = new StringBuilder();
+        while (true){
+
+        while (socketChannel.read(buff) > 0) {
+            buff.flip();
+            content.append(StandardCharsets.UTF_8.decode(buff));
+        }
+        if(content.length() > 0)break;
+        }
+        Mes mes = MesCode.Decoder(content.toString());
+        String str =  "欢迎您"+mes.getUser()+"\n";
+        serverMap.put(mes.getUser(), socketChannel);
         for (SocketChannel channel : serverMap.values()) {
-            channel.write(ByteBuffer.wrap(currentId.getBytes()));
+            channel.write(ByteBuffer.wrap(str.getBytes()));
         }
     }
 
