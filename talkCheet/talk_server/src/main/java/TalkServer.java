@@ -93,7 +93,6 @@ public class TalkServer implements Runnable{
         // 将该SocketChannel也注册到selector
         socketChannel.register(selector, SelectionKey.OP_READ);
         count.increment();
-        String currentId = count.toString();
         ByteBuffer buff = ByteBuffer.allocate(1024);
         StringBuilder content = new StringBuilder();
         while (true){
@@ -104,27 +103,9 @@ public class TalkServer implements Runnable{
             }
             if(content.length() > 0)break;
         }
-        try{
-            Mes mes = MesCode.Decoder(content.toString());
-            if(mes.getStatu() == status.LOGIN){
-                if(serverMap.get(mes.getUser()) == null){
-                    String str =  "欢迎您"+mes.getUser()+"\n";
-                    serverMap.put(mes.getUser(), socketChannel);
-                    channelMap.put(socketChannel,mes.getUser());
-                    for (SocketChannel channel : serverMap.values()) {
-                        channel.write(ByteBuffer.wrap(str.getBytes()));
-                    }
-                }else {
-                    String str = "已经目前用户已登录";
-                    socketChannel.write(ByteBuffer.wrap(str.getBytes()));
-                    socketChannel.close();
-                }
-            }
-        }catch (Exception e){
-            //如果登录失败需要关闭此通道
-            String str = "error!!!!!请发布正确信息\n";
-            socketChannel.write(ByteBuffer.wrap(str.getBytes()));
-            socketChannel.close();
+        Mes mes = MesCode.Decoder(content.toString());
+        if(mes.getStatu() == status.LOGIN) {
+            TalkHandler.LoginHandler(serverMap, channelMap, socketChannel,mes);
         }
     }
 

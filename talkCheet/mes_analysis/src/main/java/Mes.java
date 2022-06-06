@@ -2,7 +2,6 @@ import lombok.Data;
 enum status{
     LOGIN,
     SEND,
-    RECEIVE,
     ADD_FRIENDS
 }
 @Data
