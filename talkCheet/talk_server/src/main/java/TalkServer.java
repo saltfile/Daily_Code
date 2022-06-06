@@ -1,4 +1,5 @@
 import com.sun.org.apache.bcel.internal.generic.Select;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -11,8 +12,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.LongAdder;
-
+@Slf4j
 public class TalkServer implements Runnable{
+    //用户管道map
     private Map<String, SocketChannel> serverMap = new ConcurrentHashMap<>();
     private Map<SocketChannel,String > channelMap = new ConcurrentHashMap<>();
     // 用于检测所有Channel状态的Selector
@@ -42,7 +44,6 @@ public class TalkServer implements Runnable{
                     if (selectedKey.isAcceptable()) {
                         // 调用accept方法接受连接，产生服务器端对应的SocketChannel
                         SocketChannel sc = server.accept();
-//                        new Thread(new RegisterChannel(sc)).start();
                         saveAndRegisterChannel(sc);
                     }
                     if (selectedKey.isReadable()) {
@@ -127,12 +128,16 @@ public class TalkServer implements Runnable{
             socketChannel.close();
             return;
         }
-
         // 打印从该sk对应的Channel里读取到的数据
         System.out.println("=====" + content);
+
         // 如果content的长度大于0，即聊天信息不为空
         if (content.length() > 0) {
-            socketChannel.write(StandardCharsets.UTF_8.encode("格式错误"));
+          
+
+
+
+
             return;
         }
     }
