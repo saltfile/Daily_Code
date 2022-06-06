@@ -14,6 +14,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 public class TalkServer implements Runnable{
     private Map<String, SocketChannel> serverMap = new ConcurrentHashMap<>();
+    private Map<SocketChannel,String > channelMap = new ConcurrentHashMap<>();
     // 用于检测所有Channel状态的Selector
     private Selector selector = null;
     //线程安全的计数器
@@ -41,6 +42,7 @@ public class TalkServer implements Runnable{
                     if (selectedKey.isAcceptable()) {
                         // 调用accept方法接受连接，产生服务器端对应的SocketChannel
                         SocketChannel sc = server.accept();
+//                        new Thread(new RegisterChannel(sc)).start();
                         saveAndRegisterChannel(sc);
                     }
                     if (selectedKey.isReadable()) {
@@ -63,7 +65,25 @@ public class TalkServer implements Runnable{
         }
 
     }
-//这里需要改成异步模式应该另开一个线程
+    //这里需要改成异步模式应该另开一个线程
+    class RegisterChannel implements Runnable{
+        SocketChannel socketChannel = null;
+        public RegisterChannel(SocketChannel socketChannel){
+            this.socketChannel = socketChannel;
+        }
+        @Override
+        public void run() {
+            try {
+                saveAndRegisterChannel(socketChannel);
+            } catch (IOException e) {
+                System.out.println("Channel配置错误");
+            }
+        }
+    }
+
+
+
+
     private void saveAndRegisterChannel(SocketChannel socketChannel) throws IOException {
         if (socketChannel == null) {
             return;
@@ -78,17 +98,33 @@ public class TalkServer implements Runnable{
         StringBuilder content = new StringBuilder();
         while (true){
 
-        while (socketChannel.read(buff) > 0) {
-            buff.flip();
-            content.append(StandardCharsets.UTF_8.decode(buff));
+            while (socketChannel.read(buff) > 0) {
+                buff.flip();
+                content.append(StandardCharsets.UTF_8.decode(buff));
+            }
+            if(content.length() > 0)break;
         }
-        if(content.length() > 0)break;
-        }
-        Mes mes = MesCode.Decoder(content.toString());
-        String str =  "欢迎您"+mes.getUser()+"\n";
-        serverMap.put(mes.getUser(), socketChannel);
-        for (SocketChannel channel : serverMap.values()) {
-            channel.write(ByteBuffer.wrap(str.getBytes()));
+        try{
+            Mes mes = MesCode.Decoder(content.toString());
+            if(mes.getStatu() == status.LOGIN){
+                if(serverMap.get(mes.getUser()) == null){
+                    String str =  "欢迎您"+mes.getUser()+"\n";
+                    serverMap.put(mes.getUser(), socketChannel);
+                    channelMap.put(socketChannel,mes.getUser());
+                    for (SocketChannel channel : serverMap.values()) {
+                        channel.write(ByteBuffer.wrap(str.getBytes()));
+                    }
+                }else {
+                    String str = "已经目前用户已登录";
+                    socketChannel.write(ByteBuffer.wrap(str.getBytes()));
+                    socketChannel.close();
+                }
+            }
+        }catch (Exception e){
+            //如果登录失败需要关闭此通道
+            String str = "error!!!!!请发布正确信息\n";
+            socketChannel.write(ByteBuffer.wrap(str.getBytes()));
+            socketChannel.close();
         }
     }
 
@@ -98,32 +134,25 @@ public class TalkServer implements Runnable{
         // 定义准备执行读取数据的ByteBuffer
         ByteBuffer buff = ByteBuffer.allocate(1024);
         StringBuilder content = new StringBuilder();
-
         //写buffer
-        while (socketChannel.read(buff) > 0) {
-            buff.flip();
-            content.append(StandardCharsets.UTF_8.decode(buff));
+        int conn = socketChannel.read(buff);
+        if(conn > 0){
+        buff.flip();
+        content.append(StandardCharsets.UTF_8.decode(buff));socketChannel.read(buff);
+        }else {
+            String user = channelMap.get(socketChannel);
+            channelMap.remove(socketChannel);
+            serverMap.remove(user);
+            socketChannel.close();
+            return;
         }
+
         // 打印从该sk对应的Channel里读取到的数据
         System.out.println("=====" + content);
         // 如果content的长度大于0，即聊天信息不为空
         if (content.length() > 0) {
-            String[] split = content.toString().split("#");
-            if (split.length < 2) {
-                socketChannel.write(StandardCharsets.UTF_8.encode("格式错误"));
-                return;
-            }
-            SocketChannel target = serverMap.get(split[0]);
-            if (target == null) {
-                socketChannel.write(StandardCharsets.UTF_8.encode("该账号已离线0"));
-                return;
-            }
-            try {
-                target.write(StandardCharsets.UTF_8.encode(split[1]));
-            } catch (IOException e) {
-                socketChannel.write(StandardCharsets.UTF_8.encode("该账号已离线1"));
-                serverMap.remove(split[0]);
-            }
+            socketChannel.write(StandardCharsets.UTF_8.encode("格式错误"));
+            return;
         }
     }
 
