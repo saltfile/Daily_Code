@@ -10,6 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>talk_cilent</artifactId>
-
+<dependencies>
+    <dependency>
+        <groupId>org.example</groupId>
+        <artifactId>mes_analysis</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>org.example</groupId>
+        <artifactId>talk_server</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+</dependencies>
 
 </project>

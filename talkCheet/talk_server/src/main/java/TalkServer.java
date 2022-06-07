@@ -12,7 +12,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.LongAdder;
-@Slf4j
 public class TalkServer implements Runnable{
     //用户管道map
     private Map<String, SocketChannel> serverMap = new ConcurrentHashMap<>();
@@ -133,11 +132,22 @@ public class TalkServer implements Runnable{
 
         // 如果content的长度大于0，即聊天信息不为空
         if (content.length() > 0) {
-          
+            try{
+                Mes mes = MesCode.Decoder(content.toString());
+                switch (mes.getStatu()){
+                    case SEND:TalkHandler.SendHandler(serverMap,channelMap,socketChannel,mes);break;
+                }
+                return;
+            } catch (Exception e) {
+            //如果登录失败需要关闭此通道
+            String str = "请发布正确的信息格式\n";
+            try {
+                socketChannel.write(ByteBuffer.wrap(str.getBytes()));
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
 
-
-
-
+        }
             return;
         }
     }
