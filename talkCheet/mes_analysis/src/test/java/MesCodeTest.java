@@ -10,7 +10,7 @@ public class MesCodeTest {
         Mes mes = new Mes();
         mes.setMes("dsaasd");
         mes.setUser("xxx");
-        mes.setStatu(status.LOGIN);
+        mes.setStatu(status.SEND);
         System.out.println(MesCode.Encoder(mes));
     }
 
