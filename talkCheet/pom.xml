@@ -20,7 +20,9 @@
         <junit.version>4.12</junit.version>
         <commons.version>2.5</commons.version>
         <lombok.version>1.18.22</lombok.version>
+        <yml.version>1.23</yml.version>
         <java.version>1.8</java.version>
+
     </properties>
 <dependencyManagement>
     <dependencies>
@@ -51,6 +53,13 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${yml.version}</version>
         </dependency>
     </dependencies>
 </dependencyManagement>
