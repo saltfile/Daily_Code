@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.logging.Handler;
 
 public class TalkHandler {
+
     //管理登陆的handler
     public static void LoginHandler(Map<String,SocketChannel> serverMap, Map<SocketChannel,String> channelMap, SocketChannel socketChannel,Mes mes){
         try {
@@ -37,6 +38,7 @@ public class TalkHandler {
 
         }
     }
+
     //xxxxx@oo
     public static void SendHandler(Map<String,SocketChannel> serverMap,Map<SocketChannel,String> channelMap,SocketChannel socketChannel,Mes mes){
         try {
@@ -79,15 +81,4 @@ public class TalkHandler {
             ioException.printStackTrace();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 }
