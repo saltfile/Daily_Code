@@ -2,12 +2,12 @@ import lombok.Data;
 
 @Data
 public class enitry {
-    private String uid;
+    private String projectpath;
     public enitry(String uid){
-        this.uid = uid;
+        this.projectpath = uid;
     }
     public enitry(){}
     public enitry copy(){
-        return new enitry(uid);
+        return new enitry(projectpath);
     }
 }
