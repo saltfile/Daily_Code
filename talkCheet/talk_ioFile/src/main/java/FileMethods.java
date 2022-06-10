@@ -2,6 +2,7 @@ import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +37,30 @@ public class FileMethods {
         File f = new File(path);
         return f.exists();
     }
+    public static boolean FirendIsExist(String name){
+        String path = firendfile+"/"+name;
+        File f = new File(path);
+        return f.exists();
+    }
 
-
-
-
-
-
-
+    public static boolean CreateUser(String name){
+        try {
+            boolean res = true;
+            if (UserIsExist(name)) {
+                File file = new File(userfile+"/"+name);
+                boolean b = file.createNewFile();
+                res = res && b;
+            }
+            if(FirendIsExist(name)){
+                File file = new File(firendfile+"/"+name);
+                boolean b = file.createNewFile();
+                res = res && b;
+            }
+            return res;
+        }catch (Exception e){
+            System.err.println("创建文件失败");
+        }finally {
+            return false;
+        }
+}
 }
