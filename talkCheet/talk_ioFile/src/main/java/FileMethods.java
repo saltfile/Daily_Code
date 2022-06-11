@@ -11,8 +11,8 @@ public class FileMethods {
     static String userfile = null;
     static String firendfile = null;
     public static void InitFilePath(){
-       String user = "/talk_ioFile/src/main/java/user";
-       String firend = "/talk_ioFile/src/main/java/firend";
+        String user = "/talk_ioFile/src/main/java/user";
+        String firend = "/talk_ioFile/src/main/java/firend";
         try(InputStream content = FileMethods.class.getResourceAsStream("/config.yaml")) {
             Yaml yaml = new Yaml(new Constructor(enitry.class));
             Iterable<Object> its = yaml.loadAll(content);
@@ -44,23 +44,45 @@ public class FileMethods {
     }
 
     public static boolean CreateUser(String name){
+        boolean res = false;
         try {
-            boolean res = true;
-            if (UserIsExist(name)) {
+
+            if (!UserIsExist(name)) {
                 File file = new File(userfile+"/"+name);
                 boolean b = file.createNewFile();
-                res = res && b;
+                res = b;
             }
-            if(FirendIsExist(name)){
+            if(!FirendIsExist(name)){
                 File file = new File(firendfile+"/"+name);
                 boolean b = file.createNewFile();
-                res = res && b;
+                res = b;
             }
-            return res;
         }catch (Exception e){
             System.err.println("创建文件失败");
         }finally {
-            return false;
+            return res;
         }
-}
+    }
+
+    public static boolean DeleteUser(String name){
+        String upath = userfile+"/"+name;
+        String fpath = firendfile+"/"+name;
+        boolean res = false;
+        if(UserIsExist(name)){
+            File userfile = new File(upath);
+            res = userfile.delete();
+        }
+        if (FirendIsExist(name)){
+            File firendfile = new File(fpath);
+            res = firendfile.delete();
+        }
+        return res;
+    }
+
+
+
+
+
+
+
 }
