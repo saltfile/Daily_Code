@@ -117,8 +117,9 @@ public class FileMethods {
     public static void WriterUser(String user,String str){
         String path = userfile+"/"+user+".txt";
         try (
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path))));
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path),true)));
         ){
+
             writer.write(str+"\n");
             writer.flush();
             writer.close();
@@ -129,7 +130,7 @@ public class FileMethods {
     public static void WriterFirend(String user,String str){
         String path = firendfile+"/"+user+".txt";
         try (
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path))));
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path),true)));
         ){
             writer.write(str+"\n");
             writer.flush();
@@ -144,8 +145,13 @@ public class FileMethods {
         try (
                 BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(path))))
         ){
-            String str = 
-            while (reader.readLine())
+            String readstr;
+            while ((readstr = reader.readLine())!= null){
+                if (readstr.equals(str+"\n")){
+                    readstr = readstr.replaceAll(str,"");
+
+                }
+            }
         }catch (Exception e) {
             System.err.println("写入时出错");
         }

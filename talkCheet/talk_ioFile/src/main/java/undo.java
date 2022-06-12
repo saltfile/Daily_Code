@@ -8,7 +8,6 @@ import java.util.List;
 public class undo {
     public static void main(String[] args) {
         FileMethods.InitFilePath();
-        System.out.println(FileMethods.UserIsExist("xxx"));
-        System.out.println(FileMethods.CreateUser("xxx"));
+        FileMethods.WriterFirend("xxx","sadasda");
     }
 }
