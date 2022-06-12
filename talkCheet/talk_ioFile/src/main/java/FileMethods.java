@@ -1,11 +1,10 @@
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class FileMethods {
     static String userfile = null;
@@ -33,12 +32,12 @@ public class FileMethods {
 
 
     public static boolean UserIsExist(String name){
-        String path = userfile+"/"+name;
+        String path = userfile+"/"+name+".txt";
         File f = new File(path);
         return f.exists();
     }
     public static boolean FirendIsExist(String name){
-        String path = firendfile+"/"+name;
+        String path = firendfile+"/"+name+".txt";
         File f = new File(path);
         return f.exists();
     }
@@ -48,12 +47,12 @@ public class FileMethods {
         try {
 
             if (!UserIsExist(name)) {
-                File file = new File(userfile+"/"+name);
+                File file = new File(userfile+"/"+name+".txt");
                 boolean b = file.createNewFile();
                 res = b;
             }
             if(!FirendIsExist(name)){
-                File file = new File(firendfile+"/"+name);
+                File file = new File(firendfile+"/"+name+".txt");
                 boolean b = file.createNewFile();
                 res = b;
             }
@@ -78,6 +77,105 @@ public class FileMethods {
         }
         return res;
     }
+
+    public static boolean SelFirend(String name,String firend){
+        boolean res = false;
+        File f2 = new File(firendfile+"/"+name+".txt");
+        try(
+                BufferedReader reader2 = new BufferedReader(new InputStreamReader(new FileInputStream(f2)));
+        ){
+            String str2;
+            while ((str2 = reader2.readLine()).length()>0){
+                if (firend.equals(str2)){
+                    return true;
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public static boolean SelUser(String name,String firend){
+        boolean res = false;
+        File f = new File(userfile+"/"+name+".txt");
+        try(
+                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+        ){
+            String str2;
+            while ((str2 = reader.readLine()).length()>0){
+                if (firend.equals(str2)){
+                    return true;
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+    public static void WriterUser(String user,String str){
+        String path = userfile+"/"+user+".txt";
+        try (
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path),true)));
+        ){
+
+            writer.write(str+"\n");
+            writer.flush();
+            writer.close();
+        }catch (Exception e) {
+            System.err.println("写入时出错");
+        }
+    }
+    public static void WriterFirend(String user,String str){
+        String path = firendfile+"/"+user+".txt";
+        try (
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path),true)));
+        ){
+            writer.write(str+"\n");
+            writer.flush();
+            writer.close();
+        }catch (Exception e) {
+            System.err.println("写入时出错");
+        }
+    }
+
+    public static void DelLineUser(String user,String str){
+        String path = userfile+"/"+user+".txt";
+        try (
+                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(path))))
+        ){
+            String readstr;
+            while ((readstr = reader.readLine())!= null){
+                if (readstr.equals(str+"\n")){
+                    readstr = readstr.replaceAll(str,"");
+
+                }
+            }
+        }catch (Exception e) {
+            System.err.println("写入时出错");
+        }
+
+    }
+
+
+
+
+
+    public static void AddFirend(String user,String name){
+        boolean res = false;
+        if(!UserIsExist(user)||!UserIsExist(name)){
+            return ;
+        }
+        if(!SelUser(user,name)&&!SelFirend(user, name)){
+            WriterUser(user, name);
+        }else if (SelUser(user, name)&&!SelFirend(user, name)){
+
+            WriterFirend(user, name);
+        }
+
+    }
+
 
 
 
