@@ -3,10 +3,17 @@ import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class FileMethods {
+
+    static Map<String,ArrayList> userCache = new HashMap<>();
+    static Map<String,ArrayList> firendCache = new HashMap<>();
+
+
     static String userfile = null;
     static String firendfile = null;
     public static void InitFilePath(){
@@ -140,24 +147,6 @@ public class FileMethods {
         }
     }
 
-    public static void DelLineUser(String user,String str){
-        String path = userfile+"/"+user+".txt";
-        try (
-                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(path))))
-        ){
-            String readstr;
-            while ((readstr = reader.readLine())!= null){
-                if (readstr.equals(str+"\n")){
-                    readstr = readstr.replaceAll(str,"");
-
-                }
-            }
-        }catch (Exception e) {
-            System.err.println("写入时出错");
-        }
-
-    }
-
 
 
 
@@ -176,10 +165,10 @@ public class FileMethods {
 
     }
 
+    //更新成缓存
+    public static void CacheInit(){
 
-
-
-
+    }
 
 
 
