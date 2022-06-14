@@ -13,7 +13,7 @@ public class FileMethods {
     static Map<String,ArrayList> userCache = new HashMap<>();
     static Map<String,ArrayList> firendCache = new HashMap<>();
 
-
+    static String path = null;
     static String userfile = null;
     static String firendfile = null;
     public static void InitFilePath(){
@@ -27,6 +27,7 @@ public class FileMethods {
                 userEntityList.add((enitry) it);
             }
             if(userEntityList.size() > 0){
+                path = userEntityList.get(0).getProjectpath();
                 userfile = userEntityList.get(0).getProjectpath()+user;
                 firendfile = userEntityList.get(0).getProjectpath()+firend;
             }else {
@@ -164,6 +165,27 @@ public class FileMethods {
         }
 
     }
+
+    /**
+     * TODO:读取用户文件更新到缓存
+     */
+    public static void ReadCache(){
+        File file = new File(path);
+        try(
+                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+        ){
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
 
     //更新成缓存
     public static void CacheInit(){
