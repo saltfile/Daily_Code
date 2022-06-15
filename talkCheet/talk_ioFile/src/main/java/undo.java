@@ -8,6 +8,11 @@ import java.util.List;
 public class undo {
     public static void main(String[] args) {
         FileMethods.InitFilePath();
-        FileMethods.WriterFirend("xxx","sadasda");
+        ArrayList<String> arrayList = FileMethods.GetfirendArr("xxx");
+        for(String i:arrayList ){
+            System.out.println(i);
+        }
+
+
     }
 }

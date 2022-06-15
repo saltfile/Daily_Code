@@ -27,7 +27,7 @@ public class FileMethods {
                 userEntityList.add((enitry) it);
             }
             if(userEntityList.size() > 0){
-                path = userEntityList.get(0).getProjectpath();
+                path = userEntityList.get(0).getProjectpath()+"/"+"cachetable";
                 userfile = userEntityList.get(0).getProjectpath()+user;
                 firendfile = userEntityList.get(0).getProjectpath()+firend;
             }else {
@@ -169,13 +169,53 @@ public class FileMethods {
     /**
      * TODO:读取用户文件更新到缓存
      */
+
+
+    //先获取user的信息
+    public static ArrayList<String> GetuserArr(String str){
+        ArrayList<String> res = new ArrayList<>();
+        File f = new File(userfile+"/"+str+".txt");
+        try(
+                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+        ){
+            String str2 = "";
+            while ((str2 = reader.readLine())!=null){
+                res.add(str2);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+
+    //在获取user 的firend列表
+    public static ArrayList<String> GetfirendArr(String str){
+        ArrayList<String> res = new ArrayList<>();
+        File f = new File(firendfile+"/"+str+".txt");
+        try(
+                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+        ){
+            String str2 = "";
+            while ((str2 = reader.readLine())!=null){
+                res.add(str2);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+
+
+
+
     public static void ReadCache(){
         File file = new File(path);
         try(
                 BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
         ){
-
-
+            String str2;
 
         }catch (Exception e){
             e.printStackTrace();
