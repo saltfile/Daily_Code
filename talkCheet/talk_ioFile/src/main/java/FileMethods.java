@@ -169,7 +169,21 @@ public class FileMethods {
     /**
      * TODO:读取用户文件更新到缓存
      */
-
+    public static ArrayList<String> GetCacheTable(){
+        ArrayList<String> res = new ArrayList<>();
+        File f = new File(path);
+        try(
+                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+        ){
+            String str2 = "";
+            while ((str2 = reader.readLine())!=null){
+                res.add(str2);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
+    }
 
     //先获取user的信息
     public static ArrayList<String> GetuserArr(String str){
@@ -205,33 +219,20 @@ public class FileMethods {
         }
         return res;
     }
-
-
-
-
-
-    public static void ReadCache(){
-        File file = new File(path);
-        try(
-                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-        ){
-            String str2;
-
-        }catch (Exception e){
-            e.printStackTrace();
+    //程序开启时读取配置文件将文件信息加载进内存中
+    public static void CacheInit(){
+        ArrayList<String> cache = GetCacheTable();
+        for(String i:cache){
+            userCache.put(i,GetuserArr(i));
+            firendCache.put(i,GetfirendArr(i));
         }
     }
 
-
-
-
-
-
-    //更新成缓存
-    public static void CacheInit(){
+    //TODO:后面要完成文件数据清除再载入的步骤
+    //缓存载入
+    public static void CacheEntry(){
 
     }
-
 
 
 }
