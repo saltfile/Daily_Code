@@ -13,16 +13,6 @@ import java.util.Map;
  */
 
 
-
-
-
-
-
-
-
-
-
-
 public class TwoNum {
     public static void main(String[] args) {
        int[] nn = TwoNum(18);
