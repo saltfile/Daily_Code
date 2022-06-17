@@ -8,10 +8,7 @@ import java.util.List;
 public class undo {
     public static void main(String[] args) {
         FileMethods.InitFilePath();
-        ArrayList<String> arrayList = FileMethods.GetfirendArr("xxx");
-        for(String i:arrayList ){
-            System.out.println(i);
-        }
+        FileMethods.FileUserClear("xxx");
 
 
     }

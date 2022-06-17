@@ -229,8 +229,40 @@ public class FileMethods {
     }
 
     //TODO:后面要完成文件数据清除再载入的步骤
+    //缓存清除
+    public static void FileUserClear(String name){
+        String path = userfile+"/"+name+".txt";
+        File file = new File(path);
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write("");
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void  FileFirendClear(String name){
+        String path = firendfile+"/"+name+".txt";
+        File file = new File(path);
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write("");
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     //缓存载入
     public static void CacheEntry(){
+
+
+
+
+
+
 
     }
 
