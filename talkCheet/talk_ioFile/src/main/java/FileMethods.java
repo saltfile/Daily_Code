@@ -220,17 +220,23 @@ public class FileMethods {
         return res;
     }
     //程序开启时读取配置文件将文件信息加载进内存中
-    public static void CacheInit(){
-        ArrayList<String> cache = GetCacheTable();
-        for(String i:cache){
-            userCache.put(i,GetuserArr(i));
-            firendCache.put(i,GetfirendArr(i));
+
+
+    //TODO:后面要完成文件数据清除再载入的步骤
+
+
+
+    //缓存清除
+    private static void FileClear(){
+        for (String k:userCache.keySet()){
+            FileUserClear(k);
+        }
+        for (String k:firendCache.keySet()){
+            FileUserClear(k);
         }
     }
 
-    //TODO:后面要完成文件数据清除再载入的步骤
-    //缓存清除
-    public static void FileUserClear(String name){
+    private static void FileUserClear(String name){
         String path = userfile+"/"+name+".txt";
         File file = new File(path);
         try {
@@ -243,7 +249,7 @@ public class FileMethods {
         }
     }
 
-    public static void  FileFirendClear(String name){
+    private static void  FileFirendClear(String name){
         String path = firendfile+"/"+name+".txt";
         File file = new File(path);
         try {
@@ -255,16 +261,48 @@ public class FileMethods {
             e.printStackTrace();
         }
     }
-    //缓存载入
-    public static void CacheEntry(){
-
-
-
-
-
-
-
+    private static void FileWrite(String path,ArrayList<String> arr){
+        File file = new File(path);
+        try (
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            ){
+            for(String i:arr){
+                writer.write(i+"\n");
+                writer.flush();
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
+    private static void FileUserLoad(){
+        for (String k:userCache.keySet()){
+            String path = userfile+"/"+k+".txt";
+            FileWrite(path,userCache.get(k));
+        }
+    }
+
+    private static void FileFirendLoad(){
+        for(String k:firendCache.keySet()){
+            String path = firendfile+"/"+k+".txt";
+            FileWrite(path,firendCache.get(k));
+        }
+    }
+
+    //缓存初始化
+    public static void CacheInit(){
+        ArrayList<String> cache = GetCacheTable();
+        for(String i:cache){
+            userCache.put(i,GetuserArr(i));
+            firendCache.put(i,GetfirendArr(i));
+        }
+    }
+
+    //缓存载入
+    public static void CacheEntry(){
+        FileClear();
+        FileUserLoad();
+        FileFirendLoad();
+    }
 }
