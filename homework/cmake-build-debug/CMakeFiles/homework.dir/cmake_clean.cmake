@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/homework.dir/AVLTree.cpp.o"
+  "CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o"
   "CMakeFiles/homework.dir/RBTree.cpp.o"
   "CMakeFiles/homework.dir/Test.cpp.o"
   "CMakeFiles/homework.dir/home1.cpp.o"

@@ -13,11 +13,6 @@ package leecode;
  *
  */
 
-
-
-
-
-
 class ListNode {
      int val;
      ListNode next;

@@ -8,7 +8,7 @@ import java.util.List;
 public class undo {
     public static void main(String[] args) {
         FileMethods.InitFilePath();
-        FileMethods.FileUserClear("xxx");
+
 
 
     }

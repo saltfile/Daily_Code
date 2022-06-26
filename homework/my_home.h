@@ -134,8 +134,8 @@ void TreeMain();
 int RBTreedemo();
 
 
-
-
+//线段树
+int seg_treedemo();
 
 
 
