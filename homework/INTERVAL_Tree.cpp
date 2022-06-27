@@ -9,6 +9,9 @@
 
 #define Max_LEN 1000
 /**
+ * 第一种线段树：堆存储方式
+ */
+/**
  *
  * @param arr 数组
  * @param tree 装树的数组
@@ -65,6 +68,11 @@ void update(int arr[],int tree[],int node,int start,int end,int idx,int val){
         tree[node] = tree[left_node] + tree[right_node];
 
 }
+
+
+
+
+
 //qurey计算线段长(未优化)
 int qurey(int arr[],int tree[],int node,int start,int end,int L,int R){
     cout<<node<<"    "<<start<<"    "<< end<<endl<<endl;
@@ -105,27 +113,189 @@ int qurey_(int arr[],int tree[],int node,int start,int end,int L,int R){
 
 
 
+/**
+ * 线段树：节点存储
+ *
+ */
+
+
+typedef struct seg_node
+{
+    int data;
+    int cover;
+    int   left,right;  //区间左右值
+    seg_node *leftchild;
+    seg_node   *rightchild;
+};
+
+
+seg_node *build(int arr[],int   l ,  int r ) //建立二叉树
+{
+    cout <<l<<"     "<<r<<endl;
+    seg_node  *root = (seg_node *)malloc(sizeof(seg_node));
+    memset(root,0,sizeof(root));
+    root->cover = 0;
+    root->left = l;
+    root->right = r;     //设置结点区间
+    root->leftchild = NULL;
+    root->rightchild = NULL;
+
+    if ( l < r )
+    {
+        int  mid = (r+l) >> 1;
+        root->leftchild = build ( arr,l , mid ) ;
+        root->rightchild = build ( arr,mid +1 , r) ;
+    }
+    if(l == r){
+        root->data = arr[l];
+    } else{
+        root->data = root->leftchild->data+root->rightchild->data;
+    }
+    return    root;
+}
+
+
+void  Delete (int c , int  d , seg_node  *root )
+{
+    if(c<= root->left&&d>= root->right)
+        root-> cover= root-> cover-1;
+    else
+    {
+        if(c < (root->left+ root->right)/2 ){
+            Delete ( c,d, root->leftchild  );
+            root->data = root->leftchild->data+root->rightchild->data;
+        }
+        if(d > (root->left+ root->right)/2 ){
+            Delete ( c,d, root->rightchild );
+            root->data = root->leftchild->data+root->rightchild->data;
+        }
+    }
+}
+
+void Insert(int  c, int d ,int num, seg_node  *root )
+{
+    if(c<= root->left&&d>= root->right){
+        root-> cover++;
+        root->data = num;
+    }else
+    {
+        if(c < (root->left+ root->right)/2 ) Insert (c,d,num, root->leftchild  );
+        if(d > (root->left+ root->right)/2 ) Insert (c,d,num, root->rightchild  );
+    }
+}
+
+
+void Insert(seg_node  *root , int  a , int  b,int arr[])
+{
+    int m;
+    if(root == NULL){
+        root = (seg_node *)malloc(sizeof(seg_node));
+        memset(root,0,sizeof(root));
+        root->cover = 0;
+        root->left = a;
+        root->right = b;     //设置结点区间
+        root->leftchild = NULL;
+        root->rightchild = NULL;
+        if ( a < b )
+        {
+            int  mid = (b+a) >> 1;
+            root->leftchild = build ( arr,a , mid ) ;
+            root->rightchild = build ( arr,mid +1 , b) ;
+        }
+        if(a == b){
+            root->data = arr[a];
+        } else{
+            root->data = root->leftchild->data+root->rightchild->data;
+        }
+    }
+    if( root ->cover == 0)
+    {
+
+        m = (root->left+ root->right)/2 ;
+        if (a == root->left && b == root->right)
+            root ->cover =1;
+        else if (b <= m)  Insert(root->leftchild , a, b,arr);
+        else if (a >= m)  Insert(root->rightchild , a, b,arr);
+        else
+        {
+            Insert(root->leftchild ,a, m,arr);
+            Insert(root->rightchild , m, b,arr);
+        }
+        if(root->left!= root->right){
+            root->data = root->leftchild->data+root->rightchild->data;
+        }
+    }
+}
+int  Count(seg_node *root)
+{
+    int  m,n;
+    if (root->cover == 1)
+        return   (root-> right - root-> left);
+    else if (root-> right - root-> left== 1 )return 0;
+    m= Count(root->leftchild);
+    n= Count(root->rightchild);
+    return m+n;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //主函数
 int seg_treedemo(){
-    int arr[] = {1,3,5,7,9,11};
-    int size = 6;
-    int tree[Max_LEN] = {0};
+    /**
+     * 第一种线段树
+     */
+    int arr[] = {1,3,5,7,9,11,25,31,55,8,9,7,5,2,5};
+//    int size = 6;
+//    int tree[Max_LEN] = {0};
+//
+//    build_tree(arr,tree,0,0,size-1);
+//
+//    for(int i = 0;i < 15;i++){
+//        cout<<tree[i]<<"     ";
+//    }
+//    cout<<endl<<"=========================================="<<endl;
 
-    build_tree(arr,tree,0,0,size-1);
+//
+//    update(arr,tree,0,0,size-1,4,1);
+//
+//    for(int i = 0;i < 15;i++){
+//        cout<<tree[i]<<"     ";
+//    }
+//    cout<<endl<<"=========================================="<<endl;
+//    int s = qurey_(arr,tree,0,0,size-1,2,5);
+//    cout<<"query:"<<s;
+    /**
+     * 第二种线段树
+     */
+    seg_node *p = build(arr,0,10);
 
-    for(int i = 0;i < 15;i++){
-        cout<<tree[i]<<"     ";
-    }
-    cout<<endl<<"=========================================="<<endl;
+//    Delete(1,1,p);
 
-    update(arr,tree,0,0,size-1,4,1);
-
-    for(int i = 0;i < 15;i++){
-        cout<<tree[i]<<"     ";
-    }
-    cout<<endl<<"=========================================="<<endl;
-    int s = qurey_(arr,tree,0,0,size-1,2,5);
-    cout<<"query:"<<s;
+    Insert(p,10,12,arr);
 
 
 
