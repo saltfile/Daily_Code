@@ -154,23 +154,18 @@ seg_node *build(int arr[],int   l ,  int r ) //建立二叉树
     return    root;
 }
 
-
-void  Delete (int c , int  d , seg_node  *root )
-{
-    if(c<= root->left&&d>= root->right)
-        root-> cover= root-> cover-1;
-    else
-    {
-        if(c < (root->left+ root->right)/2 ){
-            Delete ( c,d, root->leftchild  );
-            root->data = root->leftchild->data+root->rightchild->data;
-        }
-        if(d > (root->left+ root->right)/2 ){
-            Delete ( c,d, root->rightchild );
-            root->data = root->leftchild->data+root->rightchild->data;
-        }
-    }
-}
+//
+//void  Delete (int c , int  d , seg_node  *root )
+//{
+//    if(c<= root->left&&d>= root->right)
+//        root-> cover= root-> cover-1;
+//    else
+//    {
+//        if(c < (root->left+ root->right)/2 ){
+//            Delete ( c,d, root->leftchild  );
+//            root->data = root->leftchild->data+root->rightchild->data;
+//        }
+//}
 
 void Insert(int  c, int d ,int num, seg_node  *root )
 {
@@ -185,57 +180,78 @@ void Insert(int  c, int d ,int num, seg_node  *root )
 }
 
 
-void Insert(seg_node  *root , int  a , int  b,int arr[])
+void   Insert(seg_node  *root , int  a , int  b)
 {
-    int m;
-    if(root == NULL){
-        root = (seg_node *)malloc(sizeof(seg_node));
-        memset(root,0,sizeof(root));
-        root->cover = 0;
-        root->left = a;
-        root->right = b;     //设置结点区间
-        root->leftchild = NULL;
-        root->rightchild = NULL;
-        if ( a < b )
-        {
-            int  mid = (b+a) >> 1;
-            root->leftchild = build ( arr,a , mid ) ;
-            root->rightchild = build ( arr,mid +1 , b) ;
-        }
-        if(a == b){
-            root->data = arr[a];
-        } else{
-            root->data = root->leftchild->data+root->rightchild->data;
-        }
-    }
-    if( root ->cover == 0)
-    {
 
-        m = (root->left+ root->right)/2 ;
-        if (a == root->left && b == root->right)
-            root ->cover =1;
-        else if (b <= m)  Insert(root->leftchild , a, b,arr);
-        else if (a >= m)  Insert(root->rightchild , a, b,arr);
-        else
-        {
-            Insert(root->leftchild ,a, m,arr);
-            Insert(root->rightchild , m, b,arr);
-        }
-        if(root->left!= root->right){
-            root->data = root->leftchild->data+root->rightchild->data;
+
+}
+
+
+seg_node *update(seg_node *root,int start,int end,int idx,int val){
+    if (root == NULL){
+        return NULL;
+    } else{
+        cout<<start<<"      "<<end<<endl;
+    }
+    if(start == idx&&end == idx){
+        root->data = val;
+        return root;
+    }
+
+    if ( start < end )
+    {
+        int  mid = (start+end)/2;
+        if ( idx >= start && idx <= mid) {
+            root->leftchild = update( root->leftchild,start , mid,idx,val ) ;
+        } else {
+            root->rightchild = update( root->rightchild,mid +1 , end,idx,val) ;
         }
     }
+    root->data = 0;
+    if(root->leftchild != NULL)root->data += root->leftchild->data;
+    if(root->rightchild != NULL)root->data += root->rightchild->data;
+    return root;
 }
-int  Count(seg_node *root)
-{
-    int  m,n;
-    if (root->cover == 1)
-        return   (root-> right - root-> left);
-    else if (root-> right - root-> left== 1 )return 0;
-    m= Count(root->leftchild);
-    n= Count(root->rightchild);
-    return m+n;
+
+/**
+ *
+ * @param root
+ * @param start 开始范围
+ * @param end 结束范围
+ * @param L 查找开始范围
+ * @param R 查找结束范围
+ * @return
+ */
+int qureynode(seg_node *root,int start,int end,int L,int R){
+    if(R < start || L > end){
+        return 0;
+    }
+    if (root == NULL){
+        return 0;
+    } else{
+        cout<<start<<"      "<<end<<endl;
+    }
+
+    if(start == end){
+        return root->data;
+    }
+    if(L <= start && end <= R){
+        //当在这个范围中时可以返回一个那个区间的数;
+        return root->data;
+    }
+    int left = 0;
+    int right = 0;
+    if ( start <= end )
+    {
+        int  mid = (start+end)/2;
+            left = qureynode( root->leftchild,start , mid,L,R) ;
+            right = qureynode( root->rightchild,mid +1 , end,L,R) ;
+    }
+    return left+right;
+
 }
+
+
 
 
 
@@ -295,9 +311,12 @@ int seg_treedemo(){
 
 //    Delete(1,1,p);
 
-    Insert(p,10,12,arr);
+//    Insert(p,1,2);
+cout<<endl<<"===================================================="<<endl;
+    update(p,0,10,4,25);
 
-
+    cout<<endl<<"===================================================="<<endl;
+    cout<<"qurey:"<<qureynode(p,0,10,2,5);
 
     return 0;
 }
