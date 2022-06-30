@@ -4,6 +4,9 @@
 CMakeFiles/homework.dir/AVLTree.cpp.o: ../AVLTree.cpp
 CMakeFiles/homework.dir/AVLTree.cpp.o: ../my_home.h
 
+CMakeFiles/homework.dir/Btree.cpp.o: ../Btree.cpp
+CMakeFiles/homework.dir/Btree.cpp.o: ../my_home.h
+
 CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o: ../INTERVAL_Tree.cpp
 CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o: ../my_home.h
 

@@ -6,7 +6,35 @@
 
 #IncludeRegexTransform: 
 
+/opt/Cpro/homework/AVLTree.cpp
+my_home.h
+/opt/Cpro/homework/my_home.h
+
+/opt/Cpro/homework/Btree.cpp
+my_home.h
+/opt/Cpro/homework/my_home.h
+
 /opt/Cpro/homework/INTERVAL_Tree.cpp
+my_home.h
+/opt/Cpro/homework/my_home.h
+
+/opt/Cpro/homework/RBTree.cpp
+my_home.h
+/opt/Cpro/homework/my_home.h
+
+/opt/Cpro/homework/home1.cpp
+my_home.h
+/opt/Cpro/homework/my_home.h
+
+/opt/Cpro/homework/home2.cpp
+my_home.h
+/opt/Cpro/homework/my_home.h
+
+/opt/Cpro/homework/home3.cpp
+my_home.h
+/opt/Cpro/homework/my_home.h
+
+/opt/Cpro/homework/main.cpp
 my_home.h
 /opt/Cpro/homework/my_home.h
 
@@ -33,4 +61,8 @@ typeinfo
 -
 math.h
 -
+
+/opt/Cpro/homework/thread_test.cpp
+my_home.h
+/opt/Cpro/homework/my_home.h
 

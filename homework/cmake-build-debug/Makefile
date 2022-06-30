@@ -170,6 +170,33 @@ AVLTree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/AVLTree.cpp.s
 .PHONY : AVLTree.cpp.s
 
+Btree.o: Btree.cpp.o
+
+.PHONY : Btree.o
+
+# target to build an object file
+Btree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/Btree.cpp.o
+.PHONY : Btree.cpp.o
+
+Btree.i: Btree.cpp.i
+
+.PHONY : Btree.i
+
+# target to preprocess a source file
+Btree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/Btree.cpp.i
+.PHONY : Btree.cpp.i
+
+Btree.s: Btree.cpp.s
+
+.PHONY : Btree.s
+
+# target to generate assembly for a file
+Btree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/Btree.cpp.s
+.PHONY : Btree.cpp.s
+
 INTERVAL_Tree.o: INTERVAL_Tree.cpp.o
 
 .PHONY : INTERVAL_Tree.o
@@ -398,6 +425,9 @@ help:
 	@echo "... AVLTree.o"
 	@echo "... AVLTree.i"
 	@echo "... AVLTree.s"
+	@echo "... Btree.o"
+	@echo "... Btree.i"
+	@echo "... Btree.s"
 	@echo "... INTERVAL_Tree.o"
 	@echo "... INTERVAL_Tree.i"
 	@echo "... INTERVAL_Tree.s"
