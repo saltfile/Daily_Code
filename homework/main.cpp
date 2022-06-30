@@ -65,8 +65,8 @@ int main() {
 //thread_Test();
 //TreeMain();
 //RBTreedemo();
-seg_treedemo();
-
+//seg_treedemo();
+btreemain();
 
 
 
