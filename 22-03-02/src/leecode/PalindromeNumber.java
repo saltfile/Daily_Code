@@ -1,5 +1,16 @@
 package leecode;
 
+/**
+ * 给定一个整数x，true如果x是回文整数则返回。
+ *
+ * 当一个整数向后读和向前读一样时，它就是一个回文数。
+ *
+ * 例如，121是回文，而123不是。
+ * 例:
+ * Input: x = 121
+ * Output: true
+ * Explanation: 121 reads as 121 from left to right and from right to left.
+ */
 
 class Solution9 {
     public boolean isPalindrome(int x) {

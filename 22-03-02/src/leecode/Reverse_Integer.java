@@ -1,5 +1,12 @@
 package leecode;
 
+/**
+ * 给定一个带符号的 32 位整数x，返回x其数字反转。
+ * 如果反转x导致值超出有符号的 32 位整数范围，则返回。[-231, 231 - 1]0
+ */
+
+
+
 class Solution7 {
     public int reverse(int x) {
         try{
