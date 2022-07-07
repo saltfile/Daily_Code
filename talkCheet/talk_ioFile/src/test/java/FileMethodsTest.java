@@ -8,6 +8,6 @@ public class FileMethodsTest {
 
     @Test
     public void userIsExist() {
-        System.out.println( FileMethods.UserIsExist("aaa"));
+        System.out.println( );
     }
 }

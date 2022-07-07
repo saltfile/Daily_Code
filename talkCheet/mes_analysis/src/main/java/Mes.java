@@ -2,7 +2,9 @@ import lombok.Data;
 enum status{
     LOGIN,
     SEND,
-    ADD_FRIENDS
+    ADD_FRIENDS,
+    ASSENT_FRIENDS,
+    DEL_FRIENDS
 }
 @Data
 public class Mes{
