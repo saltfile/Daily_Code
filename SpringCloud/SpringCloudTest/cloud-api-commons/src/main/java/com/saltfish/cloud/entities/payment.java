@@ -1,4 +1,4 @@
-package com.easy.cloud.entities;
+package com.saltfish.cloud.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
