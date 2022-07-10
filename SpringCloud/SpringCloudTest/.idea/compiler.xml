@@ -10,6 +10,7 @@
         <module name="cloud_consumer8080" />
         <module name="cloud-api-commons" />
         <module name="cloud-producer01" />
+        <module name="cloud-Archalus-Test" />
       </profile>
     </annotationProcessing>
   </component>
