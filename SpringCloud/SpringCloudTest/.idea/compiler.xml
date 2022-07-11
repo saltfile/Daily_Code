@@ -8,9 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cloud_consumer8080" />
+        <module name="Eureka-Test" />
+        <module name="Eureka-Service-Consumer" />
+        <module name="Eureka-Service-Provider" />
         <module name="cloud-api-commons" />
-        <module name="cloud-producer01" />
         <module name="cloud-Archalus-Test" />
+        <module name="Eureka-Server" />
+        <module name="Eureka-ServerAP" />
+        <module name="cloud-producer01" />
       </profile>
     </annotationProcessing>
   </component>
