@@ -11,6 +11,7 @@
         <module name="Eureka-Test" />
         <module name="Eureka-Service-Consumer" />
         <module name="Eureka-Service-Provider" />
+        <module name="Eureka-Service-Consumer02" />
         <module name="cloud-api-commons" />
         <module name="cloud-Archalus-Test" />
         <module name="Eureka-Server" />
