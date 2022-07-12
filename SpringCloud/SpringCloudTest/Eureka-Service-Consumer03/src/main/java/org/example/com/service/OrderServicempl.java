@@ -10,7 +10,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -31,21 +30,11 @@ public class OrderServicempl implements OrderService{
     }
 
     private List<Product> ProductselectByDisCoverClient(){
-        StringBuffer sb = null;
-
-        ServiceInstance si = loadBalancerClient.choose("");
-        if (si == null)
-            return null;
-
-        sb = new StringBuffer();
-        sb.append("http://"+si.getHost()+":"+si.getPort()+"/product/list");
-
         ResponseEntity<List<Product>> response = restTemplate.exchange(
-                sb.toString(),
+                "http://provider-eureka/product/list",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<Product>>() {});
-
         return response.getBody();
     }
 }

@@ -1,12 +1,12 @@
 server:
-  port: 8071
+  port: 8072
 spring:
   cloud:
     loadbalancer:
       ribbon:
         enabled: false
   application:
-    name: consumer02-eureka
+    name: consumer03-eureka
 eureka:
   client:
     register-with-eureka: false
