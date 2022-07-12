@@ -18,6 +18,8 @@
         <module>Eureka-ServerAP</module>
         <module>Eureka-Service-Provider</module>
         <module>Eureka-Service-Consumer</module>
+        <module>Eureka-Service-Consumer02</module>
+        <module>Eureka-Service-Consumer03</module>
     </modules>
     <!--    统一版本 -->
     <properties>
