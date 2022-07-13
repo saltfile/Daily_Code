@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud_consumer8080" />
+        <module name="Eureka-Test" />
+        <module name="Eureka-Service-Consumer" />
+        <module name="Eureka-Service-Provider" />
+        <module name="Eureka-Service-Consumer02" />
+        <module name="Eureka-Service-Consumer03" />
+        <module name="cloud-api-commons" />
+        <module name="Eureka-Service-Provider02" />
+        <module name="cloud-Archalus-Test" />
+        <module name="Eureka-Server" />
+        <module name="Eureka-ServerAP" />
+        <module name="cloud-producer01" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
