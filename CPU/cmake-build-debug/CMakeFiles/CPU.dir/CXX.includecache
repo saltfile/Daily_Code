@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/opt/Cpro/CPU/mem_fun.cpp
+pub_references.h
+/opt/Cpro/CPU/pub_references.h
+
+/opt/Cpro/CPU/pub_references.h
+stdio.h
+-
+stdlib.h
+-
+stdarg.h
+-
+cstring
+-
+iostream
+-
+string.h
+-
+unistd.h
+-
+pthread.h
+-
+sched.h
+-
+typeinfo
+-
+math.h
+-
+
