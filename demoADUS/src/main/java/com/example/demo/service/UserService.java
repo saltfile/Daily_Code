@@ -1,10 +1,12 @@
 package com.example.demo.service;
 
+import com.example.demo.dao.MyBatisUserDao;
 import com.example.demo.dao.userDao;
 import com.example.demo.entiry.user_Tab;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 
 @Service
