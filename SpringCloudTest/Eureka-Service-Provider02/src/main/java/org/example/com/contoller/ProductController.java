@@ -18,6 +18,5 @@ public class ProductController {
     @GetMapping("/list")
     public List<Product> selectList(){
         return productService.selectProductList();
-
     }
 }
