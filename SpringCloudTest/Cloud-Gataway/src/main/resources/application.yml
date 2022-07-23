@@ -9,12 +9,31 @@ eureka:
     service-url:                    #对中心外暴露的地址
       defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
 spring:
+  profiles:
+    active: add_request_header_route
   cloud:
     gateway:
       discovery:
         locator:
           lower-case-service-id: true
           enabled: true
+      routes:
+#        - id: one
+#          uri: lb://provider-eureka
+#          predicates:
+#            - Path=/**
+#          filters:
+#            - PrefixPath=/product
+
+
+        - id: two
+          uri: lb://cloud-provider-payment8001
+          predicates:
+            - Path=/**
+          filters:
+            - PrefixPath=/payment
+  application:
+    name: Eureka-Gateway
 #      routes:
 #         - id: one
 #           uri: lb://eureka02
