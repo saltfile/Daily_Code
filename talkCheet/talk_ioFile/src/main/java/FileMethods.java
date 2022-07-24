@@ -7,9 +7,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 public class FileMethods {
-    static Map<String,String> table = new HashMap<>();
-    static Map<String, ConcurrentHashMap<String,String>> userCache = new ConcurrentHashMap<>();
-    static Map<String,ConcurrentHashMap<String,String>> firendCache = new ConcurrentHashMap<>();
+   private static Map<String,String> table = new HashMap<>();
+   private static Map<String, ConcurrentHashMap<String,String>> userCache = new ConcurrentHashMap<>();
+   private static Map<String,ConcurrentHashMap<String,String>> firendCache = new ConcurrentHashMap<>();
 
     static String path = null;
     static String userfile = null;
@@ -283,6 +283,14 @@ public class FileMethods {
     }
 
 
+
+
+
+
+
+    public static boolean SelUserCache(String user){
+        return userCache.containsKey(user);
+    }
 
 
 }
