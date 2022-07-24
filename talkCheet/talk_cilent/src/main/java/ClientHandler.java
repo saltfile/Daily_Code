@@ -34,4 +34,21 @@ public class ClientHandler {
 
         }
     }
+
+    public static void AassentFirendHandler(SocketChannel socketChannel,String message,String username){
+        try {
+            Mes mes = new Mes();
+            mes.setStatu(status.ASSENT_FRIENDS);
+            mes.setUser(username);
+            mes.setMes(message);
+            socketChannel.write(ByteBuffer.wrap(MesCode.Encoder(mes).getBytes()));
+        }catch (Exception r){
+
+        }
+    }
+
+
+
+
+
 }

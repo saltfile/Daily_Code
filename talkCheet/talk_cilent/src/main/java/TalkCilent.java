@@ -37,12 +37,19 @@ public class TalkCilent implements Runnable {
             while (scan.hasNextLine()) {
                 // 读取键盘输入
                 String line = scan.nextLine();
-                // 将键盘输入的内容输出到SocketChannel中
+                String message = line.substring(2);
+                //整理输入中的信息到底是哪一种格式然后通过handler打包
+                String[] mess = line.split(":");
+                switch (mess[0]){
+                    case "0":ClientHandler.LoginHandler(sc,username);
+                    case "1":ClientHandler.SendHandler(sc,message,username);
+                    case "2":ClientHandler.AddFirendHandler(sc,message,username);
+                    case "4":ClientHandler.AassentFirendHandler(sc,message,username);
+                }
                 ClientHandler.SendHandler(sc, line, username);
             }
-
         } catch (Exception e) {
-            System.out.println("客户端关闭");
+            System.err.println("客户端异常发送");
         }
     }
 

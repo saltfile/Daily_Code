@@ -28,7 +28,6 @@ public class TalkHandler {
         } catch (IOException e) {
             //如果登录失败需要关闭此通道
             String str = "error!!!!!请发布正确信息\n";
-
             try {
                 socketChannel.write(ByteBuffer.wrap(str.getBytes()));
                 socketChannel.close();
@@ -62,7 +61,6 @@ public class TalkHandler {
                 String miss = "未找到"+firend+"请确定此用户存在\n";
                 socketChannel.write(ByteBuffer.wrap(miss.getBytes()));
             }
-
         }
         } catch (IOException e) {
 
@@ -81,4 +79,52 @@ public class TalkHandler {
             ioException.printStackTrace();
         }
     }
+
+    public static void AddFirendHander(SocketChannel socketChannel,Mes mes){
+        try {
+            if (FileMethods.SelUserCache(mes.getUser())&&FileMethods.SelUserCache(mes.getMes())){
+                if(FileMethods.AddFriendRequest(mes.getUser(), mes.getMes())){
+                    String str = "好友请求已发送，等待对方同意";
+                    socketChannel.write(ByteBuffer.wrap(str.getBytes()));
+                }else {
+                    String str = "对方客户端异常";
+                    socketChannel.write(ByteBuffer.wrap(str.getBytes()));
+                }
+            }else {
+                throw new Exception();
+            }
+        }catch (Exception e){
+            try {
+            String str = "查无此人，请重新发送操作";
+            socketChannel.write(ByteBuffer.wrap(str.getBytes()));
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
+    }
+
+    public static void AessnetFirendHander(SocketChannel socketChannel,Mes mes){
+        try {
+            if (FileMethods.AssentRequest(mes.getUser(), mes.getMes())) {
+                socketChannel.write(ByteBuffer.wrap("成功同意好友".getBytes()));
+            }else {
+                socketChannel.write(ByteBuffer.wrap("对方名字异常或不存在".getBytes()));
+            }
+        }catch (Exception e){
+
+        }
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
 }

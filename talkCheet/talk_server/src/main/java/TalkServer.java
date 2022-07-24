@@ -24,6 +24,11 @@ public class TalkServer implements Runnable{
 
     public void init(){
         try {
+            //载入用户信息
+            FileMethods.InitFilePath();
+            FileMethods.CacheInit();
+            FileMethods.DisPlayCache();
+
             selector = Selector.open();
             //服务通道绑定设置信息
             ServerSocketChannel server = ServerSocketChannel.open();
@@ -136,6 +141,7 @@ public class TalkServer implements Runnable{
                 Mes mes = MesCode.Decoder(content.toString());
                 switch (mes.getStatu()){
                     case SEND:TalkHandler.SendHandler(serverMap,channelMap,socketChannel,mes);break;
+                    case LOGIN:TalkHandler.LoginHandler(serverMap,channelMap,socketChannel,mes);break;
                 }
                 return;
             } catch (Exception e) {
