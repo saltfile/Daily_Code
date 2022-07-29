@@ -10,7 +10,7 @@ $(function () {
         success: function (result) {
             if(result == "Y")
                 alert("普用用户登录成功");
-            id(result == "AY")
+            if(result == "AY")
                 alert("管理员登陆成功");
         },
         error: function (result) {
