@@ -170,6 +170,60 @@ cpu_fun.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/cpu_fun.cpp.s
 .PHONY : cpu_fun.cpp.s
 
+list.o: list.cpp.o
+
+.PHONY : list.o
+
+# target to build an object file
+list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/list.cpp.o
+.PHONY : list.cpp.o
+
+list.i: list.cpp.i
+
+.PHONY : list.i
+
+# target to preprocess a source file
+list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/list.cpp.i
+.PHONY : list.cpp.i
+
+list.s: list.cpp.s
+
+.PHONY : list.s
+
+# target to generate assembly for a file
+list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/list.cpp.s
+.PHONY : list.cpp.s
+
+log_fun.o: log_fun.cpp.o
+
+.PHONY : log_fun.o
+
+# target to build an object file
+log_fun.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/log_fun.cpp.o
+.PHONY : log_fun.cpp.o
+
+log_fun.i: log_fun.cpp.i
+
+.PHONY : log_fun.i
+
+# target to preprocess a source file
+log_fun.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/log_fun.cpp.i
+.PHONY : log_fun.cpp.i
+
+log_fun.s: log_fun.cpp.s
+
+.PHONY : log_fun.s
+
+# target to generate assembly for a file
+log_fun.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/log_fun.cpp.s
+.PHONY : log_fun.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -263,6 +317,12 @@ help:
 	@echo "... cpu_fun.o"
 	@echo "... cpu_fun.i"
 	@echo "... cpu_fun.s"
+	@echo "... list.o"
+	@echo "... list.i"
+	@echo "... list.s"
+	@echo "... log_fun.o"
+	@echo "... log_fun.i"
+	@echo "... log_fun.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

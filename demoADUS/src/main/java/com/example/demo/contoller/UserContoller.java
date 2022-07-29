@@ -41,6 +41,7 @@ public class UserContoller {
         log.info("从前端获取"+id+"  "+password);
         //获取用户信息
         user_Tab user = userService.Login(id,password);
+        System.out.println(user.getId());
         //如果user不是空的就证明用户存在
         if(user != null && user.getJurs() == 1)return "Y";//普通用户
         if(user != null && user.getJurs() == 2)return "AY";//管理员

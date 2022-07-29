@@ -2,6 +2,16 @@ package leecode;
 
 import java.util.Arrays;
 
+/**
+ * nums给定一个按非降序排序的整数数组，找到给定target值的开始和结束位置。
+ *
+ * 如果target在数组中找不到，则返回[-1, -1]。
+ *
+ * 您必须编写具有 O(log n)运行时复杂性的算法。
+ * 例：
+ * 输入： nums = [5,7,7,8,8,10]，目标 = 8
+ * 输出： [3,4]
+ */
 class Solution34{
     public int[] searchRange(int[] nums, int target) {
         int[] res = {-1,-1};

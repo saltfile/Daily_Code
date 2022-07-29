@@ -4,6 +4,12 @@
 CMakeFiles/CPU.dir/cpu_fun.cpp.o: ../cpu_fun.cpp
 CMakeFiles/CPU.dir/cpu_fun.cpp.o: ../pub_references.h
 
+CMakeFiles/CPU.dir/list.cpp.o: ../list.cpp
+CMakeFiles/CPU.dir/list.cpp.o: ../pub_references.h
+
+CMakeFiles/CPU.dir/log_fun.cpp.o: ../log_fun.cpp
+CMakeFiles/CPU.dir/log_fun.cpp.o: ../pub_references.h
+
 CMakeFiles/CPU.dir/main.cpp.o: ../main.cpp
 CMakeFiles/CPU.dir/main.cpp.o: ../pub_references.h
 
