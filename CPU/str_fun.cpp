@@ -6,6 +6,7 @@
 
 char * str_copy(char *str,char *arr)
 {
+    if (str == NULL&&arr == NULL)return NULL;
     str = (char *)malloc(strlen(arr)+1);
     memset(str,0,strlen(arr)+1);
     for(int i = 0;i < strlen(arr);i++){

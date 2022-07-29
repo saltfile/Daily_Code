@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/opt/Cpro/CPU/mem_fun.cpp
+/opt/Cpro/CPU/main.cpp
 pub_references.h
 /opt/Cpro/CPU/pub_references.h
 

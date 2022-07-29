@@ -87,6 +87,12 @@
 		<Unit filename="/opt/Cpro/CPU/cpu_fun.cpp">
 			<Option target="CPU"/>
 		</Unit>
+		<Unit filename="/opt/Cpro/CPU/list.cpp">
+			<Option target="CPU"/>
+		</Unit>
+		<Unit filename="/opt/Cpro/CPU/log_fun.cpp">
+			<Option target="CPU"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/CPU/main.cpp">
 			<Option target="CPU"/>
 		</Unit>
