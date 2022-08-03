@@ -16,6 +16,7 @@
 #include <typeinfo>
 #include <math.h>
 using namespace std;
+typedef unsigned char byte;
 
 #define MDR_SIZE 16
 //日志
@@ -24,41 +25,6 @@ void log_info(char *data);
 void log_erro(char *data);
 void log_erro(string data);
 void log_debug(char *data);
-
-
-//内存块空闲链表
-
-
-
-
-
-
-
-
-
-
-
-
-
-//寄存器
-typedef struct MDR{
-    char mem[MDR_SIZE];
-    char* ptr;
-};
-
-enum MDRs{
-    ax,
-    bx,
-    cx,
-    dx
-};
-
-typedef struct CPU{
-    MDR *ax;
-    MDR *bx;
-    MDR *cx;
-    MDR *dx;
-}CPU;
 
 
 /**
@@ -77,18 +43,50 @@ typedef struct list{
 //链表
 list *list_Init();
 list *list_Init(int len);
-void test_assignment();
 void add_list(list *root,char *ptr,int len,int head);
 void dis_play(list *root);
 list *remove_node(list *root,int len);
 char *test_obtain();
+//add命令 == 10010110  加法
+//sub命令 == 00010110  减法
+//mul命令 == 10001001  乘法
+//div命令 == 00001001  除法
+//把寄存器编号变成4位 每个命令执行是8位
+class CPU{
+public:
+
+
+
+
+
+
+    int add(byte *regs);
+    int sub(byte *regs);
+    int mul(byte *regs);
+    int div(byte *regs);
+
+
+
+
+};
+
+
+
+
+
+
+
 
 
 
 
 
 //字符串轮子
+//字符串相等
+bool str_equal(char *str1,char *str2);
+//字符串/字节拷贝
 char * str_copy(char *str,char *arr);
+byte * str_copy(byte *str,byte *arr);
 //分割时用的方法
 //获取长度
 int spilt_size(char *a,char *b);
@@ -96,27 +94,41 @@ int spilt_size(char *a,char *b);
 char ** split(char *str,char *dent);
 //字符合并
 char * str_merge(char *str,char * merstr);
-
+//字符串部分替换
 char *strrpc(char *dest,char *src,char *before,char *after);
 
 
-
-//mem_fun内存操作函数
-void mem_inits();
-char* mem_in_data(char *data,int len);
-char* mem_out_data(char *fir,int len);
-char *mem_info_mdr(MDR* m,char *mem,int len);
-char * mrd_move_mem(MDR* m);
-
-
-
-//GC
-void mem_list_distr();
+//进制转换函数
+//十进制转换十六位2进制
+byte* dec_to_bin(int number);
+int bin_to_dec(byte *data);
 
 
 
 
 
+
+
+
+
+//特有byte函数
+int bytelen(byte* byt);
+//byte版合并函数
+byte * byte_merge(byte *str,byte * merstr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+byte *command_conver_byte(char *command);
 
 
 

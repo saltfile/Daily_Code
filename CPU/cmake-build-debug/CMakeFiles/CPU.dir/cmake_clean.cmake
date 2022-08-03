@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/CPU.dir/cpu.cpp.o"
   "CMakeFiles/CPU.dir/cpu_fun.cpp.o"
   "CMakeFiles/CPU.dir/list.cpp.o"
   "CMakeFiles/CPU.dir/log_fun.cpp.o"

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/opt/Cpro/CPU/main.cpp
-pub_references.h
-/opt/Cpro/CPU/pub_references.h
-
 /opt/Cpro/CPU/pub_references.h
 stdio.h
 -
@@ -33,4 +29,8 @@ typeinfo
 -
 math.h
 -
+
+/opt/Cpro/CPU/str_fun.cpp
+pub_references.h
+/opt/Cpro/CPU/pub_references.h
 
