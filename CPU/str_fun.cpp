@@ -6,7 +6,7 @@
 
 char * str_copy(char *str,char *arr)
 {
-    if (str == NULL&&arr == NULL)return NULL;
+    if ((str == NULL&&arr == NULL)||arr == NULL)return NULL;
     str = (char *)malloc(strlen(arr)+1);
     memset(str,0,strlen(arr)+1);
     for(int i = 0;i < strlen(arr);i++){
@@ -15,7 +15,24 @@ char * str_copy(char *str,char *arr)
     str += '\0';
     return str;
 }
+int bytelen(byte* byt){
+    if (byt == NULL)return 0;
+    char *p = (char *)byt;
+    return strlen(p);
+}
 
+
+byte * str_copy(byte *str,byte *arr)
+{
+    if ((str == NULL&&arr == NULL)||arr == NULL)return NULL;
+    str = (byte *)malloc(bytelen(arr)+1);
+    memset(str,0,bytelen(arr)+1);
+    for(int i = 0;i < bytelen(arr);i++){
+        str[i] = arr[i];
+    }
+    str += '\0';
+    return str;
+}
 
 char * str_merge(char *str,char * merstr)
 {
@@ -34,7 +51,22 @@ char * str_merge(char *str,char * merstr)
     return res;
 }
 
+byte * byte_merge(byte *str,byte * merstr)
+{
+    merstr+='\0';
+    byte * res = (byte *)malloc(bytelen(str)+bytelen(merstr)+1);
+    memset(res,0,bytelen(str)+bytelen(merstr)+1);
+    for(int i = 0;i < bytelen(str);i++){
+        res[i] = str[i];
+    }
 
+    for(int i = 0;i < bytelen(merstr);i++){
+        int j = i;
+        char s =  merstr[i];
+        res[i+bytelen(str)] = s;
+    }
+    return res;
+}
 int spilt_size(char *a,char *b)
 {
     char *str = a;
@@ -51,7 +83,7 @@ int spilt_size(char *a,char *b)
             i++;
         }
     }
-    return i;
+    return ++i;
 }
 
 
@@ -164,5 +196,49 @@ char *strrpc_first(char *src,char *before,char *after)
 
     return dest;
 }
+
+bool str_equal(char *str1,char *str2){
+    if (strcmp(str1, str2) == 0)
+        return true;
+    else
+        return false;
+}
+
+
+
+byte* dec_to_bin(int number){
+    int res = number;
+    byte *re;
+
+    for (;res;res /= 2) {
+        if(res % 2 == 0)
+            re = byte_merge((byte *) "0", re);
+        else
+            re = byte_merge((byte *) "1", re);
+    }
+    return re;
+}
+
+int bin_to_dec(byte *data){
+    int flag = 0;
+    int len = bytelen(data);
+    int sum = 0;
+    for(int i = len-1; i >=0;i--){
+        int a =1 <<flag;
+        if (data[i] == (byte)'1')
+            sum+=a;
+        flag++;
+    }
+    return sum;
+}
+
+
+
+
+
+
+
+
+
 
 

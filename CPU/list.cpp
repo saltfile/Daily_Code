@@ -4,6 +4,17 @@
 
 #include "pub_references.h"
 
+
+
+
+
+
+
+
+
+
+
+
 list *list_Init(){
     list *res = (list *)malloc(sizeof(list));
     memset(res,0,sizeof(list));

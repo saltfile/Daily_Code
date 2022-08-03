@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/opt/Cpro/CPU/cpu.cpp">
+			<Option target="CPU"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/CPU/cpu_fun.cpp">
 			<Option target="CPU"/>
 		</Unit>
