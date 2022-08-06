@@ -573,7 +573,6 @@ int main1() {
     for(int i=0;i<length;i++) {
         cout<<binaryToHex(16,numberToBinary(16,2*i))<<':'<<IRbinary[i]<<'\t'<<HEX[i]<<'\n';
     }
-
     CPU test = CPU();
     test.run(test.readIR(length));
     return 0;
