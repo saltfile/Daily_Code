@@ -11,12 +11,19 @@ int main() {
 //        cout<<strs[i]<<endl;
 //    }
 
-byte *a = dec_to_bin(11);
-    for (int i = 0; i < bytelen(a); ++i) {
-        cout<<a[i]<<endl;
-    }
+//byte *a = dec_to_bin(11);
+//    for (int i = 0; i < bytelen(a); ++i) {
+//        cout<<a[i]<<endl;
+//    }
+//
+//cout<<bin_to_dec(a);
 
-cout<<bin_to_dec(a);
+code_tree *root = code_build();
+byte *c = (byte*)"10010110";
+cpu_fun fun = code_sel(root,c);
+fun((byte*)"asdasd");
+
+
 
 
     return 0;
