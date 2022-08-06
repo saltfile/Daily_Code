@@ -10,8 +10,6 @@ import java.util.HashMap;
  * 这个例子未来会添加不同例子
  */
 
-
-
 class E extends Object implements Cloneable{
     private int color;
     private String name;
