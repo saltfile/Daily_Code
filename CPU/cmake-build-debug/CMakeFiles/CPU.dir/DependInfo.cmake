@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/opt/Cpro/CPU/log_fun.cpp" "/opt/Cpro/CPU/cmake-build-debug/CMakeFiles/CPU.dir/log_fun.cpp.o"
   "/opt/Cpro/CPU/main.cpp" "/opt/Cpro/CPU/cmake-build-debug/CMakeFiles/CPU.dir/main.cpp.o"
   "/opt/Cpro/CPU/mem_fun.cpp" "/opt/Cpro/CPU/cmake-build-debug/CMakeFiles/CPU.dir/mem_fun.cpp.o"
+  "/opt/Cpro/CPU/stack.cpp" "/opt/Cpro/CPU/cmake-build-debug/CMakeFiles/CPU.dir/stack.cpp.o"
   "/opt/Cpro/CPU/str_fun.cpp" "/opt/Cpro/CPU/cmake-build-debug/CMakeFiles/CPU.dir/str_fun.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -48,6 +48,33 @@ void add_list(list *root,char *ptr,int len,int head);
 void dis_play(list *root);
 list *remove_node(list *root,int len);
 char *test_obtain();
+
+/**
+ * 指令栈
+ */
+typedef struct com_stack{
+
+
+
+
+
+
+}com_stack;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //add命令 == 10010110  加法
 //sub命令 == 00010110  减法
 //mul命令 == 10001001  乘法
@@ -76,19 +103,21 @@ public:
     MUR_mem(){}
     void copy_data(byte *data);
     void free_data();
+    ~MUR_mem();
 };
-
-
+//总线指令
+class commond{
+    byte *data;
+public:
+    commond(){}
+    void copy_data(byte *data);
+    ~commond();
+};
 
 class CPU{
 public:
-    MUR_mem MURS[16];
-
-
-
-
-
-
+    MUR_mem MURS[16];//寄存器
+    commond CB[1024];//控制总线
 
 
 };
