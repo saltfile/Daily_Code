@@ -149,12 +149,6 @@ cpu_fun  code_sel(code_tree *root, byte *command){
     }
 }
 
-
-
-
-
-
-
 code_tree *code_add(code_tree *root,char *command,cpu_fun fun){
     code_tree *p =root;
 

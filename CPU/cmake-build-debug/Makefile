@@ -305,6 +305,33 @@ mem_fun.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/mem_fun.cpp.s
 .PHONY : mem_fun.cpp.s
 
+stack.o: stack.cpp.o
+
+.PHONY : stack.o
+
+# target to build an object file
+stack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/stack.cpp.o
+.PHONY : stack.cpp.o
+
+stack.i: stack.cpp.i
+
+.PHONY : stack.i
+
+# target to preprocess a source file
+stack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/stack.cpp.i
+.PHONY : stack.cpp.i
+
+stack.s: stack.cpp.s
+
+.PHONY : stack.s
+
+# target to generate assembly for a file
+stack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPU.dir/build.make CMakeFiles/CPU.dir/stack.cpp.s
+.PHONY : stack.cpp.s
+
 str_fun.o: str_fun.cpp.o
 
 .PHONY : str_fun.o
@@ -359,6 +386,9 @@ help:
 	@echo "... mem_fun.o"
 	@echo "... mem_fun.i"
 	@echo "... mem_fun.s"
+	@echo "... stack.o"
+	@echo "... stack.i"
+	@echo "... stack.s"
 	@echo "... str_fun.o"
 	@echo "... str_fun.i"
 	@echo "... str_fun.s"

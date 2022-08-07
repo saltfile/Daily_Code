@@ -105,6 +105,9 @@
 		<Unit filename="/opt/Cpro/CPU/pub_references.h">
 			<Option target="CPU"/>
 		</Unit>
+		<Unit filename="/opt/Cpro/CPU/stack.cpp">
+			<Option target="CPU"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/CPU/str_fun.cpp">
 			<Option target="CPU"/>
 		</Unit>
