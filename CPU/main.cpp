@@ -18,11 +18,10 @@ int main() {
 //
 //cout<<bin_to_dec(a);
 
-code_tree *root = code_build();
-byte *c = (byte*)"10010110";
-cpu_fun fun = code_sel(root,c);
-fun((byte*)"asdasd");
-
+//code_tree *root = code_build();
+//byte *c = (byte*)"10010110";
+//cpu_fun fun = code_sel(root,c);
+//fun((byte*)"asdasd");
 
 
 
