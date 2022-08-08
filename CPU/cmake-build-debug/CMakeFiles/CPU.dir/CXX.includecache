@@ -6,33 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/opt/Cpro/CPU/cpu.cpp
-iostream
--
-fstream
--
-sstream
--
-string
--
-
-/opt/Cpro/CPU/cpu_fun.cpp
-pub_references.h
-/opt/Cpro/CPU/pub_references.h
-
-/opt/Cpro/CPU/list.cpp
-pub_references.h
-/opt/Cpro/CPU/pub_references.h
-
-/opt/Cpro/CPU/log_fun.cpp
-pub_references.h
-/opt/Cpro/CPU/pub_references.h
-
 /opt/Cpro/CPU/main.cpp
-pub_references.h
-/opt/Cpro/CPU/pub_references.h
-
-/opt/Cpro/CPU/mem_fun.cpp
 pub_references.h
 /opt/Cpro/CPU/pub_references.h
 
@@ -59,8 +33,4 @@ typeinfo
 -
 math.h
 -
-
-/opt/Cpro/CPU/str_fun.cpp
-pub_references.h
-/opt/Cpro/CPU/pub_references.h
 

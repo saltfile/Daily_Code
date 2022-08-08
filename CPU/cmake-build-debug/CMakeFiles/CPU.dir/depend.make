@@ -18,6 +18,9 @@ CMakeFiles/CPU.dir/main.cpp.o: ../pub_references.h
 CMakeFiles/CPU.dir/mem_fun.cpp.o: ../mem_fun.cpp
 CMakeFiles/CPU.dir/mem_fun.cpp.o: ../pub_references.h
 
+CMakeFiles/CPU.dir/stack.cpp.o: ../pub_references.h
+CMakeFiles/CPU.dir/stack.cpp.o: ../stack.cpp
+
 CMakeFiles/CPU.dir/str_fun.cpp.o: ../pub_references.h
 CMakeFiles/CPU.dir/str_fun.cpp.o: ../str_fun.cpp
 

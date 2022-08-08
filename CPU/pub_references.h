@@ -27,6 +27,50 @@ void log_erro(char *data);
 void log_erro(string data);
 void log_debug(char *data);
 
+#define stack_size 1024
+//typedef char* elment_type;
+//指令结构体
+typedef struct instructions{
+    byte *com;
+    int com_size;
+    byte *param1;
+    int par1_size;
+    byte *param2;
+    int par2_size;
+}instructions;
+
+
+
+
+/**
+ * 指令栈
+ */
+typedef struct com_stack{
+    char* array[stack_size];
+    int capacity;
+    int stackTop;//栈顶
+
+}com_stack;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * 内存链表
@@ -48,29 +92,6 @@ void add_list(list *root,char *ptr,int len,int head);
 void dis_play(list *root);
 list *remove_node(list *root,int len);
 char *test_obtain();
-
-/**
- * 指令栈
- */
-typedef struct com_stack{
-
-
-
-
-
-
-}com_stack;
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -179,21 +200,9 @@ int bytelen(byte* byt);
 byte * byte_merge(byte *str,byte * merstr);
 
 
-
-
-
-
-
-
-
-
-
-
-
 byte *command_conver_byte(char *command);
 
-
-
+//拆读取命令的函数   例如`将add R3,R4拆解为三部分10010110    0011寄存器号  0100寄存器号
 
 
 

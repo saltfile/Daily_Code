@@ -208,8 +208,7 @@ bool str_equal(char *str1,char *str2){
 
 byte* dec_to_bin(int number){
     int res = number;
-    byte *re;
-
+    byte *re = NULL;
     for (;res;res /= 2) {
         if(res % 2 == 0)
             re = byte_merge((byte *) "0", re);
