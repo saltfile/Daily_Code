@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/mypool.dir/main.cpp.o CMakeFiles/mypool.dir/all_init.cpp.o  -o mypool  -lpthread -lboost_system -lboost_filesystem -lrt -lboost_thread 
