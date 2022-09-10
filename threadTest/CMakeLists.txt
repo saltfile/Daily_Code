@@ -3,5 +3,5 @@ project(threadTest)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(threadTest main.cpp basic_func.h example1.cpp expampe2.cpp expampe3.cpp example4.cpp)
+add_executable(threadTest main.cpp basic_func.h example1.cpp example2.cpp example3.cpp example4.cpp example5.cpp example6.cpp example7.cpp exampe8.cpp)
 TARGET_LINK_LIBRARIES(threadTest pthread boost_system boost_filesystem rt boost_thread)
