@@ -87,16 +87,28 @@
 		<Unit filename="/opt/Cpro/threadTest/basic_func.h">
 			<Option target="threadTest"/>
 		</Unit>
+		<Unit filename="/opt/Cpro/threadTest/exampe8.cpp">
+			<Option target="threadTest"/>
+		</Unit>
 		<Unit filename="/opt/Cpro/threadTest/example1.cpp">
+			<Option target="threadTest"/>
+		</Unit>
+		<Unit filename="/opt/Cpro/threadTest/example2.cpp">
+			<Option target="threadTest"/>
+		</Unit>
+		<Unit filename="/opt/Cpro/threadTest/example3.cpp">
 			<Option target="threadTest"/>
 		</Unit>
 		<Unit filename="/opt/Cpro/threadTest/example4.cpp">
 			<Option target="threadTest"/>
 		</Unit>
-		<Unit filename="/opt/Cpro/threadTest/expampe2.cpp">
+		<Unit filename="/opt/Cpro/threadTest/example5.cpp">
 			<Option target="threadTest"/>
 		</Unit>
-		<Unit filename="/opt/Cpro/threadTest/expampe3.cpp">
+		<Unit filename="/opt/Cpro/threadTest/example6.cpp">
+			<Option target="threadTest"/>
+		</Unit>
+		<Unit filename="/opt/Cpro/threadTest/example7.cpp">
 			<Option target="threadTest"/>
 		</Unit>
 		<Unit filename="/opt/Cpro/threadTest/main.cpp">

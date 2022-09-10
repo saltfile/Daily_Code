@@ -143,6 +143,33 @@ threadTest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/build
 .PHONY : threadTest/fast
 
+exampe8.o: exampe8.cpp.o
+
+.PHONY : exampe8.o
+
+# target to build an object file
+exampe8.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/exampe8.cpp.o
+.PHONY : exampe8.cpp.o
+
+exampe8.i: exampe8.cpp.i
+
+.PHONY : exampe8.i
+
+# target to preprocess a source file
+exampe8.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/exampe8.cpp.i
+.PHONY : exampe8.cpp.i
+
+exampe8.s: exampe8.cpp.s
+
+.PHONY : exampe8.s
+
+# target to generate assembly for a file
+exampe8.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/exampe8.cpp.s
+.PHONY : exampe8.cpp.s
+
 example1.o: example1.cpp.o
 
 .PHONY : example1.o
@@ -169,6 +196,60 @@ example1.s: example1.cpp.s
 example1.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example1.cpp.s
 .PHONY : example1.cpp.s
+
+example2.o: example2.cpp.o
+
+.PHONY : example2.o
+
+# target to build an object file
+example2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example2.cpp.o
+.PHONY : example2.cpp.o
+
+example2.i: example2.cpp.i
+
+.PHONY : example2.i
+
+# target to preprocess a source file
+example2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example2.cpp.i
+.PHONY : example2.cpp.i
+
+example2.s: example2.cpp.s
+
+.PHONY : example2.s
+
+# target to generate assembly for a file
+example2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example2.cpp.s
+.PHONY : example2.cpp.s
+
+example3.o: example3.cpp.o
+
+.PHONY : example3.o
+
+# target to build an object file
+example3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example3.cpp.o
+.PHONY : example3.cpp.o
+
+example3.i: example3.cpp.i
+
+.PHONY : example3.i
+
+# target to preprocess a source file
+example3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example3.cpp.i
+.PHONY : example3.cpp.i
+
+example3.s: example3.cpp.s
+
+.PHONY : example3.s
+
+# target to generate assembly for a file
+example3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example3.cpp.s
+.PHONY : example3.cpp.s
 
 example4.o: example4.cpp.o
 
@@ -197,59 +278,86 @@ example4.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example4.cpp.s
 .PHONY : example4.cpp.s
 
-expampe2.o: expampe2.cpp.o
+example5.o: example5.cpp.o
 
-.PHONY : expampe2.o
-
-# target to build an object file
-expampe2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/expampe2.cpp.o
-.PHONY : expampe2.cpp.o
-
-expampe2.i: expampe2.cpp.i
-
-.PHONY : expampe2.i
-
-# target to preprocess a source file
-expampe2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/expampe2.cpp.i
-.PHONY : expampe2.cpp.i
-
-expampe2.s: expampe2.cpp.s
-
-.PHONY : expampe2.s
-
-# target to generate assembly for a file
-expampe2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/expampe2.cpp.s
-.PHONY : expampe2.cpp.s
-
-expampe3.o: expampe3.cpp.o
-
-.PHONY : expampe3.o
+.PHONY : example5.o
 
 # target to build an object file
-expampe3.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/expampe3.cpp.o
-.PHONY : expampe3.cpp.o
+example5.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example5.cpp.o
+.PHONY : example5.cpp.o
 
-expampe3.i: expampe3.cpp.i
+example5.i: example5.cpp.i
 
-.PHONY : expampe3.i
+.PHONY : example5.i
 
 # target to preprocess a source file
-expampe3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/expampe3.cpp.i
-.PHONY : expampe3.cpp.i
+example5.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example5.cpp.i
+.PHONY : example5.cpp.i
 
-expampe3.s: expampe3.cpp.s
+example5.s: example5.cpp.s
 
-.PHONY : expampe3.s
+.PHONY : example5.s
 
 # target to generate assembly for a file
-expampe3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/expampe3.cpp.s
-.PHONY : expampe3.cpp.s
+example5.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example5.cpp.s
+.PHONY : example5.cpp.s
+
+example6.o: example6.cpp.o
+
+.PHONY : example6.o
+
+# target to build an object file
+example6.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example6.cpp.o
+.PHONY : example6.cpp.o
+
+example6.i: example6.cpp.i
+
+.PHONY : example6.i
+
+# target to preprocess a source file
+example6.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example6.cpp.i
+.PHONY : example6.cpp.i
+
+example6.s: example6.cpp.s
+
+.PHONY : example6.s
+
+# target to generate assembly for a file
+example6.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example6.cpp.s
+.PHONY : example6.cpp.s
+
+example7.o: example7.cpp.o
+
+.PHONY : example7.o
+
+# target to build an object file
+example7.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example7.cpp.o
+.PHONY : example7.cpp.o
+
+example7.i: example7.cpp.i
+
+.PHONY : example7.i
+
+# target to preprocess a source file
+example7.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example7.cpp.i
+.PHONY : example7.cpp.i
+
+example7.s: example7.cpp.s
+
+.PHONY : example7.s
+
+# target to generate assembly for a file
+example7.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadTest.dir/build.make CMakeFiles/threadTest.dir/example7.cpp.s
+.PHONY : example7.cpp.s
 
 main.o: main.cpp.o
 
@@ -287,18 +395,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... threadTest"
+	@echo "... exampe8.o"
+	@echo "... exampe8.i"
+	@echo "... exampe8.s"
 	@echo "... example1.o"
 	@echo "... example1.i"
 	@echo "... example1.s"
+	@echo "... example2.o"
+	@echo "... example2.i"
+	@echo "... example2.s"
+	@echo "... example3.o"
+	@echo "... example3.i"
+	@echo "... example3.s"
 	@echo "... example4.o"
 	@echo "... example4.i"
 	@echo "... example4.s"
-	@echo "... expampe2.o"
-	@echo "... expampe2.i"
-	@echo "... expampe2.s"
-	@echo "... expampe3.o"
-	@echo "... expampe3.i"
-	@echo "... expampe3.s"
+	@echo "... example5.o"
+	@echo "... example5.i"
+	@echo "... example5.s"
+	@echo "... example6.o"
+	@echo "... example6.i"
+	@echo "... example6.s"
+	@echo "... example7.o"
+	@echo "... example7.i"
+	@echo "... example7.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

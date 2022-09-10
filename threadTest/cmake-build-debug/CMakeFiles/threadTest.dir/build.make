@@ -103,31 +103,31 @@ CMakeFiles/threadTest.dir/example1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/example1.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/example1.cpp -o CMakeFiles/threadTest.dir/example1.cpp.s
 
-CMakeFiles/threadTest.dir/expampe2.cpp.o: CMakeFiles/threadTest.dir/flags.make
-CMakeFiles/threadTest.dir/expampe2.cpp.o: ../expampe2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/threadTest.dir/expampe2.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/threadTest.dir/expampe2.cpp.o -c /opt/Cpro/threadTest/expampe2.cpp
+CMakeFiles/threadTest.dir/example2.cpp.o: CMakeFiles/threadTest.dir/flags.make
+CMakeFiles/threadTest.dir/example2.cpp.o: ../example2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/threadTest.dir/example2.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/threadTest.dir/example2.cpp.o -c /opt/Cpro/threadTest/example2.cpp
 
-CMakeFiles/threadTest.dir/expampe2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/threadTest.dir/expampe2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/threadTest/expampe2.cpp > CMakeFiles/threadTest.dir/expampe2.cpp.i
+CMakeFiles/threadTest.dir/example2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/threadTest.dir/example2.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/threadTest/example2.cpp > CMakeFiles/threadTest.dir/example2.cpp.i
 
-CMakeFiles/threadTest.dir/expampe2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/expampe2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/expampe2.cpp -o CMakeFiles/threadTest.dir/expampe2.cpp.s
+CMakeFiles/threadTest.dir/example2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/example2.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/example2.cpp -o CMakeFiles/threadTest.dir/example2.cpp.s
 
-CMakeFiles/threadTest.dir/expampe3.cpp.o: CMakeFiles/threadTest.dir/flags.make
-CMakeFiles/threadTest.dir/expampe3.cpp.o: ../expampe3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/threadTest.dir/expampe3.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/threadTest.dir/expampe3.cpp.o -c /opt/Cpro/threadTest/expampe3.cpp
+CMakeFiles/threadTest.dir/example3.cpp.o: CMakeFiles/threadTest.dir/flags.make
+CMakeFiles/threadTest.dir/example3.cpp.o: ../example3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/threadTest.dir/example3.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/threadTest.dir/example3.cpp.o -c /opt/Cpro/threadTest/example3.cpp
 
-CMakeFiles/threadTest.dir/expampe3.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/threadTest.dir/expampe3.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/threadTest/expampe3.cpp > CMakeFiles/threadTest.dir/expampe3.cpp.i
+CMakeFiles/threadTest.dir/example3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/threadTest.dir/example3.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/threadTest/example3.cpp > CMakeFiles/threadTest.dir/example3.cpp.i
 
-CMakeFiles/threadTest.dir/expampe3.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/expampe3.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/expampe3.cpp -o CMakeFiles/threadTest.dir/expampe3.cpp.s
+CMakeFiles/threadTest.dir/example3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/example3.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/example3.cpp -o CMakeFiles/threadTest.dir/example3.cpp.s
 
 CMakeFiles/threadTest.dir/example4.cpp.o: CMakeFiles/threadTest.dir/flags.make
 CMakeFiles/threadTest.dir/example4.cpp.o: ../example4.cpp
@@ -142,25 +142,85 @@ CMakeFiles/threadTest.dir/example4.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/example4.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/example4.cpp -o CMakeFiles/threadTest.dir/example4.cpp.s
 
+CMakeFiles/threadTest.dir/example5.cpp.o: CMakeFiles/threadTest.dir/flags.make
+CMakeFiles/threadTest.dir/example5.cpp.o: ../example5.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/threadTest.dir/example5.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/threadTest.dir/example5.cpp.o -c /opt/Cpro/threadTest/example5.cpp
+
+CMakeFiles/threadTest.dir/example5.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/threadTest.dir/example5.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/threadTest/example5.cpp > CMakeFiles/threadTest.dir/example5.cpp.i
+
+CMakeFiles/threadTest.dir/example5.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/example5.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/example5.cpp -o CMakeFiles/threadTest.dir/example5.cpp.s
+
+CMakeFiles/threadTest.dir/example6.cpp.o: CMakeFiles/threadTest.dir/flags.make
+CMakeFiles/threadTest.dir/example6.cpp.o: ../example6.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/threadTest.dir/example6.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/threadTest.dir/example6.cpp.o -c /opt/Cpro/threadTest/example6.cpp
+
+CMakeFiles/threadTest.dir/example6.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/threadTest.dir/example6.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/threadTest/example6.cpp > CMakeFiles/threadTest.dir/example6.cpp.i
+
+CMakeFiles/threadTest.dir/example6.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/example6.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/example6.cpp -o CMakeFiles/threadTest.dir/example6.cpp.s
+
+CMakeFiles/threadTest.dir/example7.cpp.o: CMakeFiles/threadTest.dir/flags.make
+CMakeFiles/threadTest.dir/example7.cpp.o: ../example7.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/threadTest.dir/example7.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/threadTest.dir/example7.cpp.o -c /opt/Cpro/threadTest/example7.cpp
+
+CMakeFiles/threadTest.dir/example7.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/threadTest.dir/example7.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/threadTest/example7.cpp > CMakeFiles/threadTest.dir/example7.cpp.i
+
+CMakeFiles/threadTest.dir/example7.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/example7.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/example7.cpp -o CMakeFiles/threadTest.dir/example7.cpp.s
+
+CMakeFiles/threadTest.dir/exampe8.cpp.o: CMakeFiles/threadTest.dir/flags.make
+CMakeFiles/threadTest.dir/exampe8.cpp.o: ../exampe8.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/threadTest.dir/exampe8.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/threadTest.dir/exampe8.cpp.o -c /opt/Cpro/threadTest/exampe8.cpp
+
+CMakeFiles/threadTest.dir/exampe8.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/threadTest.dir/exampe8.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/threadTest/exampe8.cpp > CMakeFiles/threadTest.dir/exampe8.cpp.i
+
+CMakeFiles/threadTest.dir/exampe8.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/threadTest.dir/exampe8.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/threadTest/exampe8.cpp -o CMakeFiles/threadTest.dir/exampe8.cpp.s
+
 # Object files for target threadTest
 threadTest_OBJECTS = \
 "CMakeFiles/threadTest.dir/main.cpp.o" \
 "CMakeFiles/threadTest.dir/example1.cpp.o" \
-"CMakeFiles/threadTest.dir/expampe2.cpp.o" \
-"CMakeFiles/threadTest.dir/expampe3.cpp.o" \
-"CMakeFiles/threadTest.dir/example4.cpp.o"
+"CMakeFiles/threadTest.dir/example2.cpp.o" \
+"CMakeFiles/threadTest.dir/example3.cpp.o" \
+"CMakeFiles/threadTest.dir/example4.cpp.o" \
+"CMakeFiles/threadTest.dir/example5.cpp.o" \
+"CMakeFiles/threadTest.dir/example6.cpp.o" \
+"CMakeFiles/threadTest.dir/example7.cpp.o" \
+"CMakeFiles/threadTest.dir/exampe8.cpp.o"
 
 # External object files for target threadTest
 threadTest_EXTERNAL_OBJECTS =
 
 threadTest: CMakeFiles/threadTest.dir/main.cpp.o
 threadTest: CMakeFiles/threadTest.dir/example1.cpp.o
-threadTest: CMakeFiles/threadTest.dir/expampe2.cpp.o
-threadTest: CMakeFiles/threadTest.dir/expampe3.cpp.o
+threadTest: CMakeFiles/threadTest.dir/example2.cpp.o
+threadTest: CMakeFiles/threadTest.dir/example3.cpp.o
 threadTest: CMakeFiles/threadTest.dir/example4.cpp.o
+threadTest: CMakeFiles/threadTest.dir/example5.cpp.o
+threadTest: CMakeFiles/threadTest.dir/example6.cpp.o
+threadTest: CMakeFiles/threadTest.dir/example7.cpp.o
+threadTest: CMakeFiles/threadTest.dir/exampe8.cpp.o
 threadTest: CMakeFiles/threadTest.dir/build.make
 threadTest: CMakeFiles/threadTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable threadTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/Cpro/threadTest/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable threadTest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/threadTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

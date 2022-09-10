@@ -24,7 +24,7 @@ sys/types.h
 sys/stat.h
 -
 
-/opt/Cpro/threadTest/example4.cpp
+/opt/Cpro/threadTest/example7.cpp
 basic_func.h
 /opt/Cpro/threadTest/basic_func.h
 
