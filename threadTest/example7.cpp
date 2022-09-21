@@ -16,7 +16,7 @@ typedef struct task_pc{
 task_pc* head=NULL;
 
 
-void* product(void* arg){
+void* product_s(void* arg){
     while (true){
 
       pthread_mutex_lock(&mutex_pc);
@@ -39,7 +39,7 @@ void* product(void* arg){
     }
 }
 
-void* consumer(void* arg){
+void* consumer_s(void* arg){
     while (true){
         pthread_mutex_lock(&mutex_pc);
         while (head==NULL){
@@ -60,10 +60,10 @@ int expampe7_main(){
     pthread_cond_init(&cond_pc,NULL);
     pthread_t Ps[3],Cs[5];
     for(int i = 0;i < 3;i++){
-        pthread_create(&Ps[i],NULL,product,NULL);
+        pthread_create(&Ps[i],NULL,product_s,NULL);
     }
     for (int i = 0; i < 5; ++i) {
-        pthread_create(&Cs[i],NULL,consumer,NULL);
+        pthread_create(&Cs[i],NULL,consumer_s,NULL);
     }
 
     for (int i = 0; i < 3; ++i) {

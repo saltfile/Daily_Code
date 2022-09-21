@@ -12,6 +12,7 @@
 #include <zconf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <semaphore.h>
 using namespace std;
 
 
@@ -29,4 +30,6 @@ int expampe5_main();
 int expampe6_main();
 //例子7 生产者消费者模型
 int expampe7_main();
+//例子8 信号量
+int expampe8_main();
 #endif //THREADTEST_BASIC_FUNC_H
