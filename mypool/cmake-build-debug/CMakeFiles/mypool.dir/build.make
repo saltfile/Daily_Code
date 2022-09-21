@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/CLion-2020.2.4/clion-2020.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/IDE/CLion-2020.2.5/clion-2020.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/CLion-2020.2.4/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
+RM = /opt/IDE/CLion-2020.2.5/clion-2020.2.5/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /opt/Cpro/mypool
+CMAKE_SOURCE_DIR = /opt/git_Pro/Daily_Code/mypool
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /opt/Cpro/mypool/cmake-build-debug
+CMAKE_BINARY_DIR = /opt/git_Pro/Daily_Code/mypool/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mypool.dir/depend.make
@@ -79,29 +79,29 @@ include CMakeFiles/mypool.dir/flags.make
 
 CMakeFiles/mypool.dir/main.cpp.o: CMakeFiles/mypool.dir/flags.make
 CMakeFiles/mypool.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mypool.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mypool.dir/main.cpp.o -c /opt/Cpro/mypool/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mypool.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mypool.dir/main.cpp.o -c /opt/git_Pro/Daily_Code/mypool/main.cpp
 
 CMakeFiles/mypool.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mypool.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/mypool/main.cpp > CMakeFiles/mypool.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/mypool/main.cpp > CMakeFiles/mypool.dir/main.cpp.i
 
 CMakeFiles/mypool.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mypool.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/mypool/main.cpp -o CMakeFiles/mypool.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/mypool/main.cpp -o CMakeFiles/mypool.dir/main.cpp.s
 
 CMakeFiles/mypool.dir/all_init.cpp.o: CMakeFiles/mypool.dir/flags.make
 CMakeFiles/mypool.dir/all_init.cpp.o: ../all_init.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mypool.dir/all_init.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mypool.dir/all_init.cpp.o -c /opt/Cpro/mypool/all_init.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mypool.dir/all_init.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mypool.dir/all_init.cpp.o -c /opt/git_Pro/Daily_Code/mypool/all_init.cpp
 
 CMakeFiles/mypool.dir/all_init.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mypool.dir/all_init.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/mypool/all_init.cpp > CMakeFiles/mypool.dir/all_init.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/mypool/all_init.cpp > CMakeFiles/mypool.dir/all_init.cpp.i
 
 CMakeFiles/mypool.dir/all_init.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mypool.dir/all_init.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/mypool/all_init.cpp -o CMakeFiles/mypool.dir/all_init.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/mypool/all_init.cpp -o CMakeFiles/mypool.dir/all_init.cpp.s
 
 # Object files for target mypool
 mypool_OBJECTS = \
@@ -115,7 +115,7 @@ mypool: CMakeFiles/mypool.dir/main.cpp.o
 mypool: CMakeFiles/mypool.dir/all_init.cpp.o
 mypool: CMakeFiles/mypool.dir/build.make
 mypool: CMakeFiles/mypool.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/Cpro/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mypool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mypool"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mypool.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -128,6 +128,6 @@ CMakeFiles/mypool.dir/clean:
 .PHONY : CMakeFiles/mypool.dir/clean
 
 CMakeFiles/mypool.dir/depend:
-	cd /opt/Cpro/mypool/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /opt/Cpro/mypool /opt/Cpro/mypool /opt/Cpro/mypool/cmake-build-debug /opt/Cpro/mypool/cmake-build-debug /opt/Cpro/mypool/cmake-build-debug/CMakeFiles/mypool.dir/DependInfo.cmake --color=$(COLOR)
+	cd /opt/git_Pro/Daily_Code/mypool/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /opt/git_Pro/Daily_Code/mypool /opt/git_Pro/Daily_Code/mypool /opt/git_Pro/Daily_Code/mypool/cmake-build-debug /opt/git_Pro/Daily_Code/mypool/cmake-build-debug /opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles/mypool.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mypool.dir/depend
 

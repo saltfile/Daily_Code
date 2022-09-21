@@ -1,3 +1,3 @@
-/opt/Cpro/mypool/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/opt/Cpro/mypool/cmake-build-debug/CMakeFiles/edit_cache.dir
-/opt/Cpro/mypool/cmake-build-debug/CMakeFiles/mypool.dir
+/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles/edit_cache.dir
+/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles/mypool.dir
