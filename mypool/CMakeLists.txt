@@ -3,5 +3,5 @@ project(mypool)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(mypool main.cpp basic_function.h all_init.cpp)
+add_executable(mypool main.cpp basic_function.h all_init.cpp Implement_func.cpp pool_switch.cpp product.cpp)
 TARGET_LINK_LIBRARIES(mypool pthread boost_system boost_filesystem rt boost_thread)

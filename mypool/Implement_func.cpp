@@ -20,12 +20,21 @@ void* work(void* arg){
         while (pool->capacity == 0&& !pool->poweroff){
             //阻塞工作线程
             pthread_cond_wait(&pool->empty_vbe,&pool->pool_lock);
+
+            if (pool->live_num > 0){
+                pool->kill_num--;
+                if (pool->live_num > pool->min_size){
+                pool->live_num--;
+                pthread_mutex_unlock(&pool->pool_lock);
+                pool_exit(pool);
+                }
+            }
         }
 
         //判断线程池是否被关闭
         if (pool->poweroff){
             pthread_mutex_lock(&pool->pool_lock);
-            pthread_exit(NULL);
+            pool_exit(pool);
         }
 
         //开始消费线程

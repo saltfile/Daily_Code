@@ -51,6 +51,9 @@ thead_pool *pool_init(int work_num,int min,int queue_size);
 
 void* admin(void* arg);
 void* work(void* arg);
+void pool_exit(thead_pool *pool);
+
+__unused void pool_add_task(thead_pool *pool,void*(*func)(void*),void arg);
 
 
 
