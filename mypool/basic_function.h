@@ -4,12 +4,18 @@
 
 #ifndef MYPOOL_BASIC_FUNCTION_H
 #define MYPOOL_BASIC_FUNCTION_H
+#include <iostream>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 #include <cstring>
+#include <zconf.h>
+using namespace std;
+
 
 typedef struct task{
+    void* arg;
     void (*func)(void *arg);//被执行函数指针
 };
 
@@ -43,9 +49,8 @@ thead_pool *pool_init(int work_num,int min,int queue_size);
 
 
 
-
-
-
+void* admin(void* arg);
+void* work(void* arg);
 
 
 
