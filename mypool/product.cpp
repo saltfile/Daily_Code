@@ -8,7 +8,7 @@ void pool_add_task(thead_pool *pool, void (*func)(void *), void *arg) {
 
 
     pthread_mutex_lock(&pool->pool_lock);
-    cout<<"我添加了";
+    cout<<"我添加了"<<endl;
 
 
     while (pool->current == pool->capacity && !pool->poweroff) {
@@ -24,7 +24,7 @@ void pool_add_task(thead_pool *pool, void (*func)(void *), void *arg) {
     //添加任务
     pool->tasks[pool->queue_head].func = func;
     pool->tasks[pool->queue_head].arg = arg;
-    pool->queue_head = (pool->queue_head + 1) % pool->capacity;
+    pool->queue_tail = (pool->queue_tail + 1) % pool->capacity;
     pool->current++;
 
 

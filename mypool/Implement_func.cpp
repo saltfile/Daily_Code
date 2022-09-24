@@ -17,7 +17,7 @@ void* work(void* arg){
         pthread_mutex_lock(&pool->pool_lock);
 
         //当前任务队列如果为空并且线程池没有关闭
-        while (pool->capacity == 0&& !pool->poweroff){
+        while (pool->current == 0&& !pool->poweroff){
             //阻塞工作线程
             pthread_cond_wait(&pool->empty_vbe,&pool->pool_lock);
 
@@ -50,8 +50,8 @@ void* work(void* arg){
         pool->working_num++;
         pthread_mutex_lock(&pool->working_lock);
         task.func(task.arg);
-        free(task.arg);
         task.arg = NULL;
+
         pthread_mutex_unlock(&pool->working_lock);
         pool->working_num--;
         pthread_mutex_unlock(&pool->working_lock);

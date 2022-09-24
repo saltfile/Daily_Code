@@ -47,7 +47,7 @@ int pool_destory(thead_pool* pool){
     pool = NULL;
     free(p);
 
-
+cout<<"自制线程池----bye~~"<<endl;
     return 0;
 }
 
