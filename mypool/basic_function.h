@@ -48,13 +48,17 @@ typedef struct thread_pool{
 thead_pool *pool_init(int work_num,int min,int queue_size);
 
 
-
 void* admin(void* arg);
 void* work(void* arg);
 void pool_exit(thead_pool *pool);
 
-__unused void pool_add_task(thead_pool *pool,void*(*func)(void*),void arg);
+void pool_add_task(thead_pool *pool,void (*func)(void*),void* arg);
 
+
+int get_pool_live_num(thread_pool* pool);
+int get_pool_working_num(thread_pool* pool);
+
+int pool_destory(thead_pool* pool);
 
 
 #endif //MYPOOL_BASIC_FUNCTION_H

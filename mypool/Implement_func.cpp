@@ -33,7 +33,7 @@ void* work(void* arg){
 
         //判断线程池是否被关闭
         if (pool->poweroff){
-            pthread_mutex_lock(&pool->pool_lock);
+            pthread_mutex_unlock(&pool->pool_lock);
             pool_exit(pool);
         }
 
@@ -44,6 +44,7 @@ void* work(void* arg){
         //循环队列->如果对其中的长度进行取余那么运行到最后一个的时候+1取余刚好为0，就刚好回到队列的开头
         pool->queue_head = (pool->queue_head+1)%pool->capacity;
         pool->current--;
+        pthread_cond_signal(&pool->full_vbe);
         pthread_mutex_unlock(&pool->pool_lock);
         //正在忙的线程需要处理
         pool->working_num++;
@@ -58,9 +59,6 @@ void* work(void* arg){
 
     }
     return NULL;
-
-
-
 
 }
 
