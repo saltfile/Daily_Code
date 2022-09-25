@@ -9,10 +9,10 @@ void fun(void* a){
 
 int main() {
     thead_pool *p = pool_init(10,3,100);
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 100; ++i) {
         void* arg = &i;
         pool_add_task(p, fun, arg);
-        sleep(1);
+        sleep(0.000001);
     }
 
     sleep(10);
