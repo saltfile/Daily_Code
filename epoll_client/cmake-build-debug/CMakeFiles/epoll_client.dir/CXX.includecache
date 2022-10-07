@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/opt/CPro/epoll_client/client_start.cpp
+/opt/CPro/epoll_client/main.cpp
 my_bases.h
 /opt/CPro/epoll_client/my_bases.h
 

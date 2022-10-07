@@ -4,8 +4,19 @@
 
 #define MAXLINE 4096
 
-int main() {
-    client_run(9876,"127.0.0.1");
+int main(int argc,char** argv) {
+
+    char *a = "男";
+    cout<<strlen(a);
+
+
+//    person person;
+//    person.name = "aaaa";
+//    person.age = 11;
+//    cout<<person.name<<endl;
+//    cout<<person.age<<endl;
+
+//    client_run(atoi(argv[0]),argv[1]);
 //
 //    int sfd,ret;
 //    char buf[1024] ={0};
