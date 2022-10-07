@@ -5,9 +5,7 @@
 #define MAXLINE 4096
 
 int main(int argc,char** argv) {
-
-    char *a = "男";
-    cout<<strlen(a);
+    client_run(8990,"127.0.0.1");
 
 
 //    person person;

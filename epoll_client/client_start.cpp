@@ -46,7 +46,7 @@ int client_run(int port,char* address){
             continue;
         }
         if (buf_read(sfd,readbuf)){
-            printf("%s\n",readbuf);
+//            printf("%s\n",readbuf);
         } else{
             printf("读取信息失败\n");
             continue;
@@ -84,6 +84,12 @@ int buf_send(int sfd,char *buf){
 int buf_read(int sfd,char* buf){
     memset(buf,0,BUF_LENS);
     int recv_bytes = recv(sfd,buf,BUF_LENS,0);
+
+    packge *packge1 = (packge *)malloc(sizeof(packge));
+    packge1->solve_package((u8 *)buf);
+    //展示结果
+    cout<<packge1->result;
+
     if(recv_bytes == -1)
     {
         return 0;
