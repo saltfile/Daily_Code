@@ -63,10 +63,12 @@ static u8 CONN_REQUIRE=128;
 static u8 RESP_REQUIRE=129;
 
 static u8 DONE_DISCONN=-121;
+static u8 USE_DATABASE = 9;
 
 //这里是协议包的解析包括各个报文头和报文体
 class packge{
 public:
+    u8 head;
     u8 *all;
     u8 pack_head;
     u8 crc[2];
@@ -160,7 +162,19 @@ void handler_accpet(int epollfd,int listenfd);
 int epollser_start(int port);
 
 
+u8 grammer_check(char* mes);
 
+
+class person{
+public:
+    int a;
+    person(int a){
+        a=a;
+    }
+    int persons(int a){
+        return a;
+    }
+};
 
 
 

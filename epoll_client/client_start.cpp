@@ -70,7 +70,20 @@ int buf_send(int sfd,char *buf){
         printf("client shutdown\n");
         exit(0);
     }
-    int send_bytes = send(sfd,buf,strlen(buf),0);
+    packge send_packge;
+
+    //拼接报文体
+    u8 head = grammer_check(buf);
+    if (head!=0){
+        send_packge.create_package(buf,head);
+    }
+
+
+
+    int send_bytes = send(sfd,send_packge.all,strlen((char *)send_packge.all),0);
+
+
+
     if(send_bytes == -1)
     {
         perror("send fail");
