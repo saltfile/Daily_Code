@@ -13,6 +13,21 @@
 
 
 int client_run(int port,char* address){
+    printf("\n"
+          "  _____             _              _____   ____  \n"
+          " |_   _|           | |            |  __ \\ |  _ \\ \n"
+          "   | |   _ __    __| |  ___ __  __| |  | || |_) |\n"
+          "   | |  | '_ \\  / _` | / _ \\\\ \\/ /| |  | ||  _ <       port:%d   \n"
+          "  _| |_ | | | || (_| ||  __/ >  < | |__| || |_) |          host:localhost   \n"
+          " |_____||_| |_| \\__,_| \\___|/_/\\_\\|_____/ |____/ \n"
+          "    I just wrote some nonsense here. I'm still a beta \n"
+          " version, so I can't think of anything                \n"
+          "                                                 \n",port);
+
+
+
+
+
 
     int sfd,ret;
     char writebuf[BUF_LENS] ={0};
@@ -74,10 +89,16 @@ int buf_send(int sfd,char *buf){
 
     //拼接报文体
     u8 head = grammer_check(buf);
+    if (head == 0)
+    {
+        cout<<"Unknown statement, please re-enter"<<endl;
+        return 0;
+    }
+
+
     if (head!=0){
         send_packge.create_package(buf,head);
     }
-
 
 
     int send_bytes = send(sfd,send_packge.all,strlen((char *)send_packge.all),0);

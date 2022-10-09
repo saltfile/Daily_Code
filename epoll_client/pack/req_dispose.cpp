@@ -32,7 +32,7 @@ void packge::solve_package(u8 *arr) {
     //获取协议版本
     this->version = arr[3];
 
-    if(lens == lenRe && crc == crcRe){
+    if(!(lens < lenRe) && crc == crcRe){
         this->alllen = lenRe;
         string ares = get_Result(arr);
         this->result = str_copy(this->result,(char*)ares.data());
@@ -40,7 +40,7 @@ void packge::solve_package(u8 *arr) {
 
 //        this->result = "";
     } else{
-        this->result = "err";
+        this->result = "err\n";
     }
 
 
@@ -65,7 +65,6 @@ void packge::create_package(char* result, u8 head) {
     int str_len = strlen(result);
     int all_len = str_len+9+1;//前九位协议头和消息体加上一位回车
     this->alllen = all_len;
-    cout<<all_len<<"    "<<endl;
     u8 *res = to_Char(result);
     this->all = (u8 *)malloc(sizeof(u8)*all_len);
     memset(this->all,0,sizeof(all_len));
@@ -97,10 +96,7 @@ void packge::create_package(char* result, u8 head) {
     //最后再异或
     this->all = fun_xor(this->all,all_len);
     int aa = strlen((char *)res);
-    cout<<endl;
     this->result = str_copy(this->result,result);
-    for(int i = 0;i < all_len;i++)
-        printf("%d   ",this->all[i]);
 }
 
 

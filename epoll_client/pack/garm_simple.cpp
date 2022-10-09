@@ -6,16 +6,11 @@
 
 u8 grammer_check(char* mes){
 int mes_klen = spilt_size(mes," ");
-char** arrs = split(mes," ");
-    for (int i = 0; i <= mes_klen; ++i) {
-        cout<<arrs[i]<<endl;
-    }
 
+char** arrs = split(mes," ");
     if (strcmp(arrs[0],"use")==0){
         return USE_DATABASE;
     }
-
-
 
 
 

@@ -5,7 +5,7 @@
 
 int size_of_buf(u8 *buf){
     for(int i = 0;i < 1002555l;i++){
-        if(buf[i] == NULL){
+        if(buf[i] == 0){
             return i+1;
         }
     }
@@ -170,8 +170,4 @@ char *strrpc_first(char *src,char *before,char *after){
 
     return dest;
 }
-
-
-
-
 
