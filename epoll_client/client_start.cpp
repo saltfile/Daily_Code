@@ -25,10 +25,6 @@ int client_run(int port,char* address){
           "                                                 \n",port);
 
 
-
-
-
-
     int sfd,ret;
     char writebuf[BUF_LENS] ={0};
     char readbuf[BUF_LENS] = {0};

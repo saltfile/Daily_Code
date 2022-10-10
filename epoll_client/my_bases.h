@@ -64,7 +64,7 @@ static u8 RESP_REQUIRE=129;
 
 static u8 DONE_DISCONN=-121;
 static u8 USE_DATABASE = 9;
-
+static u8 SHOW_DATABASE = 8;
 //这里是协议包的解析包括各个报文头和报文体
 class packge{
 public:

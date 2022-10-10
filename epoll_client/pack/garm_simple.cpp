@@ -12,7 +12,9 @@ char** arrs = split(mes," ");
         return USE_DATABASE;
     }
 
-
+    if (strcmp(mes,"show databases\n") == 0){
+        return SHOW_DATABASE;
+    }
 
     return 0;
 
