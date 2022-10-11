@@ -15,6 +15,11 @@ char** arrs = split(mes," ");
     if (strcmp(mes,"show databases\n") == 0){
         return SHOW_DATABASE;
     }
+    if (strcmp(arrs[0],"create")==0){
+        return CREATE_HANDLE;
+    }
+
+
 
     return 0;
 
