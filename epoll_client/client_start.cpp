@@ -7,22 +7,27 @@
 #define BUF_LENS 4096
 
 
-
-
-
-
-
+#define LIGHT_CYAN   "\033[1;36m"
+#define NONE         "\033[m";
+#define LIGHT_BLUE   "\033[1;34m"
+#define LIGHT_PURPLE "\033[1;35m"
+#define LIGHT_PURPLE "\033[1;35m"
 int client_run(int port,char* address){
-    printf("\n"
-          "  _____             _              _____   ____  \n"
-          " |_   _|           | |            |  __ \\ |  _ \\ \n"
-          "   | |   _ __    __| |  ___ __  __| |  | || |_) |\n"
-          "   | |  | '_ \\  / _` | / _ \\\\ \\/ /| |  | ||  _ <       port:%d   \n"
-          "  _| |_ | | | || (_| ||  __/ >  < | |__| || |_) |          host:localhost   \n"
-          " |_____||_| |_| \\__,_| \\___|/_/\\_\\|_____/ |____/ \n"
-          "    I just wrote some nonsense here. I'm still a beta \n"
-          " version, so I can't think of anything                \n"
-          "                                                 \n",port);
+    printf(LIGHT_BLUE"\n"
+           " ______                        ___             ____    ____      \n"
+           "/\\__  _\\__                    /\\_ \\           /\\  _`\\ /\\  _`\\    \n"
+           "\\/_/\\ \\/\\_\\    ___ ___      __\\//\\ \\    __  __\\ \\ \\/\\ \\ \\ \\L\\ \\  \n"
+           "   \\ \\ \\/\\ \\ /' __` __`\\  /'__`\\\\ \\ \\  /\\ \\/\\ \\\\ \\ \\ \\ \\ \\  _ <' \n"
+           "    \\ \\ \\ \\ \\/\\ \\/\\ \\/\\ \\/\\  __/ \\_\\ \\_\\ \\ \\_\\ \\\\ \\ \\_\\ \\ \\ \\L\\ \\       port: %d\n "
+           "     \\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\____\\/\\____\\\\/`____ \\\\ \\____/\\ \\____/      host: localhost\n"
+           "      \\/_/\\/_/\\/_/\\/_/\\/_/\\/____/\\/____/ `/___/> \\\\/___/  \\/___/ \n"
+           "                                            /\\___/               \n"
+           "                                            \\/__/                \n\033[m"
+           ,port);
+    printf(
+          "    Preliminary client test of 2022-10 test version\n"
+    "It is not guaranteed to be very stable, but it can be used               \n"
+          "                                                 \n");
 
 
     int sfd,ret;
@@ -73,12 +78,12 @@ int client_run(int port,char* address){
 //封包协议测试点
 int buf_send(int sfd,char *buf){
 
-    printf("IndexDB >");
+    printf("TimelyDB >");
     memset(buf,0,BUF_LENS);
     fgets(buf,BUF_LENS,stdin);
     if(strncmp(buf,"quit",4) == 0)
     {
-        printf("client shutdown\n");
+        printf(LIGHT_BLUE"BYE BYE!!\n\033[m");
         exit(0);
     }
     packge send_packge;
@@ -87,7 +92,7 @@ int buf_send(int sfd,char *buf){
     u8 head = grammer_check(buf);
     if (head == 0)
     {
-        cout<<"Unknown statement, please re-enter"<<endl;
+        cout<<LIGHT_PURPLE<<"Unknown statement, please re-enter\033[m"<<endl;
         return 0;
     }
 
@@ -118,7 +123,7 @@ int buf_read(int sfd,char* buf){
     packge *packge1 = (packge *)malloc(sizeof(packge));
     packge1->solve_package((u8 *)buf);
     //展示结果
-    cout<<packge1->result;
+    cout<<LIGHT_BLUE<<packge1->result<<NONE;
 
     if(recv_bytes == -1)
     {

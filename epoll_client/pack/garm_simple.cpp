@@ -18,9 +18,12 @@ char** arrs = split(mes," ");
     if (strcmp(arrs[0],"create")==0){
         return CREATE_HANDLE;
     }
-
-
-
+    if (strcmp(arrs[0],"select")==0){
+        return SELECT_HANDLE;
+    }
+    if (strcmp(arrs[0],"insert")==0){
+        return INSERT_HANDLE;
+    }
     return 0;
 
 }
