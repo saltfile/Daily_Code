@@ -74,6 +74,8 @@ static u8 SELECT_HANDLE = 12;
 
 static u8 INSERT_HANDLE = 15;
 
+static u8 SHOW_TABLE = 14;
+
 
 //这里是协议包的解析包括各个报文头和报文体
 class packge{
