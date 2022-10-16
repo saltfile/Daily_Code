@@ -32,4 +32,10 @@ int expampe6_main();
 int expampe7_main();
 //例子8 信号量
 int expampe8_main();
+
+
+int expampe9_main();
+
+
+
 #endif //THREADTEST_BASIC_FUNC_H

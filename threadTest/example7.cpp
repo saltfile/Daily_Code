@@ -22,6 +22,7 @@ void* product_s(void* arg){
       pthread_mutex_lock(&mutex_pc);
      task_pc* new_node = (task_pc *)malloc(sizeof(task_pc));
      memset(new_node,0,sizeof(task_pc));
+
      new_node->data = rand()%10000;
      new_node->Respon = pthread_self();
      new_node->next = head;
@@ -38,7 +39,11 @@ void* product_s(void* arg){
      sleep(rand()%3);
     }
 }
-
+/**
+ * 此函数是用来处理生产者线程的消费者
+ * @param arg 函数值
+ * @return 执行返回
+ */
 void* consumer_s(void* arg){
     while (true){
         pthread_mutex_lock(&mutex_pc);
@@ -59,18 +64,23 @@ int expampe7_main(){
     pthread_mutex_init(&mutex_pc,NULL);
     pthread_cond_init(&cond_pc,NULL);
     pthread_t Ps[3],Cs[5];
-    for(int i = 0;i < 3;i++){
+    for(int i = 0;i < 3;i++)
+    {
         pthread_create(&Ps[i],NULL,product_s,NULL);
     }
-    for (int i = 0; i < 5; ++i) {
+
+    for (int i = 0; i < 5; ++i)
+    {
         pthread_create(&Cs[i],NULL,consumer_s,NULL);
     }
 
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 3; ++i)
+    {
         pthread_join(Ps[i],NULL);
     }
 
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i)
+    {
         pthread_join(Cs[i],NULL);
     }
 
