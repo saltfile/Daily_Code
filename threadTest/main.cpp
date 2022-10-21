@@ -2,7 +2,7 @@
 #include "basic_func.h"
 //#include <stdio.h>
 int main() {
- expampe1_main();
+// expampe1_main();
 //expampe2_main();
 //expampe3_main();
 //expampe4_main();
@@ -11,6 +11,7 @@ int main() {
 //expampe7_main();
 //expampe8_main();
 //    expampe9_main();
+expampe10_main();
 
 
 
