@@ -48,6 +48,9 @@ int expampe9_main();
 //例子10 有限状态机
 int expampe10_main();
 
+//例子11 设计模式的启动主函数
+int design_mode_main();
+
 //状态机执行函数
 int event_idle();
 int event_goingup();
@@ -57,6 +60,14 @@ int event_atbottom();
 int event_malfuntion();
 int event_unexpect();
 int event_end();
+
+//设计模式
+//单例模式类
+typedef struct single_utils{
+    int id;
+};
+
+
 
 
 
