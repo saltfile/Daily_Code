@@ -39,26 +39,16 @@ void aa(int &a,int &b){
 
 
 int main() {
-//    design_mode_main();
-    int a = 0;
-    int *c = &a;
-    int *d = &a;
-    cout<<&c<<endl;
-    cout<<&d<<endl;
+    design_mode_main();
+//    int a = 0;
+//    int *c = &a;
+//    int *d = &a;
+//    cout<<&c<<endl;
+//    cout<<&d<<endl;
 
 //    if (check(79546,1283)){
 //        cout<<"aaaa"<<endl;
 //    }
-
-
-
-
-
-
-
-
-
-
 
 
 

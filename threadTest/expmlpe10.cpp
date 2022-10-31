@@ -103,11 +103,6 @@ void* runable(void *arg){
 }
 
 
-
-
-
-
-
 int expampe10_main(){
 
     pthread_t pid;

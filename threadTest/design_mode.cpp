@@ -26,6 +26,60 @@ assert(p);
 
 
 
+
+
+
+
+typedef enum
+{
+    COTTON,
+    LEATHER,
+    FABRIC_MAX,
+};
+
+typedef struct _Clothing
+{
+    int fabric; /*面料*/
+    void (*generate_clothing)(void);
+}Clothing;
+
+
+void make_cotton_clothes(void)
+{
+    printf("Make cotton clothes\r\n");
+}
+
+void make_leather_clothes(void)
+{
+    printf("Make leather clothes\r\n");
+}
+
+
+Clothing* manufacture_clothing(int fabric)
+{
+    assert(fabric < FABRIC_MAX);
+
+    Clothing* pClothing = (Clothing*)malloc(sizeof(Clothing));
+    assert(NULL != pClothing);
+
+    memset(pClothing, 0, sizeof(Clothing));
+
+    pClothing->fabric = fabric;
+
+    switch(fabric)
+    {
+        case COTTON:
+            pClothing->generate_clothing = make_cotton_clothes;
+            break;
+
+        case LEATHER:
+            pClothing->generate_clothing = make_leather_clothes;
+            break;
+    }
+    return pClothing;
+}
+
+
 int design_mode_main(){
 
     single_utils *utils = Singleton_mode();
