@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/CLion-2020.2.4/clion-2020.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/IDE/CLion-2020.2.5/clion-2020.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/CLion-2020.2.4/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
+RM = /opt/IDE/CLion-2020.2.5/clion-2020.2.5/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /opt/Cpro/untitled10
+CMAKE_SOURCE_DIR = /opt/git_Pro/Daily_Code/untitled10
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /opt/Cpro/untitled10/cmake-build-debug
+CMAKE_BINARY_DIR = /opt/git_Pro/Daily_Code/untitled10/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/untitled10.dir/depend.make
@@ -79,29 +79,29 @@ include CMakeFiles/untitled10.dir/flags.make
 
 CMakeFiles/untitled10.dir/main.cpp.o: CMakeFiles/untitled10.dir/flags.make
 CMakeFiles/untitled10.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/untitled10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/untitled10.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled10.dir/main.cpp.o -c /opt/Cpro/untitled10/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/untitled10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/untitled10.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled10.dir/main.cpp.o -c /opt/git_Pro/Daily_Code/untitled10/main.cpp
 
 CMakeFiles/untitled10.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled10.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/untitled10/main.cpp > CMakeFiles/untitled10.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/untitled10/main.cpp > CMakeFiles/untitled10.dir/main.cpp.i
 
 CMakeFiles/untitled10.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled10.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/untitled10/main.cpp -o CMakeFiles/untitled10.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/untitled10/main.cpp -o CMakeFiles/untitled10.dir/main.cpp.s
 
 CMakeFiles/untitled10.dir/fun.cpp.o: CMakeFiles/untitled10.dir/flags.make
 CMakeFiles/untitled10.dir/fun.cpp.o: ../fun.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/untitled10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/untitled10.dir/fun.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled10.dir/fun.cpp.o -c /opt/Cpro/untitled10/fun.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/untitled10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/untitled10.dir/fun.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled10.dir/fun.cpp.o -c /opt/git_Pro/Daily_Code/untitled10/fun.cpp
 
 CMakeFiles/untitled10.dir/fun.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled10.dir/fun.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/untitled10/fun.cpp > CMakeFiles/untitled10.dir/fun.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/untitled10/fun.cpp > CMakeFiles/untitled10.dir/fun.cpp.i
 
 CMakeFiles/untitled10.dir/fun.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled10.dir/fun.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/untitled10/fun.cpp -o CMakeFiles/untitled10.dir/fun.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/untitled10/fun.cpp -o CMakeFiles/untitled10.dir/fun.cpp.s
 
 # Object files for target untitled10
 untitled10_OBJECTS = \
@@ -115,7 +115,7 @@ untitled10: CMakeFiles/untitled10.dir/main.cpp.o
 untitled10: CMakeFiles/untitled10.dir/fun.cpp.o
 untitled10: CMakeFiles/untitled10.dir/build.make
 untitled10: CMakeFiles/untitled10.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/Cpro/untitled10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable untitled10"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/git_Pro/Daily_Code/untitled10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable untitled10"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled10.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -128,6 +128,6 @@ CMakeFiles/untitled10.dir/clean:
 .PHONY : CMakeFiles/untitled10.dir/clean
 
 CMakeFiles/untitled10.dir/depend:
-	cd /opt/Cpro/untitled10/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /opt/Cpro/untitled10 /opt/Cpro/untitled10 /opt/Cpro/untitled10/cmake-build-debug /opt/Cpro/untitled10/cmake-build-debug /opt/Cpro/untitled10/cmake-build-debug/CMakeFiles/untitled10.dir/DependInfo.cmake --color=$(COLOR)
+	cd /opt/git_Pro/Daily_Code/untitled10/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /opt/git_Pro/Daily_Code/untitled10 /opt/git_Pro/Daily_Code/untitled10 /opt/git_Pro/Daily_Code/untitled10/cmake-build-debug /opt/git_Pro/Daily_Code/untitled10/cmake-build-debug /opt/git_Pro/Daily_Code/untitled10/cmake-build-debug/CMakeFiles/untitled10.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/untitled10.dir/depend
 

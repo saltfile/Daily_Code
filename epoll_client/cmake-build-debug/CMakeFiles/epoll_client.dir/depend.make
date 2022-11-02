@@ -4,6 +4,18 @@
 CMakeFiles/epoll_client.dir/client_start.cpp.o: ../client_start.cpp
 CMakeFiles/epoll_client.dir/client_start.cpp.o: ../my_bases.h
 
+CMakeFiles/epoll_client.dir/crc/crc.cpp.o: ../crc/crc.cpp
+CMakeFiles/epoll_client.dir/crc/crc.cpp.o: ../my_bases.h
+
 CMakeFiles/epoll_client.dir/main.cpp.o: ../main.cpp
 CMakeFiles/epoll_client.dir/main.cpp.o: ../my_bases.h
+
+CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o: ../my_bases.h
+CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o: ../pack/garm_simple.cpp
+
+CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o: ../my_bases.h
+CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o: ../pack/req_dispose.cpp
+
+CMakeFiles/epoll_client.dir/str/str_fun.cpp.o: ../my_bases.h
+CMakeFiles/epoll_client.dir/str/str_fun.cpp.o: ../str/str_fun.cpp
 

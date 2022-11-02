@@ -1,4 +1,4 @@
-# Install script for directory: /opt/Cpro/vpn
+# Install script for directory: /opt/git_Pro/Daily_Code/vpn
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/opt/Cpro/vpn/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

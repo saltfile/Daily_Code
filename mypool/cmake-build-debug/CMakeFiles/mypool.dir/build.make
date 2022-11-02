@@ -103,19 +103,64 @@ CMakeFiles/mypool.dir/all_init.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mypool.dir/all_init.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/mypool/all_init.cpp -o CMakeFiles/mypool.dir/all_init.cpp.s
 
+CMakeFiles/mypool.dir/Implement_func.cpp.o: CMakeFiles/mypool.dir/flags.make
+CMakeFiles/mypool.dir/Implement_func.cpp.o: ../Implement_func.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mypool.dir/Implement_func.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mypool.dir/Implement_func.cpp.o -c /opt/git_Pro/Daily_Code/mypool/Implement_func.cpp
+
+CMakeFiles/mypool.dir/Implement_func.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mypool.dir/Implement_func.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/mypool/Implement_func.cpp > CMakeFiles/mypool.dir/Implement_func.cpp.i
+
+CMakeFiles/mypool.dir/Implement_func.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mypool.dir/Implement_func.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/mypool/Implement_func.cpp -o CMakeFiles/mypool.dir/Implement_func.cpp.s
+
+CMakeFiles/mypool.dir/pool_switch.cpp.o: CMakeFiles/mypool.dir/flags.make
+CMakeFiles/mypool.dir/pool_switch.cpp.o: ../pool_switch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mypool.dir/pool_switch.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mypool.dir/pool_switch.cpp.o -c /opt/git_Pro/Daily_Code/mypool/pool_switch.cpp
+
+CMakeFiles/mypool.dir/pool_switch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mypool.dir/pool_switch.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/mypool/pool_switch.cpp > CMakeFiles/mypool.dir/pool_switch.cpp.i
+
+CMakeFiles/mypool.dir/pool_switch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mypool.dir/pool_switch.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/mypool/pool_switch.cpp -o CMakeFiles/mypool.dir/pool_switch.cpp.s
+
+CMakeFiles/mypool.dir/product.cpp.o: CMakeFiles/mypool.dir/flags.make
+CMakeFiles/mypool.dir/product.cpp.o: ../product.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mypool.dir/product.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mypool.dir/product.cpp.o -c /opt/git_Pro/Daily_Code/mypool/product.cpp
+
+CMakeFiles/mypool.dir/product.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mypool.dir/product.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/mypool/product.cpp > CMakeFiles/mypool.dir/product.cpp.i
+
+CMakeFiles/mypool.dir/product.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mypool.dir/product.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/mypool/product.cpp -o CMakeFiles/mypool.dir/product.cpp.s
+
 # Object files for target mypool
 mypool_OBJECTS = \
 "CMakeFiles/mypool.dir/main.cpp.o" \
-"CMakeFiles/mypool.dir/all_init.cpp.o"
+"CMakeFiles/mypool.dir/all_init.cpp.o" \
+"CMakeFiles/mypool.dir/Implement_func.cpp.o" \
+"CMakeFiles/mypool.dir/pool_switch.cpp.o" \
+"CMakeFiles/mypool.dir/product.cpp.o"
 
 # External object files for target mypool
 mypool_EXTERNAL_OBJECTS =
 
 mypool: CMakeFiles/mypool.dir/main.cpp.o
 mypool: CMakeFiles/mypool.dir/all_init.cpp.o
+mypool: CMakeFiles/mypool.dir/Implement_func.cpp.o
+mypool: CMakeFiles/mypool.dir/pool_switch.cpp.o
+mypool: CMakeFiles/mypool.dir/product.cpp.o
 mypool: CMakeFiles/mypool.dir/build.make
 mypool: CMakeFiles/mypool.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mypool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/git_Pro/Daily_Code/mypool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable mypool"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mypool.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

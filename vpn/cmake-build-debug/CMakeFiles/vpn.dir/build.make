@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/CLion-2020.2.4/clion-2020.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/IDE/CLion-2020.2.5/clion-2020.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/CLion-2020.2.4/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
+RM = /opt/IDE/CLion-2020.2.5/clion-2020.2.5/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /opt/Cpro/vpn
+CMAKE_SOURCE_DIR = /opt/git_Pro/Daily_Code/vpn
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /opt/Cpro/vpn/cmake-build-debug
+CMAKE_BINARY_DIR = /opt/git_Pro/Daily_Code/vpn/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/vpn.dir/depend.make
@@ -79,81 +79,81 @@ include CMakeFiles/vpn.dir/flags.make
 
 CMakeFiles/vpn.dir/main.cpp.o: CMakeFiles/vpn.dir/flags.make
 CMakeFiles/vpn.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vpn.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/main.cpp.o -c /opt/Cpro/vpn/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vpn.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/main.cpp.o -c /opt/git_Pro/Daily_Code/vpn/main.cpp
 
 CMakeFiles/vpn.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vpn.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/vpn/main.cpp > CMakeFiles/vpn.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/vpn/main.cpp > CMakeFiles/vpn.dir/main.cpp.i
 
 CMakeFiles/vpn.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vpn.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/vpn/main.cpp -o CMakeFiles/vpn.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/vpn/main.cpp -o CMakeFiles/vpn.dir/main.cpp.s
 
 CMakeFiles/vpn.dir/log_fun.cpp.o: CMakeFiles/vpn.dir/flags.make
 CMakeFiles/vpn.dir/log_fun.cpp.o: ../log_fun.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vpn.dir/log_fun.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/log_fun.cpp.o -c /opt/Cpro/vpn/log_fun.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vpn.dir/log_fun.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/log_fun.cpp.o -c /opt/git_Pro/Daily_Code/vpn/log_fun.cpp
 
 CMakeFiles/vpn.dir/log_fun.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vpn.dir/log_fun.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/vpn/log_fun.cpp > CMakeFiles/vpn.dir/log_fun.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/vpn/log_fun.cpp > CMakeFiles/vpn.dir/log_fun.cpp.i
 
 CMakeFiles/vpn.dir/log_fun.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vpn.dir/log_fun.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/vpn/log_fun.cpp -o CMakeFiles/vpn.dir/log_fun.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/vpn/log_fun.cpp -o CMakeFiles/vpn.dir/log_fun.cpp.s
 
 CMakeFiles/vpn.dir/str_fun.cpp.o: CMakeFiles/vpn.dir/flags.make
 CMakeFiles/vpn.dir/str_fun.cpp.o: ../str_fun.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vpn.dir/str_fun.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/str_fun.cpp.o -c /opt/Cpro/vpn/str_fun.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vpn.dir/str_fun.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/str_fun.cpp.o -c /opt/git_Pro/Daily_Code/vpn/str_fun.cpp
 
 CMakeFiles/vpn.dir/str_fun.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vpn.dir/str_fun.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/vpn/str_fun.cpp > CMakeFiles/vpn.dir/str_fun.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/vpn/str_fun.cpp > CMakeFiles/vpn.dir/str_fun.cpp.i
 
 CMakeFiles/vpn.dir/str_fun.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vpn.dir/str_fun.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/vpn/str_fun.cpp -o CMakeFiles/vpn.dir/str_fun.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/vpn/str_fun.cpp -o CMakeFiles/vpn.dir/str_fun.cpp.s
 
 CMakeFiles/vpn.dir/server.cpp.o: CMakeFiles/vpn.dir/flags.make
 CMakeFiles/vpn.dir/server.cpp.o: ../server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vpn.dir/server.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/server.cpp.o -c /opt/Cpro/vpn/server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vpn.dir/server.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/server.cpp.o -c /opt/git_Pro/Daily_Code/vpn/server.cpp
 
 CMakeFiles/vpn.dir/server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vpn.dir/server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/vpn/server.cpp > CMakeFiles/vpn.dir/server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/vpn/server.cpp > CMakeFiles/vpn.dir/server.cpp.i
 
 CMakeFiles/vpn.dir/server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vpn.dir/server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/vpn/server.cpp -o CMakeFiles/vpn.dir/server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/vpn/server.cpp -o CMakeFiles/vpn.dir/server.cpp.s
 
 CMakeFiles/vpn.dir/cilent.cpp.o: CMakeFiles/vpn.dir/flags.make
 CMakeFiles/vpn.dir/cilent.cpp.o: ../cilent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vpn.dir/cilent.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/cilent.cpp.o -c /opt/Cpro/vpn/cilent.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vpn.dir/cilent.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/cilent.cpp.o -c /opt/git_Pro/Daily_Code/vpn/cilent.cpp
 
 CMakeFiles/vpn.dir/cilent.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vpn.dir/cilent.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/vpn/cilent.cpp > CMakeFiles/vpn.dir/cilent.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/vpn/cilent.cpp > CMakeFiles/vpn.dir/cilent.cpp.i
 
 CMakeFiles/vpn.dir/cilent.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vpn.dir/cilent.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/vpn/cilent.cpp -o CMakeFiles/vpn.dir/cilent.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/vpn/cilent.cpp -o CMakeFiles/vpn.dir/cilent.cpp.s
 
 CMakeFiles/vpn.dir/homework4.cpp.o: CMakeFiles/vpn.dir/flags.make
 CMakeFiles/vpn.dir/homework4.cpp.o: ../homework4.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/Cpro/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vpn.dir/homework4.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/homework4.cpp.o -c /opt/Cpro/vpn/homework4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vpn.dir/homework4.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vpn.dir/homework4.cpp.o -c /opt/git_Pro/Daily_Code/vpn/homework4.cpp
 
 CMakeFiles/vpn.dir/homework4.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vpn.dir/homework4.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/Cpro/vpn/homework4.cpp > CMakeFiles/vpn.dir/homework4.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/vpn/homework4.cpp > CMakeFiles/vpn.dir/homework4.cpp.i
 
 CMakeFiles/vpn.dir/homework4.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vpn.dir/homework4.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/Cpro/vpn/homework4.cpp -o CMakeFiles/vpn.dir/homework4.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/vpn/homework4.cpp -o CMakeFiles/vpn.dir/homework4.cpp.s
 
 # Object files for target vpn
 vpn_OBJECTS = \
@@ -175,7 +175,7 @@ vpn: CMakeFiles/vpn.dir/cilent.cpp.o
 vpn: CMakeFiles/vpn.dir/homework4.cpp.o
 vpn: CMakeFiles/vpn.dir/build.make
 vpn: CMakeFiles/vpn.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/Cpro/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable vpn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable vpn"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vpn.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -188,6 +188,6 @@ CMakeFiles/vpn.dir/clean:
 .PHONY : CMakeFiles/vpn.dir/clean
 
 CMakeFiles/vpn.dir/depend:
-	cd /opt/Cpro/vpn/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /opt/Cpro/vpn /opt/Cpro/vpn /opt/Cpro/vpn/cmake-build-debug /opt/Cpro/vpn/cmake-build-debug /opt/Cpro/vpn/cmake-build-debug/CMakeFiles/vpn.dir/DependInfo.cmake --color=$(COLOR)
+	cd /opt/git_Pro/Daily_Code/vpn/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /opt/git_Pro/Daily_Code/vpn /opt/git_Pro/Daily_Code/vpn /opt/git_Pro/Daily_Code/vpn/cmake-build-debug /opt/git_Pro/Daily_Code/vpn/cmake-build-debug /opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles/vpn.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/vpn.dir/depend
 

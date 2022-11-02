@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/opt/CPro/epoll_client/main.cpp
+/opt/git_Pro/Daily_Code/epoll_client/main.cpp
 my_bases.h
-/opt/CPro/epoll_client/my_bases.h
+/opt/git_Pro/Daily_Code/epoll_client/my_bases.h
 
-/opt/CPro/epoll_client/my_bases.h
+/opt/git_Pro/Daily_Code/epoll_client/my_bases.h
 error.h
 -
 stdio.h

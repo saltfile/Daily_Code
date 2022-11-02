@@ -143,6 +143,33 @@ mypool/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/build
 .PHONY : mypool/fast
 
+Implement_func.o: Implement_func.cpp.o
+
+.PHONY : Implement_func.o
+
+# target to build an object file
+Implement_func.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/Implement_func.cpp.o
+.PHONY : Implement_func.cpp.o
+
+Implement_func.i: Implement_func.cpp.i
+
+.PHONY : Implement_func.i
+
+# target to preprocess a source file
+Implement_func.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/Implement_func.cpp.i
+.PHONY : Implement_func.cpp.i
+
+Implement_func.s: Implement_func.cpp.s
+
+.PHONY : Implement_func.s
+
+# target to generate assembly for a file
+Implement_func.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/Implement_func.cpp.s
+.PHONY : Implement_func.cpp.s
+
 all_init.o: all_init.cpp.o
 
 .PHONY : all_init.o
@@ -197,6 +224,60 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+pool_switch.o: pool_switch.cpp.o
+
+.PHONY : pool_switch.o
+
+# target to build an object file
+pool_switch.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/pool_switch.cpp.o
+.PHONY : pool_switch.cpp.o
+
+pool_switch.i: pool_switch.cpp.i
+
+.PHONY : pool_switch.i
+
+# target to preprocess a source file
+pool_switch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/pool_switch.cpp.i
+.PHONY : pool_switch.cpp.i
+
+pool_switch.s: pool_switch.cpp.s
+
+.PHONY : pool_switch.s
+
+# target to generate assembly for a file
+pool_switch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/pool_switch.cpp.s
+.PHONY : pool_switch.cpp.s
+
+product.o: product.cpp.o
+
+.PHONY : product.o
+
+# target to build an object file
+product.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/product.cpp.o
+.PHONY : product.cpp.o
+
+product.i: product.cpp.i
+
+.PHONY : product.i
+
+# target to preprocess a source file
+product.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/product.cpp.i
+.PHONY : product.cpp.i
+
+product.s: product.cpp.s
+
+.PHONY : product.s
+
+# target to generate assembly for a file
+product.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mypool.dir/build.make CMakeFiles/mypool.dir/product.cpp.s
+.PHONY : product.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -206,12 +287,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mypool"
+	@echo "... Implement_func.o"
+	@echo "... Implement_func.i"
+	@echo "... Implement_func.s"
 	@echo "... all_init.o"
 	@echo "... all_init.i"
 	@echo "... all_init.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... pool_switch.o"
+	@echo "... pool_switch.i"
+	@echo "... pool_switch.s"
+	@echo "... product.o"
+	@echo "... product.i"
+	@echo "... product.s"
 .PHONY : help
 
 

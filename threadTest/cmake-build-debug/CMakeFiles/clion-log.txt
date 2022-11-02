@@ -1,0 +1,4 @@
+/opt/IDE/CLion-2020.2.5/clion-2020.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /opt/git_Pro/Daily_Code/threadTest
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /opt/git_Pro/Daily_Code/threadTest/cmake-build-debug

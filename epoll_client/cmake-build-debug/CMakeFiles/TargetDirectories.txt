@@ -1,3 +1,3 @@
-/opt/CPro/epoll_client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/opt/CPro/epoll_client/cmake-build-debug/CMakeFiles/edit_cache.dir
-/opt/CPro/epoll_client/cmake-build-debug/CMakeFiles/epoll_client.dir
+/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/edit_cache.dir
+/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/epoll_client.dir

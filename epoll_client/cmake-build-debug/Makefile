@@ -68,10 +68,10 @@ RM = /opt/IDE/CLion-2020.2.5/clion-2020.2.5/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /opt/CPro/epoll_client
+CMAKE_SOURCE_DIR = /opt/git_Pro/Daily_Code/epoll_client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /opt/CPro/epoll_client/cmake-build-debug
+CMAKE_BINARY_DIR = /opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /opt/CPro/epoll_client/cmake-build-debug/CMakeFiles /opt/CPro/epoll_client/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles /opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /opt/CPro/epoll_client/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -170,6 +170,33 @@ client_start.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/client_start.cpp.s
 .PHONY : client_start.cpp.s
 
+crc/crc.o: crc/crc.cpp.o
+
+.PHONY : crc/crc.o
+
+# target to build an object file
+crc/crc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/crc/crc.cpp.o
+.PHONY : crc/crc.cpp.o
+
+crc/crc.i: crc/crc.cpp.i
+
+.PHONY : crc/crc.i
+
+# target to preprocess a source file
+crc/crc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/crc/crc.cpp.i
+.PHONY : crc/crc.cpp.i
+
+crc/crc.s: crc/crc.cpp.s
+
+.PHONY : crc/crc.s
+
+# target to generate assembly for a file
+crc/crc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/crc/crc.cpp.s
+.PHONY : crc/crc.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -197,6 +224,87 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+pack/garm_simple.o: pack/garm_simple.cpp.o
+
+.PHONY : pack/garm_simple.o
+
+# target to build an object file
+pack/garm_simple.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o
+.PHONY : pack/garm_simple.cpp.o
+
+pack/garm_simple.i: pack/garm_simple.cpp.i
+
+.PHONY : pack/garm_simple.i
+
+# target to preprocess a source file
+pack/garm_simple.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.i
+.PHONY : pack/garm_simple.cpp.i
+
+pack/garm_simple.s: pack/garm_simple.cpp.s
+
+.PHONY : pack/garm_simple.s
+
+# target to generate assembly for a file
+pack/garm_simple.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.s
+.PHONY : pack/garm_simple.cpp.s
+
+pack/req_dispose.o: pack/req_dispose.cpp.o
+
+.PHONY : pack/req_dispose.o
+
+# target to build an object file
+pack/req_dispose.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o
+.PHONY : pack/req_dispose.cpp.o
+
+pack/req_dispose.i: pack/req_dispose.cpp.i
+
+.PHONY : pack/req_dispose.i
+
+# target to preprocess a source file
+pack/req_dispose.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.i
+.PHONY : pack/req_dispose.cpp.i
+
+pack/req_dispose.s: pack/req_dispose.cpp.s
+
+.PHONY : pack/req_dispose.s
+
+# target to generate assembly for a file
+pack/req_dispose.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.s
+.PHONY : pack/req_dispose.cpp.s
+
+str/str_fun.o: str/str_fun.cpp.o
+
+.PHONY : str/str_fun.o
+
+# target to build an object file
+str/str_fun.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/str/str_fun.cpp.o
+.PHONY : str/str_fun.cpp.o
+
+str/str_fun.i: str/str_fun.cpp.i
+
+.PHONY : str/str_fun.i
+
+# target to preprocess a source file
+str/str_fun.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/str/str_fun.cpp.i
+.PHONY : str/str_fun.cpp.i
+
+str/str_fun.s: str/str_fun.cpp.s
+
+.PHONY : str/str_fun.s
+
+# target to generate assembly for a file
+str/str_fun.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/epoll_client.dir/build.make CMakeFiles/epoll_client.dir/str/str_fun.cpp.s
+.PHONY : str/str_fun.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -209,9 +317,21 @@ help:
 	@echo "... client_start.o"
 	@echo "... client_start.i"
 	@echo "... client_start.s"
+	@echo "... crc/crc.o"
+	@echo "... crc/crc.i"
+	@echo "... crc/crc.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... pack/garm_simple.o"
+	@echo "... pack/garm_simple.i"
+	@echo "... pack/garm_simple.s"
+	@echo "... pack/req_dispose.o"
+	@echo "... pack/req_dispose.i"
+	@echo "... pack/req_dispose.s"
+	@echo "... str/str_fun.o"
+	@echo "... str/str_fun.i"
+	@echo "... str/str_fun.s"
 .PHONY : help
 
 
