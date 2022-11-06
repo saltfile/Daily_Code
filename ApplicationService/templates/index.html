@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/index.css') }}"/>
+	</head>
+	<body>
+		<div class="t">
+			<div class="t_l">人工智能测试系统</div>
+			<div class="t_r">该系统处于开发测试状态，如有bug请及时反馈</div>
+		</div>
+		<div class="c clearfix">
+			<div class="l_l">
+				<div class="g aaa">功能一</div>
+				<div class="g">功能二</div>
+			</div>
+			<div class="c_r" >
+				<div class="c_r_c">
+					<div class="c_r_c_t">
+						功能一:文字识别&&敏感词汇过滤
+					</div>
+					<form action="/Swear" method="post" id="muform1">
+						<input type="text" id="mytext" name="text"placeholder="请输入需要过滤的文字"/>
+					</form>
+					<div class="c_r_c_btn clearfix">
+						<input type="button" class="button" name="btn01" id="btn01" value="过滤" />
+						<input type="button" class="button" name="btn02" id="btn02" value="清除输入内容" />
+						<input type="button" class="button" name="btn03" id="btn03" value="清除结果" />
+					</div>
+					<div class="c_r_c_res">
+						返回结果
+					</div>
+				</div>
+			</div>
+			<div class="c_r hide" >
+				<div class="c_r_c_t">
+						功能二:智能语音内容识别
+				</div>
+				<div class="c2_r_c clearfix">
+					<div class="c2_r_c_t1">
+						使用指南
+					</div>
+					<div class="c2_r_c_t2">
+						第一步:选择需要语音识别的文件
+					</div>
+					<div class="c2_r_c_g1">
+						<form action="/upload" method="post" enctype='multipart/form-data' id="muform2">
+							<input type="file" name="myfile" id="myfile"/>
+						</form>
+						<div class="xxx"></div>
+						<input type="button" id="shangchuan" value="上传" />
+					</div>
+					<div class="c2_r_c_t2">
+						第二步:等待服务器返回数据
+					</div>
+					<div class="c2_r_c_g2">
+						返回结果
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="{{ url_for('static', filename='./js/jquery-3.5.1.js') }}" type="text/javascript" charset="utf-8"></script>
+	<script src="{{ url_for('static', filename='./js/index.js') }}" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript">
+		
+	</script>
+</html>
