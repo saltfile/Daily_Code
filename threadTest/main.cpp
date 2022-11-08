@@ -39,13 +39,25 @@ void aa(int &a,int &b){
 
 
 int main() {
+int n = 0;
+int max = 0;
+int min = 0;
+    for (int i = 0; i < 10; ++i) {
+        scanf("%d",&n);
+        if (max == 0&&min == 0){
+            max = n;
+            min = n;
+            continue;
+        }
+        max = n > max?n : max;
+        min = n < min?n : min;
+    }
+    printf("%d,%d",max,min);
 
 
 
 
-
-
-    design_mode_main();
+//    design_mode_main();
 //    int a = 0;
 //    int *c = &a;
 //    int *d = &a;
