@@ -11,6 +11,33 @@ typedef struct AVLNode{
 }AVLNode;
 int seizetree = 0;
 
+AVLNode * new_AVLNode(int data){
+    AVLNode * root = (AVLNode*) malloc(sizeof(AVLNode));
+    memset(root,0, sizeof(AVLNode));
+    root->data = data;
+    return root;
+}
+
+
+
+//单旋：左旋转
+AVLNode * LL(AVLNode * root){
+    AVLNode *gnode = root;
+    AVLNode *pnode = root->left;
+    gnode->left = pnode->right;
+    pnode->right = gnode;
+    return pnode;
+}
+
+//单旋：右旋转
+AVLNode *RR(AVLNode * root){
+    AVLNode *gnode = root;
+    AVLNode *pnode = root->right;
+    gnode->right = pnode->left;
+    pnode->left = gnode;
+    return pnode;
+}
+
 
 
 
@@ -20,15 +47,21 @@ int seizetree = 0;
  */
 void TreeMain(){
 //    AVLNode *root  = NULL;
+AVLNode *g= new_AVLNode(1);
+    AVLNode *p= new_AVLNode(2);
+    AVLNode *n= new_AVLNode(3);
+    AVLNode *t0= new_AVLNode(4);
+    AVLNode *t1= new_AVLNode(5);
+    AVLNode *t2= new_AVLNode(6);
+    AVLNode *t3 = new_AVLNode(7);
+    g->left = p;
+    g->right = t3;
+    p->left = n;
+    p->right = t2;
+    n->left = t0;
+    n->right = t1;
 
-
-
-
-
-
-
-
-
+     g = LL(g);
 
 
     //LR

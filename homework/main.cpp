@@ -59,6 +59,25 @@
 
 
 
+typedef struct node{
+    char *a;
+    struct  node *next;
+};
+
+
+void free_val_tupl(node *p){
+    while (p->next){
+
+        node *as = p;
+        p = p->next;
+        free(as);
+        as = NULL;
+    }
+    node *as = p;
+    as = NULL;
+}
+
+
 
 
 int main() {
@@ -66,19 +85,18 @@ int main() {
 //TreeMain();
 //RBTreedemo();
 //seg_treedemo();
-btreemain();
+//btreemain();
+    char *ps= (char*) malloc(sizeof(10));
+    strcpy(ps,"asdas");
+    free(ps);
 
 
-
-
-
-
-
-
-
-
-
-
+    node *n1 = (node *) malloc(sizeof(node));
+    node *n2 = (node *) malloc(sizeof(node));
+    n1->next = n2;
+    n2->a = "sadasdasd";
+    n1->a = "adasd";
+    free_val_tupl(n1);
 
 
 

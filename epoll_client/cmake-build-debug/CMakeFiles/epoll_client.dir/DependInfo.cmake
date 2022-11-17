@@ -1,20 +1,19 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/opt/git_Pro/Daily_Code/epoll_client/client_start.cpp" "/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/epoll_client.dir/client_start.cpp.o"
-  "/opt/git_Pro/Daily_Code/epoll_client/crc/crc.cpp" "/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/epoll_client.dir/crc/crc.cpp.o"
-  "/opt/git_Pro/Daily_Code/epoll_client/main.cpp" "/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/epoll_client.dir/main.cpp.o"
-  "/opt/git_Pro/Daily_Code/epoll_client/pack/garm_simple.cpp" "/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o"
-  "/opt/git_Pro/Daily_Code/epoll_client/pack/req_dispose.cpp" "/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o"
-  "/opt/git_Pro/Daily_Code/epoll_client/str/str_fun.cpp" "/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles/epoll_client.dir/str/str_fun.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/opt/git_Pro/Daily_Code/epoll_client/client_start.cpp" "CMakeFiles/epoll_client.dir/client_start.cpp.o" "gcc" "CMakeFiles/epoll_client.dir/client_start.cpp.o.d"
+  "/opt/git_Pro/Daily_Code/epoll_client/crc/crc.cpp" "CMakeFiles/epoll_client.dir/crc/crc.cpp.o" "gcc" "CMakeFiles/epoll_client.dir/crc/crc.cpp.o.d"
+  "/opt/git_Pro/Daily_Code/epoll_client/main.cpp" "CMakeFiles/epoll_client.dir/main.cpp.o" "gcc" "CMakeFiles/epoll_client.dir/main.cpp.o.d"
+  "/opt/git_Pro/Daily_Code/epoll_client/pack/garm_simple.cpp" "CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o" "gcc" "CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o.d"
+  "/opt/git_Pro/Daily_Code/epoll_client/pack/req_dispose.cpp" "CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o" "gcc" "CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o.d"
+  "/opt/git_Pro/Daily_Code/epoll_client/str/str_fun.cpp" "CMakeFiles/epoll_client.dir/str/str_fun.cpp.o" "gcc" "CMakeFiles/epoll_client.dir/str/str_fun.cpp.o.d"
   )
 
 # Targets to which this target links.
