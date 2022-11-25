@@ -83,23 +83,21 @@ int get_balance(AVLNode *root){
 AVLNode *insert(AVLNode *root,char data){
     //先查看是否是空的
     if (root == NULL){
-        AVLNode *p = (AVLNode*) malloc(sizeof(AVLNode));
-        memset(p,0, sizeof(AVLNode));
-        return p;
+        root = (AVLNode*) malloc(sizeof(AVLNode));
+        memset(root,0, sizeof(AVLNode));
+        root->data = data;
+        return root;
     }
         //辨别数据大小应该插入左子树还是右子树
         if (data > root->data){
-            insert(root->right,data);
+           root->right = insert(root->right,data);
         } else if (data < root->data){
-            insert(root->left,data);
+            root->left = insert(root->left,data);
         } else{
             root->data = data;
         }
-         root->hegith = max(get_hight(root->left), get_hight(root->right) + 1);
+         root->hegith = max(get_hight(root->left), get_hight(root->right))+1;
          int balance = get_balance(root);
-
-
-
 
          // 通过平衡因子判断平衡应该是左旋还是右旋
          //如果平衡因子大于1说明左边比较高
@@ -121,7 +119,18 @@ AVLNode *insert(AVLNode *root,char data){
         return RL(root);
     }
     return root;
+}
 
+void update_banlen(AVLNode* root){
+    if (root == NULL)return;
+
+    if (root->left){
+        update_banlen(root->left);
+    }else if (root->right)
+    {
+        update_banlen(root->right);
+    }
+    root->hegith =  max(get_hight(root->left), get_hight(root->right) + 1);
 }
 
 
@@ -136,27 +145,169 @@ AVLNode *insert(AVLNode *root,char data){
 
 
 
+
+
+
+
+
+
+AVLNode *get_prev_parent(AVLNode *root){
+    AVLNode *p = root;
+    p = p->left;
+    while (p->right->right){
+        p = p->right;
+    }
+    return p;
+}
+
+AVLNode *get_carry_parent(AVLNode *root){
+    AVLNode *p = root;
+    p = p->right;
+    while (p->left->left){
+        p = p->left;
+    }
+    return p;
+}
+
+AVLNode *free_AVL(AVLNode *root){
+    if (!root)return NULL;
+    AVLNode *p = root;
+    free(p);
+    root = NULL;
+    return NULL;
+}
+
+
+//删除业务
+//bool remove(AVLNode *root,char data){
+//    if (root == NULL)return false;
+//    AVLNode *pn = root;
+//    AVLNode *p = root;
+//    int l_or_r = 1;   //1 左  2  右
+//    while (p){
+//        if (data < p->data){
+//            pn = p;
+//            p = p->left;
+//            l_or_r = 1;
+//        } else if (data > p->data){
+//            pn = p;
+//            p = p->right;
+//            l_or_r = 2;
+//        } else{
+//            break;
+//        }
+//    }
+//    if (!p)return false;
+//    if (p->left == NULL&&p->right != NULL){
+//        AVLNode *right = p->right;
+//        if (l_or_r == 1){
+//            pn->left = right;
+//            p = free_AVL(p);
+//        } else{
+//            pn->right = right;
+//            p = free_AVL(p);
+//        }
+//    } else if (p->left != NULL&&p->right == NULL) {
+//        AVLNode *left = p->left;
+//        if (l_or_r == 1) {
+//            pn->left = left;
+//            p = free_AVL(p);
+//        } else {
+//            pn->right = left;
+//            p = free_AVL(p);
+//        }
+//    }
+//
+//
+//
+//
+//
+//
+//}
+
+
+
+AVLNode *remove(AVLNode *node,char data){
+    if (node == NULL)
+        return NULL;
+    AVLNode *retNode;
+    if (data < node->data) {
+        node->left = remove(node->left, data);
+        retNode = node;
+    } else if (data > node->data) {
+        node->right = remove(node->right, data);
+        retNode = node;
+    } else {   // e.compareTo(node.e) == 0
+        // 待删除节点左子树为空的情况
+        if (node->left == NULL) {
+            AVLNode *rightNode = node->right;
+            node->right = NULL;
+            retNode = rightNode;
+        }
+            // 待删除节点右子树为空的情况
+        else if (node->right == NULL) {
+            AVLNode *leftNode = node->left;
+            node->left = NULL;
+            retNode = leftNode;
+        } else {
+
+        }
+    }
+    if (retNode == NULL)
+        return NULL;
+    //维护平衡
+    //更新height
+    retNode->hegith = max(get_hight(retNode->left), get_hight(retNode->right))+1;
+    int balance = get_balance(retNode);
+
+    // 通过平衡因子判断平衡应该是左旋还是右旋
+    //如果平衡因子大于1说明左边比较高
+    if (balance > 1 && get_balance(retNode->left) >= 0) {
+        return LL(retNode);
+    }
+    //当平衡因子小于-1说明右边比较高
+    if(balance < -1 && get_balance(retNode->right) <= 0){
+        return RR(retNode);
+    }
+
+
+    //当平衡因子大于1时并且右边小于0 使用LR
+    if (balance > 1 && get_balance(retNode->right) < 0) {
+        return LR(retNode);
+    }
+    //当平衡因子小于-1时并且左边大于0 使用RL
+    if (balance < -1 && get_balance(retNode->left) > 0){
+        return RL(retNode);
+    }
+    return retNode;
+}
+
+
+
+
 /**
  * 主函数
  */
 void TreeMain(){
 
     int m = max(1,4);
-//    AVLNode *root  = NULL;
-AVLNode *g= new_AVLNode('g');
-    AVLNode *p= new_AVLNode('p');
-    AVLNode *n= new_AVLNode('n');
-    AVLNode *t0= new_AVLNode('0');
-    AVLNode *t1= new_AVLNode('1');
-    AVLNode *t2= new_AVLNode('2');
-    AVLNode *t3 = new_AVLNode('3');
-    g->left = p;
-    p->left = t0;
-    p->right = n;
-    n->left = t1;
-    n->right = t2;
-    g->right = t3;
-    g =  LR(g);
+
+
+    AVLNode *root  = NULL;
+    root = insert(root,'g');
+//    free_AVL(root);
+    root = insert(root,'x');
+    root = insert(root,'d');
+    root = insert(root,'b');
+    root = insert(root,'e');
+    root = insert(root,'a');
+    root = insert(root,'c');
+//    root = insert(root,'f');
+    cout<<remove(root,'g');
+    update_banlen(root);
+    root = insert(root,'F');
+    root = insert(root,'A');
+//    cout<<remove(root,'z');
 
     //LR
 //    root = add_node(root,31);
