@@ -73,141 +73,141 @@ CMakeFiles/homework.dir/main.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/main.cpp.o: ../main.cpp
 CMakeFiles/homework.dir/main.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/homework.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/main.cpp.o -MF CMakeFiles/homework.dir/main.cpp.o.d -o CMakeFiles/homework.dir/main.cpp.o -c /opt/git_Pro/Daily_Code/homework/main.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/main.cpp.o -MF CMakeFiles/homework.dir/main.cpp.o.d -o CMakeFiles/homework.dir/main.cpp.o -c /opt/git_Pro/Daily_Code/homework/main.cpp
 
 CMakeFiles/homework.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/main.cpp > CMakeFiles/homework.dir/main.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/main.cpp > CMakeFiles/homework.dir/main.cpp.i
 
 CMakeFiles/homework.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/main.cpp -o CMakeFiles/homework.dir/main.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/main.cpp -o CMakeFiles/homework.dir/main.cpp.s
 
 CMakeFiles/homework.dir/home1.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/home1.cpp.o: ../home1.cpp
 CMakeFiles/homework.dir/home1.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/homework.dir/home1.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/home1.cpp.o -MF CMakeFiles/homework.dir/home1.cpp.o.d -o CMakeFiles/homework.dir/home1.cpp.o -c /opt/git_Pro/Daily_Code/homework/home1.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/home1.cpp.o -MF CMakeFiles/homework.dir/home1.cpp.o.d -o CMakeFiles/homework.dir/home1.cpp.o -c /opt/git_Pro/Daily_Code/homework/home1.cpp
 
 CMakeFiles/homework.dir/home1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/home1.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/home1.cpp > CMakeFiles/homework.dir/home1.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/home1.cpp > CMakeFiles/homework.dir/home1.cpp.i
 
 CMakeFiles/homework.dir/home1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/home1.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/home1.cpp -o CMakeFiles/homework.dir/home1.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/home1.cpp -o CMakeFiles/homework.dir/home1.cpp.s
 
 CMakeFiles/homework.dir/home2.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/home2.cpp.o: ../home2.cpp
 CMakeFiles/homework.dir/home2.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/homework.dir/home2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/home2.cpp.o -MF CMakeFiles/homework.dir/home2.cpp.o.d -o CMakeFiles/homework.dir/home2.cpp.o -c /opt/git_Pro/Daily_Code/homework/home2.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/home2.cpp.o -MF CMakeFiles/homework.dir/home2.cpp.o.d -o CMakeFiles/homework.dir/home2.cpp.o -c /opt/git_Pro/Daily_Code/homework/home2.cpp
 
 CMakeFiles/homework.dir/home2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/home2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/home2.cpp > CMakeFiles/homework.dir/home2.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/home2.cpp > CMakeFiles/homework.dir/home2.cpp.i
 
 CMakeFiles/homework.dir/home2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/home2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/home2.cpp -o CMakeFiles/homework.dir/home2.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/home2.cpp -o CMakeFiles/homework.dir/home2.cpp.s
 
 CMakeFiles/homework.dir/home3.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/home3.cpp.o: ../home3.cpp
 CMakeFiles/homework.dir/home3.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/homework.dir/home3.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/home3.cpp.o -MF CMakeFiles/homework.dir/home3.cpp.o.d -o CMakeFiles/homework.dir/home3.cpp.o -c /opt/git_Pro/Daily_Code/homework/home3.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/home3.cpp.o -MF CMakeFiles/homework.dir/home3.cpp.o.d -o CMakeFiles/homework.dir/home3.cpp.o -c /opt/git_Pro/Daily_Code/homework/home3.cpp
 
 CMakeFiles/homework.dir/home3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/home3.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/home3.cpp > CMakeFiles/homework.dir/home3.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/home3.cpp > CMakeFiles/homework.dir/home3.cpp.i
 
 CMakeFiles/homework.dir/home3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/home3.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/home3.cpp -o CMakeFiles/homework.dir/home3.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/home3.cpp -o CMakeFiles/homework.dir/home3.cpp.s
 
 CMakeFiles/homework.dir/Test.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/Test.cpp.o: ../Test.cpp
 CMakeFiles/homework.dir/Test.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/homework.dir/Test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/Test.cpp.o -MF CMakeFiles/homework.dir/Test.cpp.o.d -o CMakeFiles/homework.dir/Test.cpp.o -c /opt/git_Pro/Daily_Code/homework/Test.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/Test.cpp.o -MF CMakeFiles/homework.dir/Test.cpp.o.d -o CMakeFiles/homework.dir/Test.cpp.o -c /opt/git_Pro/Daily_Code/homework/Test.cpp
 
 CMakeFiles/homework.dir/Test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/Test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/Test.cpp > CMakeFiles/homework.dir/Test.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/Test.cpp > CMakeFiles/homework.dir/Test.cpp.i
 
 CMakeFiles/homework.dir/Test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/Test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/Test.cpp -o CMakeFiles/homework.dir/Test.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/Test.cpp -o CMakeFiles/homework.dir/Test.cpp.s
 
 CMakeFiles/homework.dir/thread_test.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/thread_test.cpp.o: ../thread_test.cpp
 CMakeFiles/homework.dir/thread_test.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/homework.dir/thread_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/thread_test.cpp.o -MF CMakeFiles/homework.dir/thread_test.cpp.o.d -o CMakeFiles/homework.dir/thread_test.cpp.o -c /opt/git_Pro/Daily_Code/homework/thread_test.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/thread_test.cpp.o -MF CMakeFiles/homework.dir/thread_test.cpp.o.d -o CMakeFiles/homework.dir/thread_test.cpp.o -c /opt/git_Pro/Daily_Code/homework/thread_test.cpp
 
 CMakeFiles/homework.dir/thread_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/thread_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/thread_test.cpp > CMakeFiles/homework.dir/thread_test.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/thread_test.cpp > CMakeFiles/homework.dir/thread_test.cpp.i
 
 CMakeFiles/homework.dir/thread_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/thread_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/thread_test.cpp -o CMakeFiles/homework.dir/thread_test.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/thread_test.cpp -o CMakeFiles/homework.dir/thread_test.cpp.s
 
 CMakeFiles/homework.dir/RBTree.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/RBTree.cpp.o: ../RBTree.cpp
 CMakeFiles/homework.dir/RBTree.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/homework.dir/RBTree.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/RBTree.cpp.o -MF CMakeFiles/homework.dir/RBTree.cpp.o.d -o CMakeFiles/homework.dir/RBTree.cpp.o -c /opt/git_Pro/Daily_Code/homework/RBTree.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/RBTree.cpp.o -MF CMakeFiles/homework.dir/RBTree.cpp.o.d -o CMakeFiles/homework.dir/RBTree.cpp.o -c /opt/git_Pro/Daily_Code/homework/RBTree.cpp
 
 CMakeFiles/homework.dir/RBTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/RBTree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/RBTree.cpp > CMakeFiles/homework.dir/RBTree.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/RBTree.cpp > CMakeFiles/homework.dir/RBTree.cpp.i
 
 CMakeFiles/homework.dir/RBTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/RBTree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/RBTree.cpp -o CMakeFiles/homework.dir/RBTree.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/RBTree.cpp -o CMakeFiles/homework.dir/RBTree.cpp.s
 
 CMakeFiles/homework.dir/AVLTree.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/AVLTree.cpp.o: ../AVLTree.cpp
 CMakeFiles/homework.dir/AVLTree.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/homework.dir/AVLTree.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/AVLTree.cpp.o -MF CMakeFiles/homework.dir/AVLTree.cpp.o.d -o CMakeFiles/homework.dir/AVLTree.cpp.o -c /opt/git_Pro/Daily_Code/homework/AVLTree.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/AVLTree.cpp.o -MF CMakeFiles/homework.dir/AVLTree.cpp.o.d -o CMakeFiles/homework.dir/AVLTree.cpp.o -c /opt/git_Pro/Daily_Code/homework/AVLTree.cpp
 
 CMakeFiles/homework.dir/AVLTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/AVLTree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/AVLTree.cpp > CMakeFiles/homework.dir/AVLTree.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/AVLTree.cpp > CMakeFiles/homework.dir/AVLTree.cpp.i
 
 CMakeFiles/homework.dir/AVLTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/AVLTree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/AVLTree.cpp -o CMakeFiles/homework.dir/AVLTree.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/AVLTree.cpp -o CMakeFiles/homework.dir/AVLTree.cpp.s
 
 CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o: ../INTERVAL_Tree.cpp
 CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o -MF CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o.d -o CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o -c /opt/git_Pro/Daily_Code/homework/INTERVAL_Tree.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o -MF CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o.d -o CMakeFiles/homework.dir/INTERVAL_Tree.cpp.o -c /opt/git_Pro/Daily_Code/homework/INTERVAL_Tree.cpp
 
 CMakeFiles/homework.dir/INTERVAL_Tree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/INTERVAL_Tree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/INTERVAL_Tree.cpp > CMakeFiles/homework.dir/INTERVAL_Tree.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/INTERVAL_Tree.cpp > CMakeFiles/homework.dir/INTERVAL_Tree.cpp.i
 
 CMakeFiles/homework.dir/INTERVAL_Tree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/INTERVAL_Tree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/INTERVAL_Tree.cpp -o CMakeFiles/homework.dir/INTERVAL_Tree.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/INTERVAL_Tree.cpp -o CMakeFiles/homework.dir/INTERVAL_Tree.cpp.s
 
 CMakeFiles/homework.dir/Btree.cpp.o: CMakeFiles/homework.dir/flags.make
 CMakeFiles/homework.dir/Btree.cpp.o: ../Btree.cpp
 CMakeFiles/homework.dir/Btree.cpp.o: CMakeFiles/homework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/homework/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/homework.dir/Btree.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/Btree.cpp.o -MF CMakeFiles/homework.dir/Btree.cpp.o.d -o CMakeFiles/homework.dir/Btree.cpp.o -c /opt/git_Pro/Daily_Code/homework/Btree.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/homework.dir/Btree.cpp.o -MF CMakeFiles/homework.dir/Btree.cpp.o.d -o CMakeFiles/homework.dir/Btree.cpp.o -c /opt/git_Pro/Daily_Code/homework/Btree.cpp
 
 CMakeFiles/homework.dir/Btree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/homework.dir/Btree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/Btree.cpp > CMakeFiles/homework.dir/Btree.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/homework/Btree.cpp > CMakeFiles/homework.dir/Btree.cpp.i
 
 CMakeFiles/homework.dir/Btree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/homework.dir/Btree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/Btree.cpp -o CMakeFiles/homework.dir/Btree.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/homework/Btree.cpp -o CMakeFiles/homework.dir/Btree.cpp.s
 
 # Object files for target homework
 homework_OBJECTS = \

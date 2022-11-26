@@ -73,85 +73,85 @@ CMakeFiles/epoll_client.dir/main.cpp.o: CMakeFiles/epoll_client.dir/flags.make
 CMakeFiles/epoll_client.dir/main.cpp.o: ../main.cpp
 CMakeFiles/epoll_client.dir/main.cpp.o: CMakeFiles/epoll_client.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/epoll_client.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/main.cpp.o -MF CMakeFiles/epoll_client.dir/main.cpp.o.d -o CMakeFiles/epoll_client.dir/main.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/main.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/main.cpp.o -MF CMakeFiles/epoll_client.dir/main.cpp.o.d -o CMakeFiles/epoll_client.dir/main.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/main.cpp
 
 CMakeFiles/epoll_client.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/epoll_client.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/main.cpp > CMakeFiles/epoll_client.dir/main.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/main.cpp > CMakeFiles/epoll_client.dir/main.cpp.i
 
 CMakeFiles/epoll_client.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/epoll_client.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/main.cpp -o CMakeFiles/epoll_client.dir/main.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/main.cpp -o CMakeFiles/epoll_client.dir/main.cpp.s
 
 CMakeFiles/epoll_client.dir/client_start.cpp.o: CMakeFiles/epoll_client.dir/flags.make
 CMakeFiles/epoll_client.dir/client_start.cpp.o: ../client_start.cpp
 CMakeFiles/epoll_client.dir/client_start.cpp.o: CMakeFiles/epoll_client.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/epoll_client.dir/client_start.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/client_start.cpp.o -MF CMakeFiles/epoll_client.dir/client_start.cpp.o.d -o CMakeFiles/epoll_client.dir/client_start.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/client_start.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/client_start.cpp.o -MF CMakeFiles/epoll_client.dir/client_start.cpp.o.d -o CMakeFiles/epoll_client.dir/client_start.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/client_start.cpp
 
 CMakeFiles/epoll_client.dir/client_start.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/epoll_client.dir/client_start.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/client_start.cpp > CMakeFiles/epoll_client.dir/client_start.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/client_start.cpp > CMakeFiles/epoll_client.dir/client_start.cpp.i
 
 CMakeFiles/epoll_client.dir/client_start.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/epoll_client.dir/client_start.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/client_start.cpp -o CMakeFiles/epoll_client.dir/client_start.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/client_start.cpp -o CMakeFiles/epoll_client.dir/client_start.cpp.s
 
 CMakeFiles/epoll_client.dir/crc/crc.cpp.o: CMakeFiles/epoll_client.dir/flags.make
 CMakeFiles/epoll_client.dir/crc/crc.cpp.o: ../crc/crc.cpp
 CMakeFiles/epoll_client.dir/crc/crc.cpp.o: CMakeFiles/epoll_client.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/epoll_client.dir/crc/crc.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/crc/crc.cpp.o -MF CMakeFiles/epoll_client.dir/crc/crc.cpp.o.d -o CMakeFiles/epoll_client.dir/crc/crc.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/crc/crc.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/crc/crc.cpp.o -MF CMakeFiles/epoll_client.dir/crc/crc.cpp.o.d -o CMakeFiles/epoll_client.dir/crc/crc.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/crc/crc.cpp
 
 CMakeFiles/epoll_client.dir/crc/crc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/epoll_client.dir/crc/crc.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/crc/crc.cpp > CMakeFiles/epoll_client.dir/crc/crc.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/crc/crc.cpp > CMakeFiles/epoll_client.dir/crc/crc.cpp.i
 
 CMakeFiles/epoll_client.dir/crc/crc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/epoll_client.dir/crc/crc.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/crc/crc.cpp -o CMakeFiles/epoll_client.dir/crc/crc.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/crc/crc.cpp -o CMakeFiles/epoll_client.dir/crc/crc.cpp.s
 
 CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o: CMakeFiles/epoll_client.dir/flags.make
 CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o: ../pack/req_dispose.cpp
 CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o: CMakeFiles/epoll_client.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o -MF CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o.d -o CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/pack/req_dispose.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o -MF CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o.d -o CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/pack/req_dispose.cpp
 
 CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/pack/req_dispose.cpp > CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/pack/req_dispose.cpp > CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.i
 
 CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/pack/req_dispose.cpp -o CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/pack/req_dispose.cpp -o CMakeFiles/epoll_client.dir/pack/req_dispose.cpp.s
 
 CMakeFiles/epoll_client.dir/str/str_fun.cpp.o: CMakeFiles/epoll_client.dir/flags.make
 CMakeFiles/epoll_client.dir/str/str_fun.cpp.o: ../str/str_fun.cpp
 CMakeFiles/epoll_client.dir/str/str_fun.cpp.o: CMakeFiles/epoll_client.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/epoll_client.dir/str/str_fun.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/str/str_fun.cpp.o -MF CMakeFiles/epoll_client.dir/str/str_fun.cpp.o.d -o CMakeFiles/epoll_client.dir/str/str_fun.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/str/str_fun.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/str/str_fun.cpp.o -MF CMakeFiles/epoll_client.dir/str/str_fun.cpp.o.d -o CMakeFiles/epoll_client.dir/str/str_fun.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/str/str_fun.cpp
 
 CMakeFiles/epoll_client.dir/str/str_fun.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/epoll_client.dir/str/str_fun.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/str/str_fun.cpp > CMakeFiles/epoll_client.dir/str/str_fun.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/str/str_fun.cpp > CMakeFiles/epoll_client.dir/str/str_fun.cpp.i
 
 CMakeFiles/epoll_client.dir/str/str_fun.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/epoll_client.dir/str/str_fun.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/str/str_fun.cpp -o CMakeFiles/epoll_client.dir/str/str_fun.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/str/str_fun.cpp -o CMakeFiles/epoll_client.dir/str/str_fun.cpp.s
 
 CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o: CMakeFiles/epoll_client.dir/flags.make
 CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o: ../pack/garm_simple.cpp
 CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o: CMakeFiles/epoll_client.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/git_Pro/Daily_Code/epoll_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o -MF CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o.d -o CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/pack/garm_simple.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o -MF CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o.d -o CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.o -c /opt/git_Pro/Daily_Code/epoll_client/pack/garm_simple.cpp
 
 CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/pack/garm_simple.cpp > CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/git_Pro/Daily_Code/epoll_client/pack/garm_simple.cpp > CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.i
 
 CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/pack/garm_simple.cpp -o CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/git_Pro/Daily_Code/epoll_client/pack/garm_simple.cpp -o CMakeFiles/epoll_client.dir/pack/garm_simple.cpp.s
 
 # Object files for target epoll_client
 epoll_client_OBJECTS = \
