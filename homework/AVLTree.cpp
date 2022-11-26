@@ -242,14 +242,20 @@ AVLNode *remove(AVLNode *node,char data){
         if (node->left == NULL) {
             AVLNode *rightNode = node->right;
             node->right = NULL;
+            free_AVL(node);
             retNode = rightNode;
         }
             // 待删除节点右子树为空的情况
         else if (node->right == NULL) {
             AVLNode *leftNode = node->left;
             node->left = NULL;
+            free_AVL(node);
             retNode = leftNode;
         } else {
+            AVLNode *right = node->right;
+            AVLNode *left = node->left;
+            left->right = right;
+            retNode = left;
 
         }
     }

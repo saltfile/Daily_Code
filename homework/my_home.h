@@ -126,7 +126,15 @@ public:
 /**
  * AVLTree
  */
+
+typedef struct AVLNode{
+    AVLNode *left;
+    AVLNode *right;
+    char data;
+    int hegith = 1;
+}AVLNode;
 void TreeMain();
+int get_hight(AVLNode *root);
 /**
  * RBTree
  * @return

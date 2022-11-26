@@ -82,21 +82,21 @@ void free_val_tupl(node *p){
 
 int main() {
 //thread_Test();
-//TreeMain();
+TreeMain();
 //RBTreedemo();
 //seg_treedemo();
 //btreemain();
-    char *ps= (char*) malloc(sizeof(10));
-    strcpy(ps,"asdas");
-    free(ps);
-
-
-    node *n1 = (node *) malloc(sizeof(node));
-    node *n2 = (node *) malloc(sizeof(node));
-    n1->next = n2;
-    n2->a = "sadasdasd";
-    n1->a = "adasd";
-    free_val_tupl(n1);
+//    char *ps= (char*) malloc(sizeof(10));
+//    strcpy(ps,"asdas");
+//    free(ps);
+//
+//
+//    node *n1 = (node *) malloc(sizeof(node));
+//    node *n2 = (node *) malloc(sizeof(node));
+//    n1->next = n2;
+//    n2->a = "sadasdasd";
+//    n1->a = "adasd";
+//    free_val_tupl(n1);
 
 
 
