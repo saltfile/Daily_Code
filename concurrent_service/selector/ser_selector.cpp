@@ -46,8 +46,8 @@ void* commit_handler(void* arg){
         // 如果客户端关闭就close
         pthread_mutex_lock(&lock);
         FD_CLR(info->fd,info->rdset);
-        pthread_mutex_unlock(&lock);
         close(info->fd);
+        pthread_mutex_unlock(&lock);
         free(info);
         return NULL;
     }
