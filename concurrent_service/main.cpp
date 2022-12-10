@@ -2,6 +2,6 @@
 
 int main(int argc,const char* argv[]) {
     printf("service_start\n");
-    ser_selector_start(argv[1],argv[2]);
+    ser_selector_start("192.168.10.105","8484");
     return 0;
 }
