@@ -117,7 +117,7 @@ int ser_selector_start(const char* ip,const char* port){
     while (1){
         pthread_mutex_lock(&lock);
         fd_set tmp = redset;
-        pthread_mutex_lock(&lock);
+        pthread_mutex_unlock(&lock);
         int ret = select(maxfd+1,&tmp,NULL,NULL,NULL);
         // 判断是不是监听fd
         if (FD_ISSET(lfd,&tmp)){
