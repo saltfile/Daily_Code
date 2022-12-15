@@ -32,7 +32,32 @@ public class StringButfluNumber {
         }
         return true;
     }
+
+
+    public int getLucky(String s, int k) {
+        String cs = "";
+        for (char c:s.toCharArray()) {
+            int a = c-96;
+            cs += Integer.toString(a);
+        }
+        int res = 0;
+        for (char c : cs.toCharArray()){
+            res+=c-'0';
+        }
+        k--;
+        while(k > 0){
+            int tem = res;
+            res = 0;
+            while(tem > 0){
+                res += tem % 10;
+                tem /= 10;
+            }
+            --k;
+        }
+        return res;
+    }
     public static void main(String[] args) {
-        System.out.println(new StringButfluNumber().beautySum("aabcb"));
+//        System.out.println(new StringButfluNumber().beautySum("aabcb"));
+        System.out.println(new StringButfluNumber().getLucky("iiii",1));
     }
 }
