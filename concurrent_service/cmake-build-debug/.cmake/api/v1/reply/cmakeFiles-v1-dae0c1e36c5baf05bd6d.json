@@ -125,8 +125,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/saltfish/CLionProjects/concurrent_service/cmake-build-debug",
-		"source" : "/home/saltfish/CLionProjects/concurrent_service"
+		"build" : "/opt/git_Pro/Daily_Code/concurrent_service/cmake-build-debug",
+		"source" : "/opt/git_Pro/Daily_Code/concurrent_service"
 	},
 	"version" : 
 	{
