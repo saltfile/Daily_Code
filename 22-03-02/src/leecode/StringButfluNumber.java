@@ -56,6 +56,13 @@ public class StringButfluNumber {
         }
         return res;
     }
+    public int minElements(int[] nums, int limit, int goal) {
+        long sum = 0;
+        for (int x : nums) {
+            sum += x;
+        }
+        return (int) ((Math.abs(sum - goal) + limit - 1) / limit);
+    }
     public static void main(String[] args) {
 //        System.out.println(new StringButfluNumber().beautySum("aabcb"));
         System.out.println(new StringButfluNumber().getLucky("iiii",1));
