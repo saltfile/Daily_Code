@@ -1,3 +1,0 @@
-/opt/Cpro/CPU/cmake-build-debug/CMakeFiles/edit_cache.dir
-/opt/Cpro/CPU/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/opt/Cpro/CPU/cmake-build-debug/CMakeFiles/CPU.dir

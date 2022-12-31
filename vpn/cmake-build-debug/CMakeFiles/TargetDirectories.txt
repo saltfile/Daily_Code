@@ -1,3 +1,0 @@
-/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles/edit_cache.dir
-/opt/git_Pro/Daily_Code/vpn/cmake-build-debug/CMakeFiles/vpn.dir

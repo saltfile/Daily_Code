@@ -1,4 +1,0 @@
-/opt/IDE/CLion-2022.2.4/clion-2022.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /opt/git_Pro/Daily_Code/homework -B /opt/git_Pro/Daily_Code/homework/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /opt/git_Pro/Daily_Code/homework/cmake-build-debug
