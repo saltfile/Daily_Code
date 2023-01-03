@@ -148,3 +148,19 @@ void show_all(){
 
     }
 }
+
+
+
+int home1_main(){
+
+//home1
+    init_cache();
+    set_tea(455,'W');
+    set_stu(1454,"sadasf");
+    set_tea(445,'N');
+    show_all();
+    return 0;
+}
+
+
+

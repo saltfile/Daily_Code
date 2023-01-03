@@ -16,11 +16,51 @@
 #include <typeinfo>
 #include <math.h>
 using namespace std;
+
+//array_part
+
+int array_part_main();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //home1
 void init_cache();
 void set_stu(int id,char *name);
 void set_tea(int id,char N);
 void show_all();
+int home1_main();
 //hemo2
 typedef struct Link_Node{
     struct Link_Node *prve;
@@ -38,7 +78,7 @@ typedef struct lab_node{
 void demo_explme();
 
 
-
+//home3
 class MyList{
 public:
     int *arr;
@@ -91,7 +131,7 @@ public:
         cout<<"被删除";
     }
 };
-
+int home3_main();
 void thread_Test();
 
 
