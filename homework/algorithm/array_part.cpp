@@ -73,21 +73,53 @@ int binary_search2(int* nums, int numsSize, int target){
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @return
  */
- //双指针
+ //双指针  只得出答案没有挪动相对位置
 int removeElement(int* nums, int numsSize, int val){
     int slow = 0;
      for (int fast = 0; fast < numsSize; fast++) {
-         if (nums[fast] != val){
+         if (nums[fast] == val){
+             nums[fast] = 0;
+         } else{
              nums[slow++] = nums[fast];
          }
      }
      return slow;
 }
 
+int removeElement_move(int* nums, int numsSize, int val){
+        int leftIndex = 0;
+        int rightIndex = numsSize - 1;
+        while (leftIndex <= rightIndex) {
+            // 找左边等于val的元素
+            while (leftIndex <= rightIndex && nums[leftIndex] != val){
+                ++leftIndex;
+            }
+            // 找右边不等于val的元素
+            while (leftIndex <= rightIndex && nums[rightIndex] == val) {
+                -- rightIndex;
+            }
+            // 将右边不等于val的元素覆盖左边等于val的元素
+            if (leftIndex < rightIndex) {
+                nums[leftIndex++] = nums[rightIndex--];
+            }
+        }
+        return leftIndex;   // leftIndex一定指向了最终数组末尾的下一个元素
+    }
 
 
 
+int removeDuplicates(int* nums, int numsSize){
+    int slow = 0;
+    for (int fast = 0; fast < numsSize; ++fast) {
+        if (nums[fast] != nums[slow]){
+           nums[++slow] = nums[fast];
+        }
+    }
+    return ++slow;
 
+
+
+}
 
 
 
@@ -112,12 +144,16 @@ int array_part_main(){
 //
 //   cout<<"二分搜索1 下标为"<<binary_search1(arr,9,65);
 
-int arr[4] = {3,2,2,3};
+int arr[4] = {2,2,3,3};
 
-cout<<removeElement(arr,4,2)<<endl;
-    for (int i = 0; i < 4; ++i) {
-        cout<<arr[i]<<"   ";
-    }
+//cout<<removeElement_move(arr,4,2)<<endl;
+//    for (int i = 0; i < 4; ++i) {
+//        cout<<arr[i]<<"   ";
+//    }
+
+
+    cout<<removeDuplicates(arr,4);
+
 
     return 0;
 }
