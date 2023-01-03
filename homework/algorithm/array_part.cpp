@@ -111,8 +111,14 @@ int removeElement_move(int* nums, int numsSize, int val){
 int removeDuplicates(int* nums, int numsSize){
     int slow = 0;
     for (int fast = 0; fast < numsSize; ++fast) {
+
         if (nums[fast] != nums[slow]){
+            cout<<" 不同 "<<nums[slow]<<"   "<<nums[fast]<<endl;
            nums[++slow] = nums[fast];
+
+
+        } else{
+            cout<<" 相同 "<<nums[slow]<<"   "<<nums[fast]<<endl;
         }
     }
     return ++slow;
@@ -144,7 +150,7 @@ int array_part_main(){
 //
 //   cout<<"二分搜索1 下标为"<<binary_search1(arr,9,65);
 
-int arr[4] = {2,2,3,3};
+int arr[8] = {2,2,2,3,4,4,5,5};
 
 //cout<<removeElement_move(arr,4,2)<<endl;
 //    for (int i = 0; i < 4; ++i) {
@@ -152,7 +158,7 @@ int arr[4] = {2,2,3,3};
 //    }
 
 
-    cout<<removeDuplicates(arr,4);
+    cout<<removeDuplicates(arr,8);
 
 
     return 0;
