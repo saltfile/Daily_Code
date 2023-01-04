@@ -123,12 +123,28 @@ int removeDuplicates(int* nums, int numsSize){
     }
     return ++slow;
 
-
-
 }
 
 
+int minSubArrayLen(int target, int* nums, int numsSize){
+    int sum = 0;
+    int start = 0;
+    int sublen = 0;//滑动窗口长度
+    int res = INT32_MAX;
+    for (int i = 0; i < numsSize; ++i) {
+        sum += nums[i];
+        while (sum >= target){
+            sublen = i-start+1;
+            res = res < sublen ? res : sublen;
+            sum-=nums[start++];
+        }
 
+    }
+    if (res == INT32_MAX)
+        return 0;
+    else
+        return res;
+}
 
 
 
@@ -150,15 +166,11 @@ int array_part_main(){
 //
 //   cout<<"二分搜索1 下标为"<<binary_search1(arr,9,65);
 
-int arr[8] = {2,2,2,3,4,4,5,5};
+int arr[6] = {2,3,1,2,4,3};
 
-//cout<<removeElement_move(arr,4,2)<<endl;
-//    for (int i = 0; i < 4; ++i) {
-//        cout<<arr[i]<<"   ";
-//    }
+cout<<minSubArrayLen(7,arr,6);
 
 
-    cout<<removeDuplicates(arr,8);
 
 
     return 0;

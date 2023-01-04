@@ -19,13 +19,22 @@ void free_val_tupl(node *p){
 }
 
 
+int is_wans(int num,int yin){
+    int g = num%10;
+    int s = (num/10)%10;
+    int b = num/100;
 
+
+    if ((g+s+b) == yin){
+        return 1;
+    } else{
+        return 0;
+    }
+}
 
 int main() {
 
-    array_part_main();
-
-
+  array_part_main();
 
 
 
