@@ -84,9 +84,59 @@ class  SearchInsert{
 }
 
 
+/**
+ * 59. 螺旋矩阵 II
+ *
+ * 给你一个正整数n ，生成一个包含 1 到n^2所有元素，且元素按顺时针顺序螺旋排列的n x n 正方形矩阵 matrix 。
+ * n = 3
+ *    1 2 3
+ *    8 9 4
+ *    7 6 5
+ *
+ *
+ */
 
+class GenerateMatrix{
+    public int[][] generateMatrix(int n) {
+        int[][] arr = new int[n][n];
 
+        int loop = 0;//对角线的轮回次数
 
+        int x = 0,y = 0;//第一个对角线开始
+
+        int num = 1;//用来赋值
+
+        while (loop++ < n/2 ){
+            int i = x;
+            int j = y;
+            //上侧从左到右
+            for (j = x; j < n - loop; j++) {
+                arr[x][j] = num++;
+            }
+
+            //右侧从上到下
+            for (i = x; i < n - loop ; i++) {
+                arr[i][j] = num++;
+            }
+
+            //下侧从右向左
+            for (; j >= loop ;j--){
+                arr[i][j] = num++;
+            }
+            //左侧从下向上
+            for (;i >= loop;i--){
+                arr[i][j] = num++;
+            }
+            x++;
+            y++;
+
+        }
+        if (n%2 != 0){
+            arr[n/2][n/2] = num;
+        }
+        return arr;
+    }
+}
 
 
 
@@ -115,12 +165,8 @@ class  SearchInsert{
 public class array_part {
 
     public static void main(String[] args) {
-        TotalFruit s = new TotalFruit();
-        int[] arr = {3,3,3,1,2,1,1,2,3,3,4};
-        System.out.println(s.totalFruit(arr));
 
-
-
+        System.out.println(new GenerateMatrix().generateMatrix(4));
 
     }
 
