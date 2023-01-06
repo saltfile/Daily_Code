@@ -60,59 +60,54 @@ class MyLinkedList {
     }
 
     public int get(int index) {
-      if (index < 0 || index > lenth-1){
+      if (index < 0 || index >= lenth){
           return -1;
       }
-      ListNode p = new ListNode();
-        for (int i = 0; i < index; i++) {
+      ListNode p = this.head;
+        for (int i = 0; i <= index; i++) {
             p = p.next;
         }
         return p.val;
     }
 
     public void addAtHead(int val) {
-        ListNode p = new ListNode(val);
-        p.next = this.head;
-        this.head = p;
-        this.lenth++;
+        addAtIndex(0,val);
     }
 
     public void addAtTail(int val) {
-        ListNode p = this.head;
-        ListNode new_node = new ListNode(val);
-        while (p.next != null){
-            p = p.next;
-        }
-        p.next = new_node;
-        this.lenth++;
+        addAtIndex(lenth,val);
     }
 
     public void addAtIndex(int index, int val) {
-        if (index < 0||index>lenth-1)return;
+        if (index > lenth) {
+            return;
+        }
+        if (index < 0) {
+            index = 0;
+        }
+        this.lenth++;
+        ListNode p = head;
+        for (int i = 0; i < index; i++) {
+            p = p.next;
+        }
+        ListNode new_node = new ListNode(val);
+        new_node.next = p.next;
+        p.next = new_node;
+    }
+
+    public void deleteAtIndex(int index) {
+        if (index < 0||index >= lenth)return;
+        this.lenth--;
+        if (index == 0) {
+            this.head = head.next;
+            return;
+        }
         ListNode p = this.head;
 
         for (int i = 0; i < index; i++) {
             p = p.next;
         }
-        ListNode p_next = p.next;
-        ListNode new_node = new ListNode(val);
-        new_node.next = p_next;
-        p.next = new_node;
-        this.lenth++;
-    }
-
-    public void deleteAtIndex(int index) {
-        if (index < 0||index-1 > lenth-1)return;
-
-        ListNode p = this.head;
-
-        for (int i = 0; i < index-1; i++) {
-            p = p.next;
-        }
-        //被删除的节点
-        ListNode p_n_n = p.next.next;
-        p.next = p_n_n;
-        this.lenth--;
+        p.next = p.next.next;
     }
 }
 
@@ -128,16 +123,13 @@ class MyLinkedList {
 public class linklist_part {
 
     public static void main(String[] args) {
-        ListNode n1 = new ListNode(1);
-        Random random = new Random();
-        ListNode p = n1;
-        for (int i = 0; i < 10; i++) {
-            p.next = new ListNode(Math.abs(random.nextInt()%5));
-            p = p.next;
-        }
-
-
-        new RemoveElements().removeElements(n1,3);
+       MyLinkedList m1 = new MyLinkedList();
+       m1.addAtHead(1);
+       m1.addAtTail(3);
+       m1.addAtIndex(1,2);
+       m1.get(1);
+       m1.deleteAtIndex(1);
+       m1.get(1);
     }
 
 
