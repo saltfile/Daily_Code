@@ -1,5 +1,6 @@
 package aohiothor;
 
+import java.util.List;
 import java.util.Random;
 
 class ListNode {
@@ -110,6 +111,11 @@ class MyLinkedList {
         p.next = p.next.next;
     }
 }
+
+/**
+ * 206. 反转链表
+ * 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+ */
 class ReverseList{
     ListNode ToHead(ListNode head,ListNode tail){
         ListNode p = head;
@@ -130,6 +136,18 @@ class ReverseList{
             p = p.next;
         }
         return res;
+    }
+    public ListNode reverseList2(ListNode head) {
+        ListNode p = head;
+        ListNode temp = null;
+        ListNode prev = null;
+        while (p != null){
+            temp = p.next;
+            p.next = prev;
+            prev = p;
+            p = temp;
+        }
+        return prev;
     }
 }
 
@@ -152,7 +170,7 @@ public class linklist_part {
             p = p.next;
         }
 
-        new ReverseList().reverseList(n1);
+        new ReverseList().reverseList2(n1);
 
 
 
