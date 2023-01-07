@@ -110,7 +110,28 @@ class MyLinkedList {
         p.next = p.next.next;
     }
 }
+class ReverseList{
+    ListNode ToHead(ListNode head,ListNode tail){
+        ListNode p = head;
+        if (p == null){
+            p = new ListNode(tail.val);
+            return p;
+        }
+        ListNode new_n = new ListNode(tail.val);
+        new_n.next = p;
+        return new_n;
+    }
+    public ListNode reverseList(ListNode head) {
 
+        ListNode p = head;
+        ListNode res = null;
+        while (p != null){
+            res = ToHead(res,p);
+            p = p.next;
+        }
+        return res;
+    }
+}
 
 
 
@@ -123,13 +144,19 @@ class MyLinkedList {
 public class linklist_part {
 
     public static void main(String[] args) {
-       MyLinkedList m1 = new MyLinkedList();
-       m1.addAtHead(1);
-       m1.addAtTail(3);
-       m1.addAtIndex(1,2);
-       m1.get(1);
-       m1.deleteAtIndex(1);
-       m1.get(1);
+        ListNode n1 = new ListNode(1);
+
+        ListNode p = n1;
+        for (int i = 2; i < 6; i++) {
+            p.next = new ListNode(i);
+            p = p.next;
+        }
+
+        new ReverseList().reverseList(n1);
+
+
+
+
     }
 
 
