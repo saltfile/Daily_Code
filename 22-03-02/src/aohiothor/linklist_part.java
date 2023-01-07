@@ -152,9 +152,39 @@ class ReverseList{
 }
 
 
+/**
+ * 24. 两两交换链表中的节点
+ *
+ * 给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。
+ * 你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。
+ * 输入：head = [1,2,3,4]
+ * 输出：[2,1,4,3]
+ */
+
+class SwapPairs{
+    public ListNode swapPairs(ListNode head) {
+        ListNode dey = new ListNode(0);
+        dey.next = head;
+        ListNode p = dey;
+        ListNode f_node = null;//第一个
+        ListNode s_node = null;//第二个
+        ListNode t_node = null;//第三个
+
+        while (p.next != null&&p.next.next != null){
+            t_node = p.next.next.next;
+            f_node = p.next;
+            s_node = p.next.next;
 
 
+            p.next = s_node;
+            s_node.next = f_node;
+            f_node.next = t_node;
 
+            p = f_node;
+        }
+        return dey.next;
+    }
+}
 
 
 
@@ -170,8 +200,8 @@ public class linklist_part {
             p = p.next;
         }
 
-        new ReverseList().reverseList2(n1);
-
+//        new ReverseList().reverseList2(n1);
+        new  SwapPairs().swapPairs(n1);
 
 
 
