@@ -186,6 +186,69 @@ class SwapPairs{
     }
 }
 
+/**
+ * 19. 删除链表的倒数第 N 个结点
+ *
+ * 给你一个链表，删除链表的倒数第n个结点，并且返回链表的头结点。
+ */
+class RemoveNthFromEnd{
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode dey = new ListNode(0);
+    dey.next = head;
+    ListNode left = dey;
+    ListNode right = dey;
+        for (int i = 0; i < n; i++) {
+            right = right.next;
+        }
+        while (right.next != null){
+            left = left.next;
+            right = right.next;
+        }
+
+        left.next = left.next.next;
+
+        return dey.next;
+
+    }
+
+}
+
+/**
+ * 面试题 02.07. 链表相交
+ *
+ * 给你两个单链表的头节点headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表没有交点，返回 null 。
+ *
+ */
+
+
+class GetIntersectionNode{
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+
+        ListNode pA = headA;
+        ListNode pB = headB;
+
+        while (pA!= pB){
+            pA = pA==null?headB:pA.next;
+            pB = pB==null?headA:pB.next;
+        }
+        return pA;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -201,8 +264,8 @@ public class linklist_part {
         }
 
 //        new ReverseList().reverseList2(n1);
-        new  SwapPairs().swapPairs(n1);
-
+//        new  SwapPairs().swapPairs(n1);
+        new RemoveNthFromEnd().removeNthFromEnd(n1,3);
 
 
     }
