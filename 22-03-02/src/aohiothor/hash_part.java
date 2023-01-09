@@ -84,14 +84,11 @@ class Intersection{
 class IsHappy{
     public boolean isHappy(int n) {
         HashSet set = new HashSet();
-        while (n!=1){
-            if (!set.contains(n)){
-                return false;
-            }
+        while (n != 1 && !set.contains(n)){
             set.add(n);
             n = getNum(n);
         }
-        return true;
+        return n == 1;
     }
 
     public int getNum(int n){
@@ -103,7 +100,6 @@ class IsHappy{
         }
         return sum;
     }
-
 
 
 }
