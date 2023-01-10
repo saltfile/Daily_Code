@@ -161,7 +161,27 @@ class TwoSum{
  */
 
 class FourSumCount{
+    public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        //先统计num1+num2
+        for (int n1:nums1){
+            for (int n2:nums2) {
+                map.put(n1+n2,map.getOrDefault(n1+n2,0)+1);
+            }
+        }
+        int count = 0;
 
+        for (int n3:nums3){
+            for (int n4:nums4){
+                int key = 0-(n3+n4);
+                if (map.containsKey(key)){
+                    count+= map.get(key);
+                }
+            }
+        }
+        return count;
+
+    }
 }
 
 
