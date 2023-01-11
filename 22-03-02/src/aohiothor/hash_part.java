@@ -185,6 +185,48 @@ class FourSumCount{
 }
 
 
+/**
+ * 383. 赎金信
+ *
+ * 给你两个字符串：ransomNote 和 magazine ，判断 ransomNote 能不能由 magazine 里面的字符构成。
+ *
+ * 如果可以，返回 true ；否则返回 false 。
+ *
+ * magazine 中的每个字符只能在 ransomNote 中使用一次。
+ */
+
+
+class CanConstruct{
+    public boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character,Integer> map = new HashMap<>();
+
+        for(char c:ransomNote.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+
+
+        for (char c:magazine.toCharArray()){
+            if (map.containsKey(c)){
+                if (map.get(c) <= 0){
+                    map.remove(c);
+                }else {
+                    int idx = map.get(c);
+                    map.put(c,idx-1);
+                }
+            }
+
+        }
+
+        if (map.size()==0)return true;
+        else return false;
+
+
+    }
+}
+
+
+
+
 
 
 
@@ -199,8 +241,8 @@ public class hash_part {
 //        for (int i = 0; i < res.length; i++) {
 //            System.out.print(res[i]+"     ");
 //        }
-        int[] n3 = {3,2,4};
-        System.out.println(new TwoSum().twoSum2(n3,6));
+//        int[] n3 = {3,2,4};
+//        System.out.println(new TwoSum().twoSum2(n3,6));
 
 
 
