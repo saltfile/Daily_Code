@@ -207,9 +207,7 @@ class CanConstruct{
 
         for (char c:magazine.toCharArray()){
             if (map.containsKey(c)){
-                if (map.get(c) <= 0){
-                    map.remove(c);
-                }else {
+                if (map.get(c) > 0){
                     int idx = map.get(c);
                     map.put(c,idx-1);
                 }
@@ -217,8 +215,12 @@ class CanConstruct{
 
         }
 
-        if (map.size()==0)return true;
-        else return false;
+        for (Character key : map.keySet()){
+            if (map.get(key)!=0){
+                return false;
+            }
+        }
+        return true;
 
 
     }
@@ -243,8 +245,7 @@ public class hash_part {
 //        }
 //        int[] n3 = {3,2,4};
 //        System.out.println(new TwoSum().twoSum2(n3,6));
-
-
+        System.out.println(new CanConstruct().canConstruct("aa","sdfsdaaa"));
 
 
     }
