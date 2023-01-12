@@ -1,8 +1,7 @@
 package aohiothor;
 
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * 242. 有效的字母异位词
@@ -227,6 +226,70 @@ class CanConstruct{
 }
 
 
+/**
+ * 15. 三数之和
+ *
+ * 给你一个整数数组 nums ，判断是否存在三元组 [nums[i], nums[j], nums[k]] 满足 i != j、i != k 且 j != k ，同时还满足 nums[i] + nums[j] + nums[k] == 0 。请
+ *
+ * 你返回所有和为 0 且不重复的三元组。
+ *
+ * 注意：答案中不可以包含重复的三元组。// 本来想着用哈希但觉得太鸡儿复杂就选择三指针
+ */
+
+class ThreeSum{
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        //先定义一个结果集,把nums给排序
+        List<List<Integer>> result = new ArrayList<>();
+
+        Arrays.sort(nums);
+
+        //遍历这个数组，按照a+b+c=0
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0)return result;
+            //防止元素已经用过重复现象
+            if( i > 0&&nums[i] == nums[i-1])continue;
+
+            int left = i+1;
+            int right = nums.length-1;
+
+            //保证边界
+            while (right > left) {
+                //双指针移动
+                if (nums[i] + nums[left] + nums[right] > 0)
+                    right--;
+
+
+                else if (nums[i] + nums[left] + nums[right] < 0)
+                    left++;
+
+
+                 else {
+                    List<Integer> arr = new ArrayList<>();
+                    arr.add(nums[i]);
+                    arr.add(nums[left]);
+                    arr.add(nums[right]);
+                    result.add(arr);
+                }
+
+                //后两位去重
+                while (right > left && nums[right] == nums[right - 1]) right--;
+                while (right > left && nums[left] == nums[left + 1]) left++;
+                //最后同时向中间移动位置
+                right--;
+                left++;
+            }
+        }
+        return result;
+    }
+
+}
+
+
+
+
+
+
 
 
 
@@ -245,7 +308,12 @@ public class hash_part {
 //        }
 //        int[] n3 = {3,2,4};
 //        System.out.println(new TwoSum().twoSum2(n3,6));
-        System.out.println(new CanConstruct().canConstruct("aa","sdfsdaaa"));
+//        System.out.println(new CanConstruct().canConstruct("aa","sdfsdaaa"));
+
+        int[] arr = new int[]{
+                3,-2,1,0
+};
+        System.out.println(new ThreeSum().threeSum(arr));
 
 
     }
