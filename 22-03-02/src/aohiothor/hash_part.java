@@ -264,20 +264,20 @@ class ThreeSum{
                     left++;
 
 
-                 else {
+                else {
                     List<Integer> arr = new ArrayList<>();
                     arr.add(nums[i]);
                     arr.add(nums[left]);
                     arr.add(nums[right]);
                     result.add(arr);
-                }
 
-                //后两位去重
-                while (right > left && nums[right] == nums[right - 1]) right--;
-                while (right > left && nums[left] == nums[left + 1]) left++;
-                //最后同时向中间移动位置
-                right--;
-                left++;
+                    //后两位去重
+                    while (right > left && nums[right] == nums[right - 1]) right--;
+                    while (right > left && nums[left] == nums[left + 1]) left++;
+                    //最后同时向中间移动位置
+                    right--;
+                    left++;
+                }
             }
         }
         return result;
@@ -286,10 +286,70 @@ class ThreeSum{
 }
 
 
+/**
+ * 18. 四数之和
+ *
+ * 给你一个由 n 个整数组成的数组nums ，和一个目标值 target 。请你找出并返回满足下述全部条件且不重复的四元组 [nums[a], nums[b], nums[c], nums[d]] （若两个四元组元素一一对应，则认为两个四元组重复）：
+ *
+ *     0 <= a, b, c, d< n
+ *     a、b、c 和 d 互不相同
+ *     nums[a] + nums[b] + nums[c] + nums[d] == target
+ *
+ * 你可以按 任意顺序 返回答案 。
+ *
+ *
+ * 跟上面一样双指针的puls用法
+ */
 
 
 
+class FourSum{
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        //先定义一个结果集,把nums给排序
+        List<List<Integer>> result = new ArrayList<>();
 
+        Arrays.sort(nums);
+        //首先是第一层循环 a+b+c+d = target
+
+        for (int a = 0; a < nums.length; a++) {
+            if (nums[a] > 0 && nums[a] > target) return result;
+
+            if (a > 0 && nums[a] == nums[a - 1]) continue;//第一个数字去重
+
+            for (int b = a + 1; b < nums.length; b++) {
+                if (b > a + 1 && nums[b] == nums[b - 1]) continue;
+
+                int left = b + 1;
+                int right = nums.length - 1;
+
+
+                //确定边界
+                while (right > left) {
+                    int sum = nums[a] + nums[b] + nums[left] + nums[right];
+                    if (sum > target) {
+                        right--;
+                    } else if (sum < target) {
+                        left++;
+                    } else {
+                        List<Integer> arr = new ArrayList<>();
+                        arr.add(nums[a]);
+                        arr.add(nums[b]);
+                        arr.add(nums[left]);
+                        arr.add(nums[right]);
+                        result.add(arr);
+                        //最后后两位去重
+                        while (right > left && nums[right] == nums[right - 1]) right--;
+                        while (right > left && nums[left] == nums[left + 1]) left++;
+                        right--;
+                        left++;
+                    }
+                }
+            }
+
+        }
+        return result;
+    }
+}
 
 
 
@@ -311,9 +371,13 @@ public class hash_part {
 //        System.out.println(new CanConstruct().canConstruct("aa","sdfsdaaa"));
 
         int[] arr = new int[]{
-                3,-2,1,0
+                1,0,-1,0,-2,2
+
 };
-        System.out.println(new ThreeSum().threeSum(arr));
+
+
+        System.out.println(new FourSum().fourSum(arr,0));
+//        System.out.println(new ThreeSum().threeSum(arr));
 
 
     }
