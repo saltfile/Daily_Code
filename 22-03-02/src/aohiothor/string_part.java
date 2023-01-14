@@ -119,16 +119,112 @@ class ReplaceSpace{
 
 
 class ReverseWords{
+    public String reverseWords(String s) {
 
+
+        char[] sr = remove_angtun(s.toCharArray());
+
+        resvaes(sr,0,sr.length-1);
+        resvaes_word(sr);
+
+        String res = new String(sr);
+        return res;
+    }
+    // 去掉多余的空格
+    char[] remove_angtun(char[] arr){
+        int left = 0;
+        int right = arr.length-1;
+        StringBuilder str = new StringBuilder();
+        //先去掉前后的空格
+        while (arr[left] == ' ')left++;
+        while (arr[right] == ' ')right--;
+        while (left <= right){
+            char c = arr[left];
+            if (c != ' ' || str.charAt(str.length()-1) != ' ') {
+                str.append(c);
+            }
+            left++;
+        }
+        return new String(str).toCharArray();
+    }
+
+    void resvaes(char[] s,int l,int r){
+        int left = l;
+        int right = r;
+        while (right > left){
+            //初级交换
+            char temp ;
+            temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
+
+            right--;
+            left++;
+        }
+    }
+
+
+    void resvaes_word(char[] s){
+        //双指针
+        int left = 0;
+        int right = 1;
+        int arr_len = s.length;
+        while (left < s.length){
+            while (right < arr_len && s[right] != ' ') {
+                right++;
+            }
+            resvaes(s,left,right-1);
+            //越过那个空格 在进行下一次循环
+            left = right+1;
+            right = left+1;
+        }
+        
+        
+        
+        
+    }
+
+    public String reverseWordsKu(String s) {
+        String[] str = s.split(" ");
+        StringBuilder res = new StringBuilder();
+        for (int i = str.length-1; i >= 0 ; i--) {
+            String temp = str[i];
+            if (temp.length()!=0){
+                res.append(temp);
+                res.append(" ");
+            }
+        }
+        res.deleteCharAt(res.length()-1);
+        return new String(res);
+
+    }
 
 }
 
 
+/**
+ * 剑指 Offer 58 - II. 左旋转字符串
+ *
+ * 字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。
+ * 比如，输入字符串"abcdefg"和数字2，该函数将返回左旋转两位得到的结果"cdefgab"。
+ */
 
 
+class ReverseLeftWords{
+    public String reverseLeftWords(String s, int n) {
+        int idx = n;
+        char[] cs = s.toCharArray();
+        StringBuilder builder = new StringBuilder();
+        for (int i = n; i < cs.length; i++) {
+            builder.append(cs[i]);
+        }
+        for (int i = 0; i < n; i++) {
+            builder.append(cs[i]);
+        }
+        return new String(builder);
 
-
-
+    }
+}
 
 
 public class string_part {
@@ -144,7 +240,8 @@ public class string_part {
 
 //        System.out.println(new ReverseStr().reverseStr("abcdefg",8).toCharArray());
 
-
+//        System.out.println(new ReverseWords().reverseWords(" a good   example "));
+        System.out.println(new ReverseLeftWords().reverseLeftWords("abcdefg",2));
 
     }
 }
