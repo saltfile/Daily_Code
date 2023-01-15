@@ -2,6 +2,8 @@ package aohiothor;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -227,6 +229,120 @@ class ReverseLeftWords{
 }
 
 
+/**
+ * 28. 找出字符串中第一个匹配项的下标
+ *
+ * 给你两个字符串haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串的第一个匹配项的下标（下标从 0 开始）。
+ * 如果needle 不是 haystack 的一部分，则返回  -1 。
+ *
+ *
+ * 输入：haystack = "sadbutsad", needle = "sad"
+ * 输出：0
+ * 解释："sad" 在下标 0 和 6 处匹配。
+ * 第一个匹配项的下标是 0 ，所以返回 0 。
+ *
+ * 典型的kmp算法或者滑动窗口算法
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+
+
+class StrStr{
+    public int strStr(String haystack, String needle) {
+        //KMP算法
+
+        //初始化前缀表
+        int[] pre = new int[needle.length()];
+
+        getPrefix(pre,needle);
+        int slow = 0;
+        for (int i = 0; i < haystack.length(); i++) {
+            while (slow > 0 && needle.charAt(slow) != haystack.charAt(i))
+                slow = pre[slow-1];
+
+            if(haystack.charAt(i) == needle.charAt(slow))
+                    slow++;
+            if (slow == needle.length())
+                    return i - slow + 1;
+        }
+
+        return -1;
+    }
+    void getPrefix(int[] pre,String need){
+        //起始位置
+        int slow = 0;
+        pre[0]  = 0;
+        //测试整个子串
+        for (int fast = 1; fast < need.length(); fast++) {
+            //如果不相等就向后会退
+            while (slow > 0&& need.charAt(fast) != need.charAt(slow))
+                slow = pre[slow-1];
+                //直到相等为止
+            if(need.charAt(fast) == need.charAt(slow))
+                    slow++;
+                //然后讲前缀表补上
+            pre[fast] = slow;
+        }
+
+    }
+
+    //滑动窗口-库函数版
+
+
+    public int strStr2(String haystack, String needle) {
+        int left = 0;
+
+        for (int i = 0; i < haystack.length(); i++) {
+            if ((i-left) == needle.length()){
+                String a = haystack.substring(left+1,i+1);
+                if (a.equals(needle)){
+                    return left+1;
+                }else {
+                    left++;
+                }
+            }
+        }
+        return -1;
+    }
+
+}
+
+/**
+ * 459. 重复的子字符串
+ *
+ * 给定一个非空的字符串s，检查是否可以通过由它的一个子串重复多次构成。
+ */
+
+
+
+class RepeatedSubstringPattern{
+    public boolean repeatedSubstringPattern(String s) {
+        int[] arr = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            arr[s.charAt(i)-'a']++;
+        }
+        Arrays.sort(arr);
+        int bs = 2;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 1){
+                bs = arr[i];
+                break;
+            }
+        }
+
+
+        for(int a:arr){
+           if (a%bs != 0)return false;
+        }
+        return true;
+    }
+}
+
+
+
+
 public class string_part {
     public static void main(String[] args) {
 //        String arr = "hello";
@@ -241,7 +357,11 @@ public class string_part {
 //        System.out.println(new ReverseStr().reverseStr("abcdefg",8).toCharArray());
 
 //        System.out.println(new ReverseWords().reverseWords(" a good   example "));
-        System.out.println(new ReverseLeftWords().reverseLeftWords("abcdefg",2));
+//        System.out.println(new ReverseLeftWords().reverseLeftWords("abcdefg",2));
+//        System.out.println(new StrStr().strStr2("aabaaabaaac","aabaaac"));
+
+
+        System.out.println(new RepeatedSubstringPattern().repeatedSubstringPattern("abab"));
 
     }
 }
