@@ -293,7 +293,6 @@ class StrStr{
 
     public int strStr2(String haystack, String needle) {
         int left = 0;
-
         for (int i = 0; i < haystack.length(); i++) {
             if ((i-left) == needle.length()){
                 String a = haystack.substring(left+1,i+1);
@@ -313,30 +312,38 @@ class StrStr{
  * 459. 重复的子字符串
  *
  * 给定一个非空的字符串s，检查是否可以通过由它的一个子串重复多次构成。
+ * 判断 s + s 拼接的字符串里是否出现一个s的的时候，要刨除 s + s 的首字符和尾字符，
+ * 这样避免在s+s中搜索出原来的s，我们要搜索的是中间拼接出来的s。
  */
 
 
 
 class RepeatedSubstringPattern{
     public boolean repeatedSubstringPattern(String s) {
-        int[] arr = new int[26];
-        for (int i = 0; i < s.length(); i++) {
-            arr[s.charAt(i)-'a']++;
-        }
-        Arrays.sort(arr);
-        int bs = 2;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > 1){
-                bs = arr[i];
-                break;
-            }
-        }
+
+        int len = s.length();
+
+        s = " " + s;
+        char[] chars = s.toCharArray();
+        int[] next = new int[len + 1];
 
 
-        for(int a:arr){
-           if (a%bs != 0)return false;
+        // 构造 next 数组过程，j从0开始(空格)，i从2开始
+        for (int i = 2, j = 0; i <= len; i++) {
+            // 匹配不成功，j回到前一位置 next 数组所对应的值
+            while (j > 0 && chars[i] != chars[j + 1]) j = next[j];
+            // 匹配成功，j往后移
+            if (chars[i] == chars[j + 1]) j++;
+            // 更新 next 数组的值
+            next[i] = j;
         }
-        return true;
+
+        // 最后判断是否是重复的子字符串，这里 next[len] 即代表next数组末尾的值
+        if (next[len] > 0 && len % (len - next[len]) == 0) {
+            return true;
+        }
+        return false;
+
     }
 }
 
