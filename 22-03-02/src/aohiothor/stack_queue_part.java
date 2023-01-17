@@ -153,14 +153,114 @@ class IsValid{
     }
 }
 
+/**
+ * 1047. 删除字符串中的所有相邻重复项
+ *
+ * 给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。
+ *
+ * 在 S 上反复执行重复项删除操作，直到无法继续删除。
+ *
+ * 在完成所有重复项删除操作后返回最终的字符串。答案保证唯一。
+ */
+
+
+class RemoveDuplicates{
+
+    public String removeDuplicates(String s) {
+        Stack<Character> Stk = new Stack<>();
+
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (Stk.isEmpty() || Stk.peek() != c){
+                Stk.push(c);
+            }else {
+                Stk.pop();
+            }
+        }
+
+        String res = "";
+        while (!Stk.isEmpty()){
+            res=Stk.pop()+res;
+        }
+
+        return res;
+    }
+    public String removeDuplicates2(String s) {
+        StringBuilder Stk = new StringBuilder();
+
+
+        int top = -1;//栈顶
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (top < 0 || Stk.charAt(top) != c) {
+                Stk.append(c);
+                top++;
+            } else {
+                Stk.deleteCharAt(top);
+                top--;
+            }
+        }
+
+        return new String(Stk);
+    }
+}
+
+
+/**
+ * 150. 逆波兰表达式求值
+ *
+ * 给你一个字符串数组 tokens ，表示一个根据逆波兰表示法 表示的算术表达式。
+ *
+ * 请你计算该表达式。返回一个表示表达式值的整数。
+ *
+ * 注意：
+ *
+ *     有效的算符为 '+'、'-'、'*' 和 '/' 。
+ *     每个操作数（运算对象）都可以是一个整数或者另一个表达式。
+ *     两个整数之间的除法总是 向零截断 。
+ *     表达式中不含除零运算。
+ *     输入是一个根据逆波兰表示法表示的算术表达式。
+ *     答案及所有中间计算结果可以用 32 位 整数表示。
+ */
+
+
+class EvalRPN{
+    public int evalRPN(String[] tokens) {
+        Stack<Integer> Stk = new Stack<>();
+
+        for (int i = 0; i < tokens.length; i++) {
+
+            if (tokens[i].equals( "+")||tokens[i].equals( "*")||tokens[i].equals( "-")||tokens[i].equals( "/")){
+                int num1 = Stk.pop();
+                int num2 = Stk.pop();
+                if (tokens[i].equals( "+"))Stk.push(num1+num2);
+                if (tokens[i].equals( "-"))Stk.push(-num1+num2);
+                if (tokens[i].equals( "*"))Stk.push(num1*num2);
+                if (tokens[i].equals( "/"))Stk.push(num2/num1);
+
+            }else {
+                Stk.push(Integer.parseInt(tokens[i]));
+            }
+        }
+        return Stk.pop();
+
+    }
+}
+
+
+
+
 
 public class stack_queue_part {
 
     public static void main(String[] args) {
-        System.out.println(new IsValid().isValid("[]"));
+//        System.out.println(new IsValid().isValid("[]"));
 
+//        System.out.println(new RemoveDuplicates().removeDuplicates2("abbaca"));
 
-
+        String[] token = new String[]{"4","13","5","/","+"};
+        System.out.println(new EvalRPN().evalRPN(token));
 
 
 //        MyStack queue = new MyStack();
