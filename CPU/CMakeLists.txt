@@ -3,5 +3,5 @@ project(CPU)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CPU main.cpp pub_references.h mem_fun.cpp str_fun.cpp cpu_fun.cpp list.cpp log_fun.cpp cpu.cpp stack.cpp)
+add_executable(CPU main.cpp pub_references.h cpu_fun.cpp cpu.cpp stack.cpp fun_handler.cpp)
 TARGET_LINK_LIBRARIES(CPU pthread)

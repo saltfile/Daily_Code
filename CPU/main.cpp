@@ -4,26 +4,11 @@
  * @return
  */
 int main() {
-//    char *str =  "sadlkdsfjsl fdsaflsnflsdn dslfkmsldfk";
-//    char **strs = split(str," ");
-//    int strslen = spilt_size(str," ");
-//    for (int i = 0; i < strslen; ++i) {
-//        cout<<strs[i]<<endl;
-//    }
 
-//byte *a = dec_to_bin(11);
-//    for (int i = 0; i < bytelen(a); ++i) {
-//        cout<<a[i]<<endl;
-//    }
-//
-//cout<<bin_to_dec(a);
-
-//code_tree *root = code_build();
-//byte *c = (byte*)"10010110";
-//cpu_fun fun = code_sel(root,c);
-//fun((byte*)"asdasd");
+    cout<<to_number("01101111")<<endl;
 
 
+    cout<<to_binary(246);
 
     return 0;
 }
