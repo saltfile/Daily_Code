@@ -1,10 +1,7 @@
 package aohiothor;
 
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 232. 用栈实现队列
@@ -249,6 +246,89 @@ class EvalRPN{
 }
 
 
+/**
+ * 239. 滑动窗口最大值
+ *
+ * 给你一个整数数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。
+ *
+ * 返回 滑动窗口中的最大值 。
+ *
+ *  
+ *
+ * 示例 1：
+ *
+ * 输入：nums = [1,3,-1,-3,5,3,6,7], k = 3
+ * 输出：[3,3,5,5,6,7]
+ * 解释：
+ * 滑动窗口的位置                最大值
+ * ---------------               -----
+ * [1  3  -1] -3  5  3  6  7       3
+ *  1 [3  -1  -3] 5  3  6  7       3
+ *  1  3 [-1  -3  5] 3  6  7       5
+ *  1  3  -1 [-3  5  3] 6  7       5
+ *  1  3  -1  -3 [5  3  6] 7       6
+ *  1  3  -1  -3  5 [3  6  7]      7
+ */
+
+//单调队列从大到小
+class DanQueue {
+    Deque<Integer> deque = new LinkedList<>();
+
+    void poll(int val) {
+        if (!deque.isEmpty() && val == deque.peek()) {
+            deque.poll();
+        }
+    }
+
+    void add(int val) {
+        //如果val 比最后一个大就把最后一个给remove然后在加进去
+        while (!deque.isEmpty() && val > deque.getLast()) {
+            deque.removeLast();
+        }
+        deque.add(val);
+    }
+    //队列队顶元素始终为最大值
+    int peek() {
+        return deque.peek();
+    }
+}
+class MaxSlidingWindow {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums.length == 1) {
+            return nums;
+        }
+        int res_len = nums.length-k+1;
+
+        int[] res = new int[res_len];
+        int idx = 0;
+        //滑动窗口
+        DanQueue IQu = new DanQueue();
+
+
+
+        for (int i = 0; i < k; i++) {
+            IQu.add(nums[i]);
+        }
+        res[idx++] = IQu.peek();
+
+        for (int i = k; i < nums.length; i++) {
+
+            IQu.poll(nums[i-k]);
+
+            IQu.add(nums[i]);
+
+            res[idx++] = IQu.peek();
+        }
+        return res;
+
+
+    }
+}
+
+
+
+
+
 
 
 
@@ -259,8 +339,15 @@ public class stack_queue_part {
 
 //        System.out.println(new RemoveDuplicates().removeDuplicates2("abbaca"));
 
-        String[] token = new String[]{"4","13","5","/","+"};
-        System.out.println(new EvalRPN().evalRPN(token));
+//        String[] token = new String[]{"4","13","5","/","+"};
+//        System.out.println(new EvalRPN().evalRPN(token));
+
+        int[] arr = new int[]{1,3,-1,-3,5,3,6,7};
+        int[] arr1 = new MaxSlidingWindow().maxSlidingWindow(arr,3);
+
+        for (int a:arr1){
+            System.out.println(a);
+        }
 
 
 //        MyStack queue = new MyStack();
