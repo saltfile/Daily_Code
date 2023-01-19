@@ -325,9 +325,35 @@ class MaxSlidingWindow {
     }
 }
 
+/**
+ * 347. 前 K 个高频元素
+ *
+ * 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
+ */
 
+class TopKFrequent{
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer,Integer> map = new HashMap<>();
 
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
 
+        PriorityQueue<int[]> pq = new PriorityQueue<>((pair1, pair2)->pair2[1]-pair1[1]);
+
+        for (Map.Entry<Integer,Integer> entry:map.entrySet()){
+            pq.add(new int[]{entry.getKey(),entry.getValue()});
+        }
+
+        int[] res = new int[k];
+        //最后放进数组
+        for (int i = 0; i < k; i++) {
+            res[i] = pq.poll()[0];
+        }
+        return res;
+
+    }
+}
 
 
 
@@ -342,14 +368,15 @@ public class stack_queue_part {
 //        String[] token = new String[]{"4","13","5","/","+"};
 //        System.out.println(new EvalRPN().evalRPN(token));
 
-        int[] arr = new int[]{1,3,-1,-3,5,3,6,7};
-        int[] arr1 = new MaxSlidingWindow().maxSlidingWindow(arr,3);
+//        int[] arr = new int[]{1,3,-1,-3,5,3,6,7};
+//        int[] arr1 = new MaxSlidingWindow().maxSlidingWindow(arr,3);
+//
+//        for (int a:arr1){
+//            System.out.println(a);
+//        }
 
-        for (int a:arr1){
-            System.out.println(a);
-        }
-
-
+        int[] ars = new int[]{2,2,1,1,1,3};
+        System.out.println(new TopKFrequent().topKFrequent(ars,2));
 //        MyStack queue = new MyStack();
 //        queue.push(1);
 //        queue.push(2);
