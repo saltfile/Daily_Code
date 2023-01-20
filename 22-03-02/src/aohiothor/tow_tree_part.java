@@ -114,15 +114,15 @@ public class tow_tree_part {
 
 
         //中序遍历
-//        new Ergodic().Middle(root);
-//        List<Integer> arr =new ArrayList<>();
-//        new Ergodic().Middle(root,arr);
-//        System.out.println(arr);
+        new Ergodic().Middle(root);
+        List<Integer> arr =new ArrayList<>();
+        new Ergodic().Middle(root,arr);
+        System.out.println(arr);
 
         //后序遍历
-        new Ergodic().Postorder(root);
-        List<Integer> arr =new ArrayList<>();
-        new Ergodic().Postorder(root,arr);
-        System.out.println(arr);
+//        new Ergodic().Postorder(root);
+//        List<Integer> arr =new ArrayList<>();
+//        new Ergodic().Postorder(root,arr);
+//        System.out.println(arr);
     }
 }
