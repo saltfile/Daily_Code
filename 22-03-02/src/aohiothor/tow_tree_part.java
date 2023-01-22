@@ -5,7 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+class Node {
+    public int val;
+    public List<Node> children;
 
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
 
 
 //算法二叉树部分
@@ -88,7 +102,20 @@ class Ergodic{
  */
 
 
-class LevelOrder{
+class LevelOrder{  public int maxDepth(TreeNode root) {
+        return getlevel(root);
+    }
+
+    public int getlevel(TreeNode root){
+        if (root == null)return 0;
+
+        int num1 = getlevel(root.left);
+        int num2 = getlevel(root.right);
+        int res = 1+Math.max(num1,num2);
+        return res;
+
+    }
+
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res =  new ArrayList<>();
@@ -143,6 +170,197 @@ class InvertTree{
 
 }
 
+/**
+ * 101. 对称二叉树
+ *
+ * 给你一个二叉树的根节点 root ， 检查它是否轴对称。
+ * 输入：root = [1,2,2,3,4,4,3]
+ * 输出：true
+ *
+ *
+ *这题比较迷：
+ * 确定终止条件
+ * 左节点为空，右节点不为空，不对称，return false；
+ * 左不为空，右为空，不对称 return false
+ * 左右都为空，对称，返回true
+ * 左右都不为空，比较节点数值，不相同就return false
+ */
+
+
+class IsSymmetric{
+    public boolean isSymmetric(TreeNode root) {
+        return check(root.left,root.right);
+    }
+
+    public boolean check(TreeNode left,TreeNode right){
+        if (left == null&&right != null){
+            return false;
+        }
+        if (left != null && right == null){
+            return false;
+        }
+        if (left == null&&right == null){
+            return true;
+        }
+//        if (left.val == right.val){
+//            return true;
+//        }
+        if (left.val!=right.val){
+            return false;
+        }
+
+        boolean out = check(left.left,right.right);
+        boolean in = check(left.right,right.left);
+        return out&&in;
+
+    }
+
+
+}
+
+/**
+ * 104. 二叉树的最大深度
+ *
+ * 给定一个二叉树，找出其最大深度。
+ *
+ * 二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
+ *
+ * 说明:叶子节点是指没有子节点的节点。
+ *
+ *
+ *
+ *
+ * 559. N 叉树的最大深度
+ *
+ * 给定一个 N 叉树，找到其最大深度。
+ *
+ * 最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。
+ *
+ * N 叉树输入按层序遍历序列化表示，每组子节点由空值分隔（请参见示例）。
+ */
+
+
+
+
+
+
+
+
+class MaxDepth{
+    public int maxDepth(TreeNode root) {
+        return getlevel(root);
+    }
+
+    public int getlevel(TreeNode root){
+        if (root == null)return 0;
+
+        int num1 = getlevel(root.left);
+        int num2 = getlevel(root.right);
+        int res = 1+Math.max(num1,num2);
+        return res;
+
+    }
+
+
+    public int maxDepth(Node root) {
+        return getlevel(root);
+    }
+
+    public int getlevel(Node root){
+        if (root == null)return 0;
+        int res = 0;
+        for (int i = 0; i < root.children.size(); i++) {
+            res = Math.max(res,getlevel(root.children.get(i)));
+        }
+        return ++res;
+    }
+
+}
+
+/**
+ * 111. 二叉树的最小深度
+ *
+ * 给定一个二叉树，找出其最小深度。
+ *
+ * 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
+ *
+ * 说明：叶子节点是指没有子节点的节点。
+ *
+ *
+ *
+ * 注意！！！！！
+ * 左子树为空，右子树不为空，说明最小深度是 1 + 右子树的深度。
+ * 右子树为空，左子树不为空，最小深度是 1 + 左子树的深度。
+ */
+
+class MinDepth{
+    public int minDepth(TreeNode root) {
+        return getlevel(root);
+    }
+
+    public int getlevel(TreeNode root){
+        if (root==null)return 0;
+        int num1 = getlevel(root.left);
+        int num2 = getlevel(root.right);
+        if (root.left !=null&&root.right == null){
+            return 1+num1;
+        }
+        if (root.right !=null && root.left == null){
+            return 1+num2;
+        }
+        int res = 1+Math.min(num1,num2);
+        return res;
+    }
+
+
+}
+
+/**
+ * 257. 二叉树的所有路径
+ *
+ * 给你一个二叉树的根节点 root ，按 任意顺序 ，返回所有从根节点到叶子节点的路径。
+ *
+ * 叶子节点 是指没有子节点的节点。
+ *
+ */
+
+class BinaryTreePaths{
+
+
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> res = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+
+        if (root == null)return res;
+
+        getpath(root,path,res);
+        return res;
+
+    }
+
+    public void getpath(TreeNode root,List<Integer>path,List<String> res){
+        path.add(root.val);
+        //说明后面没路
+        if (root.left == null&&root.right == null){
+            String res_part = "";
+            for (int i = 0; i < path.size()-1; i++) {
+                res_part+=path.get(i);
+                res_part+= "->";
+            }
+            res_part+=path.get(path.size()-1);
+            res.add(res_part);
+        }
+        if (root.left!=null){
+            getpath(root.left,path,res);
+            path.remove(path.size()-1);
+        }
+        if (root.right!=null){
+            getpath(root.right,path,res);
+            path.remove(path.size()-1);
+        }
+    }
+}
+
 
 
 public class tow_tree_part {
@@ -182,9 +400,11 @@ public class tow_tree_part {
 //        new Ergodic().Postorder(root,arr);
 //        System.out.println(arr);
 
-        System.out.println(new LevelOrder().levelOrder(root));
-        new InvertTree().invertTree(root);
-        System.out.println(new LevelOrder().levelOrder(root));
+//        System.out.println(new LevelOrder().levelOrder(root));
+//        new InvertTree().invertTree(root);
+//        System.out.println(new LevelOrder().levelOrder(root));
 
+
+        System.out.println(new MaxDepth().maxDepth(root));
     }
 }
