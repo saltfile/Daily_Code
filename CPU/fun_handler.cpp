@@ -71,7 +71,7 @@ string mul(string arg1,string arg2){
     return to_binary(num3);
 }
 
-string div(string arg1,string arg2){
+string divs(string arg1,string arg2){
     int num1 = to_number(arg1);
     int num2 = to_number(arg2);
 
@@ -83,18 +83,18 @@ string div(string arg1,string arg2){
 
 
 //寄存器拷贝
-string copy(string &arg1,string arg2){
+string copys(string &arg1,string arg2){
     arg1 = arg2;
     return "";
 }
 
 
-string vol(string &arg1,int arg2){
+string vols(string &arg1,int arg2){
     arg1 = to_binary(arg2);
     return "";
 }
 
-string free(string &arg,string arg2){
+string frees(string &arg,string arg2){
     arg = "";
     return "";
 }

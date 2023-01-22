@@ -6,8 +6,10 @@
 int main() {
 //    cout<<to_binary(255);
 
-    commod_binary("cop R1,R2")
-
+//    commod_binary("mov R1");
+string aaaa = "aaaaaaaab";
+cout<<aaaa.substr(8,8);
+//CPU cpu = CPU();
 
     return 0;
 }

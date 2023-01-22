@@ -37,17 +37,10 @@ void loading_code(char * path){
 
 
 void compile(){
-
     for (int i = 0; i < code_arr.size(); ++i) {
         string commod = code_arr[i];
-
-
-
+        code_binary_arr.push_back(commod_binary(commod));
     }
-
-
-
-
 };
 
 
@@ -62,7 +55,7 @@ string com_to_bin(string commad){
         return "00010000";
     }else if (commad.compare("copy") == 0){
         return "11111000";
-    }else if (commad.compare("vol") == 0){
+    }else if (commad.compare("mov") == 0){
         return "11111100";
     }else if (commad.compare("free") == 0){
         return "11111110";
@@ -89,14 +82,19 @@ string commod_binary(string commad){
     res+=com;
 
     vector<string> args = split_str(arr[1],",");
-    string mcrs = args[0].substr(1,args[0].size()-1);
-
-
-
-
-
+    string arg1 = args[0].substr(1,args[0].size()-1);
+    res+= to_binary(atol(arg1.c_str()));
+    if (args.size() > 1){
+        if (args[1][0] == 'R'){
+            string arg2 = args[1].substr(1,args[0].size()-1);
+            res+= to_binary(atol(arg2.c_str()));
+        } else{
+            res+= to_binary(atol(args[1].c_str()));
+        }
+    } else{
+        res+="00000000";
+    }
 }
-
 
 
 
@@ -128,9 +126,11 @@ command_tree *build_tree(command_tree *root,string commad,cpu_fun cpuFun){
     command_tree *p = root;
     for (int i = 0; i < commad.size(); ++i) {
         if (commad[i] == '0'){
+            if (p->left == nullptr)
             p->left = new command_tree();
             p = p->left;
         } else{
+            if (p->right == nullptr)
             p->right = new command_tree();
             p = p->right;
         }
@@ -169,23 +169,18 @@ cpu_fun select_tree(command_tree *root,string commad){
 }
 
 
+void CPU::loading_binary() {
+    for (int i = 0; i < code_binary_arr.size(); i++) {
+        this->Bus[i] = code_binary_arr[i].substr(0,8);
+        this->Bus[Bus_len/3+i] = code_binary_arr[i].substr(8,8);
+        this->Bus[(Bus_len/3)*2+i] = code_binary_arr[i].substr(16,8);
+    }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 

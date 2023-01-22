@@ -22,7 +22,7 @@ using namespace std;
 typedef unsigned char byte;
 typedef void* (*cpu_fun)(void* arg1,void* arg2);
 
-#define Bus_len 512
+#define Bus_len 150
 
 #define MDR_SIZE 16
 //日志
@@ -39,18 +39,18 @@ string red(string arg1,string arg2);
 
 string mul(string arg1,string arg2);
 
-string div(string arg1,string arg2);
+string divs(string arg1,string arg2);
 
 
 
 //复制 被拷贝的 拷贝到的
-string copy(string &arg1,string arg2);
+string copys(string &arg1,string arg2);
 
 //赋值
-string vol(string &arg1,string arg2);
+string vols(string &arg1,int arg2);
 
 //释放
-string free(string &arg,string arg2);
+string frees(string &arg,string arg2);
 
 
 
@@ -64,6 +64,12 @@ public:
     command_tree *left;
     command_tree *right;
     cpu_fun fun_run;
+
+    command_tree(){
+        left = nullptr;
+        right = nullptr;
+        fun_run = nullptr;
+    }
 };
 //构建编码树
 command_tree *build_tree(command_tree *root,string commad,cpu_fun);
@@ -76,9 +82,55 @@ public:
     //总线
     string Bus[Bus_len];
     string MDR[MDR_SIZE];
+    command_tree *tree;
+    CPU(){
+        tree = new command_tree();
+        for (int i = 0; i < Bus_len; ++i) {
+            Bus[i] = "";
+        }
+        for (int i = 0; i < MDR_SIZE; ++i) {
+            MDR[i] = "";
+        }
+        //加
+        tree = build_tree(tree, "10000000", (cpu_fun)add);
+        //减
+        tree = build_tree(tree,"01000000",(cpu_fun) red);
+        //乘
+        tree = build_tree(tree,"00100000",(cpu_fun)mul);
+        //除
+        tree = build_tree(tree,"00010000",(cpu_fun)divs);
+
+        //寄存器拷贝
+        tree = build_tree(tree,"11111000",(cpu_fun) copys);
+        //寄存器赋值
+        tree = build_tree(tree,"11111100",(cpu_fun) vols);
+        //寄存器释放
+        tree = build_tree(tree,"11111110",(cpu_fun) frees);
+        code_lens = 0;
+    }
+
+    void loading_binary();
 
 
 
+    void run(int length){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 
 };
