@@ -16,16 +16,16 @@
 #include <vector>
 #include <typeinfo>
 #include <math.h>
+#include <fstream>
+#include <stdexcept>
 using namespace std;
 typedef unsigned char byte;
 typedef void* (*cpu_fun)(void* arg1,void* arg2);
 
+#define Bus_len 512
+
 #define MDR_SIZE 16
 //日志
-void log_info(string str);
-void log_info(char *data);
-void log_erro(char *data);
-void log_erro(string data);
 void log_debug(char *data);
 //转二进制
 string to_binary(int arg);
@@ -44,13 +44,13 @@ string div(string arg1,string arg2);
 
 
 //复制 被拷贝的 拷贝到的
-string copy(int arg1,int arg2);
+string copy(string &arg1,string arg2);
 
 //赋值
-string vol(int arg1,int num);
+string vol(string &arg1,string arg2);
 
 //释放
-string free(string &arg);
+string free(string &arg,string arg2);
 
 
 
@@ -70,6 +70,78 @@ command_tree *build_tree(command_tree *root,string commad,cpu_fun);
 //查找对应功能
 cpu_fun select_tree(command_tree *root,string commad);
 
+class CPU{
+public:
+    int code_lens;//程序计数器
+    //总线
+    string Bus[Bus_len];
+    string MDR[MDR_SIZE];
+
+
+
+
+
+};
+
+
+
+
+string commod_binary(string commad);
+
+
+
+
+
+
+//拷贝
+void loading_code(char * path);
+
+
+
+
+//字符串拆分
+char **split(char *str,char *dent);
+int spilt_size(char *a,char *b);
+
+vector<string> split_str(const string& str,const string& delim);
+
+
+
+
+
+
+
+class CommadNotFound :public exception//自定义错误类
+{
+public:
+    CommadNotFound(string s)
+    {
+        error = s;
+    }
+
+    virtual const char* what()const throw()
+    {
+        return  (error.c_str());
+    }
+
+    string error;
+};
+
+class InstructionRepetition : public exception
+{
+public:
+    InstructionRepetition(string s)
+    {
+        error = s;
+    }
+
+    virtual const char* what()const throw()
+    {
+        return  (error.c_str());
+    }
+
+    string error;
+};
 
 
 

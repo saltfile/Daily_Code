@@ -4,11 +4,10 @@
  * @return
  */
 int main() {
+//    cout<<to_binary(255);
 
-    cout<<to_number("01101111")<<endl;
+    commod_binary("cop R1,R2")
 
-
-    cout<<to_binary(246);
 
     return 0;
 }
