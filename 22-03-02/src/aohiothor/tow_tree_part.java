@@ -362,6 +362,92 @@ class BinaryTreePaths{
 }
 
 
+/**
+ * 222. 完全二叉树的节点个数
+ *
+ * 给你一棵 完全二叉树 的根节点 root ，求出该树的节点个数。
+ *
+ * 完全二叉树 的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，
+ * 并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~2h个节点。
+ */
+class CountNodes{
+    public int countNodes(TreeNode root) {
+        return getNodes(root);
+    }
+    public int getNodes(TreeNode root){
+        if (root == null)return 0;
+        int les = getNodes(root.left);
+        int res = getNodes(root.right);
+        int sum = les+res+1;
+        return sum;
+    }
+
+}
+
+
+/**
+ * 110. 平衡二叉树
+ *
+ * 给定一个二叉树，判断它是否是高度平衡的二叉树。
+ *
+ * 本题中，一棵高度平衡二叉树定义为：
+ *
+ * 一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1 。
+ * 参数：当前传入节点。
+ * 返回值：以当前传入节点为根节点的树的高度。
+ *
+ * 那么如何标记左右子树是否差值大于1呢？
+ *
+ * 如果当前传入节点为根节点的二叉树已经不是二叉平衡树了，还返回高度的话就没有意义了。
+ *
+ * 所以如果已经不是二叉平衡树了，可以返回-1 来标记已经不符合平衡树的规则了。
+ */
+
+class IsBalanced{
+    public boolean isBalanced(TreeNode root) {
+        return getlevel(root)!=-1;
+    }
+    public int getlevel(TreeNode root){
+        if (root == null)return 0;
+
+        int left = getlevel(root.left);
+        if (left == -1)return -1;
+        int right = getlevel(root.right);
+        if (right == -1) return -1;
+        int res = Math.abs(left-right) > 1 ? -1 : 1+Math.max(left,right);
+        return res;
+    }
+}
+
+
+/**
+ * 404. 左叶子之和
+ *
+ * 给定二叉树的根节点 root ，返回所有左叶子之和。
+ */
+class SumOfLeftLeaves{
+    public int sumOfLeftLeaves(TreeNode root) {
+
+
+        return getLeftSum(root);
+    }
+    public int getLeftSum(TreeNode root){
+        if (root == null)return 0;
+        //获取左边叶子的值
+
+        int left = getLeftSum(root.left);
+        int right = getLeftSum(root.right);
+
+        int mid = 0;
+        //注意这里是叶子节点
+        if (root.left != null&&root.left.left == null&&root.left.right == null){
+            mid = root.left.val;
+        }
+        return left+mid+right;
+    }
+}
+
+
 
 public class tow_tree_part {
     public static void main(String[] args) {
@@ -403,8 +489,8 @@ public class tow_tree_part {
 //        System.out.println(new LevelOrder().levelOrder(root));
 //        new InvertTree().invertTree(root);
 //        System.out.println(new LevelOrder().levelOrder(root));
+        System.out.println(new SumOfLeftLeaves().sumOfLeftLeaves(root));
 
-
-        System.out.println(new MaxDepth().maxDepth(root));
+//        System.out.println(new MaxDepth().maxDepth(root));
     }
 }
