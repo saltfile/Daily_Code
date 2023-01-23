@@ -39,7 +39,8 @@ void loading_code(char * path){
 void compile(){
     for (int i = 0; i < code_arr.size(); ++i) {
         string commod = code_arr[i];
-        code_binary_arr.push_back(commod_binary(commod));
+        string s = commod_binary(commod);
+        code_binary_arr.push_back(s);
     }
 };
 
@@ -47,7 +48,7 @@ void compile(){
 string com_to_bin(string commad){
     if (commad.compare("add") == 0){
         return "10000000";
-    } else if (commad.compare("red") == 0){
+    } else if (commad.compare("sub") == 0){
         return "01000000";
     }else if (commad.compare("mul") == 0){
         return "00100000";
@@ -94,6 +95,7 @@ string commod_binary(string commad){
     } else{
         res+="00000000";
     }
+    return res;
 }
 
 
@@ -175,16 +177,61 @@ void CPU::loading_binary() {
         this->Bus[Bus_len/3+i] = code_binary_arr[i].substr(8,8);
         this->Bus[(Bus_len/3)*2+i] = code_binary_arr[i].substr(16,8);
     }
+    this->code_lens+=code_binary_arr.size();
+}
 
 
+void CPU::run() {
+    int clens = this->code_lens;
+
+
+    for (int i = 0; i < clens; ++i) {
+        string com =  this->Bus[i];
+        cpu_fun f1 = select_tree(this->tree,com);
+
+        //加减乘除一类型的指令
+        if (com.compare("10000000")==0||com.compare("01000000")==0||com.compare("00100000")==0||com.compare("00010000")==0) {
+            string arg1 = this->Bus[Bus_len / 3 + i];
+            string arg2 = this->Bus[(Bus_len/3)*2+i];
+            int idx1 = to_number(arg1);
+            int idx2 = to_number(arg2);
+
+            string M1 = this->MDR[idx1];
+            string M2 = this->MDR[idx2];
+
+            string *res1 =static_cast<std::string*>( f1(&M1,&M2));
+
+            this->MDR[idx1] = *res1;
+        }
+        //复制指令
+        if (com.compare("11111000")){
+            string arg1 = this->Bus[Bus_len / 3 + i];
+            string arg2 = this->Bus[(Bus_len/3)*2+i];
+            int idx1 = to_number(arg1);
+            int idx2 = to_number(arg2);
+            string *M1 = &this->MDR[idx1];
+            string M2 = this->MDR[idx2];
+            f1(M1,&M2);
+        }
+        //赋值指令
+        if (com.compare("11111100")){
+            string arg1 = this->Bus[Bus_len / 3 + i];
+            string arg2 = this->Bus[(Bus_len/3)*2+i];
+            int idx1 = to_number(arg1);
+
+            string *M1 = &this->MDR[idx1];
+            f1(M1,&arg2);
+
+
+
+        }
+
+
+    }
 
 
 
 }
-
-
-
-
 
 
 

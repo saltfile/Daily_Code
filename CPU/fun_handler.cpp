@@ -83,18 +83,22 @@ string divs(string arg1,string arg2){
 
 
 //寄存器拷贝
-string copys(string &arg1,string arg2){
-    arg1 = arg2;
-    return "";
+void *copys(void *arg1,void* arg2){
+    string *a = (string *)arg1;
+    string *b = (string *)arg2;
+    a->append(b->data());
+    return nullptr;
 }
 
 
-string vols(string &arg1,int arg2){
-    arg1 = to_binary(arg2);
+string vols(string *arg1,string arg2){
+    arg1->clear();
+    arg2.append(arg2);
     return "";
 }
 
-string frees(string &arg,string arg2){
-    arg = "";
+string frees(string *arg,string arg2){
+    arg->clear();
+    arg->append("00000000");
     return "";
 }

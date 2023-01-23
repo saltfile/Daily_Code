@@ -4,12 +4,46 @@
  * @return
  */
 int main() {
-//    cout<<to_binary(255);
+//    cout<<to_number("10000000");
 
 //    commod_binary("mov R1");
-string aaaa = "aaaaaaaab";
-cout<<aaaa.substr(8,8);
-//CPU cpu = CPU();
+//    loading_code("/opt/git_Pro/Daily_Code/CPU/test.txt");
+//    compile();
+//
 
+
+
+
+
+
+
+
+
+
+
+cpu_fun f1 = (cpu_fun) (copys);
+string s1 = "000000";
+
+string s2 = "111111";
+
+    f1(&s1,&s2);
+
+
+
+
+
+
+
+
+
+
+
+//string *s2 = static_cast<std::string*>(f1(&s1,&s1));
+cout<<s1;
+
+
+
+//    CPU cpu = CPU();
+//    cpu.loading_binary();
     return 0;
 }

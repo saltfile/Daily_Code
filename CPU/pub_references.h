@@ -44,13 +44,13 @@ string divs(string arg1,string arg2);
 
 
 //复制 被拷贝的 拷贝到的
-string copys(string &arg1,string arg2);
+void * copys(void *arg1,void* arg2);
 
 //赋值
-string vols(string &arg1,int arg2);
+string vols(string *arg1,string arg2);
 
 //释放
-string frees(string &arg,string arg2);
+string frees(string *arg,string arg2);
 
 
 
@@ -89,7 +89,7 @@ public:
             Bus[i] = "";
         }
         for (int i = 0; i < MDR_SIZE; ++i) {
-            MDR[i] = "";
+            MDR[i] = "00000000";
         }
         //加
         tree = build_tree(tree, "10000000", (cpu_fun)add);
@@ -113,24 +113,7 @@ public:
 
 
 
-    void run(int length){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
+    void run();
 
 
 };
@@ -139,7 +122,7 @@ public:
 
 
 string commod_binary(string commad);
-
+void compile();
 
 
 
@@ -166,6 +149,7 @@ vector<string> split_str(const string& str,const string& delim);
 class CommadNotFound :public exception//自定义错误类
 {
 public:
+    string error = ":";
     CommadNotFound(string s)
     {
         error = s;
@@ -176,7 +160,7 @@ public:
         return  (error.c_str());
     }
 
-    string error;
+
 };
 
 class InstructionRepetition : public exception
