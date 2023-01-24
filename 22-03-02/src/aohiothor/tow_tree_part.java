@@ -447,6 +447,80 @@ class SumOfLeftLeaves{
     }
 }
 
+/**
+ * 513. 找树左下角的值
+ *
+ * 给定一个二叉树的 根节点 root，请找出该二叉树的 最底层 最左边 节点的值。
+ *
+ * 假设二叉树中至少有一个节点。
+ */
+class FindBottomLeftValue{
+    private int level = -1;
+    private int res;
+    public int findBottomLeftValue(TreeNode root) {
+        //担心就一个root节点
+        res = root.val;
+        getDeep(root,0);
+        return res;
+    }
+
+    public void getDeep(TreeNode root,int deep){
+        //确定边界
+        if (root == null)return;
+        //如果是叶子结点如果比当前的深度深那么就替换原来的深度
+        if (root.left == null&&root.right == null){
+            if (deep > level){
+                level = deep;
+                res = root.val;
+            }
+        }
+        //先左后右
+        getDeep(root.left,deep+1);
+        getDeep(root.right,deep+1);
+    }
+
+
+
+}
+
+/**
+ * 112. 路径总和
+ *
+ * 给你二叉树的根节点 root 和一个表示目标和的整数 targetSum 。判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。如果存在，返回 true ；否则，返回 false 。
+ *
+ * 叶子节点 是指没有子节点的节点。
+ */
+
+class HasPathSum{
+
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root == null)return false;
+        return getSum(root,targetSum,0+root.val);
+    }
+    //个人比较喜欢回溯
+    public boolean getSum(TreeNode root,int targer,int sum){
+        //子节点且找到了
+        if (root.left == null&&root.right == null&&sum == targer)return true;
+        //子节点但没找到
+        if (root.left == null&&root.right == null)return false;
+        if (root.left!=null){
+            sum += root.left.val;
+            //执行成功就返回去
+            if (getSum(root.left,targer,sum))return true;
+            //妹执行成功就回溯
+            sum-=root.left.val;
+        }
+        if (root.right != null){
+            sum += root.right.val;
+            if (getSum(root.right, targer, sum))return true;
+            sum-=root.right.val;
+        }
+        return false;
+
+    }
+
+}
+
 
 
 public class tow_tree_part {
