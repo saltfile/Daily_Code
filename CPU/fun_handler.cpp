@@ -44,40 +44,69 @@ int to_number(string arg){
 
 
 
-string add(string arg1,string arg2){
-    int num1 = to_number(arg1);
-    int num2 = to_number(arg2);
+void* add(void* arg1,void* arg2){
+    string *a1 = static_cast<std::string*>(arg1);
+    string *a2 = static_cast<std::string*>(arg2);
+
+    string a = *a1;
+    string b = *a2;
+    int num1 = to_number(a);
+    int num2 = to_number(b);
 
     int num3 = num1+num2;
-
-    return to_binary(num3);
+    string res = to_binary(num3);
+    a1->clear();
+    a1->append(res);
+    return nullptr;
 }
 
-string red(string arg1,string arg2){
-    int num1 = to_number(arg1);
-    int num2 = to_number(arg2);
+void* red(void* arg1,void* arg2){
+    string *a1 = static_cast<std::string*>(arg1);
+    string *a2 = static_cast<std::string*>(arg2);
+
+    string a = *a1;
+    string b = *a2;
+    int num1 = to_number(a);
+    int num2 = to_number(b);
 
     int num3 = num1-num2;
-
-    return to_binary(num3);
+    string res = to_binary(num3);
+    a1->clear();
+    a1->append(res);
+    return nullptr;
 }
 
-string mul(string arg1,string arg2){
-    int num1 = to_number(arg1);
-    int num2 = to_number(arg2);
+
+void* mul(void* arg1,void* arg2){
+    string *a1 = static_cast<std::string*>(arg1);
+    string *a2 = static_cast<std::string*>(arg2);
+
+    string a = *a1;
+    string b = *a2;
+    int num1 = to_number(a);
+    int num2 = to_number(b);
 
     int num3 = num1*num2;
-
-    return to_binary(num3);
+    string res = to_binary(num3);
+    a1->clear();
+    a1->append(res);
+    return nullptr;
 }
 
-string divs(string arg1,string arg2){
-    int num1 = to_number(arg1);
-    int num2 = to_number(arg2);
+void* divs(void* arg1,void* arg2){
+    string *a1 = static_cast<std::string*>(arg1);
+    string *a2 = static_cast<std::string*>(arg2);
+
+    string a = *a1;
+    string b = *a2;
+    int num1 = to_number(a);
+    int num2 = to_number(b);
 
     int num3 = num1/num2;
-
-    return to_binary(num3);
+    string res = to_binary(num3);
+    a1->clear();
+    a1->append(res);
+    return nullptr;
 }
 
 
@@ -86,19 +115,26 @@ string divs(string arg1,string arg2){
 void *copys(void *arg1,void* arg2){
     string *a = (string *)arg1;
     string *b = (string *)arg2;
+    a->clear();
     a->append(b->data());
     return nullptr;
 }
 
 
-string vols(string *arg1,string arg2){
-    arg1->clear();
-    arg2.append(arg2);
-    return "";
+void* vols(void *arg1,void* arg2){
+
+    string *a1 = static_cast<std::string*>(arg1);
+    string *a2 = static_cast<std::string*>(arg2);
+
+    string num = *a2;
+    a1->clear();
+    a1->append(num);
+    return nullptr;
 }
 
-string frees(string *arg,string arg2){
-    arg->clear();
-    arg->append("00000000");
-    return "";
+void* frees(void* arg,void* arg2){
+    string *a1 = static_cast<std::string*>(arg);
+    a1->clear();
+    a1->append("00000000");
+    return nullptr;
 }

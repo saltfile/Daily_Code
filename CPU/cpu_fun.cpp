@@ -196,15 +196,12 @@ void CPU::run() {
             int idx1 = to_number(arg1);
             int idx2 = to_number(arg2);
 
-            string M1 = this->MDR[idx1];
-            string M2 = this->MDR[idx2];
-
-            string *res1 =static_cast<std::string*>( f1(&M1,&M2));
-
-            this->MDR[idx1] = *res1;
+            string *M1 = &this->MDR[idx1];
+            string *M2 = &this->MDR[idx2];
+            f1(M1,M2);
         }
         //复制指令
-        if (com.compare("11111000")){
+        if (com.compare("11111000")==0){
             string arg1 = this->Bus[Bus_len / 3 + i];
             string arg2 = this->Bus[(Bus_len/3)*2+i];
             int idx1 = to_number(arg1);
@@ -214,17 +211,26 @@ void CPU::run() {
             f1(M1,&M2);
         }
         //赋值指令
-        if (com.compare("11111100")){
+        if (com.compare("11111100")==0){
             string arg1 = this->Bus[Bus_len / 3 + i];
             string arg2 = this->Bus[(Bus_len/3)*2+i];
             int idx1 = to_number(arg1);
 
             string *M1 = &this->MDR[idx1];
             f1(M1,&arg2);
+        }
+        //清空指令只有第一个值有用
+        if (com.compare("11111110")==0){
+            string arg1 = this->Bus[Bus_len / 3 + i];
+            string arg2 = this->Bus[(Bus_len/3)*2+i];
+            int idx1 = to_number(arg1);
 
+            string *M1 = &this->MDR[idx1];
 
+            f1(M1,&arg2);
 
         }
+
 
 
     }

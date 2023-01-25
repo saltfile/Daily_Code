@@ -33,13 +33,13 @@ int to_number(string arg);
 
 
 // 加 减 乘 除
-string add(string arg1,string arg2);
+void* add(void* arg1,void* arg2);
 
-string red(string arg1,string arg2);
+void* red(void* arg1,void* arg2);
 
-string mul(string arg1,string arg2);
+void* mul(void* arg1,void* arg2);
 
-string divs(string arg1,string arg2);
+void* divs(void* arg1,void* arg2);
 
 
 
@@ -47,10 +47,10 @@ string divs(string arg1,string arg2);
 void * copys(void *arg1,void* arg2);
 
 //赋值
-string vols(string *arg1,string arg2);
+void* vols(void *arg1,void* arg2);
 
 //释放
-string frees(string *arg,string arg2);
+void* frees(void* arg,void* arg2);
 
 
 
