@@ -2,6 +2,7 @@ package aohiothor;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -522,6 +523,94 @@ class HasPathSum{
 }
 
 
+/**
+ * 106. 从中序与后序遍历序列构造二叉树
+ *
+ * 给定两个整数数组 inorder 和 postorder ，其中 inorder 是二叉树的中序遍历， postorder 是同一棵树的后序遍历，请你构造并返回这颗二叉树。
+ *
+ *
+ *
+ * 这个看解析，确实不太会
+ * 来看一下一共分几步：
+ *
+ *     第一步：如果数组大小为零的话，说明是空节点了。
+ *
+ *     第二步：如果不为空，那么取后序数组最后一个元素作为节点元素。
+ *
+ *     第三步：找到后序数组最后一个元素在中序数组的位置，作为切割点
+ *
+ *     第四步：切割中序数组，切成中序左数组和中序右数组 （顺序别搞反了，一定是先切中序数组）
+ *
+ *     第五步：切割后序数组，切成后序左数组和后序右数组
+ *
+ *     第六步：递归处理左区间和右区间
+ */
+
+class BuildTree{
+    Map<Integer, Integer> map;  // 方便根据数值查找位置
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        map = new HashMap<>();
+        for (int i = 0; i < inorder.length; i++) { // 用map保存中序序列的数值对应位置
+            map.put(inorder[i], i);
+        }
+        return getTree(inorder,0,inorder.length,postorder,0,postorder.length);
+    }
+
+    public TreeNode getTree(int[] inorder,int IStart,int IEnd,int[] postorder,int PStart,int PEnd){
+        //第一步：如果数组大小为零的话，说明是空节点了。
+        if (IStart >= IEnd||PStart>=PEnd)return null;
+        //第二步：如果不为空，那么取后序数组最后一个元素作为节点元素。
+        int rootIndex = map.get(postorder[PEnd - 1]);  // 找到后序遍历的最后一个元素在中序遍历中的位置
+        TreeNode root = new TreeNode(inorder[rootIndex]);  // 构造结点
+        int lenOfLeft = rootIndex - IStart;  // 保存中序左子树个数，用来确定后序数列的个数
+        root.left = getTree(inorder, IStart, rootIndex,
+                postorder,PStart, PStart + lenOfLeft);
+        root.right = getTree(inorder, rootIndex + 1, IEnd,
+                postorder, PStart + lenOfLeft, PEnd - 1);
+        return root;
+    }
+}
+
+
+/**
+ * 654. 最大二叉树
+ *
+ * 给定一个不重复的整数数组 nums 。 最大二叉树 可以用下面的算法从 nums 递归地构建:
+ *
+ *     创建一个根节点，其值为 nums 中的最大值。
+ *     递归地在最大值 左边 的 子数组前缀上 构建左子树。
+ *     递归地在最大值 右边 的 子数组后缀上 构建右子树。
+ *
+ * 返回 nums 构建的 最大二叉树 。
+ */
+
+
+class ConstructMaximumBinaryTree{
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        return build(nums,0,nums.length);
+    }
+    public TreeNode build(int[] nums,int start,int end){
+        if (end - start < 1)return null;
+        if (end - start == 1) {// 只有一个元素
+            return new TreeNode(nums[start]);
+        }
+        //找到最大的下标
+        int maxidx = start;
+        for (int i = start+1; i < end; i++) {
+            if (nums[i] > nums[maxidx])maxidx = i;
+        }
+        //创建新节点
+        TreeNode root = new TreeNode(nums[maxidx]);
+
+        root.left = build(nums,start,maxidx);
+
+        root.right = build(nums,maxidx+1,end);
+
+        return root;
+
+    }
+
+}
 
 public class tow_tree_part {
     public static void main(String[] args) {
@@ -563,7 +652,12 @@ public class tow_tree_part {
 //        System.out.println(new LevelOrder().levelOrder(root));
 //        new InvertTree().invertTree(root);
 //        System.out.println(new LevelOrder().levelOrder(root));
-        System.out.println(new SumOfLeftLeaves().sumOfLeftLeaves(root));
+//        System.out.println(new SumOfLeftLeaves().sumOfLeftLeaves(root));
+
+
+        int[] a1 = {9,3,15,20,7};
+        int[] a2 = {9,15,7,20,3};
+        TreeNode r = new BuildTree().buildTree(a1,a2);
 
 //        System.out.println(new MaxDepth().maxDepth(root));
     }
