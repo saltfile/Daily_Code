@@ -607,10 +607,100 @@ class ConstructMaximumBinaryTree{
         root.right = build(nums,maxidx+1,end);
 
         return root;
-
     }
 
 }
+
+/**
+ * 617. 合并二叉树
+ *
+ * 给你两棵二叉树： root1 和 root2 。
+ *
+ * 想象一下，当你将其中一棵覆盖到另一棵之上时，两棵树上的一些节点将会重叠（而另一些不会）。你需要将这两棵树合并成一棵新二叉树。合并的规则是：如果两个节点重叠，那么将这两个节点的值相加作为合并后节点的新值；否则，不为 null 的节点将直接作为新二叉树的节点。
+ *
+ * 返回合并后的二叉树。
+ *
+ * 注意: 合并过程必须从两个树的根节点开始。
+ */
+
+class MergeTrees{
+    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+        return merge(root1,root2);
+    }
+
+    public TreeNode merge(TreeNode root1,TreeNode root2){
+        if (root1 == null)return root2;
+        if (root2 == null) return root1;
+        root1.val+=root2.val;
+        root1.left = merge(root1.left,root2.left);
+        root1.right = merge(root1.right,root2.right);
+        return root1;
+    }
+}
+
+/**
+ * 700. 二叉搜索树中的搜索
+ *
+ * 给定二叉搜索树（BST）的根节点 root 和一个整数值val。
+ *
+ * 你需要在 BST 中找到节点值等于 val 的节点。 返回以该节点为根的子树。 如果节点不存在，则返回 null 。
+ */
+class SearchBST{
+    public TreeNode searchBST(TreeNode root, int val) {
+        return select(root,val);
+    }
+
+    public TreeNode select(TreeNode root,int val){
+        if (root == null)return null;
+        TreeNode res = null;
+        if (root.val > val){
+           res = select(root.left,val);
+        }else if (root.val < val){
+            res = select(root.right,val);
+        }else {
+            return root;
+        }
+        return res;
+    }
+}
+
+/**
+ * 98. 验证二叉搜索树
+ *
+ * 给你一个二叉树的根节点 root ，判断其是否是一个有效的二叉搜索树。
+ *
+ * 有效 二叉搜索树定义如下：
+ *
+ *     节点的左子树只包含 小于 当前节点的数。
+ *     节点的右子树只包含 大于 当前节点的数。
+ *     所有左子树和右子树自身必须也是二叉搜索树。
+ */
+
+class IsValidBST{
+    List<Integer> check = new ArrayList<>();
+    public boolean isValidBST(TreeNode root) {
+        check.clear();
+
+        Middle(root);
+        int slow = 0;
+        for (int i = 1; i < check.size(); i++) {
+            if (check.get(i-1) >= check.get(i))return false;
+        }
+        return true;
+    }
+    public void Middle(TreeNode root){
+        if (root == null)return;
+
+        Middle(root.left);
+        check.add(root.val);
+        Middle(root.right);
+    }
+}
+
+
+
+
+
 
 public class tow_tree_part {
     public static void main(String[] args) {
