@@ -1,10 +1,7 @@
 package aohiothor;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 class Node {
     public int val;
@@ -697,7 +694,106 @@ class IsValidBST{
     }
 }
 
+/**
+ * 530. 二叉搜索树的最小绝对差
+ *
+ * 给你一个二叉搜索树的根节点 root ，返回 树中任意两不同节点值之间的最小差值 。
+ *
+ * 差值是一个正数，其数值等于两值之差的绝对值。
+ */
 
+class GetMinimumDifference{
+
+    List<Integer> check = new ArrayList<>();
+
+
+    public int getMinimumDifference(TreeNode root) {
+        check.clear();
+        mid(root);
+        int min = Integer.MAX_VALUE;
+        for (int i = 1; i < check.size(); i++) {
+            int anum = check.get(i)-check.get(i-1);
+            if (anum < min)min = anum;
+        }
+        return min;
+
+    }
+
+    public void mid(TreeNode root){
+        if (root == null)return;
+        mid(root.left);
+        check.add(root.val);
+        mid(root.right);
+    }
+
+
+}
+
+
+/**
+ * 501. 二叉搜索树中的众数
+ *
+ * 给你一个含重复值的二叉搜索树（BST）的根节点 root ，找出并返回 BST 中的所有 众数（即，出现频率最高的元素）。
+ *
+ * 如果树中有不止一个众数，可以按 任意顺序 返回。
+ *
+ * 假定 BST 满足如下定义：
+ *
+ *     结点左子树中所含节点的值 小于等于 当前节点的值
+ *     结点右子树中所含节点的值 大于等于 当前节点的值
+ *     左子树和右子树都是二叉搜索树
+ *
+ *
+ */
+class FindMode{
+    int count = 0;
+    int maxcount = 0;
+    TreeNode pre = null;
+    List<Integer> result = new ArrayList<>();
+    public int[] findMode(TreeNode root) {
+        result.clear();
+        count = 0;
+        maxcount = 0;
+        pre = null;
+        Mid(root);
+        int[] res = new int[result.size()];
+
+        for (int i = 0; i < res.length; i++) {
+            res[i] = result.get(i);
+        }
+        return res;
+
+    }
+
+
+    void Mid(TreeNode root){
+        if (root == null)return;
+        Mid(root.left);
+
+        if (pre == null){
+            count = 1;
+        }else if (pre.val == root.val){
+            count += 1;
+        }else {
+            count = 1;
+        }
+        pre = root;
+
+
+        if (count == maxcount){
+            result.add(root.val);
+        }
+
+        if (count > maxcount){
+            maxcount = count;
+            result.clear();
+            result.add(root.val);
+        }
+        Mid(root.right);
+        return;
+    }
+
+}
 
 
 
