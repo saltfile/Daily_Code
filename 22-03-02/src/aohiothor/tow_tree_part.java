@@ -795,6 +795,104 @@ class FindMode{
 
 }
 
+/**
+ * 236. 二叉树的最近公共祖先
+ *
+ * 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
+ *
+ * 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+ */
+
+
+class  LowestCommonAncestor{
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        return getFather(root, p, q);
+    }
+
+
+    public TreeNode getFather(TreeNode root,TreeNode p,TreeNode q){
+        if (root == q || root == p || root == null) return root;
+
+        TreeNode left = getFather(root.left,p,q);
+        TreeNode right = getFather(root.right,p,q);
+
+        if (left!=null&&right == null)return left;
+        else if (left == null&&right !=null)return right;
+        else if (left!=null&&right!=null)return root;
+        return null;
+    }
+
+
+
+}
+
+/**
+ * 235. 二叉搜索树的最近公共祖先
+ *
+ * 给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。
+ *
+ * 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+ *
+ * 例如，给定如下二叉搜索树:  root = [6,2,8,0,4,7,9,null,null,3,5]
+ */
+
+class LowestCommonAncestorBST{
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        return getLowest(root, p, q);
+    }
+
+    public TreeNode getLowest(TreeNode root,TreeNode p,TreeNode q){
+        if (root.val > p.val&&root.val > q.val){
+            return getLowest(root.left, p, q);
+        } else if (root.val < p.val&&root.val < q.val) {
+            return getLowest(root.right, p, q);
+        }else {
+            return root;
+        }
+    }
+
+}
+
+/**
+ * 701. 二叉搜索树中的插入操作
+ *
+ * 给定二叉搜索树（BST）的根节点 root 和要插入树中的值 value ，将值插入二叉搜索树。 返回插入后二叉搜索树的根节点。 输入数据 保证 ，新值和原始二叉搜索树中的任意节点值都不同。
+ *
+ * 注意，可能存在多种有效的插入方式，只要树在插入后仍保持为二叉搜索树即可。 你可以返回 任意有效的结果 。
+ */
+
+
+class InsertIntoBST{
+
+    public TreeNode insertIntoBST(TreeNode root, int val) {
+        return insert(root, val);
+    }
+
+    public TreeNode insert(TreeNode root,int val){
+        if (root == null){
+            root = new TreeNode(val);
+            return root;
+        }
+
+        if (root.val > val){
+            root.left = insertIntoBST(root.left,val);
+        }
+        if (root.val < val){
+            root.right = insertIntoBST(root.right,val);
+        }
+        return root;
+    }
+
+}
+
+
+
+
+
+
+
+
 
 
 
