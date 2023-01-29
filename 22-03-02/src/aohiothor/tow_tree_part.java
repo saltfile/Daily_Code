@@ -1,6 +1,8 @@
 package aohiothor;
 
 
+import sun.reflect.generics.tree.Tree;
+
 import java.util.*;
 
 class Node {
@@ -887,12 +889,154 @@ class InsertIntoBST{
 }
 
 
+/**
+ * 450. 删除二叉搜索树中的节点
+ *
+ * 给定一个二叉搜索树的根节点 root 和一个值 key，删除二叉搜索树中的 key 对应的节点，并保证二叉搜索树的性质不变。返回二叉搜索树（有可能被更新）的根节点的引用。
+ *
+ * 一般来说，删除节点可分为两个步骤：
+ *
+ *     首先找到需要删除的节点；
+ *     如果找到了，删除它。
+ *
+ *     第一种情况：没找到删除的节点，遍历到空节点直接返回了
+ *     找到删除的节点
+ *         第二种情况：左右孩子都为空（叶子节点），直接删除节点， 返回NULL为根节点
+ *         第三种情况：删除节点的左孩子为空，右孩子不为空，删除节点，右孩子补位，返回右孩子为根节点
+ *         第四种情况：删除节点的右孩子为空，左孩子不为空，删除节点，左孩子补位，返回左孩子为根节点
+ *         第五种情况：左右孩子节点都不为空，则将删除节点的左子树头结点（左孩子）放到删除节点的右子树的最左面节点的左孩子上，返回删除节点右孩子为新的根节点。
+ */
+class deleteNode{
+    public TreeNode deleteNode(TreeNode root, int key) {
+        return delete(root, key);
+    }
+    public TreeNode delete(TreeNode root,int key){
+        if (root == null)return null;
+        //找到节点
+        if (root.val>key){
+            root.left = delete(root.left,key);
+        }else if (root.val < key){
+            root.right = delete(root.right,key);
+        }else {
+            //找到节点了
+            //1.删除节点的左孩子为空，右孩子不为空，删除节点，右孩子补位，返回右孩子为根节点
+            if (root.left == null)return root.right;
+            //2.删除节点的右孩子为空，左孩子不为空，删除节点，左孩子补位，返回左孩子为根节点
+            if (root.right == null)return root.left;
+            //3.左右孩子节点都不为空，则将删除节点的左子树头结点（左孩子）
+            // 放到删除节点的右子树的最左面节点的左孩子上,
+            // 返回删除节点右孩子为新的根节点。
+            TreeNode temp = root.right;
+            while (temp.left != null){
+                temp = temp.left;
+            }
+            root.val = temp.val;
+            //删除相同的值
+            root.right = delete(root.right, temp.val);
+        }
+        return root;
+    }
+
+}
+
+/**
+ * 669. 修剪二叉搜索树
+ *
+ * 给你二叉搜索树的根节点 root ，同时给定最小边界low 和最大边界 high。通过修剪二叉搜索树，使得所有节点的值在[low, high]中。修剪树 不应该 改变保留在树中的元素的相对结构 (即，如果没有被移除，原有的父代子代关系都应当保留)。 可以证明，存在 唯一的答案 。
+ *
+ * 所以结果应当返回修剪好的二叉搜索树的新的根节点。注意，根节点可能会根据给定的边界发生改变。
+ *
+ */
+
+
+class TrimBST{
+    public TreeNode trimBST(TreeNode root, int low, int high) {
+        return tirem(root, low, high);
+    }
+
+
+    public TreeNode tirem(TreeNode root,int low,int high){
+        if (root == null)return null;
+
+        if (root.val < low){
+            TreeNode res = tirem(root.right,low,high);
+            return res;
+        }
+        if (root.val > high){
+            TreeNode res = tirem(root.left,low,high);
+            return res;
+        }
+        root.left = tirem(root.left,low,high);
+        root.right = tirem(root.right,low,high);
+        return root;
+    }
 
 
 
+}
+
+/**
+ * 108. 将有序数组转换为二叉搜索树
+ *
+ * 给你一个整数数组 nums ，其中元素已经按 升序 排列，请你将其转换为一棵 高度平衡 二叉搜索树。
+ *
+ * 高度平衡 二叉树是一棵满足「每个节点的左右两个子树的高度差的绝对值不超过 1 」的二叉树。
+ */
+class SortedArrayToBST{
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return getNode(nums,0,nums.length-1);
+    }
+
+    public TreeNode getNode(int[] nums,int start,int end){
+        if (start > end)return null;
+        int idx = start+((end - start) / 2);
+
+
+        TreeNode node = new TreeNode(nums[idx]);
+
+
+        node.left = getNode(nums, start, idx-1);
+        node.right = getNode(nums, idx+1, end);
+        return node;
+    }
 
 
 
+}
+
+
+/**
+ * 538. 把二叉搜索树转换为累加树
+ *
+ * 给出二叉 搜索 树的根节点，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），使每个节点 node 的新值等于原树中大于或等于 node.val 的值之和。
+ *
+ * 提醒一下，二叉搜索树满足下列约束条件：
+ *
+ *     节点的左子树仅包含键 小于 节点键的节点。
+ *     节点的右子树仅包含键 大于 节点键的节点。
+ *     左右子树也必须是二叉搜索树。
+ */
+
+class ConvertBST{
+    public TreeNode convertBST(TreeNode root) {
+        pro = 0;
+        convers(root);
+        return root;
+
+    }
+
+    private int pro = 0;
+
+
+    public void convers(TreeNode root){
+        if (root == null)return;
+        convers(root.right);
+        root.val = root.val+pro;
+        pro = root.val;
+        convers(root.left);
+    }
+
+}
 
 
 
