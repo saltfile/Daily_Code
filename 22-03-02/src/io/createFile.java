@@ -12,6 +12,7 @@ public class createFile {
             bw.write(str+"\n");
             bw.flush();
         }
+
         bw.close();
 
 

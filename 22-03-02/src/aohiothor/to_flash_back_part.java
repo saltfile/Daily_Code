@@ -1,6 +1,8 @@
 package aohiothor;
 
 
+import sun.security.krb5.internal.PAData;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -121,15 +123,162 @@ class LetterCombinations{
 }
 
 
+/**
+ * 39. 组合总和
+ *
+ * 给你一个 无重复元素 的整数数组 candidates 和一个目标整数 target ，找出 candidates 中可以使数字和为目标数 target 的 所有 不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
+ *
+ * candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。
+ *
+ * 对于给定的输入，保证和为 target 的不同组合数少于 150 个。
+ */
+
+class CombinationSum{
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (candidates.length == 0)return res;
+
+        Arrays.sort(candidates);
 
 
+        List<Integer> path  = new ArrayList<>();
+
+        back(candidates,0,target,0,path,res);
+        return res;
+    }
+
+
+
+    public void back(int[] cond,int start,int target,int num,List<Integer> path,List<List<Integer>> res){
+        if (num == target){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        if (num > target){
+            return;
+        }
+
+        for (int i = start; i < cond.length; i++) {
+
+            path.add(cond[i]);
+            back(cond, i, target, num+cond[i], path, res);
+            path.remove(path.size()-1);
+
+        }
+
+
+    }
+
+
+
+}
+
+
+/**
+ * 40. 组合总和 II
+ *
+ * 给定一个候选人编号的集合 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+ *
+ * candidates 中的每个数字在每个组合中只能使用 一次 。
+ *
+ * 注意：解集不能包含重复的组合。
+ */
+
+
+class CombinationSum2{
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> res= new ArrayList<>();
+        if (candidates.length == 0)return res;
+        Arrays.sort(candidates);
+        List<Integer> path = new ArrayList<>();
+        back(candidates,0,target,0,path,res);
+
+        return res;
+
+    }
+
+
+    public void back(int[] cond,int start,int target,int num,List<Integer> path,List<List<Integer>> res){
+        if (num == target)
+        {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = start; i < cond.length; i++) {
+            if (i > start&&cond[i] == cond[i-1])continue;//减掉这个重复的支
+            path.add(cond[i]);
+            back(cond,i+1,target,num+cond[i],path,res);
+            path.remove(path.size()-1);
+        }
+
+    }
+
+
+}
+
+/**
+ * 131. 分割回文串
+ *
+ * 给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是 回文串 。返回 s 所有可能的分割方案。
+ *
+ * 回文串 是正着读和反着读都一样的字符串。
+ */
+
+class Partition{
+    public List<List<String>> partition(String s) {
+        List<List<String>> res = new ArrayList<>();
+        if (s.length() == 0)return res;
+        List<String> path = new ArrayList<>();
+        back(s,0,path,res);
+        return res;
+    }
+
+    public void back(String s,int start,List<String> path,List<List<String>> res){
+        if (start >= s.length()){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        for (int i = start; i < s.length(); i++) {
+            //判断是不是回文串
+            if (isPar(s,start,i)){
+                String spart = s.substring(start,i+1);
+                path.add(spart);
+            }else {
+                continue;
+            }
+            back(s,i+1,path,res);
+            path.remove(path.size()-1);
+        }
+
+
+
+
+    }
+
+
+    boolean isPar(String s,int start,int end){
+        for (int i = start, j = end; i < j; i++,j--) {
+            if (s.charAt(i)!=s.charAt(j))return false;
+        }
+        return true;
+    }
+}
 
 
 public class to_flash_back_part {
     public static void main(String[] args) {
 //        System.out.println(new Combine().combine(4,2));
 //        System.out.println(new CombinationSum3().combinationSum3(3,7));
-        System.out.println(new LetterCombinations().letterCombinations("23"));
+//        System.out.println(new LetterCombinations().letterCombinations("23"));
+
+//        int[] nums = new int[]{10,1,2,7,6,1,5};
+//        System.out.println(new CombinationSum().combinationSum(nums,7));
+//        System.out.println(new CombinationSum2().combinationSum2(nums,8));
+
+
+        System.out.println(new Partition().partition("aab"));
     }
 
 }
