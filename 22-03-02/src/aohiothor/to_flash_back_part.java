@@ -267,18 +267,153 @@ class Partition{
 }
 
 
+/**
+ * 93. 复原 IP 地址
+ *
+ * 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 '.' 分隔。
+ *
+ *     例如："0.1.2.201" 和 "192.168.1.1" 是 有效 IP 地址，但是 "0.011.255.245"、"192.168.1.312" 和 "192.168@1.1" 是 无效 IP 地址。
+ *
+ * 给定一个只包含数字的字符串 s ，用以表示一个 IP 地址，返回所有可能的有效 IP 地址，这些地址可以通过在 s 中插入 '.' 来形成。你 不能 重新排序或删除 s 中的任何数字。你可以按 任何 顺序返回答案。
+ */
+
+class RestoreIpAddresses{
+    public List<String> restoreIpAddresses(String s) {
+        List<String> res = new ArrayList<>();
+        if (s.length()<4||s.length()>12)return res;
+
+        back(s,0,0,res);
+        return res;
+
+    }
+
+    public void back(String s,int start,int point,List<String> res){
+        if (point == 3){
+            if (isIp(s,start,s.length()-1)){
+                res.add(s);
+            }
+            return;
+        }
+        for (int i = start; i < s.length(); i++) {
+            if (isIp(s, start, i)) {
+                s = s.substring(0, i + 1) + "." + s.substring(i + 1);
+                point++;
+                back(s,i+2,point,res);
+                point--;
+                s = s.substring(0, i + 1) + s.substring(i + 2);
+            }else {
+                break;
+            }
+        }
+    }
+    public boolean isIp(String s,int start,int end){
+        if (start > end) {
+            return false;
+        }
+        // 0开头的数字不合法
+        if (s.charAt(start) == '0'&& start != end)return false;
+
+        int num = 0;
+        // 非数字字符不合法并且不能大于0~9
+        for (int i = start; i <= end; i++) {
+            if (s.charAt(i) > '9'||s.charAt(i) < '0'){
+                return false;
+            }
+            num = num*10+(s.charAt(i)-'0');
+            if (num > 255)return false;
+        }
+        return true;
+
+
+
+    }
+
+
+}
+
+
+/**
+ * 78. 子集
+ *
+ * 给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
+ *
+ * 解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
+ */
+class Subsets{
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (nums.length == 0)return res;
+        List<Integer> path = new ArrayList<>();
+        back(nums,0,path,res);
+        return res;
+    }
+
+
+    public void back(int[] num,int start,List<Integer> path,List<List<Integer>> res){
+        res.add(new ArrayList<>(path));
+        if (start >= num.length) {
+            return;
+        }
+        for (int i = start; i < num.length; i++) {
+            path.add(num[i]);
+            back(num,i+1,path,res);
+            path.remove(path.size()-1);
+        }
+
+    }
+}
+
+/**
+ * 90. 子集 II
+ *
+ * 给你一个整数数组 nums ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。
+ *
+ * 解集 不能 包含重复的子集。返回的解集中，子集可以按 任意顺序 排列。
+ */
+
+
+class SubsetsWithDup{
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (nums.length == 0)return res;
+        Arrays.sort(nums);
+        List<Integer> path = new ArrayList<>();
+        back(nums,0,path,res);
+        return res;
+    }
+
+
+    public void back(int[] num,int start,List<Integer> path,List<List<Integer>> res){
+        res.add(new ArrayList<>(path));
+        if (start >= num.length) {
+            return;
+        }
+        for (int i = start; i < num.length; i++) {
+            if (i > start&&num[i] == num[i-1])continue;
+            path.add(num[i]);
+            back(num,i+1,path,res);
+            path.remove(path.size()-1);
+        }
+
+    }
+}
+
 public class to_flash_back_part {
     public static void main(String[] args) {
 //        System.out.println(new Combine().combine(4,2));
 //        System.out.println(new CombinationSum3().combinationSum3(3,7));
 //        System.out.println(new LetterCombinations().letterCombinations("23"));
 
-//        int[] nums = new int[]{10,1,2,7,6,1,5};
+        int[] nums = new int[]{1,2,2};
+        System.out.println(new SubsetsWithDup().subsetsWithDup(nums));
+//        System.out.println(new Subsets().subsets(nums));
+
 //        System.out.println(new CombinationSum().combinationSum(nums,7));
 //        System.out.println(new CombinationSum2().combinationSum2(nums,8));
 
 
-        System.out.println(new Partition().partition("aab"));
+//        System.out.println(new Partition().partition("aab"));
+//        System.out.println(new RestoreIpAddresses().restoreIpAddresses("25525511135"));
     }
 
 }
