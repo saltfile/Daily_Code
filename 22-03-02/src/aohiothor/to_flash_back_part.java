@@ -398,14 +398,152 @@ class SubsetsWithDup{
     }
 }
 
+
+/**
+ * 491. 递增子序列
+ *
+ * 给你一个整数数组 nums ，找出并返回所有该数组中不同的递增子序列，递增子序列中 至少有两个元素 。你可以按 任意顺序 返回答案。
+ *
+ * 数组中可能含有重复元素，如出现两个整数相等，也可以视作递增序列的一种特殊情况。
+ */
+class FindSubsequences{
+    public List<List<Integer>> findSubsequences(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (nums.length == 0)return res;
+        List<Integer> path = new ArrayList<>();
+        back(nums,0,path,res);
+        return res;
+
+    }
+
+    public void back(int[] nums,int start,List<Integer> path,List<List<Integer>> res){
+        //边界
+        if (path.size() > 1){
+            res.add(new ArrayList<>(path));
+        }
+        //目标数，出现次数
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for (int i = start; i < nums.length; i++) {
+            //如果nums[i]小于上一层的数字则不添加进去
+            if (!path.isEmpty() && nums[i] < path.get(path.size() - 1)) {
+                continue;
+            }
+            //去重
+            if (map.getOrDefault(nums[i], 0) >= 1) {
+                continue;
+            }
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+            path.add(nums[i]);
+            back(nums, i + 1, path, res);
+            path.remove(path.size() - 1);
+
+        }
+    }
+
+}
+
+
+/**
+ * 46. 全排列
+ *
+ * 给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。
+ * 你可以 按任意顺序 返回答案。
+ * 输入：nums = [1,2,3]
+ * 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+ */
+class Permute{
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (nums.length == 0)return res;
+        List<Integer> path = new ArrayList<>();
+        boolean[] use = new boolean[nums.length];
+        back(nums,use,path,res);
+        return res;
+    }
+
+    public void back(int[] nums,boolean[] use,List<Integer> path,List<List<Integer>> res){
+        if (nums.length == path.size()){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (use[i])continue;
+            use[i] = true;
+            path.add(nums[i]);
+            back(nums, use, path, res);
+            use[i] = false;
+            path.remove(path.size()-1);
+        }
+    }
+
+
+}
+
+/**
+ * 47. 全排列 II
+ *
+ * 给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。
+ */
+
+
+class PermuteUnique{
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (nums.length == 0)return res;
+        List<Integer> path = new ArrayList<>();
+        boolean[] use = new boolean[nums.length];
+        Arrays.sort(nums);
+        back(nums,use,path,res);
+        return res;
+    }
+    public void back(int[] nums,boolean[] use,List<Integer> path,List<List<Integer>> res){
+        if (nums.length == path.size()){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            //去重
+            if (i > 0&&nums[i]==nums[i-1]&&use[i-1])continue;
+
+            if (!use[i]){
+            use[i] = true;
+            path.add(nums[i]);
+            back(nums, use, path, res);
+            use[i] = false;
+            path.remove(path.size()-1);
+            }
+        }
+    }
+}
+
+
+/**
+ * 332. 重新安排行程
+ *
+ * 给你一份航线列表 tickets ，其中 tickets[i] = [fromi, toi] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+ *
+ * 所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+ *
+ *     例如，行程 ["JFK", "LGA"] 与 ["JFK", "LGB"] 相比就更小，排序更靠前。
+ *
+ * 假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。
+ */
+
+
+
+
 public class to_flash_back_part {
     public static void main(String[] args) {
 //        System.out.println(new Combine().combine(4,2));
 //        System.out.println(new CombinationSum3().combinationSum3(3,7));
 //        System.out.println(new LetterCombinations().letterCombinations("23"));
 
-        int[] nums = new int[]{1,2,2};
-        System.out.println(new SubsetsWithDup().subsetsWithDup(nums));
+        int[] nums = new int[]{1,1,2};
+        System.out.println(new PermuteUnique().permuteUnique(nums));
+//        System.out.println(new Permute().permute(nums));
+//        System.out.println(new FindSubsequences().findSubsequences(nums));
 //        System.out.println(new Subsets().subsets(nums));
 
 //        System.out.println(new CombinationSum().combinationSum(nums,7));
