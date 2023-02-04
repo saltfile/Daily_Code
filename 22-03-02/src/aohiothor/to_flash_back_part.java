@@ -520,16 +520,88 @@ class PermuteUnique{
 
 
 /**
- * 332. 重新安排行程
+ * 51. N 皇后
  *
- * 给你一份航线列表 tickets ，其中 tickets[i] = [fromi, toi] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+ * 按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。
  *
- * 所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+ * n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
  *
- *     例如，行程 ["JFK", "LGA"] 与 ["JFK", "LGB"] 相比就更小，排序更靠前。
+ * 给你一个整数 n ，返回所有不同的 n 皇后问题 的解决方案。
  *
- * 假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。
+ * 每一种解法包含一个不同的 n 皇后问题 的棋子放置方案，该方案中 'Q' 和 '.' 分别代表了皇后和空位。
  */
+
+class SolveNQueens{
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> res = new ArrayList<>();
+        if (n == 0)return res;
+        char[][] chessboard = new char[n][n];
+        for (char[] c : chessboard) {
+            Arrays.fill(c, '.');
+        }
+        back(n, 0, chessboard,res);
+        return res;
+
+    }
+
+    public void back(int n,int row,char[][]chessboard,List<List<String>>res){
+        if (row == n) {
+            res.add(Array2List(chessboard));
+            return;
+        }
+
+        for (int col = 0;col < n; ++col) {
+            if (IsPush(row, col,n, chessboard)) {
+                chessboard[row][col] = 'Q';
+                back(n, row+1, chessboard,res);
+                chessboard[row][col] = '.';
+            }
+        }
+
+    }
+    public List Array2List(char[][] chessboard) {
+        List<String> list = new ArrayList<>();
+
+        for (char[] c : chessboard) {
+            list.add(String.copyValueOf(c));
+        }
+        return list;
+    }
+
+
+
+    public boolean IsPush(int row, int col,int n, char[][] chessboard){
+        for (int i=0; i<row; ++i) {
+            if (chessboard[i][col] == 'Q') {
+                return false;
+            }
+        }
+
+        for (int i=row-1, j=col-1; i>=0 && j>=0; i--, j--) {
+            if (chessboard[i][j] == 'Q') {
+                return false;
+            }
+        }
+
+        for (int i=row-1, j=col+1; i>=0 && j<=n-1; i--, j++) {
+            if (chessboard[i][j] == 'Q') {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
 
 
 
