@@ -66,9 +66,66 @@ class WiggleMaxLength{
     }
 }
 
+/**
+ * 53. 最大子数组和
+ *
+ * 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+ *
+ * 子数组 是数组中的一个连续部分。
+ */
+class MaxSubArray{
+    public int maxSubArray(int[] nums) {
+        int res = Integer.MIN_VALUE;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum+=nums[i];
+            if (sum>res){
+                res = sum;
+            }
+            if (sum <= 0) sum = 0;
+        }
+        return res;
+    }
+}
+
+/**
+ * 122. 买卖股票的最佳时机 II
+ *
+ * 给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+ *
+ * 在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+ *
+ * 返回 你能获得的 最大 利润 。
+ * 贪心算法这里其实就是光看赚到的钱就可以了
+ */
+class MaxProfit{
+    public int maxProfit(int[] prices) {
+        int res = 0;
+        for (int i = 1; i < prices.length; i++) {
+            res+=Math.max(prices[i]-prices[i-1],0);
+        }
+        return res;
+    }
+}
+
+/**
+ * 55. 跳跃游戏
+ *
+ * 给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。
+ *
+ * 数组中的每个元素代表你在该位置可以跳跃的最大长度。
+ *
+ * 判断你是否能够到达最后一个下标。
+ */
+
+
+
+
+
+
 public class greedy_part {
     public static void main(String[] args) {
-        int[] sum = new int[]{1,7,4,9,2,5};
-        System.out.println(new WiggleMaxLength().wiggleMaxLength(sum));
+        int[] sum = new int[]{1,2,3,4,5};
+        System.out.println(new MaxProfit().maxProfit(sum));
     }
 }
