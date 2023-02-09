@@ -116,11 +116,52 @@ class MaxProfit{
  * 数组中的每个元素代表你在该位置可以跳跃的最大长度。
  *
  * 判断你是否能够到达最后一个下标。
+ *  就是说这一步能否覆盖到下面的的步骤
  */
 
+class CanJump{
+    public boolean canJump(int[] nums) {
+        int idx = 0;
+        if (nums.length == 1)return true;
+        for (int i = 0; i <= idx; i++) {
+            idx = Math.max(i+nums[i],idx);
+            if (idx >= nums.length-1)return true;
+        }
+        return false;
 
+    }
+}
 
+/**
+ * 45. 跳跃游戏 II
+ *
+ * 给定一个长度为 n 的 0 索引整数数组 nums。初始位置为 nums[0]。
+ *
+ * 每个元素 nums[i] 表示从索引 i 向前跳转的最大长度。换句话说，如果你在 nums[i] 处，你可以跳转到任意 nums[i + j] 处:
+ *
+ *     0 <= j <= nums[i]
+ *     i + j < n
+ *
+ * 返回到达 nums[n - 1] 的最小跳跃次数。生成的测试用例可以到达 nums[n - 1]。
+ *
+ *
+ */
+class Jump{
+    public int jump(int[] nums) {
+        int cur = 0;
+        int next = 0;
+        int res = 0;
 
+        for (int i = 0; i < nums.length-1; i++) {
+            next = Math.max(i+nums[i],next );
+            if (i == cur){
+                cur = next;
+                res+=1;
+            }
+        }
+        return res;
+    }
+}
 
 
 public class greedy_part {
