@@ -2,6 +2,7 @@ package aohiothor;
 
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * 455. 分发饼干
@@ -162,6 +163,115 @@ class Jump{
         return res;
     }
 }
+
+
+/**
+ * 1005. K 次取反后最大化的数组和
+ *
+ * 给你一个整数数组 nums 和一个整数 k ，按以下方法修改该数组：
+ *
+ *     选择某个下标 i 并将 nums[i] 替换为 -nums[i] 。
+ *
+ * 重复这个过程恰好 k 次。可以多次选择同一个下标 i 。
+ *
+ * 以这种方式修改数组后，返回数组 可能的最大和 。
+ */
+
+class LargestSumAfterKNegations{
+    public int largestSumAfterKNegations(int[] nums, int k) {
+        nums = IntStream.of(nums)
+                .boxed()
+                .sorted((o1, o2) -> Math.abs(o2) - Math.abs(o1))
+                .mapToInt(Integer::intValue).toArray();
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            //从前向后遍历，遇到负数将其变为正数，同时K--
+            if (nums[i] < 0 && k > 0) {
+                nums[i] = -nums[i];
+                k--;
+            }
+        }
+        if (k % 2 == 1) nums[len - 1] = -nums[len - 1];
+        return Arrays.stream(nums).sum();
+
+    }
+}
+
+/**
+ * 134. 加油站
+ *
+ * 在一条环路上有 n 个加油站，其中第 i 个加油站有汽油 gas[i] 升。
+ *
+ * 你有一辆油箱容量无限的的汽车，从第 i 个加油站开往第 i+1 个加油站需要消耗汽油 cost[i] 升。你从其中的一个加油站出发，开始时油箱为空。
+ *
+ * 给定两个整数数组 gas 和 cost ，如果你可以绕环路行驶一周，则返回出发时加油站的编号，否则返回 -1 。如果存在解，则 保证 它是 唯一 的。
+ */
+class CanCompleteCircuit{
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        int curSum = 0;
+        int talSum = 0;
+        int res = 0;//从哪里开始加油
+        for (int i = 0; i < gas.length; i++) {
+            curSum += gas[i] - cost[i];
+            talSum += gas[i] - cost[i];
+            //油量不够
+            if (curSum < 0){
+                res = i+1;
+                curSum = 0;
+            }
+        }
+        if (talSum < 0)return -1;
+        return res;
+
+
+
+
+
+    }
+
+}
+
+/**
+ * 135. 分发糖果
+ *
+ * n 个孩子站成一排。给你一个整数数组 ratings 表示每个孩子的评分。
+ *
+ * 你需要按照以下要求，给这些孩子分发糖果：
+ *
+ *     每个孩子至少分配到 1 个糖果。
+ *     相邻两个孩子评分更高的孩子会获得更多的糖果。
+ *
+ * 请你给每个孩子分发糖果，计算并返回需要准备的 最少糖果数目 。
+ *
+ *  提示：使用两边贪心算法
+ */
+
+
+class Candy{
+    public int candy(int[] ratings) {
+        int[] candys = new int[ratings.length];
+        candys[0] = 1;
+        //首先从前往后分析
+        for (int i = 1; i < ratings.length; i++) {
+            if (ratings[i] > ratings[i-1])candys[i]+=candys[i-1]+1;
+            else candys[i] = 1;
+        }
+        //在从后向前分析
+        for (int i = ratings.length-2; i >=0 ; i--) {
+            if (ratings[i]>ratings[i+1])candys[i]=Math.max(candys[i],candys[i+1]+1);
+        }
+        int res = 0;
+        for (int a:candys)res+=a;
+        return res;
+    }
+}
+
+
+
+
+
+
+
 
 
 public class greedy_part {
