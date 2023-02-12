@@ -118,24 +118,19 @@ public class ApplicationContext {
            Object o = type.getConstructor().newInstance();
 
 
-           //装配
+           //装配  依赖注入
            for (Field df : type.getDeclaredFields()) {
                if (df.isAnnotationPresent(Autowired.class)){
                    df.setAccessible(true);
                    df.set(o,getBean(df.getName()));
                }
-
-
-
-
            }
 
+           //beanname回调
 
-
-
-
-
-
+           if (o instanceof BeanAware){
+               ((BeanAware) o).setBeanName(beanName);
+           }
 
 
 
