@@ -1,9 +1,6 @@
 package org.example.saltfish.package_scan;
 
-import org.example.saltfish.annotations.Autowired;
-import org.example.saltfish.annotations.Component;
-import org.example.saltfish.annotations.ConmponetScan;
-import org.example.saltfish.annotations.Scope;
+import org.example.saltfish.annotations.*;
 import org.example.saltfish.bean_storage.BeanDefinition;
 import org.example.saltfish.custom_Exception.BeanNotFoundException;
 
@@ -11,6 +8,7 @@ import java.beans.Introspector;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
@@ -166,6 +164,16 @@ public class ApplicationContext {
            }
 
 
+
+
+
+           //@PostConstruct 项目启动的时候执行此注解作用的方法，用来初始化全局参数
+
+           for (Method method : o.getClass().getMethods()) {
+               if (method.isAnnotationPresent(PostConstruct.class)){
+                   method.invoke(o);
+               }
+           }
 
 
 
