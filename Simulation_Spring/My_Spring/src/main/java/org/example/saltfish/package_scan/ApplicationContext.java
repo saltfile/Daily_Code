@@ -12,6 +12,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ApplicationContext {
@@ -22,6 +23,11 @@ public class ApplicationContext {
     private ConcurrentHashMap<String,BeanDefinition> beanDefMap = new ConcurrentHashMap<String, BeanDefinition>();
 
     private ConcurrentHashMap<String,Object> SingletonPool = new ConcurrentHashMap<String, Object>();
+
+    private ArrayList<BeanProcessor> ProcessorList = new ArrayList<BeanProcessor>();
+
+
+
    public   ApplicationContext(Class config){
         this.config = config;
        //启动时加载
@@ -53,6 +59,13 @@ public class ApplicationContext {
                        Class<?> nclazz = classLoader.loadClass(packeName);
 
                        if (nclazz.isAnnotationPresent(Component.class)) {
+
+                           //查看是否有BeanProcess实现
+                           if (BeanProcessor.class.isAssignableFrom(nclazz)){
+                               BeanProcessor processor = (BeanProcessor) nclazz.newInstance();
+                               ProcessorList.add(processor);
+                           }
+
                            //如果说这个上面有component就说明是Bean
 
                            Component bean = nclazz.getAnnotation(Component.class);
@@ -86,6 +99,10 @@ public class ApplicationContext {
 
 
                    } catch (ClassNotFoundException e) {
+                       throw new RuntimeException(e);
+                   } catch (InstantiationException e) {
+                       throw new RuntimeException(e);
+                   } catch (IllegalAccessException e) {
                        throw new RuntimeException(e);
                    }
 
@@ -132,6 +149,28 @@ public class ApplicationContext {
                ((BeanAware) o).setBeanName(beanName);
            }
 
+
+           //前&后置初始化
+           for (BeanProcessor processor : ProcessorList) {
+               processor.postProcessBeforeInstantiation(beanName,o);
+           }
+
+           // spring初始化执行InitializingBean
+           if (o instanceof InitializingBean){
+               ((InitializingBean) o).afterPropertiesSet();
+           }
+
+           //前&后置初始化
+           for (BeanProcessor processor : ProcessorList) {
+               processor.postProcessAfterInstantiation(beanName,o);
+           }
+
+
+
+
+
+
+           //AOP
 
 
 
