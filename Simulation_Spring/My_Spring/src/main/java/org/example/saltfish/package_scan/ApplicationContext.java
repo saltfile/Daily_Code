@@ -1,14 +1,18 @@
 package org.example.saltfish.package_scan;
 
 import org.example.saltfish.annotations.*;
+import org.example.saltfish.aop.Advice;
+import org.example.saltfish.aop.AopInvokeHandler;
+import org.example.saltfish.aop.Aspect;
+import org.example.saltfish.aop.PointCut;
 import org.example.saltfish.bean_storage.BeanDefinition;
 import org.example.saltfish.custom_Exception.BeanNotFoundException;
 
 import java.beans.Introspector;
 import java.io.File;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,10 +28,23 @@ public class ApplicationContext {
 
     private ArrayList<BeanProcessor> ProcessorList = new ArrayList<BeanProcessor>();
 
+    private ConcurrentHashMap<String,Aspect> aspectPool = new ConcurrentHashMap<String, Aspect>();
 
+//    private ConcurrentHashMap<String, Aspect> aspects = new ConcurrentHashMap<String, Aspect>();
 
    public   ApplicationContext(Class config){
         this.config = config;
+
+
+       /**
+        *  临时函数加载模拟切面
+        */
+//       PointCut pointCut = new PointCut("org.example",".*Service");
+//       Advice advice = new AopTest();
+//       aspect = new Aspect(advice,pointCut);
+
+
+
        //启动时加载
         //包扫描过程:如果配置类上面有该注解就要去扫描这个类的所有包
        if (config.isAnnotationPresent(ConmponetScan.class)) {
@@ -57,6 +74,36 @@ public class ApplicationContext {
                        Class<?> nclazz = classLoader.loadClass(packeName);
 
                        if (nclazz.isAnnotationPresent(Component.class)) {
+
+
+
+                           if (nclazz.isAnnotationPresent(Aspects.class)){
+                               Object Aops = nclazz.getConstructor().newInstance();
+                               if (Aops instanceof Advice){
+
+                                   for (Method m : nclazz.getMethods()) {
+                                       if (m.isAnnotationPresent(Pointcut.class)){
+                                           Pointcut annota = m.getAnnotation(Pointcut.class);
+
+                                           String cl = annota.ClassPattern();
+                                           String ms = annota.methodPattern();
+
+                                           PointCut pointCut = new PointCut(cl,ms);
+                                           Advice advice = (Advice) Aops;
+
+                                           Aspect as = new Aspect(advice,pointCut);
+
+                                           aspectPool.put(pointCut.getMethodPattern(),as);
+
+                                       }
+                                   }
+                               }
+
+                               continue;
+                           }
+
+
+
 
                            //查看是否有BeanProcess实现
                            if (BeanProcessor.class.isAssignableFrom(nclazz)){
@@ -96,12 +143,8 @@ public class ApplicationContext {
                    }
 
 
-                   } catch (ClassNotFoundException e) {
-                       throw new RuntimeException(e);
-                   } catch (InstantiationException e) {
-                       throw new RuntimeException(e);
-                   } catch (IllegalAccessException e) {
-                       throw new RuntimeException(e);
+                   } catch (Exception e) {
+                       e.printStackTrace();
                    }
 
                }
@@ -114,12 +157,29 @@ public class ApplicationContext {
            BeanDefinition beanDefinition = beanDefMap.get(bName);
            if (!beanDefinition.getScope().equals("prototype")){
                Object bean = createBean(bName,beanDefinition);
-
                SingletonPool.put(bName,bean);
 
            }
 
        }
+
+    }
+
+
+
+
+    private Object AopProxyEnhance(Object bean){
+//       if (bean.getClass().getName() == )
+        if (bean.getClass().getMethods().length < 10)return bean;
+
+        for (String s : aspectPool.keySet()) {
+            if (bean.getClass().getName().matches(s)){
+                bean = Proxy.newProxyInstance(bean.getClass().getClassLoader(),
+                        bean.getClass().getInterfaces(),new AopInvokeHandler(bean,aspectPool.get(s)));
+            }
+        }
+
+       return bean;
 
     }
 
@@ -217,6 +277,7 @@ public class ApplicationContext {
                        SingletonPool.put(beanName,bsn);
                        return bsn;
                    }
+                   bean = AopProxyEnhance(bean);
                    return bean;
 
                }

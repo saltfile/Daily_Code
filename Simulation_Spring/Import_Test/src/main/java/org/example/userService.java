@@ -9,7 +9,7 @@ import org.example.saltfish.package_scan.InitializingBean;
 
 @Component
 //@Scope("prototype")
-public class userService implements BeanAware, InitializingBean {
+public class userService implements BeanAware, InitializingBean,userinterface {
 
     @Autowired
     private testService testService;
