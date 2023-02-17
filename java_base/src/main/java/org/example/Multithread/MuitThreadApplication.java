@@ -7,9 +7,7 @@ public class MuitThreadApplication {
 
         //场景二 生产者消费者
 
-        new ProAndCon().CaseStart();
-
-
+//        new ProAndCon().CaseStart();
 
 
     }

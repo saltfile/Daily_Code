@@ -1,41 +1,36 @@
-package org.example.Multithread;
+package org.example.lock;
 
 
 import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 场景1
- * 有三个站口卖票
- * 一共有一百张票
+ *  锁案例一使用synchronized来完成买票的过程
  */
 class Station{
-    private int ticket = 100;
-    public int SellOut(){
+    private int ticket = 30;
+    public synchronized int SellOut(){
         return ticket--;
     }
 
-    public int getTicket() {
+    public synchronized int getTicket() {
         return ticket;
     }
 }
 
 
 
-
-//抢票的
 class GrabTickets implements Runnable{
     private Station station;
     private String name;
 
-    private ReentrantLock lock;
-    public GrabTickets(Station station,String name,ReentrantLock lock){
+    public GrabTickets(Station station, String name){
         this.station = station;
         this.name = name;
-        this.lock = lock;
     }
 
 
+    @Override
     public void run() {
         try{
             Random random = new Random();
@@ -43,9 +38,7 @@ class GrabTickets implements Runnable{
                 if (this.station.getTicket() <= 0)break;
                 //开始抢票
                 Thread.sleep(100*(10%random.nextInt()));
-                this.lock.lock();
                 System.out.println(name+"抢到票："+this.station.SellOut()+" 号");
-                this.lock.unlock();
             }
 
         }catch (Exception e){
@@ -55,20 +48,21 @@ class GrabTickets implements Runnable{
 }
 
 
-public class Tickets {
-    public void CaseStart(){
-        Station station = new Station();
-        ReentrantLock lock = new ReentrantLock();
 
-        Thread t1 = new Thread(new GrabTickets(station,"小明",lock));
-        Thread t2 = new Thread(new GrabTickets(station,"小红",lock));
-        Thread t3 = new Thread(new GrabTickets(station,"小王",lock));
+
+
+public class Sync {
+    public void GradStart(){
+        Station station = new Station();
+        Thread t1 = new Thread(new GrabTickets(station,"抢票1"));
+        Thread t2 = new Thread(new GrabTickets(station,"抢票2"));
+        Thread t3 = new Thread(new GrabTickets(station,"抢票3"));
+
 
         t1.start();
         t2.start();
         t3.start();
 
+
     }
-
-
 }
