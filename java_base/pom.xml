@@ -17,7 +17,10 @@
             </plugin>
         </plugins>
     </build>
-    <packaging>jar</packaging>
+    <modules>
+        <module>netty_demo</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>java_base</name>
   <url>http://maven.apache.org</url>
@@ -33,6 +36,13 @@
       <artifactId>jol-core</artifactId>
       <version>0.16</version>
     </dependency>
+
+
+      <dependency>
+          <groupId>cn.hutool</groupId>
+          <artifactId>hutool-all</artifactId>
+          <version>5.4.0</version>
+      </dependency>
 
     <dependency>
       <groupId>junit</groupId>
