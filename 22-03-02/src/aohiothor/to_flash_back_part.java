@@ -399,6 +399,31 @@ class SubsetsWithDup{
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 491. 递增子序列
  *
@@ -596,7 +621,30 @@ class SolveNQueens{
 
 }
 
+//物资数量n s
+class Ens{
+    public int Pk(int n,int s){
+        ArrayList res = new ArrayList();
+        back(n,s,res);
+        return res.size();
+    }
 
+
+    public void back(int idx,int s,ArrayList res){
+        if (s == 0&&idx == 0){
+            res.add(1);
+            return;
+        }else if (idx == 0){
+            return;
+        }
+
+        for (int i = 1; i <= s; i++) {
+            s-=i;
+            back(idx-1,s,res);
+            s+=i;
+        }
+    }
+}
 
 
 
@@ -612,8 +660,13 @@ public class to_flash_back_part {
 //        System.out.println(new CombinationSum3().combinationSum3(3,7));
 //        System.out.println(new LetterCombinations().letterCombinations("23"));
 
-        int[] nums = new int[]{1,1,2};
-        System.out.println(new PermuteUnique().permuteUnique(nums));
+//        int[] nums = new int[]{1,1,2};
+//        System.out.println(new PermuteUnique().permuteUnique(nums));
+
+        System.out.println(new Ens().Pk(3,5));
+
+
+
 //        System.out.println(new Permute().permute(nums));
 //        System.out.println(new FindSubsequences().findSubsequences(nums));
 //        System.out.println(new Subsets().subsets(nums));
