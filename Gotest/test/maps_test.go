@@ -47,3 +47,15 @@ func TestFactoryMap(t *testing.T) {
 	m[3] = func(op int) int { return op * op * op }
 	t.Log(m[1](2), m[2](2), m[3](2))
 }
+
+// GO语言中没有对set的实现但可以用map去实现
+func TestMapforSet(t *testing.T) {
+	set := map[int]bool{}
+	set[1] = true
+	key := 1
+	if set[key] {
+		t.Log("1存在", key)
+	} else {
+		t.Log("不存在", key)
+	}
+}
