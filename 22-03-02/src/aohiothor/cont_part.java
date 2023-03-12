@@ -147,9 +147,166 @@ return res;
 
 
 
+//0平 1赢 [0,0] 2赢[15,15]
+    public int Tank(String com1,String com2){
+        int[][] map = new int[16][16];
+        int num1 = 1;//坦克占地号
+        int num2 = 2;//坦克占地号
+        char d1 = ' ';
+        char d2 = ' ';
+        int x1 = 0;//初始
+        int y1 = 0;
+
+        map[x1][y1] = num1;
+
+        int x = 15;
+        int y = 15;
+
+        map[x][y] = num2;
 
 
 
+
+        //开始
+        for (int i = 0; i < 256; i++) {
+            //1先走
+            char c1 = com1.charAt(i);
+            switch (c1){
+                case 'U':
+                    y1 = U(map,x1,y1,num1);
+                    map[x1][y1] = num1;
+                    d1 = 'U';
+                    break;
+                case 'D':
+                    y1 = D(map,x1,y1,num1);
+                    map[x1][y1] = num1;
+                    d1 = 'D';
+                    break;
+                case 'L':
+                    x1 = L(map,x1,y1,num1);
+                    map[x1][y1] = num1;
+                    d1 = 'L';
+                    break;
+                case 'R':
+                    x1 = R(map,x1,y1,num1);
+                    map[x1][y1] = num1;
+                    d1 = 'R';
+                    break;
+                case 'F':
+                    if (F(map,x1,y1,x,y,d1))return 1;
+            }
+
+            char c2 = com2.charAt(i);
+
+            switch (c2){
+                case 'U':
+                    y = U(map,x,y,num2);
+                    map[x][y] = num2;
+                    d2 = 'U';
+                    break;
+                case 'D':
+                    y = D(map,x,y,num2);
+                    map[x][y] = num2;
+                    d2 = 'D';
+                    break;
+                case 'L':
+                    x = L(map,x,y,num2);
+                    map[x][y] = num2;
+                    d2 = 'L';
+                    break;
+                case 'R':
+                    x = R(map,x,y,num2);
+                    map[x][y] = num2;
+                    d2 = 'R';
+                    break;
+                case 'F':
+                    if (F(map,x,y,x1,y1,d2))return 2;
+            }
+            if (Ping(x1,y1,x,y))return 0;
+        }
+        return last(map);
+    }
+
+
+
+    public int U(int[][] map,int x,int y,int num){
+    //首先判定是否在地图外
+        if (y-1 < 0)return y;
+        if (map[x][y-1] == 0||map[x][y-1] == num){
+            return y-1;
+        }
+        return y;
+    }
+
+
+    public int D(int[][] map,int x,int y,int num){
+        //首先判定是否在地图外
+        if (y+1 > 15)return y;
+        if (map[x][y+1] == 0||map[x][y+1] == num){
+            return y+1;
+        }
+        return y;
+    }
+
+
+    public int L(int[][] map,int x,int y,int num){
+    //首先判断是否在地图外
+        if (x-1 < 0)return x;
+        if (map[x-1][y] == 0||map[x-1][y] == num){
+            return x-1;
+        }
+        return x;
+    }
+
+    public int R(int[][] map,int x,int y,int num){
+        //首先判断是否在地图外
+        if (x+1 > 15)return x;
+        if (map[x+1][y] == 0||map[x+1][y] == num){
+            return x+1;
+        }
+        return x;
+    }
+
+    public boolean Ping(int x1,int y1,int x,int y){
+    if (x1 == x&&y == y1)return true;
+    else return false;
+    }
+
+    //1是本坦克 无1是对方坦克
+    public boolean F(int[][] map,int x1,int y1,int x,int y,char direction){
+    switch (direction){
+        case 'U':
+            if (x1 == x&&y1 > y)return true;//打中了
+            break;
+        case 'D':
+            if (x1 == x&&y > y1)return true;//打中了
+            break;
+        case 'L':
+            if (y == y1&&x < x1)return true;//打中了
+            break;
+        case 'R':
+            if (y == y1&&x1 < x)return true;//打中了
+    }
+    return false;
+    }
+
+
+
+    public int last(int[][] map){
+        int i1 = 0;
+        int i2 = 0;
+
+
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 16; j++) {
+                if (map[i][j] == 1)i1++;
+                if (map[i][j] == 2) i2++;
+            }
+        }
+        if (i1 == i2)return 0;
+
+        return i1 > i2?1:2;
+    }
 
 
 
