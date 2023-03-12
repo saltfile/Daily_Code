@@ -338,7 +338,14 @@ public class cont_part {
     public static void main(String[] args) {
 
         MeiTuan meiTuan = new MeiTuan();
-        System.out.println(meiTuan.XiaoMei("111222333"));
+//        System.out.println(meiTuan.XiaoMei("111222333"));
+
+
+
+
+
+
+
 
 //        System.out.println(new soult1().MaxBu("stringsabcvdb"));
     }

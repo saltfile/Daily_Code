@@ -1,4 +1,5 @@
 #include "selector/sele_base.h"
+#include "protos/add.pb.h"
 #include "poll/poll_base.h"
 #include "epoll/epoll_base.h"
 
@@ -71,18 +72,23 @@ string change1(string data)
     return  result;
 
 }
-int main(int argc,const char* argv[]) {
+int main() {
+    User user1;
+    user1.set_id(100);
+    user1.set_nickname("小明");
+
+    //将结构序列化成string
+    std::string str = "";
+    user1.SerializeToString(&str);
+    std::cout << str << std::endl;
+
+
+
 //    printf("service_start\n");
 //    ser_poll_start("127.0.0.1","8989");
 //    ser_epoll_lt_start("127.0.0.1","8989");
 //    ser_epoll_et_start("127.0.0.1","8989");
 
-char s = 'a';
-    printf("%x\n",s);
-string sre = change(s);
-sre+= change('b');
-cout<<sre<<endl;
-cout<<change1(sre);
 //    ser_selector_start(argv[1],argv[2]);
     return 0;
 }

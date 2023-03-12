@@ -24,6 +24,5 @@ public class App
         testsinterface test  = (testsinterface) Context.getBean("ttService");
         test.tock();
 
-
     }
 }

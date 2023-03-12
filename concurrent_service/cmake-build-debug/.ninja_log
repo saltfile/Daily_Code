@@ -1,0 +1,13 @@
+# ninja log v5
+2	213	1676961592912484843	CMakeFiles/concurrent_service.dir/epoll/ser_epoll_et.cpp.o	c93f579d741570d6
+0	641	1676961593340480871	CMakeFiles/concurrent_service.dir/main.cpp.o	892873b925ca79a8
+1	207	1676961592904484918	CMakeFiles/concurrent_service.dir/epoll/ser_epoll_lt.cpp.o	af1f58ddf3160908
+1	249	1676961592948484509	CMakeFiles/concurrent_service.dir/selector/ser_selector.cpp.o	3ab8d2b3fdb2425f
+1	709	1676961593408480241	CMakeFiles/concurrent_service.dir/protos/add.pb.cc.o	2076293b8631923
+1	220	1676961592920484770	CMakeFiles/concurrent_service.dir/poll/ser_poll.cpp.o	e68c20e3d9806e9b
+1	197	1676962662705702196	CMakeFiles/concurrent_service.dir/poll/ser_poll.cpp.o	e3c96a9b23bf3301
+2	199	1676962662709702705	CMakeFiles/concurrent_service.dir/epoll/ser_epoll_et.cpp.o	cc0beae4ab5fd15f
+1	201	1676962662709702705	CMakeFiles/concurrent_service.dir/epoll/ser_epoll_lt.cpp.o	8e699e6e504a7f5
+1	204	1676962662713703216	CMakeFiles/concurrent_service.dir/selector/ser_selector.cpp.o	1779e9f10e9590f7
+0	597	1676962663105753175	CMakeFiles/concurrent_service.dir/main.cpp.o	ce7fb8890c972279
+1	671	1676962663181762845	CMakeFiles/concurrent_service.dir/protos/add.pb.cc.o	25c22e1d2e268655
