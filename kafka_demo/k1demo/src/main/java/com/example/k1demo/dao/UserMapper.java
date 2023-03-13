@@ -8,8 +8,8 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper {
-    @Insert("insert into user(id,accout)values (#{id},#{accout})")
-    int Add(@Param("id")Integer id,@Param("accout")String accout );
+    @Insert("insert into user(accout)values (#{accout})")
+    int Add(@Param("accout")String accout );
 
 
     @Select("SELECT * FROM user WHERE id =#{id}")
