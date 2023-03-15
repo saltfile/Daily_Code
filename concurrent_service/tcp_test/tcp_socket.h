@@ -1,9 +1,10 @@
 //
-// Created by saltfish on 22-12-9.
+// Created by saltfish on 23-3-15.
 //
 
-#ifndef CONCURRENT_SERVICE_SELE_BASE_H
-#define CONCURRENT_SERVICE_SELE_BASE_H
+#ifndef CONCURRENT_SERVICE_TCP_SOCKET_H
+#define CONCURRENT_SERVICE_TCP_SOCKET_H
+
 
 #include <stdio.h>
 #include <ctype.h>
@@ -17,10 +18,7 @@
 #include <iostream>
 using namespace std;
 
-
-
-int ser_selector_start(const char* ip,const char* port);
-
+void tcp_test_main();
 
 
 
@@ -31,16 +29,4 @@ int ser_selector_start(const char* ip,const char* port);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-#endif //CONCURRENT_SERVICE_SELE_BASE_H
+#endif //CONCURRENT_SERVICE_TCP_SOCKET_H
