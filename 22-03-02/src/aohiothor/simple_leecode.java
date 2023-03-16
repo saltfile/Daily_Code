@@ -1,6 +1,6 @@
 package aohiothor;
 
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * 罗马数字转整数
@@ -148,7 +148,26 @@ class LongestCommonPrefix{
 
 
 
+class ArrMerge{
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
 
+        ArrayList<Integer> res = new ArrayList();
+
+        for (int i = 0; i < m; i++) {
+            res.add(nums1[i]);
+        }
+        for (int i = 0; i < n; i++) {
+            res.add(nums2[i]);
+        }
+
+        Collections.sort(res);
+        for (int i = 0; i < nums1.length; i++) {
+            nums1[i] = res.get(i);
+        }
+
+
+    }
+}
 
 
 
@@ -159,7 +178,17 @@ class LongestCommonPrefix{
 
 public class simple_leecode {
     public static void main(String[] args) {
-        String[] srs = new String[]{"aa","ab"};
-        System.out.println(new LongestCommonPrefix().longestCommonPrefix(srs));
+
+        Collection<String> c = new ArrayList<String>();
+
+        TreeMap<String,String> tree = new TreeMap<>();
+
+
+
+
+
+
+//        String[] srs = new String[]{"aa","ab"};
+//        System.out.println(new LongestCommonPrefix().longestCommonPrefix(srs));
     }
 }
