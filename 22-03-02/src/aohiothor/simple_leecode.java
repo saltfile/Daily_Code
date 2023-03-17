@@ -151,6 +151,9 @@ class LongestCommonPrefix{
 class ArrMerge{
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
+        ArrayList<Object> objects = new ArrayList<>();
+
+
         ArrayList<Integer> res = new ArrayList();
 
         for (int i = 0; i < m; i++) {
@@ -169,6 +172,68 @@ class ArrMerge{
     }
 }
 
+/**
+ * 200. 岛屿数量
+ * 给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。
+ *
+ * 岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。
+ *
+ * 此外，你可以假设该网格的四条边均被水包围。
+ *
+ *
+ *
+ * 示例 1：
+ *
+ * 输入：grid = [
+ *   ["1","1","1","1","0"],
+ *   ["1","1","0","1","0"],
+ *   ["1","1","0","0","0"],
+ *   ["0","0","0","0","0"]
+ * ]
+ * 输出：1
+ */
+
+class NumIslands{
+
+
+
+    public void dfs(char[][] grid,int y,int x){
+        //确定上界和下界
+        int up = grid.length;
+        int right = grid[0].length;
+        if (grid[y][x] == '0')return;
+        grid[y][x] = '0';
+        if (y+1 < up && grid[y+1][x] == '1')dfs(grid, y+1, x);
+        if (y-1 >= 0 && grid[y-1][x] == '1')dfs(grid, y-1, x);
+        if (x+1 < right && grid[y][x+1] == '1')dfs(grid, y, x+1);
+        if (x-1 >= 0 && grid[y][x-1] == '1')dfs(grid, y, x-1);
+    }
+
+    public int numIslands(char[][] grid) {
+        int res = 0;
+        int x = grid[0].length;
+        int y = grid.length;
+
+        //行遍历
+        for (int i = 0; i < y; i++) {
+            for (int j = 0; j < x; j++) {
+                if (grid[i][j] == '1'){
+                    res++;
+                    dfs(grid,i,j);
+                }
+            }
+        }
+
+
+        return res;
+    }
+
+
+
+}
+
+
+
 
 
 
@@ -179,13 +244,24 @@ class ArrMerge{
 public class simple_leecode {
     public static void main(String[] args) {
 
-        Collection<String> c = new ArrayList<String>();
-
-        TreeMap<String,String> tree = new TreeMap<>();
-
-
+//        Collection<String> c = new ArrayList<String>();
+//
+//        TreeMap<String,String> tree = new TreeMap<>();
 
 
+char [][] grid = {
+        {'1','1','0','0','0'},
+        {'1','1','0','0','0'},
+        {'0','0','1','0','0'},
+        {'0','0','0','1','1'}
+};
+//        int y = grid.length;
+//        int x = grid[0].length;
+//        grid[1][0] = '2';
+//        grid[0][1] = '4';
+//        System.out.println(grid);
+
+        System.out.println(new NumIslands().numIslands(grid));
 
 
 //        String[] srs = new String[]{"aa","ab"};
