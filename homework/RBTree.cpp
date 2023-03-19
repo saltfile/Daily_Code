@@ -134,9 +134,111 @@ RBNode *right(RBNode *root){
     node->parent = left;
 }
 //插入修正函数
-void fix_insert(RBNode *root){
+RBNode *fix_insert(RBNode *node){
+    RBNode *parent, *gparent;
 
+    // 若“父节点存在，并且父节点的颜色是红色”
+    while (((parent = get_parent(node)) != NULL) && is_red(parent)){
+        gparent = get_parent(parent);
+        //若“父节点”是“祖父节点的左孩子”
+        if (parent == gparent->left){
+            //1.父节点为红色且 叔叔节点parent.right不为空
+            RBNode *uncle = gparent->right;
+            //如果叔叔是红色，就将父节点和叔叔节点置为黑色；将祖父节点置为红色
+            if (uncle!=NULL&& is_red(uncle)){
+                set_red(gparent);
+                set_black(parent);
+                set_black(uncle);
+                node = gparent;
+                continue;
+//                return node;
+            }
+
+
+            //当前右边节点不平衡
+            if (parent->right == node){
+                RBNode *tmp;
+               parent = left(parent);
+               tmp = parent;
+               parent = node;
+               node = tmp;
+            }
+            set_black(parent);
+            set_red(gparent);
+            gparent = right(gparent);
+        } else{
+            RBNode *uncle = gparent->left;
+            if (uncle!=NULL&& is_red(uncle)){
+                set_red(gparent);
+                set_black(parent);
+                set_black(uncle);
+                node = gparent;
+                continue;
+            }
+            if (parent->left == node){
+                RBNode *tmp;
+                parent = right(parent);
+                tmp = parent;
+                parent = node;
+                node = tmp;
+            }
+            set_black(parent);
+            set_red(gparent);
+            gparent =left(gparent);
+        }
+    }
+    return node;
 }
+
+RBNode *insert(int data,RBNode *root){
+    RBNode *node = (RBNode*) malloc(sizeof(RBNode));
+    memset(node,0, sizeof(node));
+    node->data = data;
+    node->color = black;
+    if (root == NULL)return node;
+    int cmp;
+
+    RBNode *y = NULL;
+    RBNode *x = root;
+    while (x != NULL){
+        y = x;
+        if (node->data < x->data){
+            x = x->left;
+        } else{
+            x = x->right;
+        }
+    }
+        node->parent = y;
+        if (y != NULL){
+            if (node->data < y->data)
+                y->left = node;
+            else
+                y->right = node;
+        } else{
+            root = node;
+        }
+        node->color = red;
+
+    x = fix_insert(node);
+    while (x->parent != NULL){
+        x = x->parent;
+    }
+    x->color = black;
+
+//    set_black(x);
+    return x;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -159,10 +261,12 @@ void fix_insert(RBNode *root){
 
 
 int RBTreedemo() {
+    RBNode *root = NULL;
 
 
-
-
+    root = insert(3,root);
+    root = insert(1,root);
+    root = insert(2,root);
 
 
     return 0;
