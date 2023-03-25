@@ -269,8 +269,67 @@ class MaxArea{
 }
 
 
+/**
+ * 796. 旋转字符串
+ *
+ * 给定两个字符串, s 和 goal。如果在若干次旋转操作之后，s 能变成 goal ，那么返回 true 。
+ *
+ * s 的 旋转操作 就是将 s 最左边的字符移动到最右边。
+ *
+ *     例如, 若 s = 'abcde'，在旋转一次之后结果就是'bcdea' 。
+ */
 
 
+class RotateString{
+    public boolean rotateString(String s, String goal) {
+
+        for (int i = 0; i < s.length(); i++) {
+            StringBuilder str = new StringBuilder();
+            char c = s.charAt(0);
+            str.append(s.substring(1,s.length()));
+            str.append(c);
+
+            if (str.toString().equals(goal)){
+                return true;
+            }
+            s = str.toString();
+        }
+        return false;
+
+    }
+}
+
+
+
+class IsPalindrome{
+    public boolean isPalindrome(ListNode head) {
+     ListNode p = head;
+     ArrayList<Integer> arr = new ArrayList<>();
+     if (head.next == null)return true;
+
+     while (p!=null){
+         arr.add(p.val);
+         p = p.next;
+     }
+
+     int left = 0;
+     int right = arr.size()-1;
+
+     while (left < right){
+         if (arr.get(left) != arr.get(right)){
+             return false;
+         }
+         left++;
+         right--;
+
+     }
+
+
+return true;
+
+
+    }
+}
 
 
 
@@ -278,7 +337,7 @@ class MaxArea{
 public class simple_leecode {
     public static void main(String[] args) {
 
-
+        System.out.println(new RotateString().rotateString("abcde","cdeab"));
 
 
 //        Collection<String> c = new ArrayList<String>();
@@ -286,19 +345,30 @@ public class simple_leecode {
 //        TreeMap<String,String> tree = new TreeMap<>();
 
 
-char [][] grid = {
-        {'1','1','0','0','0'},
-        {'1','1','0','0','0'},
-        {'0','0','1','0','0'},
-        {'0','0','0','1','1'}
-};
+//char[][] grid = {
+//        {'1','2','0','0','0'},
+//        {'1','1','0','0','0'},
+//        {'3','0','1','0','0'},
+//        {'0','0','0','1','1'}
+//};
+//        System.out.println(grid[2][0]);
+//
+//int[][] ff = new int[10][10];
+//        for (int i = 0; i < 10; i++) {
+//            for (int j = 0; j < 10; j++) {
+//                ff[i][j] = i*j;
+//            }
+//        }
+//        System.out.println(ff[2][1]);
+
+
 //        int y = grid.length;
 //        int x = grid[0].length;
 //        grid[1][0] = '2';
 //        grid[0][1] = '4';
 //        System.out.println(grid);
 
-        System.out.println(new NumIslands().numIslands(grid));
+//        System.out.println(new NumIslands().numIslands(grid));
 
 
 //        String[] srs = new String[]{"aa","ab"};
