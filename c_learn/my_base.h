@@ -26,6 +26,7 @@ void class_show();
 void quote_show();
 //c++继承展示
 void exthend_show();
-
+//c++菱形继承展示
+void rhombus_show();
 
 #endif //C_LEARN_MY_BASE_H

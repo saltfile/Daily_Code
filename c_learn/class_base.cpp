@@ -49,10 +49,10 @@ public:
     int id;
     A(){}
     A(int id,int pus):id(id),pus(pus){}
-    void dis(){
+    virtual void dis(){
         cout<<"id:"<<this->id<<"    "<<"pus: "<<this->pus<<"    ";
     }
-    ~A(){cout<<"A被回收"<<endl;}
+    virtual ~A(){cout<<"A被回收"<<endl;}
 };
 //1.第一种是public继承
 /**
@@ -78,12 +78,70 @@ public:
     }
 };
 
+//菱形继承
+class N{
+public:
+    N(){
+        cout<<"N"<<endl;
+    }
+     ~N(){
+        cout<<"~N"<<endl;
+    }
+};
+
+
+class M:virtual public N{
+public:
+    M(){
+        cout<<"M"<<endl;
+    }
+    ~M(){
+        cout<<"~M"<<endl;
+    }
+};
+
+
+class P:virtual public N{
+public:
+    P(){
+        cout<<"P"<<endl;
+    }
+    ~P(){
+        cout<<"~P"<<endl;
+    }
+};
+
+
+class Z:public P,public M{
+public:
+    Z(){
+        cout<<"Z"<<endl;
+    }
+    ~Z(){
+        cout<<"~Z"<<endl;
+    }
+};
+
+//这里构造多了一个N是因为菱形继承多了两次构造N
+
+void rhombus_show(){
+    Z *z = new Z();
+    delete z;
+}
+
+
 
 void exthend_show(){
     {
         B b(1,2,3);
         b.dis();
     }
+
+    //如果如下这样A没有写虚方法会导致泄露 输出id:2    pus: 4    A被回收
+    A *f = new B(2,4,5);
+    f->dis();
+    delete f;
+
 }
 
 

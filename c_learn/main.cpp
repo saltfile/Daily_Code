@@ -30,7 +30,13 @@ int main() {
      /**
       * c++继承的展示
       */
-      exthend_show();
+//      exthend_show();
+
+
+      /**
+       * c++菱形继承展示
+       */
+      rhombus_show();
 
     return 0;
 }
