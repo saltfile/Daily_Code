@@ -186,6 +186,91 @@ void class_show(){
 }
 
 
+/**
+ * c++友元展示
+ */
+
+
+class T{
+    int id;
+    string name;
+    //当这里加上firend之后就对函数暴露自己的属性了
+    friend void dis(T &t);
+    friend class Dis;
+public:
+    T(int id,string name):id(id),name(name){}
+};
+
+void dis(T &t){
+    //引用的时候无法去打印一个private的属性
+    cout<<t.id<<"     "<<t.name<<endl;
+}
+
+class Dis{
+private:
+    T t;
+public:
+    void dis(){
+        cout<<this->t.id<<"    "<<this->t.name<<endl;
+    }
+    Dis(T &t):t(t){}
+};
+
+
+void firend_show(){
+    T t(1,"ttt");
+    dis(t);
+    Dis u(t);
+    u.dis();
+}
+
+
+
+
+class Idao{
+public:
+    virtual void save()=0;//这里类比为抽象类根接口一样
+};
+
+class ADao:public Idao{
+public:
+    void save(){
+        cout<<"A"<<"实现接口"<<endl;
+    }
+};
+class BDao:public Idao{
+public:
+    void save(){
+        cout<<"B"<<"实现接口"<<endl;
+    }
+};
+
+
+
+
+
+void interface_show(){
+    Idao *a = new ADao();
+    Idao *b = new BDao();
+    a->save();
+    b->save();
+
+    delete a;
+    delete b;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 void quote_show(){
     /**
      * 概念：

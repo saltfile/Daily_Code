@@ -28,5 +28,11 @@ void quote_show();
 void exthend_show();
 //c++菱形继承展示
 void rhombus_show();
+//c++接口展示
+void interface_show();
+//c++友元展示
+void firend_show();
+
+
 
 #endif //C_LEARN_MY_BASE_H

@@ -36,7 +36,17 @@ int main() {
       /**
        * c++菱形继承展示
        */
-      rhombus_show();
+//      rhombus_show();
+      /**
+       * c++ 接口
+       */
+//      interface_show();
+      /**
+       * c++ 友元展示
+       */
+
+      firend_show();
+
 
     return 0;
 }
