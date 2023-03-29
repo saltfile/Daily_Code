@@ -270,7 +270,30 @@ class DetectCycle{
 }
 
 
+class ReverseBetween{
 
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        ListNode dem = new ListNode(0);
+        dem.next = head;
+        ListNode old = dem;
+        ListNode start = head;
+        for (int i = 0; i < left; i++) {
+            old = start;
+            start = start.next;
+        }
+        //翻转
+
+        for (int i = 0; i <right - left; i++) {
+            ListNode t = start.next;
+            start.next = t.next;
+            t.next = old.next;
+            old.next = t;
+        }
+        return dem.next;
+
+    }
+
+}
 
 
 
