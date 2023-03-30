@@ -321,9 +321,4 @@ public class linklist_part {
 
     }
 
-
-
-
-
-
 }
