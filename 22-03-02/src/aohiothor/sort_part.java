@@ -1,6 +1,8 @@
 package aohiothor;
 
 
+import com.sun.xml.internal.bind.v2.model.annotation.Quick;
+
 import java.util.Arrays;
 
 /**
@@ -94,6 +96,33 @@ public class sort_part {
 
 
 
+    public static void QuickSort(int[] arr,int left,int right){
+        if(left >= 0&&right < arr.length&&right-left>=1) {
+
+            int i = left;
+            int j = right;
+            int key = arr[left];
+
+            while (i != j) {
+                while (arr[j] >= key && i < j)
+                    j--;
+                while (arr[i] <= key && i < j)
+                    i++;
+                //交换
+                if (i < j) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+
+            }
+            arr[left] = arr[i];
+            arr[i] = key;
+            QuickSort(arr, left, i - 1);
+            QuickSort(arr, i + 1, right);
+        } else return;
+    }
+
 
 
     public static void main(String[] args) {
@@ -117,6 +146,9 @@ public class sort_part {
         ShellSort(arr4);
         ShowArr(arr4);
 
-
+        int[] arr5 = {5,2,6,7,8,9,5,4,1,2,6,8,3,5,2};
+        //5.快速排序
+        QuickSort(arr5,0,arr5.length-1);
+        ShowArr(arr5);
     }
 }
