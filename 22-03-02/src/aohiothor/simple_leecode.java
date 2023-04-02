@@ -374,8 +374,40 @@ class HammingWeight{
     }
 }
 
+/**
+ * 给定一个二叉树，返回该二叉树的之字形层序遍历，（第一层从左向右，下一层从右向左，一直这样交替）
+ *
+ * 数据范围：,树上每个节点的val满足
+ * 要求：空间复杂度：，时间复杂度：
+ * 例如：
+ * 给定的二叉树是{1,2,3,#,#,4,5}
+ * 输出[[1],[3,2],[4,5]]
+ */
+class ZhiPrint{
+    public ArrayList<ArrayList<Integer> > Print(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer> > res = new ArrayList<>();
+        back(pRoot,0,res);
+        return res;
+    }
+
+    public void back(TreeNode node,int deep,ArrayList<ArrayList<Integer>> res){
 
 
+        if(node == null){
+            return;
+        }
+        if(deep >= res.size()){
+            res.add(new ArrayList());
+        }
+        if(deep%2 != 0){
+            res.get(deep).add(0,node.val);
+        }else{
+            res.get(deep).add(node.val);
+        }
+        back(node.left,deep+1,res);
+        back(node.right,deep+1,res);
+    }
+}
 
 
 

@@ -126,6 +126,27 @@ public class sort_part {
 
 
     public static void main(String[] args) {
+
+        int[][] arra = new int[][]{
+                {1,2,3},
+                {4,5,6},
+                {7,8,9},
+                {10,11,12}
+        };
+        for (int i = 0; i < arra.length; i++) {
+            for (int j = 0; j < arra[0].length; j++) {
+                System.out.println(i+"   "+j+"  "+arra[i][j]);
+            }
+        }
+
+
+
+
+
+
+
+
+
         int[] arr = {5,2,6,7,8,9,5,4,1,2,6,8,3,5,2};
         //1.冒泡排序
         BolBolSort(arr);
