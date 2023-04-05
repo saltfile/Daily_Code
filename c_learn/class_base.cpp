@@ -262,15 +262,6 @@ void interface_show(){
 }
 
 
-
-
-
-
-
-
-
-
-
 void quote_show(){
     /**
      * 概念：
@@ -306,3 +297,148 @@ void quote_show(){
 
 
 }
+
+
+
+
+
+
+
+
+/**
+ * class类外实现
+ */
+
+class example_s{
+    int id;
+public:
+    static int x1;
+    int dis(int a);
+    static int dis2(int a);
+};
+int example_s::x1;
+int example_s::dis(int a) {
+    this->x1 = a;
+}
+int example_s::dis2(int a) {
+    cout<<"静态函数没有this指针"<<endl;
+}
+
+void clazz_out(){
+
+
+    example_s *e = new example_s();
+    cout<<e->x1;
+    e->dis(14);
+    e->dis2(45);
+    cout<<e->x1;
+}
+
+
+
+
+
+/**
+ * 模板编程
+ * @tparam T
+ */
+
+/**
+ * 注意这里的模板是连着的
+ * @tparam T
+ * @param a
+ * @param c
+ * @return
+ */
+template<typename T>
+T mypius(T a,T c){
+    return a+c;
+}
+
+/**
+ * 想当与在编译的时候生成了一个
+ * int mypius(int a,int b)
+ */
+
+template<typename T>
+class temp{
+    T id;
+public:
+    temp(T id):id(id){}
+    void dis(){
+        cout<<this->id<<endl;
+    }
+};
+//模板还可以是动态参数
+template<typename T=int,int size=5>
+T func_tem(T a,T (&arr)[size]){
+    cout<<a<<endl;
+
+    for (int i = 0; i < size; ++i) {
+        cout<<arr[i]<<"   ";
+    }
+    cout<<endl;
+    return a;
+
+
+}
+
+
+
+
+void template_test(){
+
+    cout<<mypius(1,4)<<endl;
+    cout<<mypius(1.3f,5.6f)<<endl;
+
+    temp<string> *p = new temp<string>("xxx");
+    temp<int> *v = new temp<int>(12);
+    p->dis();
+    v->dis();
+
+    int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+    cout<<func_tem(1,arr);
+
+
+}
+/**
+ * c++运算符重载
+ */
+class pointer{
+    int x;
+    int y;
+public:
+    pointer(int x,int y):x(x),y(y){}
+    pointer operator+(pointer &other){
+        return pointer(this->x+other.x,this->y+other.y);
+    }
+    void operator<<(pointer &other){
+        printf("%d,%d\n",other.x,other.y);
+    }
+    pointer operator++(){
+        return pointer(this->x+=1,this->y+=1);
+    }
+    void operator++(int){
+        this->x+=1;
+        this->y+=1;
+    }
+    void dis(){
+        cout<<this->x<<"  "<<this->y<<endl;
+    }
+};
+
+
+
+
+
+void operator_test(){
+    pointer a(1,4),b(6,8);
+    a.dis();
+    a=a+b;
+    a.dis();
+    a<<b;
+    ++a;
+    a++;
+    a.dis();
+}
+

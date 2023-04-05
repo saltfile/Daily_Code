@@ -32,7 +32,12 @@ void rhombus_show();
 void interface_show();
 //c++友元展示
 void firend_show();
-
+//c++类外实现
+void clazz_out();
+//c++模板编程
+void template_test();
+//c++运算符重载
+void operator_test();
 
 
 #endif //C_LEARN_MY_BASE_H

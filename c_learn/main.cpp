@@ -45,7 +45,23 @@ int main() {
        * c++ 友元展示
        */
 
-      firend_show();
+//      firend_show();
+
+      /**
+       * 类外实现
+       */
+//        clazz_out();
+        /**
+         * c++模板编程
+         */
+//         template_test();
+         /**
+          * c++运算符重载
+          */
+          operator_test();
+
+
+
 
 
     return 0;
