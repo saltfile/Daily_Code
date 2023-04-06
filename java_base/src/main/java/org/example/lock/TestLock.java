@@ -54,8 +54,12 @@ public class TestLock {
         Thread t1 = new Thread(new TT(spinLock));
         Thread t2 = new Thread(new TT(spinLock));
 
+        Thread t3 = new Thread(new TT(spinLock));
+        Thread t4 = new Thread(new TT(spinLock));
         t1.start();
         t2.start();
+        t3.start();
+        t4.start();
 
     }
 

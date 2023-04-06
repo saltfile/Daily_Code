@@ -3,7 +3,7 @@ package org.example.lock;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class SpinLock {
-    private AtomicReference<Thread> cas = new AtomicReference<>();
+    public AtomicReference<Thread> cas = new AtomicReference<>();
 
 
     public void lock() {
