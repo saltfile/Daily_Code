@@ -38,6 +38,12 @@ void clazz_out();
 void template_test();
 //c++运算符重载
 void operator_test();
+//c++智能指针
+void smart_point_test();
+//c++ lambda表达式
+void lambda_test();
+//c++左右值传递 const
+void type_zuo();
 
 
 #endif //C_LEARN_MY_BASE_H
