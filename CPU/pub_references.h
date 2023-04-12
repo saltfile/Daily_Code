@@ -182,6 +182,50 @@ public:
 
 
 
+//模拟内存池
+
+
+
+#define mp_align(n, alignment) (((n)+(alignment-1)) & ~(alignment-1))
+#define mp_align_ptr(p, alignment) (void *)((((size_t)p)+(alignment-1)) & ~(alignment-1))
+
+
+
+typedef struct mp_node_s {
+    unsigned char *end;//块的结尾
+    unsigned char *last;//使用到哪了
+    struct mp_node_s *next;//链表
+    int quote;//引用计数
+    int failed;//失效次数
+}mp_node_s;
+
+typedef struct mp_large_s {
+    struct mp_large_s *next;//链表
+    int size;//alloc的大小
+    void *alloc;//大块内存的起始地址
+}mp_large_s;
+
+typedef struct mp_pool_s {
+    struct mp_large_s *large;
+    struct mp_node_s *head;
+    struct mp_node_s *current;
+}mp_pool_s;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

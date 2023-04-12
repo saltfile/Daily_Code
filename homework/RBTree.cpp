@@ -267,7 +267,7 @@ int RBTreedemo() {
     root = insert(3,root);
     root = insert(1,root);
     root = insert(2,root);
-
+    cout<< sizeof(int)<<endl;
 
     return 0;
 }

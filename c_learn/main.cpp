@@ -16,7 +16,7 @@ int main() {
     /**
      * c++类引用的展示
      */
-     quote_show();
+//     quote_show();
 
 
     /**
@@ -63,6 +63,6 @@ int main() {
     /**
      * c++ 左右值说明
      */
-//    type_zuo();
+    type_zuo();
     return 0;
 }

@@ -32,10 +32,10 @@ int is_wans(int num,int yin){
     }
 }
 
-int main() {
+int main1() {
 
-  array_part_main();
-
+//  array_part_main();
+RBTreedemo();
 
 
     return 0;

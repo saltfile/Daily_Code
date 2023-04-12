@@ -14,5 +14,5 @@ include_directories(/usr/bin/protobuf)
 
 
 
-add_executable(concurrent_service main.cpp selector/sele_base.h selector/ser_selector.cpp poll/ser_poll.cpp poll/poll_base.h epoll/ser_epoll_lt.cpp epoll/epoll_base.h epoll/ser_epoll_et.cpp protos/add.pb.cc)
+add_executable(concurrent_service main.cpp selector/sele_base.h selector/ser_selector.cpp poll/ser_poll.cpp poll/poll_base.h epoll/ser_epoll_lt.cpp epoll/epoll_base.h epoll/ser_epoll_et.cpp tcp_test/tcp_socket.h tcp_test/tcp_test.cpp)
 TARGET_LINK_LIBRARIES(concurrent_service pthread protoc)

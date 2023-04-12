@@ -3,15 +3,22 @@
  * 一个虚拟的cpu　要求指令有读取内存到寄存器和将寄存器信息读取到内存
  * @return
  */
-int main() {
-//    cout<<to_number("10000000");
 
-//    commod_binary("mov R1");
+
+void func_cpu(){
     loading_code("/opt/git_Pro/Daily_Code/CPU/test.txt");
     compile();
     CPU *cpu = new CPU();
     cpu->loading_binary();
     cpu->run();
+}
+int main() {
+    //这个cpu要debug着看
+//    func_cpu();
+//    cout<<to_number("10000000");
+
+//    commod_binary("mov R1");
+
 
 
 //cpu_fun f1 = (cpu_fun) (copys);

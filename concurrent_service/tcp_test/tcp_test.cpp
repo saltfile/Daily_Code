@@ -87,23 +87,51 @@ int server(const char* ip,const char* port){
 
 
 
+struct k1{
+    char x1;
+    int x2;
+    char x3;
+};
 
-
-
+struct k2{
+    char a;
+    short b;
+    int c;
+};
 
 void tcp_test_main(){
 
-    char bunf[4] = {0x61,0x62,0x63,0x64};
-    int *bus = (int *)bunf;
-    int b =0x61626364;
+    void *p;
 
-    char *p = (char*)&b;
-    char *p1 = p+1;
-    printf("p = %p,p1 = %p\n",p,p1);
+    long long a;
 
-    printf("%#x\n",*p);
+    cout<< sizeof(p)<<endl;
 
-    printf("%#x\n",*p1);
+    cout<< sizeof(k2)<<endl;
+
+
+
+    int arr[3][5] = {{1,2,3,4,5},
+                     {6,7,8,9,10},
+                     {11,12,13,14,15}};
+    int *pu = *arr;
+    for (int i = 0; i < 50; ++i) {
+        int as = *pu;
+        cout<<as<<endl;
+        pu+=1;
+    }
+
+//    char bunf[4] = {0x61,0x62,0x63,0x64};
+//    int *bus = (int *)bunf;
+//    int b =0x61626364;
+//
+//    char *p = (char*)&b;
+//    char *p1 = p+1;
+//    printf("p = %p,p1 = %p\n",p,p1);
+//
+//    printf("%#x\n",*p);
+//
+//    printf("%#x\n",*p1);
 
 
 
