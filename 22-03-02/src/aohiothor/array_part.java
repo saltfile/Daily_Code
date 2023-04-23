@@ -1,6 +1,7 @@
 package aohiothor;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -139,9 +140,44 @@ class GenerateMatrix{
 }
 
 
+/**
+ * 04-23 腾讯云面试 算法：
+ * 按照规定输出对应的算法
+ *
+ * 数组：
+ *   1,2,3,4,
+ *   5,6,7,8
+ * 输出:
+ *  1,2,3,4,8,7,6,5
+ *
+ *
+ */
+class Arolties{
+
+    public ArrayList<Integer> arsd(ArrayList<ArrayList<Integer>> arr){
+        ArrayList<Integer> res = new ArrayList<>();
+        int flag = 0;//0正1反
+        for (ArrayList<Integer> nums:arr) {
+            if (flag == 0){
+                for (int i = 0; i < nums.size(); i++) {
+                    res.add(nums.get(i));
+                }
+                flag = 1;
+            }else {
+                for (int i = nums.size() - 1; i >= 0; i--) {
+                    res.add(nums.get(i));
+                }
+                flag = 0;
+            }
+
+        }
+
+        return res;
 
 
+    }
 
+}
 
 
 
