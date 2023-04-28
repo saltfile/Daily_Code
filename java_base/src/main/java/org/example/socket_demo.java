@@ -40,7 +40,7 @@ class Clienst implements Runnable{
     public void run() {
         try {
            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(this.cli.getOutputStream()));
-            writer.write("从玉，我爱你");
+            writer.write("我发给你了");
             writer.flush();
             this.cli.shutdownOutput();
             BufferedReader reader = new BufferedReader(new InputStreamReader(this.cli.getInputStream(),"UTF-8"));
