@@ -64,5 +64,8 @@ int main() {
      * c++ 左右值说明
      */
     type_zuo();
+    /**
+     *
+     */
     return 0;
 }

@@ -4,6 +4,63 @@
 #include <functional>
 #include "my_base.h"
 
+
+
+
+
+
+
+bool isVaild(int i,int j,char val,vector<vector<char>>& map){
+    for (int k = 0; k < 6; ++k) {
+        if (map[i][k] == val){
+            return false;
+        }
+    }
+    for (int k = 0; k < 6; ++k) {
+        if (map[k][j] == val){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+
+
+bool backing(vector<vector<char>>& map){
+    for (int i = 0; i < map.size(); ++i) {
+        for (int j = 0; j < map[0].size(); ++j) {
+            if (map[i][j] != 0)continue;
+            for (char k = '1'; k <= '6'; ++k) {
+                if (isVaild(i,j,k,map)){
+                    map[i][j] = k;
+                    if ( backing(map))return true;
+                    map[i][j] = 0;
+                }
+            }
+            return false;
+
+        }
+    }
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 这里的class也可以写成struct
  *
