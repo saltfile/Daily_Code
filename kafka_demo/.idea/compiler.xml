@@ -18,8 +18,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="example1" options="-parameters" />
-      <module name="k1demo" options="-parameters" />
-      <module name="k2demo" options="-parameters" />
+      <module name="k1demo" options="" />
+      <module name="k2demo" options="" />
       <module name="kafka_demo" options="" />
     </option>
   </component>
