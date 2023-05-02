@@ -25,14 +25,50 @@ import javax.xml.ws.spi.http.HttpHandler;
 import java.io.*;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 
 import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_TYPE;
 import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
+
+
+class RepTask implements Runnable{
+    private ChannelHandlerContext channelHandlerContext;
+    private FullHttpRequest fullHttpRequest;
+    public RepTask(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest){
+        this.channelHandlerContext = channelHandlerContext;
+        this.fullHttpRequest = fullHttpRequest;
+    }
+    @Override
+    public void run() {
+
+
+        if (!fullHttpRequest.decoderResult().isSuccess()){
+            ServerHandler.SendError(channelHandlerContext, HttpResponseStatus.BAD_REQUEST);
+            return;
+        }
+
+
+
+        System.out.println(fullHttpRequest.getUri());
+
+
+
+        ByteBuf buffer = Unpooled.buffer();
+        buffer.writeBytes("hello world".getBytes());
+        // 构造一个http响应体，即HttpResponse
+        DefaultFullHttpResponse defaultFullHttpResponse = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, buffer);
+        // 将响应体写入到通道中
+        channelHandlerContext.writeAndFlush(defaultFullHttpResponse);
+        channelHandlerContext.close();
+
+
+
+    }
+}
+
+
+
 
 public class ServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
@@ -40,48 +76,8 @@ public class ServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> 
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest) throws Exception {
-        if (!fullHttpRequest.decoderResult().isSuccess()){
-            SendError(channelHandlerContext, HttpResponseStatus.BAD_REQUEST);
-            return;
-        }
-        System.out.println(fullHttpRequest.headers().get("file"));
-
-//        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(fullHttpRequest.getSession().getServletContext());
-//        commonsMultipartResolver.setDefaultEncoding("utf-8");
-//        MultipartHttpServletRequest multipartRequest = commonsMultipartResolver.resolveMultipart((HttpServletRequest) fullHttpRequest);
-//        MultipartFile fileddd = multipartRequest.getFile("file");
-//
-
-
-//        String ifModifiedSince = fullHttpRequest.headers().get(HttpHeaderNames.IF_MODIFIED_SINCE);
-//
-//
-//        RandomAccessFile raf;
-//        try {
-//            raf = new RandomAccessFile(file, "r");
-//        } catch (FileNotFoundException ignore) {
-//            SendError(channelHandlerContext, NOT_FOUND);
-//            return;
-//        }
-//        long fileLength = raf.length();
-
-
-        ByteBuf buffer = Unpooled.buffer();
-        buffer.writeBytes("hello world".getBytes());
-        // 构造一个http响应体，即HttpResponse
-        DefaultFullHttpResponse defaultFullHttpResponse = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, buffer);
-        // 设置响应头信息
-//                defaultFullHttpResponse.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html");
-//                defaultFullHttpResponse.headers().set(HttpHeaderNames.CONTENT_LENGTH, byteBuf.readableBytes());
-        // 将响应体写入到通道中
-        channelHandlerContext.writeAndFlush(defaultFullHttpResponse);
-        channelHandlerContext.close();
-
-
-
-
-
-
+        Thread t1 = new Thread(new RepTask(channelHandlerContext, fullHttpRequest));
+        pool.execute(t1);
 
     }
 
@@ -157,7 +153,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> 
         // Convert to absolute path.
         return SystemPropertyUtil.get("user.dir") + File.separator + uri;
     }
-    private static void SendError(ChannelHandlerContext ctx, HttpResponseStatus status){
+    public static void SendError(ChannelHandlerContext ctx, HttpResponseStatus status){
         FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,status, Unpooled.copiedBuffer("Failure: " + status.toString()+ "\r\n", CharsetUtil.UTF_8));
         response.headers().set(CONTENT_TYPE,"text/plain; charset=UTF-8");
         ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);

@@ -24,7 +24,7 @@ public class ServerApplicaiton {
                     .channel(NioServerSocketChannel.class)                 //使用NioServerSocketChannel作为服务器的通道
                     .option(ChannelOption.SO_BACKLOG, 128)            //设置线程等待的连接个数
                     .childOption(ChannelOption.SO_KEEPALIVE, Boolean.TRUE)
-                    .childHandler(new ServletInitializer());
+                    .childHandler(new ServersInitializer());
             ChannelFuture channelFuture = bootStrap.bind(8888).sync();
 
             channelFuture.channel().closeFuture().sync();
