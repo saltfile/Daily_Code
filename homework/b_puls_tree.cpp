@@ -766,7 +766,7 @@ void test6(Bplus* bplus, int i, string j, int k, string l)
 }
 
 //主函数
-int main()
+int main1()
 {
     Bplus* bplus = new Bplus();
     int x = 1;
