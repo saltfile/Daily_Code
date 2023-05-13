@@ -32,11 +32,25 @@ int is_wans(int num,int yin){
     }
 }
 
-int main1() {
+class pers{
+
+public:
+    int id;
+};
+
+int main() {
+
+//    pers *p = new pers();
+//    p->id = 1;
+//    delete p;
+//    cout<<p<<endl;
+//    p = NULL;
+//    cout<<p<<endl;
+
+
 
 //  array_part_main();
-RBTreedemo();
-
-
+//RBTreedemo();
+btreemain();
     return 0;
 }
