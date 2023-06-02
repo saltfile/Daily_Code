@@ -1,0 +1,1 @@
+cmd_/opt/git_Pro/Daily_Code/kel_c/file_mod/Module.symvers := sed 's/ko$$/o/' /opt/git_Pro/Daily_Code/kel_c/file_mod/modules.order | scripts/mod/modpost  -a   -o /opt/git_Pro/Daily_Code/kel_c/file_mod/Module.symvers -e -i Module.symvers   -T -

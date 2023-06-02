@@ -18,7 +18,7 @@ static void param_end(void)
 
 module_init(param_start);
 module_exit(param_end);
-module_param(param,charp,00700);
+module_param(param,charp,0700);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("My_param Module");
