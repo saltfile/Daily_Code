@@ -1,1 +1,0 @@
-cmd_/opt/git_Pro/Daily_Code/kel_c/test_param/modules.order := {   echo /opt/git_Pro/Daily_Code/kel_c/test_param/test.ko; :; } | awk '!x[$$0]++' - > /opt/git_Pro/Daily_Code/kel_c/test_param/modules.order

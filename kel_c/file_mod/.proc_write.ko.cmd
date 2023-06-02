@@ -1,1 +1,0 @@
-cmd_/opt/git_Pro/Daily_Code/kel_c/file_mod/proc_write.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /opt/git_Pro/Daily_Code/kel_c/file_mod/proc_write.ko /opt/git_Pro/Daily_Code/kel_c/file_mod/proc_write.o /opt/git_Pro/Daily_Code/kel_c/file_mod/proc_write.mod.o;  true

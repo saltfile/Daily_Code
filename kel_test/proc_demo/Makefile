@@ -10,5 +10,5 @@ obj-m += proc_write.o proc_read.o
 all:
 	make -C $(KERNEL_SRC) M=$(PWD) modules
 clean:
-	rm -f *.ko *.o *.symvers *.cmd *.cmd.o *.mod.* *.order
+	rm -f *.ko *.o *.symvers *.cmd *.cmd.o *.mod.* *.order *.ko.cmd *.mod.cmd *.mod.o.cmd *.swp *.order.cmd *.o.cmd *.symvers.cmd
 

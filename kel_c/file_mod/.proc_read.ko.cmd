@@ -1,1 +1,0 @@
-cmd_/opt/git_Pro/Daily_Code/kel_c/file_mod/proc_read.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /opt/git_Pro/Daily_Code/kel_c/file_mod/proc_read.ko /opt/git_Pro/Daily_Code/kel_c/file_mod/proc_read.o /opt/git_Pro/Daily_Code/kel_c/file_mod/proc_read.mod.o;  true

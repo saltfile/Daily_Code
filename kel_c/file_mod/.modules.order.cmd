@@ -1,1 +1,0 @@
-cmd_/opt/git_Pro/Daily_Code/kel_c/file_mod/modules.order := {   echo /opt/git_Pro/Daily_Code/kel_c/file_mod/proc_write.ko;   echo /opt/git_Pro/Daily_Code/kel_c/file_mod/proc_read.ko; :; } | awk '!x[$$0]++' - > /opt/git_Pro/Daily_Code/kel_c/file_mod/modules.order
