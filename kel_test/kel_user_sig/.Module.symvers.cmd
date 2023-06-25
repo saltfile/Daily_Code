@@ -1,1 +1,0 @@
-cmd_/home/saltfish/test_kel/kel_user_sig/Module.symvers := sed 's/ko$$/o/' /home/saltfish/test_kel/kel_user_sig/modules.order | scripts/mod/modpost  -a   -o /home/saltfish/test_kel/kel_user_sig/Module.symvers -e -i Module.symvers   -T -
