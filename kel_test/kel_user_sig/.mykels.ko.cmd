@@ -1,0 +1,1 @@
+cmd_/home/saltfish/test_kel/kel_user_sig/mykels.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/saltfish/test_kel/kel_user_sig/mykels.ko /home/saltfish/test_kel/kel_user_sig/mykels.o /home/saltfish/test_kel/kel_user_sig/mykels.mod.o;  true
