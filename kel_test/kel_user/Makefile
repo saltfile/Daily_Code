@@ -1,7 +1,14 @@
-install: main.cpp
-	g++ main.cpp
-	mv a.out U_Test
+#kernel source
+KERNEL_SRC=/lib/modules/$(shell uname -r)/build
 
-clean: 
-	rm -rf U_Test
+#current directory
+PWD = $(shell pwd)
+
+#kernel module
+obj-m += mykels.o
+
+all:
+	make -C $(KERNEL_SRC) M=$(PWD) modules
+clean:
+	rm -f *.ko *.o *.symvers *.cmd *.cmd.o *.mod.* *.order
 
