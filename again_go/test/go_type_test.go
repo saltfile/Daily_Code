@@ -1,6 +1,7 @@
 package test
 
 import (
+	"errors"
 	"fmt"
 	"testing"
 )
@@ -119,4 +120,116 @@ func TestArr(t *testing.T) {
 		fmt.Printf("%d,%s \n", idx, val)
 	}
 
+}
+
+//切片语句
+
+/**
+切片是一个结构体
+属性：数据，长度，容量
+从某一个数组中切出一部分
+*/
+
+func TestVuq(t *testing.T) {
+	arr := [6]string{"aaa", "bbb", "ccc", "ddd", "eee", "fff"}
+	//切片的左开右闭 大于等于2小于5
+	slic := arr[2:5]
+
+	t.Log(slic)
+
+	slic2 := arr[:5]
+	t.Log(slic2)
+	slic3 := arr[2:]
+	t.Log(slic3)
+
+	//自定义切片
+	//长度容量为5
+	slic4 := make([]string, 5)
+	slic4[0] = "asfff"
+	slic4[1] = "asd"
+	t.Log(cap(slic4))
+	t.Log(len(slic4))
+	//长度是5容量100
+	slic5 := make([]string, 5, 100)
+	t.Log(cap(slic5))
+	t.Log(len(slic5))
+	slic5[1] = "sadasd"
+	t.Log(slic5)
+
+	//这个就是切片没有长度标识
+	slic6 := []string{"asd", "dsasfg"}
+	t.Log(cap(slic6))
+	t.Log(len(slic6))
+
+	slic7 := append(slic6, "ads")
+	t.Log(cap(slic7))
+	t.Log(slic7)
+
+	slic8 := append(slic7, slic4...)
+	t.Log(cap(slic8))
+	t.Log(slic8)
+
+}
+
+func TestMaps(t *testing.T) {
+	//增
+	smap := make(map[string]int)
+	smap["aa"] = 1
+	smap["bb"] = 2
+	t.Log(smap)
+
+	smap2 := map[string]int{"aa": 1, "bb": 2}
+	t.Log(smap2)
+
+	//删
+	delete(smap2, "aa")
+
+	//改
+	smap2["bb"] = 4
+	t.Log(smap2)
+
+	//查
+	res := smap2["bb"]
+	t.Log(res)
+
+	//遍历
+	for key, val := range smap {
+		t.Log("that key is ", key, ", that value is", val)
+	}
+
+	for key := range smap {
+		t.Log(smap[key])
+	}
+
+}
+
+// 字符串切片,如何做汉字切片
+func TestStrA(t *testing.T) {
+	s := "我爱中国"
+
+	bs := []byte(s)
+	//这肯定都是字节啦
+	t.Log(bs[0], bs[1])
+
+	//所以需要包装
+	runs := []rune(s)
+
+	t.Log(runs)
+	t.Log(runs[1])
+
+}
+
+//函数语句
+
+func fun(a int, b int) int {
+	return a
+}
+
+// 一参+一错
+func fun1(a int, b int) (int, error) {
+	if a > b {
+		return a - b, nil
+	} else {
+		return 0, errors.New("a参数不能小于b参数")
+	}
 }
