@@ -233,3 +233,111 @@ func fun1(a int, b int) (int, error) {
 		return 0, errors.New("a参数不能小于b参数")
 	}
 }
+
+// 可变参，注：可变参一定套在函数最末尾的位置不然会报错
+// func fun2(pre ...int,sa string) {
+func fun2(jli int, pre ...int) {
+	for i := range pre {
+		fmt.Println(" ", i)
+	}
+}
+
+func MyFuncCreate(a int, b int) func() int {
+	num := 0
+	if a > 10 {
+		return func() int {
+			num++
+			return num
+		}
+	} else {
+		return func() int {
+			num--
+			return num
+		}
+	}
+
+}
+
+func TestFun2(t *testing.T) {
+	fun2(1, 2, 3, 4, 5, 7, 8, 9, 123)
+
+	//匿名函数
+	hunFun := func(aos int) int {
+		return aos + 2
+	}
+	t.Log(hunFun(12))
+
+	usfunc := MyFuncCreate(12, 19)
+	t.Log(usfunc())
+	t.Log(usfunc())
+	t.Log(usfunc())
+	t.Log(usfunc())
+	t.Log(usfunc())
+	t.Log(usfunc())
+	t.Log(usfunc())
+
+}
+
+// 定义类型
+type String string
+
+func TestIngers(t *testing.T) {
+	a := String("jj")
+	a.Print()
+	a.Modify()
+	a.Print()
+
+}
+
+// 值类型的type调用的时候是一个copy出来的副本
+func (s String) Print() {
+	fmt.Println("that is ", s)
+}
+
+// 指针类型的接受者是对本体内存的修改
+func (s *String) Modify() {
+	*s = String("asd")
+}
+
+// 接口
+type PersonInface interface {
+	introduction()
+}
+
+//结构体
+
+type person struct {
+	name string
+	age  int
+}
+
+type student struct {
+	p      person
+	shcool string
+}
+
+func (p person) introduction() {
+	fmt.Println("my name is ", p.name, " i am ", p.age)
+}
+
+func NewPerson(name string) (*person, error) {
+	return &person{name: name}, nil
+}
+
+func TestObj(t *testing.T) {
+	xm := person{name: "xm", age: 12}
+	xm.age = 13
+	xm.introduction()
+
+	xh, _ := NewPerson("xh")
+	xh.introduction()
+
+	//类型断言判断是否实现接口
+
+	var i interface{} = xh
+
+	if o, ok := i.(PersonInface); ok {
+		o.introduction()
+	}
+
+}
