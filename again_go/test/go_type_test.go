@@ -341,3 +341,21 @@ func TestObj(t *testing.T) {
 	}
 
 }
+
+// 指针
+func TestPtr(t *testing.T) {
+	//指针就是为了获取当前值
+	i := 15
+	ptr := &i
+	*ptr = 19
+
+	t.Log(i)
+
+	//注意：如下这样写肯定不行会报错
+	//var p *int
+	//所以go中要用new来创造一块空间类似于c语言的malloc
+	var p *int = new(int)
+	*p = 10
+	t.Log(p)
+
+}
