@@ -71,6 +71,18 @@ func (this *link_list) remove(idx int) (error, int) {
 	return nil, 1
 }
 
+func (this *link_list) get(idx int) string {
+	ptr := this.list
+	for i := 0; i < idx-1; i++ {
+		ptr = ptr.next
+	}
+	return ptr.data
+}
+
+func (this *link_list) reversal() {
+
+}
+
 func (this link_list) Print() {
 	fmt.Print("[ ")
 	ptr := this.list
