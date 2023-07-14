@@ -80,6 +80,21 @@ func (this *link_list) get(idx int) string {
 }
 
 func (this *link_list) reversal() {
+	if this.list == nil {
+		return
+	}
+
+	var pre *list_node = nil
+	var next *list_node = nil
+
+	for this.list != nil {
+		next = this.list.next
+		this.list.next = pre
+		pre = this.list
+		this.list = next
+	}
+
+	this.list = pre
 
 }
 

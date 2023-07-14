@@ -8,6 +8,7 @@ func main() {
 	list.add("bbbb")
 	list.add("cccc")
 	list.add("dddd")
+	list.reversal()
 	list.Print()
 	fmt.Println(list.lentgh())
 	list.remove(3)
