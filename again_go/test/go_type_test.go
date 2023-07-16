@@ -1,8 +1,10 @@
 package test
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -357,5 +359,103 @@ func TestPtr(t *testing.T) {
 	var p *int = new(int)
 	*p = 10
 	t.Log(p)
+
+}
+
+//反射、json 练习
+
+type test struct {
+	Age  int    `json:"age"` //这是类的标签  用来特殊区分json
+	Name string `json:"name"`
+	Per  person `json:"per"`
+}
+
+func (this test) Print() {
+	fmt.Println("age : ", this.Age, ",name : ", this.Name)
+}
+func (this *test) Println(a int) {
+	this.Age += a
+	fmt.Println("age : ", this.Age, ",name : ", this.Name)
+}
+
+// 反射
+func TestRef(t *testing.T) {
+	class := new(test)
+	//这是查看他的值
+	val := reflect.ValueOf(class)
+	i2 := val.Interface().(*test)
+	fmt.Println(i2)
+	fmt.Println(val)
+	//这是查看他的属性以及方法
+
+	typeF := reflect.TypeOf(*class)
+	for i := 0; i < typeF.NumField(); i++ {
+		fmt.Println(typeF.Field(i))
+	}
+
+	for i := 0; i < typeF.NumMethod(); i++ {
+		fmt.Println(typeF.Method(i))
+	}
+	//传入是指针的话，像一种层级递进关系，valueof.type获取的是变量的表面类型
+	//，第一次elem.type获取的是此变量的接口类型,再一次就是实际值或类型 ；
+	//非指针传入的话，则.type就是实际类型
+	ptrF := reflect.TypeOf(class)
+	for i := 0; i < ptrF.Elem().NumField(); i++ {
+		fmt.Println(ptrF.Elem().Field(i))
+	}
+
+	for i := 0; i < ptrF.Elem().NumMethod(); i++ {
+		fmt.Println(ptrF.Elem().Method(i))
+	}
+
+	//反射修改值
+	clazz := new(test)
+
+	//修改属性
+	p := reflect.ValueOf(clazz)
+	p.Elem().Field(0).SetInt(123)
+
+	perso := person{"xxxx", 12}
+
+	pv := reflect.ValueOf(perso)
+	p.Elem().Field(2).Set(pv)
+	fmt.Println(clazz)
+	fmt.Println(p.Kind())
+
+	//反射执行对应函数
+	cls := new(test)
+	cls.Age = 12
+	cls.Name = "aaa"
+
+	clty := reflect.ValueOf(cls)
+
+	methods := clty.Method(0)
+	res := methods.Call(nil)
+	fmt.Println(res)
+	fmt.Println(cls)
+	me1 := clty.Method(1)
+	realParams := make([]reflect.Value, 1)
+	realParams[0] = reflect.ValueOf(12)
+	me1.Call(realParams)
+
+	fmt.Println(cls)
+
+}
+
+func TestJson(t *testing.T) {
+	ps := new(person)
+	ps.name = "xx"
+	ps.age = 12
+
+	tes := new(test)
+	tes.Per = *ps
+	tes.Age = 12
+	tes.Name = "xxx"
+
+	jstr, _ := json.Marshal(tes)
+	fmt.Println(string(jstr))
+	tsp := test{Age: 1}
+	json.Unmarshal(jstr, &tsp)
+	fmt.Println(tsp)
 
 }
