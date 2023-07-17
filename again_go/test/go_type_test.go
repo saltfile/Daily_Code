@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"reflect"
 	"testing"
+	"unsafe"
 )
 
 // 这是常量
@@ -457,5 +458,35 @@ func TestJson(t *testing.T) {
 	tsp := test{Age: 1}
 	json.Unmarshal(jstr, &tsp)
 	fmt.Println(tsp)
+
+}
+
+// UnsafePoint
+
+type untest struct {
+	Name string
+	age  int
+}
+
+func TestUnsafe(t *testing.T) {
+	//首先说明go中的类型是不可以相互强转的
+	i := 10
+	pi := &i
+	//这样转肯定不行
+	//var fp *float64 = (*float64)(pi)
+	//这么转虽然可以互转但是会产生精度丢失
+	var fp *float64 = (*float64)(unsafe.Pointer(pi))
+	t.Log(*fp)
+	*fp = *fp * 8 //注意这里支持乘除不支持加减
+	t.Log(i)
+
+	//下面是go中使用偏移量拿类
+	tes := new(untest)
+	testN := (*string)(unsafe.Pointer(tes))
+	*testN = "xiaoming"
+
+	tesA := (*int)(unsafe.Pointer(uintptr(unsafe.Pointer(tes)) + unsafe.Offsetof(tes.age)))
+	*tesA = 20
+	t.Log(*tes)
 
 }
