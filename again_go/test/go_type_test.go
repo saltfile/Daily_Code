@@ -490,3 +490,51 @@ func TestUnsafe(t *testing.T) {
 	t.Log(*tes)
 
 }
+
+//自定义报错
+
+type MyErr struct {
+	status int
+	errMsg string
+}
+
+func (t *MyErr) Error() string {
+	return t.errMsg
+}
+
+func testFun(i int) (bool, error) {
+	if i%2 != 0 {
+		return false, &MyErr{
+			500,
+			"不可为奇数",
+		}
+	} else {
+		return true, nil
+	}
+}
+
+func TestMyError(t *testing.T) {
+	ut := 15
+	xxx, err := testFun(ut)
+	if cm, ok := err.(*MyErr); ok {
+		t.Log(xxx)
+		t.Log(cm.status)
+		t.Log(cm.errMsg)
+	}
+}
+
+// defer在函数执行完之后压栈执行的程序
+func TestDe(t *testing.T) {
+	//另一个版本的finaily
+	defer t.Log("最后一个执行")
+	defer t.Log("倒数第二")
+	t.Log("第一个")
+	defer func() {
+		//这里是出现要停掉整体函数时会触发的回收资源的，以后要用的上的
+		if p := recover(); p != nil {
+			t.Log("释放最后的资源")
+		}
+
+	}()
+
+}
