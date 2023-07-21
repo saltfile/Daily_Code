@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"strconv"
+	"sync"
 	"testing"
 	"time"
 )
@@ -128,4 +129,37 @@ func TestSelect(t *testing.T) {
 
 	}
 
+}
+
+//go的锁
+
+// 声明一个互斥锁
+var lock sync.Mutex
+var num int = 0
+
+func add1() {
+	lock.Lock()
+	defer lock.Unlock()
+	num++
+}
+
+func funadd() {
+	for i := 0; i < 100; i++ {
+		add1()
+		time.Sleep(time.Microsecond * time.Duration(rand.Int31n(10)))
+	}
+
+}
+
+func TestFuncs(t *testing.T) {
+	go funadd()
+	go funadd()
+	go funadd()
+	go funadd()
+	go funadd()
+	go funadd()
+	go funadd()
+	go funadd()
+	time.Sleep(time.Second * 5)
+	t.Log(num)
 }
