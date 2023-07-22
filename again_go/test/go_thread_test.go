@@ -163,3 +163,67 @@ func TestFuncs(t *testing.T) {
 	time.Sleep(time.Second * 5)
 	t.Log(num)
 }
+
+// 读写锁
+var fil int = 0
+
+// 声明读写锁
+var rwlock sync.RWMutex
+
+func recv() {
+	rwlock.RLock()
+	defer rwlock.RUnlock()
+	time.Sleep(time.Duration(rand.Int31n(10000)) * time.Microsecond)
+	fmt.Println(fil)
+
+}
+
+func wire(ch *chan bool) {
+	rwlock.Lock()
+	defer rwlock.Unlock()
+	for {
+		time.Sleep(time.Duration(rand.Int31n(200)) * time.Microsecond)
+		fil = fil + 2
+		if fil == 1000 {
+			*ch <- true
+		}
+	}
+
+}
+
+func TestRWLock(t *testing.T) {
+	ch := make(chan bool)
+	go wire(&ch)
+	go wire(&ch)
+	go recv()
+
+	<-ch
+	t.Log(fil)
+}
+
+// countdownlach
+func TestCouD(t *testing.T) {
+	cond := sync.NewCond(&sync.Mutex{})
+	var wait sync.WaitGroup
+	wait.Add(11)
+	for i := 0; i < 10; i++ {
+		go func(num int) {
+			defer wait.Done()
+			t.Log(num, "被添加")
+			cond.L.Lock()
+			cond.Wait()
+			t.Log(num, "开始执行")
+			cond.L.Unlock()
+		}(i)
+	}
+
+	time.Sleep(2 * time.Second)
+	go func() {
+		defer wait.Done()
+		t.Log("开始")
+		//唤醒所有的逻辑
+		cond.Broadcast()
+	}()
+	wait.Wait()
+
+}
