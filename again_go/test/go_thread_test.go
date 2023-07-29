@@ -227,3 +227,85 @@ func TestCouD(t *testing.T) {
 	wait.Wait()
 
 }
+
+//go中协程安全的map
+
+// 这是普通的map
+var t_map map[string]string = make(map[string]string)
+
+func t_map_add(key, val string) {
+	t_map[key] = val
+	fmt.Println("添加了key ", key)
+}
+
+func t_map_rmv(key string) {
+	delete(t_map, key)
+	fmt.Println("删除key ", key)
+}
+func t_map_update(key, val string) {
+
+	if _, ok := t_map[key]; ok {
+		t_map[key] = val
+		fmt.Println(key, "更新val", t_map[key])
+	}
+
+}
+
+func t_map_select(val string) {
+	fmt.Println("查询结果：", t_map[val])
+}
+
+// 测试普通的map
+func TestTMap(t *testing.T) {
+	go t_map_add("aaa", "aaa")
+	go t_map_add("bbb", "nnn")
+	go t_map_rmv("aaa")
+	go t_map_update("aaa", "bbb")
+	go t_map_add("ccc", "nnn")
+	go t_map_add("ggg", "nnn")
+	go t_map_add("bbb", "nnn")
+	go t_map_add("hhh", "nnn")
+	go t_map_select("aaa")
+
+	time.Sleep(2 * time.Second)
+
+}
+
+var l_map sync.Map
+
+func l_map_add(key, val string) {
+	l_map.Store(key, val)
+	fmt.Println("添加了key ", key)
+}
+
+func l_map_rmv(key string) {
+	l_map.Delete(key)
+	fmt.Println("删除key ", key)
+}
+
+// 监视器简陋版
+func Watch(flag chan bool) {
+	for {
+		select {
+		case <-flag:
+			fmt.Println("终止")
+			return
+		default:
+			fmt.Println("还没结束，监视中...")
+			time.Sleep(1 * time.Second)
+		}
+	}
+}
+
+func TestWatch(t *testing.T) {
+	var wg sync.WaitGroup
+	wg.Add(1)
+	flag := make(chan bool)
+	go func() {
+		defer wg.Done()
+		Watch(flag)
+	}()
+	time.Sleep(4 * time.Second)
+	flag <- true
+	wg.Wait()
+}
