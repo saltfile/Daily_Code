@@ -108,6 +108,7 @@ func TestFor(t *testing.T) {
 func TestArr(t *testing.T) {
 	arr1 := [4]string{"aaa", "bbb", "ccc", "ddd"}
 	t.Log(arr1[0])
+	t.Log(len(arr1))
 
 	arr2 := [...]string{"a1", "a2", "a3", "a4", "a5"}
 	t.Log(arr2[0])
