@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/dubbo-pri/pom.xml" />
         <option value="$PROJECT_DIR$/dubbo-com/pom.xml" />
         <option value="$PROJECT_DIR$/dubbo-boot/pom.xml" />
+        <option value="$PROJECT_DIR$/dm_test/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbitmq/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -1,6 +1,6 @@
 package org.example.Web;
 
-import cn.hutool.core.net.NetUtil;
+//import cn.hutool.core.net.NetUtil;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -12,7 +12,7 @@ public class mac {
         InetAddress inetAddress = InetAddress.getByName("192.168.10.106");
         System.out.println(inetAddress);
         //第二种方式：利用hutool工具类中的封装方法获取本机mac地址
-        System.out.println("localMacAddress2 = " + NetUtil.getMacAddress(inetAddress));
+//        System.out.println("localMacAddress2 = " + NetUtil.getMacAddress(inetAddress));
 
     }
     private static String getLocalMac(InetAddress inetAddress) {

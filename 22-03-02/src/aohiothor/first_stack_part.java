@@ -19,6 +19,16 @@ package aohiothor;
 
 public class first_stack_part {
     public static void main(String[] args) {
-
+        Long longIp = 3232238233L;
+        StringBuffer sb = new StringBuffer();
+        System.out.println(longIp >>> 24);
+        sb.append(String.valueOf((longIp >>> 24)));
+        sb.append(".");
+        sb.append(String.valueOf((longIp  & 0x00FFFFFF)>>> 16));
+        sb.append(".");
+        sb.append(String.valueOf((longIp & 0x0000FFFF)>>>8));
+        sb.append(".");
+        sb.append(String.valueOf((longIp & 	0x000000FF)));
+        System.out.println(sb.toString());
     }
 }

@@ -43,36 +43,40 @@ class task_futer implements Callable<String>{
 public class PoolTest {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-//        ExecutorService myteask = new ThreadPoolExecutor(2,5,1, TimeUnit.SECONDS,new LinkedBlockingQueue<>(5), Executors.defaultThreadFactory(),new ThreadPoolExecutor.AbortPolicy());
-//        Thread t1 = new Thread(new task(1));
-//        Thread t2 = new Thread(new task(2));
-//        Thread t3 = new Thread(new task(3));
-//        Thread t4 = new Thread(new task(4));
-//        Thread t5 = new Thread(new task(5));
+        ExecutorService myteask = new ThreadPoolExecutor(2,5,1, TimeUnit.SECONDS,new LinkedBlockingQueue<>(5), Executors.defaultThreadFactory(),new ThreadPoolExecutor.AbortPolicy());
+        Thread t1 = new Thread(new task(1));
+        Thread t2 = new Thread(new task(2));
+        Thread t3 = new Thread(new task(3));
+        Thread t4 = new Thread(new task(4));
+        Thread t5 = new Thread(new task(5));
+
+
+
+        myteask.execute(t1);
+        myteask.execute(t2);
+        myteask.execute(t3);
+        myteask.execute(t4);
+        myteask.execute(t5);
+        myteask.execute(t5);
+        System.out.println("asdasdasdasdasd");
+
+//        ExecutorService mytesk = new ThreadPoolExecutor(2,4,1,TimeUnit.SECONDS,new LinkedBlockingQueue<>(),Executors.defaultThreadFactory(),new ThreadPoolExecutor.AbortPolicy());
+//
+//        Future f1 = mytesk.submit(new task_futer(1));
+//        Future f2 = mytesk.submit(new task_futer(2));
+//        Future f3 = mytesk.submit(new task_futer(3));
+//        Future f4 = mytesk.submit(new task_futer(4));
+//        Future f5 = mytesk.submit(new task_futer(5));
 //
 //
-//
-//        myteask.execute(t1);
-//        myteask.execute(t2);
-//        myteask.execute(t3);
-//        myteask.execute(t4);
-//        myteask.execute(t5);
-//        myteask.execute(t5);
-
-        ExecutorService mytesk = new ThreadPoolExecutor(2,4,1,TimeUnit.SECONDS,new LinkedBlockingQueue<>(),Executors.defaultThreadFactory(),new ThreadPoolExecutor.AbortPolicy());
-
-        Future f1 = mytesk.submit(new task_futer(1));
-        Future f2 = mytesk.submit(new task_futer(2));
-        Future f3 = mytesk.submit(new task_futer(3));
-        Future f4 = mytesk.submit(new task_futer(4));
-        Future f5 = mytesk.submit(new task_futer(5));
+//        System.out.println(f1.get());
+//        System.out.println(f2.get());
+//        System.out.println(f3.get());
+//        System.out.println(f4.get());
+//        System.out.println(f5.get());
 
 
-        System.out.println(f1.get());
-        System.out.println(f2.get());
-        System.out.println(f3.get());
-        System.out.println(f4.get());
-        System.out.println(f5.get());
+
     }
 
 

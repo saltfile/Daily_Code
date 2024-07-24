@@ -337,7 +337,25 @@ public class cont_part {
 
     public static void main(String[] args) {
 
-        MeiTuan meiTuan = new MeiTuan();
+        int res = 0;
+
+        int[][] osu = new int[5][5];
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                osu[i][j] = res;
+                res++;
+            }
+        }
+
+
+        System.out.println(osu[1][0]);
+
+
+
+
+
+
+//        MeiTuan meiTuan = new MeiTuan();
 //        System.out.println(meiTuan.XiaoMei("111222333"));
 
 

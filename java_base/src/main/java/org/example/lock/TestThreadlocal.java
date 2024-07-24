@@ -9,6 +9,8 @@ public class TestThreadlocal {
     private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
     public static void main(String[] args) throws InterruptedException {
+        threadLocal.set("bushi");
+
         Thread thread1 = new Thread(() -> {
             threadLocal.set("本地变量1");
             print("thread1");
@@ -26,6 +28,8 @@ public class TestThreadlocal {
 
         thread1.join();
         thread2.join();
+
+        System.out.println(threadLocal.get());
     }
 
     public static void print(String s){

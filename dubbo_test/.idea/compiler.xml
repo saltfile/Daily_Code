@@ -9,9 +9,13 @@
         <module name="dubbo-web" />
         <module name="boot-pri" />
         <module name="dubbo-com" />
+        <module name="dm-interface" />
+        <module name="dm-com" />
+        <module name="dm-pri" />
         <module name="dubbo-service" />
         <module name="dubbo-pri" />
         <module name="boot-int" />
+        <module name="rabbitmq" />
         <module name="boot-com" />
       </profile>
     </annotationProcessing>
@@ -19,6 +23,7 @@
       <module name="dubbo-boot-interface" target="1.5" />
       <module name="dubbo-boot-pri" target="1.8" />
       <module name="interface" target="17" />
+      <module name="rabbitmq_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

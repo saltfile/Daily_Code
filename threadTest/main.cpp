@@ -3,7 +3,75 @@
 //#include <stdio.h>
 
 
+#include <vector>
+#include <queue>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <functional>
+#include <stdexcept>
 
+class ThreadPool {
+public:
+    ThreadPool(size_t threads) : stop(false) {
+        for(size_t i = 0; i < threads; ++i) {
+            workerThreads.emplace_back(
+                    [this] {
+                        while(true) {
+                            std::function<void()> task;
+
+                            {
+                                std::unique_lock<std::mutex> lock(this->queueMutex);
+                                this->condition.wait(lock,
+                                                     [this]{ return this->stop || !this->tasks.empty(); });
+                                if(this->stop && this->tasks.empty())
+                                    return;
+                                task = std::move(this->tasks.front());
+                                this->tasks.pop();
+                            }
+
+                            task();
+                        }
+                    }
+            );
+        }
+    }
+
+    template<class F, class... Args>
+    void enqueue(F&& f, Args&&... args) {
+        auto task = std::bind(std::forward<F>(f), std::forward<Args>(args)...);
+
+        {
+            std::unique_lock<std::mutex> lock(queueMutex);
+            if(stop)
+                throw std::runtime_error("enqueue on stopped ThreadPool");
+
+            tasks.emplace(task);
+        }
+        condition.notify_one();
+    }
+    void set_stop(bool stop){
+        this->stop = stop;
+    }
+
+    ~ThreadPool() {
+        {
+            std::unique_lock<std::mutex> lock(queueMutex);
+//            stop = true;
+        }
+        condition.notify_all();
+        for(std::thread &worker : workerThreads)
+            worker.join();
+    }
+
+private:
+    std::vector<std::thread> workerThreads;
+    std::queue<std::function<void()>> tasks;
+
+    std::mutex queueMutex;
+    std::condition_variable condition;
+    bool stop;
+};
 
 bool check(int n,int fgh){
     int arr[10] = {'a','a','a','a','a','a','a','a','a','a'};
@@ -69,7 +137,25 @@ int main() {
 //    }
 
 
+//时间池测试
+//time_test();
+    ThreadPool pool(1); // 创建一个有4个线程的线程池
 
+    // 向线程池中添加任务
+    pool.enqueue([]{
+        sleep(5);
+        std::cout << "Hello from thread pool1!" << std::endl; });
+
+    pool.enqueue([]{
+        std:cout<<"kaishi1"<<endl;
+        sleep(2);
+        std::cout << "Hello from thread pool!2" << std::endl; });
+
+    int a = 0;
+    scanf("%d",&a);
+    if (a == 1){
+        pool.set_stop(true);
+    }
 
 
 
@@ -83,7 +169,7 @@ int main() {
 //expampe7_main();
 //expampe8_main();
 //    expampe9_main();
-expampe10_main();
+//expampe10_main();
 
 
 

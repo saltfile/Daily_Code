@@ -1,5 +1,8 @@
 package org.example.tese_so;
 
+//import com.sun.jna.Library;
+//import com.sun.jna.Native;
+
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 

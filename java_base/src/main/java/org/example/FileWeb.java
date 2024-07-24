@@ -3,6 +3,8 @@ package org.example;
 //import cn.hutool.core.io.FileUtil;
 //import org.apache.commons.io.FileUtils;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -11,8 +13,11 @@ import java.net.URL;
 class WebD{
     public void DownLoad(String url,String filename) throws MalformedURLException {
         try {
-//            FileUtils.copyURLToFile(new URL(url),new File(filename));
+            FileUtils.copyURLToFile(new URL(url),new File(filename));
             System.out.println();
+            for (int i = 0; i < 8; i++) {
+                continue;
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

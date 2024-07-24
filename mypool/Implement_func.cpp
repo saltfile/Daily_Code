@@ -56,7 +56,6 @@ void* work(void* arg){
         pool->working_num--;
         pthread_mutex_unlock(&pool->working_lock);
 
-
     }
     return NULL;
 

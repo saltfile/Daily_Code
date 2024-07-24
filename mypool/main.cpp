@@ -12,7 +12,7 @@ int main() {
     for (int i = 0; i < 100; ++i) {
         void* arg = &i;
         pool_add_task(p, fun, arg);
-        sleep(0.000001);
+        sleep(1);
     }
 
     sleep(10);

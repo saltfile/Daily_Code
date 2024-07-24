@@ -80,4 +80,18 @@ typedef struct single_utils{
 
 
 
+
+
+
+
+int time_test();
+
+
+
+
+
+
+
+
+
 #endif //THREADTEST_BASIC_FUNC_H

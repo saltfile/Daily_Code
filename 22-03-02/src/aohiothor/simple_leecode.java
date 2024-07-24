@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
+
 /**
  * 罗马数字转整数
  * I             1
@@ -383,31 +384,31 @@ class HammingWeight{
  * 给定的二叉树是{1,2,3,#,#,4,5}
  * 输出[[1],[3,2],[4,5]]
  */
-class ZhiPrint{
-    public ArrayList<ArrayList<Integer> > Print(TreeNode pRoot) {
-        ArrayList<ArrayList<Integer> > res = new ArrayList<>();
-        back(pRoot,0,res);
-        return res;
-    }
-
-    public void back(TreeNode node,int deep,ArrayList<ArrayList<Integer>> res){
-
-
-        if(node == null){
-            return;
-        }
-        if(deep >= res.size()){
-            res.add(new ArrayList());
-        }
-        if(deep%2 != 0){
-            res.get(deep).add(0,node.val);
-        }else{
-            res.get(deep).add(node.val);
-        }
-        back(node.left,deep+1,res);
-        back(node.right,deep+1,res);
-    }
-}
+//class ZhiPrint{
+//    public ArrayList<ArrayList<Integer> > Print(TreeNode pRoot) {
+//        ArrayList<ArrayList<Integer> > res = new ArrayList<>();
+//        back(pRoot,0,res);
+//        return res;
+//    }
+//
+//    public void back(TreeNode node,int deep,ArrayList<ArrayList<Integer>> res){
+//
+//
+//        if(node == null){
+//            return;
+//        }
+//        if(deep >= res.size()){
+//            res.add(new ArrayList());
+//        }
+//        if(deep%2 != 0){
+//            res.get(deep).add(0,node.val);
+//        }else{
+//            res.get(deep).add(node.val);
+//        }
+//        back(node.left,deep+1,res);
+//        back(node.right,deep+1,res);
+//    }
+//}
 
 
 

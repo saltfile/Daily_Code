@@ -176,20 +176,7 @@ void BTree<T>::spilt_or_not(BtreeNode<T> *root) {
         push_ptr(root,right);
         right->preant = root;
     }
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
 
 
 

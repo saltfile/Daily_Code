@@ -3,13 +3,16 @@ package socket_demo
 import (
 	"fmt"
 	"net"
+	"os"
+	"testing"
 )
 
 func tcp_server() {
-	service := ":5000"
-	tcpAddr, _ := net.ResolveTCPAddr("tcp4", service)
-
-	listener, _ := net.ListenTCP("tcp", tcpAddr)
+	service := ":8997"
+	tcpAddr, err := net.ResolveTCPAddr("tcp4", service)
+	checkErrserver(err)
+	listener, err := net.ListenTCP("tcp", tcpAddr)
+	checkErrserver(err)
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
@@ -19,7 +22,12 @@ func tcp_server() {
 	}
 
 }
-
+func checkErrserver(err error) {
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Fatal error: %s", err.Error())
+		os.Exit(1)
+	}
+}
 func handleClient(conn net.Conn) {
 	defer conn.Close()
 	var buf [512]byte
@@ -31,10 +39,15 @@ func handleClient(conn net.Conn) {
 		rAddr := conn.RemoteAddr()
 
 		fmt.Println("receive from client", rAddr.String(), string((buf[0:n])))
-		_, err2 := conn.Write([]byte("Welcome client!"))
+		str := "我收到了："
+		str = str + string((buf[0:n]))
+		_, err2 := conn.Write([]byte(str))
 		if err2 != nil {
-
+			break
 		}
-
 	}
+}
+
+func TestTcp1(t *testing.T) {
+	tcp_server()
 }
